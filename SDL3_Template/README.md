@@ -1,4 +1,4 @@
-Simple SDL3 template for Visual Studio 2022.
+# Simple SDL3 template for Visual Studio 2022.
 
 Properties Configuration (Both Debug and Release)
 
