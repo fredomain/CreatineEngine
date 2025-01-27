@@ -6,4 +6,4 @@ Creatine Engine is a 2D Game Library based on SLD3.
 
 ### Dependencies
 * **Visual Studio 2022**: https://visualstudio.microsoft.com/vs/
-* **SDL3**: https://github.com/libsdl-org/SDL/releases
+* **SDL 3.2.0**: https://github.com/libsdl-org/SDL/releases
