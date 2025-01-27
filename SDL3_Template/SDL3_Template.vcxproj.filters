@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Content">
+      <UniqueIdentifier>{25d71c0a-c9fa-4f94-876f-ac3d5755fdc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{d73e7853-b05f-472d-8a58-c244621ad29a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\Images">
+      <UniqueIdentifier>{532f3fe4-a2a8-48f8-ad11-60b9240d7903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{b305cd17-237b-4621-95cf-5fbb880ed52a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Content\Images\hello_world.bmp">
+      <Filter>Content\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+# Ignore Generated Files
+Intermediate/
+Output/
+
+# Ignore Visual Studio temporary files
+*.user
+
+# Ignore Visual Studio folders
+.vs/
