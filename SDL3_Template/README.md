@@ -6,5 +6,5 @@ Properties Configuration (Both Debug and Release)
 * In "Configuration Properties -> General -> General Properties -> C++ Languaje Standard" C++ 2020 is selected.
 * In Configuration Properties -> General -> Advanced Properties -> Copy Content to OutDit" Yes is selected. This way if project assets are selected as "Included In project" and "Content", it will be copied in the Output folder when building.
 * Default and Intermediate Directories were modified:
-** Output Directory -> Output\$(Platform)\$(Configuration)\
-** Intermediate Directory -> Intermediate\$(Platform)\$(Configuration)\
+  * Output Directory -> Output\$(Platform)\$(Configuration)\
+  * Intermediate Directory -> Intermediate\$(Platform)\$(Configuration)\
