@@ -17,7 +17,7 @@ bool loadMedia();
 
 //Frees media and shuts down SDL
 void close();
-
+//AndresDelgado
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
 
@@ -59,7 +59,7 @@ bool init()
 
 bool loadMedia()
 {
-	//Loading success flag
+	//Loading success Bandera
 	bool success = true;
 
 	//Load splash image
