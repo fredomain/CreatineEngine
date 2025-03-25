@@ -5,9 +5,18 @@ and may not be redistributed without written permission.*/
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 
+#include <print>
+
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
+
+void prof() {
+	long int b = 0;
+	for (int i = 0; i < 400000000; i++) {
+		b++;
+	}
+}
 
 //Starts up SDL and creates window
 bool init();
@@ -41,6 +50,7 @@ bool init()
 	else
 	{
 		//Create window
+		std::print("papito");
 		gWindow = SDL_CreateWindow("SDL Tutorial", SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 		if (gWindow == NULL)
 		{
