@@ -4,6 +4,9 @@ and may not be redistributed without written permission.*/
 //Using SDL
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+//#include <SDL_mixer.h>
 
 #include <print>
 
@@ -73,7 +76,7 @@ bool loadMedia()
 	bool success = true;
 
 	//Load splash image
-	gHelloWorld = SDL_LoadBMP("Content/Images/hello_world.bmp");
+	gHelloWorld = IMG_Load("Content/Images/hello_world.png");
 	if (gHelloWorld == NULL)
 	{
 		SDL_Log("Unable to load image %s! SDL Error: %s\n", "hello_world.bmp", SDL_GetError());
