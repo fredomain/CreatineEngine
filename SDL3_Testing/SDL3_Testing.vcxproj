@@ -37,7 +37,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9d279a0e-d922-46e5-9fec-8bd87d0df711}</ProjectGuid>
+    <ProjectGuid>{3C4DD4F8-C21C-418C-80DB-0624188347D6}</ProjectGuid>
     <RootNamespace>SDL3Template</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
