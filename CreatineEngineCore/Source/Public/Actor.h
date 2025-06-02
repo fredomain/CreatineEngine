@@ -13,6 +13,16 @@
 namespace CE {
 	class Actor
 	{
+	public:
+		void Render();
+
+	private:
+		float x, y, w, h;		// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
+		float rotation;
+		float opacity;			// [0, 1]
+		float scale;			// SDL scale origin managed under the hood
+
+
 	};
 }
 
