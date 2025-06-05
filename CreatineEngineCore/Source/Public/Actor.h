@@ -15,15 +15,29 @@ namespace CE {
 	class Actor
 	{
 	public:
-		void Render();
+		/* CONSTRUCTORS & DESTRUCTORS */
+		Actor();				
+		~Actor();				
+
+		/* CLASS SPECIFIC FUNCTIONS */
+		void Render();			// Overriden by child classes
+
+		/* SETTERS & GETTERS */
+		float x(), y(), w(), h();
+		float rotation();
+		float opacity();
+		float scale();
+
+		void x(float x), y(float y), w(float w), h(float h);
+		void rotation(float rotation);
+		void opacity(float opacity);
+		void scale(float scale);
 
 	private:
-		float x, y, w, h;		// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
-		float rotation;
-		float opacity;			// [0, 1]
-		float scale;			// SDL scale origin managed under the hood
-
-
+		float x_, y_, w_, h_;	// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
+		float rotation_;
+		float opacity_;			// [0, 1]
+		float scale_;			// SDL scale origin managed under the hood
 	};
 }
 

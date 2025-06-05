@@ -14,26 +14,8 @@ namespace CE {
 
 		bool loadFromFile(const std::string path, SDL_Renderer* gRenderer);		//Load file and convert to Texture
 
-		/* SETTERS AND GETTERS */
-		int const xPos();
-		int const yPos();
-		int const width();
-		int const height();
-
-		void xPos(int xPos);
-		void yPos(int xPos);
-		void width(int width);
-		void height(int height);
-
 	private:
 		SDL_Texture* imageTexture;												//SDL Texture		
-
-		int xPos_;																//Texture X position
-		int yPos_;																//Texture Y position
-
-		int width_;																//Texture width
-		int height_;															//Texture height
-
 	};
 
 }
