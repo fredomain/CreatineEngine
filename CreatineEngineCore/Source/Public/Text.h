@@ -3,10 +3,10 @@
 #ifndef TEXT_H
 #define TEXT_H
 
-#include "Image.h" //Parent header
+#include "GPU_Surface.h" //Parent header
 
 namespace CE {
-	class Text : public Image
+	class Text : public GPU_Surface
 	{
 	};
 }
