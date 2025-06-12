@@ -91,6 +91,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
