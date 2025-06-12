@@ -2,11 +2,11 @@
 #ifndef GPU_SURFACE_H
 #define GPU_SURFACE_H
 
-#include "Actor.h" //Parent header
+#include "Renderable.h" //Parent header
 
 namespace CE {
 
-    class GPU_Surface : public Actor
+    class GPU_Surface : public Renderable
     {
     };
 

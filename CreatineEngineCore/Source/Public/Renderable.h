@@ -1,6 +1,6 @@
 //ifndef to avoid errors on multiple declarations of this header
-#ifndef ACTOR_H
-#define ACTOR_H
+#ifndef RENDERABLE_H
+#define RENDERABLE_H
 
 //Using SDL
 #include <SDL3/SDL.h>
@@ -12,7 +12,7 @@
 #include <print>
 
 namespace CE {
-	class Actor
+	class Renderable
 	{
 	public:
 		void Render();
@@ -27,4 +27,4 @@ namespace CE {
 	};
 }
 
-#endif // !ACTOR_H
+#endif // !RENDERABLE_H

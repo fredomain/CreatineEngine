@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\Actor.cpp" />
     <ClCompile Include="Source\Private\CPU_Surface.cpp" />
     <ClCompile Include="Source\Private\GPU_Surface.cpp" />
     <ClCompile Include="Source\Private\Image.cpp" />
+    <ClCompile Include="Source\Private\Renderable.cpp" />
     <ClCompile Include="Source\Private\Sprite.cpp" />
     <ClCompile Include="Source\Private\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\Actor.h" />
     <ClInclude Include="Source\Public\CPU_Surface.h" />
     <ClInclude Include="Source\Public\GPU_Surface.h" />
     <ClInclude Include="Source\Public\Image.h" />
+    <ClInclude Include="Source\Public\Renderable.h" />
     <ClInclude Include="Source\Public\Sprite.h" />
     <ClInclude Include="Source\Public\Text.h" />
   </ItemGroup>
