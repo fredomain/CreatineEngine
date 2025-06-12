@@ -1,5 +1,6 @@
-#pragma once
+//ifndef to avoid errors on multiple declarations of this header
 #ifndef ACTOR_H
+#define ACTOR_H
 
 //Using SDL
 #include <SDL3/SDL.h>
