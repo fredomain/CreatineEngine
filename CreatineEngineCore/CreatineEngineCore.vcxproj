@@ -24,6 +24,7 @@
     <ClCompile Include="Source\Private\GPU_Surface.cpp" />
     <ClCompile Include="Source\Private\Image.cpp" />
     <ClCompile Include="Source\Private\Sprite.cpp" />
+    <ClCompile Include="Source\Private\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\Actor.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="Source\Public\GPU_Surface.h" />
     <ClInclude Include="Source\Public\Image.h" />
     <ClInclude Include="Source\Public\Sprite.h" />
+    <ClInclude Include="Source\Public\Text.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
