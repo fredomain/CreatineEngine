@@ -15,10 +15,33 @@ namespace CE {
 	class Renderable
 	{
 	public:
-		void Render();
+		virtual void render() const = 0;
+
+		float getX() const;
+		void setX(float x);
+
+		float getY() const;
+		void setY(float y);
+
+		float getWidth() const;
+		void setWidth(float width);
+
+		float getHeight() const;
+		void setHeight(float height);
+
+		float getRotation() const;
+		void setRotation(float rotation);
+
+		float getOpacity() const;
+		void setOpacity(float opacity);
+
+		float getScale() const;
+		void setScale(float scale);
+
+
 
 	private:
-		float x, y, w, h;		// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
+		SDL_FRect rect;		// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
 		float rotation;
 		float opacity;			// [0, 1]
 		float scale;			// SDL scale origin managed under the hood

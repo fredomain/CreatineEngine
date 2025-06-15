@@ -19,20 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\CPU_Surface.cpp" />
-    <ClCompile Include="Source\Private\GPU_Surface.cpp" />
+    <ClCompile Include="Source\Private\ImageAssetCPU.cpp" />
+    <ClCompile Include="Source\Private\ImageAssetGPU.cpp" />
+    <ClCompile Include="Source\Private\AssetManager.cpp" />
+    <ClCompile Include="Source\Private\Asset.cpp" />
     <ClCompile Include="Source\Private\Image.cpp" />
     <ClCompile Include="Source\Private\Renderable.cpp" />
     <ClCompile Include="Source\Private\Sprite.cpp" />
     <ClCompile Include="Source\Private\Text.cpp" />
+    <ClCompile Include="Source\Private\SurfaceCPU.cpp" />
+    <ClCompile Include="Source\Private\SurfaceGPU.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\CPU_Surface.h" />
-    <ClInclude Include="Source\Public\GPU_Surface.h" />
+    <ClInclude Include="Source\Public\ImageAssetCPU.h" />
+    <ClInclude Include="Source\Public\ImageAssetGPU.h" />
+    <ClInclude Include="Source\Public\AssetManager.h" />
+    <ClInclude Include="Source\Public\Asset.h" />
     <ClInclude Include="Source\Public\Image.h" />
     <ClInclude Include="Source\Public\Renderable.h" />
     <ClInclude Include="Source\Public\Sprite.h" />
     <ClInclude Include="Source\Public\Text.h" />
+    <ClInclude Include="Source\Public\SurfaceCPU.h" />
+    <ClInclude Include="Source\Public\SurfaceGPU.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
