@@ -27,8 +27,7 @@
     <ClCompile Include="Source\Private\Renderable.cpp" />
     <ClCompile Include="Source\Private\Sprite.cpp" />
     <ClCompile Include="Source\Private\Text.cpp" />
-    <ClCompile Include="Source\Private\SurfaceCPU.cpp" />
-    <ClCompile Include="Source\Private\SurfaceGPU.cpp" />
+    <ClCompile Include="Source\Private\Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\ImageAssetCPU.h" />
@@ -39,8 +38,7 @@
     <ClInclude Include="Source\Public\Renderable.h" />
     <ClInclude Include="Source\Public\Sprite.h" />
     <ClInclude Include="Source\Public\Text.h" />
-    <ClInclude Include="Source\Public\SurfaceCPU.h" />
-    <ClInclude Include="Source\Public\SurfaceGPU.h" />
+    <ClInclude Include="Source\Public\Surface.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

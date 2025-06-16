@@ -1,17 +1,17 @@
 #pragma once
-#ifndef SURFACEGPU_H
-#define SURFACEGPU_H
+#ifndef SURFACE_H
+#define SURFACE_H
 
 #include "Renderable.h"
 
 namespace CE {
 
-    class SurfaceGPU :
+    class Surface :
         public Renderable
     {
     };
 
 }
 
-#endif // !SURFACEGPU_H
+#endif // !TEXT_H
 

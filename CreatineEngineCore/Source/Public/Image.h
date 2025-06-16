@@ -1,12 +1,11 @@
-
-//ifndef to avoid errors on multiple declarations of this header
+#pragma once
 #ifndef IMAGE_H
 #define IMAGE_H
 
-#include "SurfaceGPU.h" //Parent header
+#include "Renderable.h" //Parent header
 
 namespace CE {
-	class Image : public SurfaceGPU
+	class Image : public Renderable
 	{
 	};
 

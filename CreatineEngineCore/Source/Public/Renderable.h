@@ -1,4 +1,4 @@
-//ifndef to avoid errors on multiple declarations of this header
+#pragma once
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 

@@ -1,4 +1,3 @@
-// AssetManager.cpp
 #include "AssetManager.h"
 #include <print>
 

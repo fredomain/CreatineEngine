@@ -5,11 +5,12 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <vector>
+#include <SDL3/SDL_version.h>
 //#include <SDL_mixer.h>
 
 #include <print>
 
-#include "Actor.h"
+#include "Renderable.h"
 #include "Image.h"
 /******************************/
 
@@ -45,20 +46,10 @@ bool quit = false;
 //Event handler
 SDL_Event event;
 
-std::vector<CE::Actor> listaActores;
+//std::vector<CE::Renderable> listaActores;
 /*****************************/
 
 int main(int argc, char* args[]){
-
-	CE::Actor actor1;
-	CE::Image actor2;
-
-	listaActores.push_back(actor1);
-	listaActores.push_back(actor2);
-
-	for (int i = 0; i < listaActores.size(); i++) {
-		listaActores[i].Render();
-	}
 	//Start up SDL and create window
 	if (!Init()){
 		SDL_Log("Failed to initialize!\n");
@@ -151,6 +142,7 @@ bool Init(){
 		{
 			//Initialize renderer color
 			SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+			//SDL_PropertiesID info = SDL_GetRendererProperties(gRenderer);
 		}
 	}
 
