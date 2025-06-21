@@ -12,6 +12,7 @@
 
 #include "Renderable.h"
 #include "Image.h"
+#include "AssetManager.h"
 /******************************/
 
 /********** PARAMETERS **********/
@@ -46,10 +47,19 @@ bool quit = false;
 //Event handler
 SDL_Event event;
 
-//std::vector<CE::Renderable> listaActores;
+std::vector<CE::Renderable> listaRender;
+CE::AssetManager assetManager;
 /*****************************/
 
 int main(int argc, char* args[]){
+
+	assetManager.loadAllAssets();
+
+
+	for (int i = 0; i < listaRender.size(); i++) {
+		listaRender[i].render();
+	}
+
 	//Start up SDL and create window
 	if (!Init()){
 		SDL_Log("Failed to initialize!\n");

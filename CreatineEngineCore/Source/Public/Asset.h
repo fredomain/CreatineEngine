@@ -3,6 +3,7 @@
 #define ASSET_H
 
 #include <string>
+#include "AssetManager.h"
 
 namespace CE {
 
@@ -17,8 +18,8 @@ namespace CE {
         void setPath(std::string&& newPath);
 
     protected:
-        explicit Asset(const std::string& path);    // Enables derived classes to use the constructor delegation
-        explicit Asset(std::string&& path);    // Enables derived classes to use the constructor delegation
+        explicit Asset(const std::string& path, AssetManager* assetManager = nullptr);    // Enables derived classes to use the constructor delegation
+        explicit Asset(std::string&& path, AssetManager* assetManager = nullptr);    // Enables derived classes to use the constructor delegation
 
     private:
         std::string path;

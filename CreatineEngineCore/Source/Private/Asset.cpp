@@ -1,12 +1,16 @@
 #include "Asset.h"
+#include <memory>
 
 namespace CE {
 
-    Asset::Asset(const std::string& path)
+    Asset::Asset(const std::string& path, AssetManager* assetManager = nullptr)
         : path(path) {
+        if (assetManager != nullptr) {
+            assetManager->registerAsset(std::shared_ptr<Asset>(this));
+        }
     }
 
-    Asset::Asset(std::string&& path) 
+    Asset::Asset(std::string&& path, AssetManager* assetManager = nullptr)
         : path(std::move(path)) {
 
     }
