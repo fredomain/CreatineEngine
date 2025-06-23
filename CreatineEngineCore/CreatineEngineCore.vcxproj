@@ -28,6 +28,8 @@
     <ClCompile Include="Source\Private\Sprite.cpp" />
     <ClCompile Include="Source\Private\Text.cpp" />
     <ClCompile Include="Source\Private\Surface.cpp" />
+    <ClCompile Include="Source\Private\TextureAsset.cpp" />
+    <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\ImageAssetCPU.h" />
@@ -39,6 +41,8 @@
     <ClInclude Include="Source\Public\Sprite.h" />
     <ClInclude Include="Source\Public\Text.h" />
     <ClInclude Include="Source\Public\Surface.h" />
+    <ClInclude Include="Source\Public\TextureAsset.h" />
+    <ClInclude Include="Source\Public\SurfaceAsset.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

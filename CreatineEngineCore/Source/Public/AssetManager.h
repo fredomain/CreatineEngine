@@ -2,9 +2,9 @@
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include "Asset.h"
 #include <vector>
 #include <memory>
+#include "Asset.h"
 
 namespace CE {
 

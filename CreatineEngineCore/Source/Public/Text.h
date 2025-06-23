@@ -1,10 +1,11 @@
+#pragma once
 #ifndef TEXT_H
 #define TEXT_H
 
-#include "Renderable.h"
+#include "Asset.h"
 
 namespace CE {
-	class Text : public Renderable
+	class Text : public Asset
 	{
 	};
 }
