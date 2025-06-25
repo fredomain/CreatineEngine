@@ -10,7 +10,7 @@
 
 #include <print>
 
-#include "Image.h"
+#include "CreatineEngineCore.h"
 #include <memory>
 /******************************/
 
@@ -61,6 +61,8 @@ int main(int argc, char* args[]){
 		CE::Image imagenFondo(gRenderer, "Content/Images/background.png");
 		imagenFondo.imageAsset.load();
 		imagenFondo.init();
+		imagenFondo.enableRotation();
+		imagenFondo.setRotation(0.01);
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");

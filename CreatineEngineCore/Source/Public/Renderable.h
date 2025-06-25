@@ -23,8 +23,12 @@ namespace CE {
 
 		float getHeight() const;
 
-		float getRotation() const;
-		void setRotation(float rotation);
+		double getRotation() const;
+		void setRotation(double rotation);
+
+		void enableRotation();
+		void disableRotation();
+		bool isRotationEnabled() const;
 
 		float getScale() const;
 		void setScale(float scale);
@@ -42,7 +46,8 @@ namespace CE {
 
 	private:
 		SDL_FRect rect;		// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
-		float rotation;
+		bool rotationEnabled;	// Set false for an slight gain in performance if rotations are not needed
+		double rotation;
 		float opacity;			// [0, 1]
 		float scale;			// SDL scale origin managed under the hood
 

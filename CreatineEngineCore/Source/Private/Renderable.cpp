@@ -37,12 +37,24 @@ namespace CE {
 		}
 	}
 
-	float Renderable::getRotation() const {
+	double Renderable::getRotation() const {
 		return rotation;
 	}
 
-	void Renderable::setRotation(float rotation) {
+	void Renderable::setRotation(double rotation) {
 		this->rotation = rotation;
+	}
+
+	void Renderable::enableRotation(){
+		rotationEnabled = true;
+	}
+
+	void Renderable::disableRotation() {
+		rotationEnabled = false;
+	}
+
+	bool Renderable::isRotationEnabled() const{
+		return rotationEnabled;
 	}
 
 	float Renderable::getScale() const {
