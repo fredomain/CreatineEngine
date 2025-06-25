@@ -1,17 +1,16 @@
 /********** INCLUDES **********/
 
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+//#include <SDL3/SDL.h>
+//#include <SDL3/SDL_main.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <vector>
-#include <SDL3/SDL_version.h>
+//#include <SDL3/SDL_version.h>
 //#include <SDL_mixer.h>
 
 #include <print>
 
 #include "Image.h"
-#include "Asset.h"
 #include <memory>
 /******************************/
 
@@ -59,9 +58,9 @@ int main(int argc, char* args[]){
 	else{
 		//Load media
 		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
-		CE::ImageAssetGPU imagenFondo(gRenderer, "Content/Images/background.png");
-		//imagenFondo->imageAsset.load();
-		//imagenFondo->init();
+		CE::Image imagenFondo(gRenderer, "Content/Images/background.png");
+		imagenFondo.imageAsset.load();
+		imagenFondo.init();
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -110,7 +109,7 @@ int main(int argc, char* args[]){
 				SDL_RenderClear(gRenderer);
 
 				// Render texture to screen
-				SDL_RenderTexture(gRenderer, gHelloWorld_t, NULL, NULL);
+				imagenFondo.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
 
 				// Update screen
@@ -160,23 +159,6 @@ bool LoadMedia(){
 	// Loading success Bandera
 	bool success = true;
 
-	// Load splash image
-	gHelloWorld = IMG_Load("Content/Images/background.png");
-	if (gHelloWorld == NULL){
-		SDL_Log("Unable to load image %s! SDL Error: %s\n", "background.png", SDL_GetError());
-		success = false;
-	}else{
-		//Create texture from surface pixels
-		gHelloWorld_t = SDL_CreateTextureFromSurface(gRenderer, gHelloWorld);
-		if (gHelloWorld_t == NULL)
-		{
-			printf("Unable to create texture from %s! SDL Error: %s\n", "Content / Images / background.png", SDL_GetError());
-		}
-
-		//Get rid of old loaded surface
-		SDL_DestroySurface(gHelloWorld);
-	}
-
 	// Load character
 	character = IMG_Load("Content/Images/character.png");
 	if (character == NULL) {
@@ -200,7 +182,6 @@ bool LoadMedia(){
 
 void Close(){
 	// Deallocate surfaces
-	SDL_DestroyTexture(gHelloWorld_t);
 	SDL_DestroyTexture(character_t);
 
 	// Destroy window

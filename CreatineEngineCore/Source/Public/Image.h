@@ -16,7 +16,6 @@ namespace CE {
 		void init() override;
 
 		ImageAssetGPU imageAsset;
-
 	};
 
 }

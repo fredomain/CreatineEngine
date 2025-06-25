@@ -34,6 +34,11 @@
       <DeploymentContent>true</DeploymentContent>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CreatineEngineCore\CreatineEngineCore.vcxproj">
+      <Project>{357200ee-4962-497c-853b-5cd1b4b3fdb5}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
