@@ -2,11 +2,11 @@
 
 namespace CE {
 
-	ImageAssetGPU::ImageAssetGPU(SDL_Renderer* renderer, const std::string& path, AssetManager* assetManager = nullptr)
+	ImageAssetGPU::ImageAssetGPU(SDL_Renderer* renderer, const std::string& path, AssetManager* assetManager)
 		: Asset(path, assetManager), texture(nullptr), renderer(renderer) {
 	}
 
-	ImageAssetGPU::ImageAssetGPU(SDL_Renderer* renderer, std::string&& path, AssetManager* assetManager = nullptr)
+	ImageAssetGPU::ImageAssetGPU(SDL_Renderer* renderer, std::string&& path, AssetManager* assetManager)
 		: Asset(path, assetManager), texture(nullptr), renderer(renderer) {
 	}
 

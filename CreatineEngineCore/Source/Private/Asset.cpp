@@ -3,7 +3,7 @@
 
 namespace CE {
 
-    Asset::Asset(const std::string& path, AssetManager* assetManager = nullptr)
+    Asset::Asset(const std::string& path, AssetManager* assetManager)
         : path(path) {
         if (assetManager != nullptr) {
             assetManager->registerAsset(std::shared_ptr<Asset>(this));
