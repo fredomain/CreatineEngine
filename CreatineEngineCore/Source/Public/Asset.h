@@ -3,13 +3,12 @@
 #define ASSET_H
 
 #include <string>
-#include "AssetManager.h"
 
 namespace CE {
 
     class Asset {
     public:
-        virtual ~Asset() = default;
+        //virtual ~Asset() = default;
         virtual bool load() = 0;    // Main load method (use internal path attribute)
         bool load(const std::string& newPath);  // Set a new path and call load()
 

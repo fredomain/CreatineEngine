@@ -2,10 +2,10 @@
 #ifndef TEXT_H
 #define TEXT_H
 
-#include "Asset.h"
+#include "TextureAsset.h"
 
 namespace CE {
-	class Text : public Asset
+	class Text : public TextureAsset
 	{
 	};
 }

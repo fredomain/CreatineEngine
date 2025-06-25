@@ -22,7 +22,9 @@ namespace CE {
 	}
 
 	void Renderable::setWidth(float width) {
-		rect.w = width;
+		if (width > 0) {
+			rect.w = width;
+		}		
 	}
 
 	float Renderable::getHeight() const {
@@ -30,7 +32,9 @@ namespace CE {
 	}
 
 	void Renderable::setHeight(float height) {
-		rect.h = height;
+		if (height > 0) {
+			rect.h = height;
+		}
 	}
 
 	float Renderable::getRotation() const {
@@ -41,19 +45,33 @@ namespace CE {
 		this->rotation = rotation;
 	}
 
-	float Renderable::getOpacity() const {
-		return opacity;
-	}
-
-	void Renderable::setOpacity(float opacity) {
-		this->opacity = opacity;
-	}
-
 	float Renderable::getScale() const {
 		return scale;
 	}
 
 	void Renderable::setScale(float scale) {
-		this->scale = scale;
+		if (scale >= 0 && scale <= 1) {
+			this->scale = scale;
+		}
+	}
+
+	float Renderable::getOpacity() const {
+		return opacity;
+	}
+
+	void Renderable::setOpacity(float opacity) {
+		if (scale >= 0 && scale <= 255) {
+			this->opacity = opacity;
+		}
+	}	
+
+	SDL_FRect Renderable::getRect() const {
+		return rect;
+	}
+	const SDL_FRect* Renderable::getRectPtr() const {
+		return const_cast<const SDL_FRect*>(&rect);
+	}
+	void Renderable::setRect(const SDL_FRect& rect) {
+		this->rect = rect;
 	}
 }

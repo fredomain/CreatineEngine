@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\GameEntity.cpp" />
     <ClCompile Include="Source\Private\ImageAssetCPU.cpp" />
     <ClCompile Include="Source\Private\ImageAssetGPU.cpp" />
     <ClCompile Include="Source\Private\AssetManager.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\GameEntity.h" />
     <ClInclude Include="Source\Public\ImageAssetCPU.h" />
     <ClInclude Include="Source\Public\ImageAssetGPU.h" />
     <ClInclude Include="Source\Public\AssetManager.h" />

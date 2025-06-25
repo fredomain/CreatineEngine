@@ -16,6 +16,7 @@ namespace CE {
 	{
 	public:
 		virtual void render() const = 0;
+		virtual void init() = 0;
 
 		float getX() const;
 		void setX(float x);
@@ -24,21 +25,25 @@ namespace CE {
 		void setY(float y);
 
 		float getWidth() const;
-		void setWidth(float width);
 
 		float getHeight() const;
-		void setHeight(float height);
 
 		float getRotation() const;
 		void setRotation(float rotation);
 
-		float getOpacity() const;
-		void setOpacity(float opacity);
-
 		float getScale() const;
 		void setScale(float scale);
 
+		float getOpacity() const;
+		void setOpacity(float opacity);
 
+	protected:
+		void setWidth(float width);
+		void setHeight(float height);
+
+		SDL_FRect getRect() const;
+		const SDL_FRect* getRectPtr() const;
+		void setRect(const SDL_FRect& rect);	
 
 	private:
 		SDL_FRect rect;		// x, y must refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces

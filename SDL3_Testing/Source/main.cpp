@@ -10,9 +10,9 @@
 
 #include <print>
 
-#include "Renderable.h"
 #include "Image.h"
-#include "AssetManager.h"
+#include "Asset.h"
+#include <memory>
 /******************************/
 
 /********** PARAMETERS **********/
@@ -42,30 +42,27 @@ SDL_FRect character_ori;
 SDL_FRect character_dest;
 
 
+
+
 //Main loop flag
 bool quit = false;
 //Event handler
 SDL_Event event;
 
-std::vector<CE::Renderable> listaRender;
-CE::AssetManager assetManager;
 /*****************************/
 
 int main(int argc, char* args[]){
-
-	assetManager.loadAllAssets();
-
-
-	for (int i = 0; i < listaRender.size(); i++) {
-		listaRender[i].render();
-	}
-
 	//Start up SDL and create window
 	if (!Init()){
 		SDL_Log("Failed to initialize!\n");
 	}
 	else{
 		//Load media
+		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
+		CE::ImageAssetGPU imagenFondo(gRenderer, "Content/Images/background.png");
+		//imagenFondo->imageAsset.load();
+		//imagenFondo->init();
+
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
 		}

@@ -10,9 +10,9 @@ namespace CE {
     class ImageAssetCPU :
         public SurfaceAsset
     {
-        
-    private:
-        SDL_Surface* surface;
+    public:
+        ImageAssetCPU(std::string path = "");
+        bool load() override;
     };
 }
 

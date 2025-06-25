@@ -16,11 +16,11 @@ namespace CE {
 
     class SurfaceAsset : public Asset {
     public:
-        virtual ~SurfaceAsset() = default;
+        //virtual ~SurfaceAsset() = default;
 
         SDL_Surface* getSurface() const;
 
-        virtual bool load() override = 0;
+        virtual bool load() override = 0;   // Line needed to make this class abstract
 
     protected:
         explicit SurfaceAsset(std::string path = "");
