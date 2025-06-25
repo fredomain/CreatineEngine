@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\RenderManager.cpp" />
+    <ClCompile Include="Source\Private\Scene.cpp" />
     <ClCompile Include="Source\Private\Init.cpp" />
     <ClCompile Include="Source\Private\GameEntity.cpp" />
     <ClCompile Include="Source\Private\ImageAssetCPU.cpp" />
@@ -34,6 +36,8 @@
     <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\RenderManager.h" />
+    <ClInclude Include="Source\Public\Scene.h" />
     <ClInclude Include="Source\Public\Init.h" />
     <ClInclude Include="Source\Public\CreatineEngineCore.h" />
     <ClInclude Include="Source\Public\GameEntity.h" />
