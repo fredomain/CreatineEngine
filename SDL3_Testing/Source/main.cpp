@@ -1,18 +1,17 @@
 /********** INCLUDES **********/
 
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+//#include <SDL3/SDL.h>
+//#include <SDL3/SDL_main.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <vector>
-#include <SDL3/SDL_version.h>
+//#include <SDL3/SDL_version.h>
 //#include <SDL_mixer.h>
 
 #include <print>
 
-#include "Renderable.h"
-#include "Image.h"
-#include "AssetManager.h"
+#include "CreatineEngineCore.h"
+#include <memory>
 /******************************/
 
 /********** PARAMETERS **********/
@@ -42,30 +41,29 @@ SDL_FRect character_ori;
 SDL_FRect character_dest;
 
 
+
+
 //Main loop flag
 bool quit = false;
 //Event handler
 SDL_Event event;
 
-std::vector<CE::Renderable> listaRender;
-CE::AssetManager assetManager;
 /*****************************/
 
 int main(int argc, char* args[]){
-
-	assetManager.loadAllAssets();
-
-
-	for (int i = 0; i < listaRender.size(); i++) {
-		listaRender[i].render();
-	}
-
 	//Start up SDL and create window
 	if (!Init()){
 		SDL_Log("Failed to initialize!\n");
 	}
 	else{
 		//Load media
+		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
+		CE::Image imagenFondo(gRenderer, "Content/Images/background.png");
+		imagenFondo.imageAsset.load();
+		imagenFondo.init();
+		imagenFondo.enableRotation();
+		imagenFondo.setRotation(0.01);
+
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
 		}
@@ -113,7 +111,7 @@ int main(int argc, char* args[]){
 				SDL_RenderClear(gRenderer);
 
 				// Render texture to screen
-				SDL_RenderTexture(gRenderer, gHelloWorld_t, NULL, NULL);
+				imagenFondo.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
 
 				// Update screen
@@ -163,23 +161,6 @@ bool LoadMedia(){
 	// Loading success Bandera
 	bool success = true;
 
-	// Load splash image
-	gHelloWorld = IMG_Load("Content/Images/background.png");
-	if (gHelloWorld == NULL){
-		SDL_Log("Unable to load image %s! SDL Error: %s\n", "background.png", SDL_GetError());
-		success = false;
-	}else{
-		//Create texture from surface pixels
-		gHelloWorld_t = SDL_CreateTextureFromSurface(gRenderer, gHelloWorld);
-		if (gHelloWorld_t == NULL)
-		{
-			printf("Unable to create texture from %s! SDL Error: %s\n", "Content / Images / background.png", SDL_GetError());
-		}
-
-		//Get rid of old loaded surface
-		SDL_DestroySurface(gHelloWorld);
-	}
-
 	// Load character
 	character = IMG_Load("Content/Images/character.png");
 	if (character == NULL) {
@@ -203,7 +184,6 @@ bool LoadMedia(){
 
 void Close(){
 	// Deallocate surfaces
-	SDL_DestroyTexture(gHelloWorld_t);
 	SDL_DestroyTexture(character_t);
 
 	// Destroy window

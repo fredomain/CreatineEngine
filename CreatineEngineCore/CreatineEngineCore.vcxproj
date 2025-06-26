@@ -19,6 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\FVector.cpp" />
+    <ClCompile Include="Source\Private\RenderManager.cpp" />
+    <ClCompile Include="Source\Private\Scene.cpp" />
+    <ClCompile Include="Source\Private\Init.cpp" />
+    <ClCompile Include="Source\Private\GameEntity.cpp" />
     <ClCompile Include="Source\Private\ImageAssetCPU.cpp" />
     <ClCompile Include="Source\Private\ImageAssetGPU.cpp" />
     <ClCompile Include="Source\Private\AssetManager.cpp" />
@@ -30,13 +35,21 @@
     <ClCompile Include="Source\Private\Surface.cpp" />
     <ClCompile Include="Source\Private\TextureAsset.cpp" />
     <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
+    <ClCompile Include="Source\Public\RectAnchor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\FVector.h" />
+    <ClInclude Include="Source\Public\RenderManager.h" />
+    <ClInclude Include="Source\Public\Scene.h" />
+    <ClInclude Include="Source\Public\Init.h" />
+    <ClInclude Include="Source\Public\CreatineEngineCore.h" />
+    <ClInclude Include="Source\Public\GameEntity.h" />
     <ClInclude Include="Source\Public\ImageAssetCPU.h" />
     <ClInclude Include="Source\Public\ImageAssetGPU.h" />
     <ClInclude Include="Source\Public\AssetManager.h" />
     <ClInclude Include="Source\Public\Asset.h" />
     <ClInclude Include="Source\Public\Image.h" />
+    <ClInclude Include="Source\Public\MathConstants.h" />
     <ClInclude Include="Source\Public\Renderable.h" />
     <ClInclude Include="Source\Public\Sprite.h" />
     <ClInclude Include="Source\Public\Text.h" />

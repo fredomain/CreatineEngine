@@ -3,7 +3,7 @@
 
 namespace CE {
 
-    Asset::Asset(std::string path = "")
+    Asset::Asset(std::string path)
         : path(std::move(path)) {
     }
 

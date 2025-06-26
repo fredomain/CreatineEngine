@@ -2,7 +2,7 @@
 
 namespace CE {
 
-    SurfaceAsset::SurfaceAsset(std::string path = "")
+    SurfaceAsset::SurfaceAsset(std::string path)
         : Asset(std::move(path)), surface(nullptr) {
         surface = nullptr;
     }

@@ -2,12 +2,12 @@
 #ifndef TEXT_H
 #define TEXT_H
 
-#include "Asset.h"
+#include "TextureAsset.h"
 #include <SDL3/SDL.h>
 #include<SDL_ttf.h>
 
 namespace CE {
-	class TextAsset : public Asset
+	class Text : public TextureAsset
 	{
 	public:
 		/** CONSTRUCTORS SEGUIR AQUI */

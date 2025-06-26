@@ -16,20 +16,23 @@ namespace CE {
 
     class TextureAsset : public Asset {
     public:
-        virtual ~TextureAsset() = default;
+        //virtual ~TextureAsset() = default;
 
-        void setRenderer(std::shared_ptr<SDL_Renderer> renderer);
-        std::shared_ptr<SDL_Renderer> getRenderer() const;
+        void setRenderer(SDL_Renderer* renderer);
+        SDL_Renderer* getRenderer() const;
 
         SDL_Texture* getTexture() const;
 
-        virtual bool load() override = 0;
+        virtual bool load() override = 0;   // Line needed to make this class abstract
 
     protected:
-        explicit TextureAsset(std::shared_ptr<SDL_Renderer> renderer, std::string path = "");
+        explicit TextureAsset(SDL_Renderer* renderer, std::string path = "");
 
-        std::weak_ptr<SDL_Renderer> renderer;
         std::unique_ptr<SDL_Texture, SDL_TextureDestroyer> texture;
+
+    private:
+        SDL_Renderer* renderer = nullptr;
+        
     };
 
 }
