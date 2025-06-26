@@ -1,40 +1,104 @@
 #include "Renderable.h"
 
 namespace CE {
+	//Renderable::Renderable() : rect
+
 	float Renderable::getX() const{
-		return rect.x;
+		return destinationRect.x;
 	}
 
 	void Renderable::setX(float x){
-		rect.x = x;
+		destinationRect.x = x;
 	}
 
 	float Renderable::getY() const {
-		return rect.y;
+		return destinationRect.y;
 	}
 
 	void Renderable::setY(float y) {
-		rect.y = y;
+		destinationRect.y = y;
+	}
+
+	void Renderable::setPosition(float x, float y) {
+		setX(x);
+		setY(y);
+	}
+
+	void Renderable::setPosition(const FVector& position) {
+		setX(position.x);
+		setY(position.y);
+	}
+
+	FVector Renderable::getPosition() const {
+		return FVector{ destinationRect.x, destinationRect.y };
+	}
+
+	void Renderable::setPositionAnchor(RectAnchor anchor) {
+		destinationAnchor = anchor;
+	}
+
+	RectAnchor Renderable::getPositionAnchor() const{
+
 	}
 
 	float Renderable::getWidth() const {
-		return rect.w;
+		return destinationRect.w;
 	}
 
-	void Renderable::setWidth(float width) {
+	void Renderable::setSourceWidth(float width) {
 		if (width > 0) {
-			rect.w = width;
+			sourceRect.w = width;
 		}		
 	}
 
 	float Renderable::getHeight() const {
-		return rect.h;
+		return destinationRect.h;
 	}
 
-	void Renderable::setHeight(float height) {
+	void Renderable::setSourceHeight(float height) {
 		if (height > 0) {
-			rect.h = height;
+			sourceRect.h = height;
 		}
+	}
+
+	float Renderable::getSourceWidth() const {
+		return sourceRect.w;
+	}
+
+	float Renderable::getSourceHeight() const {
+		return sourceRect.h;
+	}
+
+	void Renderable::setScaleX(float scale) {
+		if (scale >= 0) {
+			this->scale.x = scale;
+			destinationRect.w = sourceRect.w * this->scale.x;
+		}
+	}
+
+	void Renderable::setScaleY(float scale) {
+		if (scale >= 0) {
+			this->scale.y = scale;
+			destinationRect.h = sourceRect.h * this->scale.y;
+		}
+	}
+
+	void Renderable::setScale(float scale) {
+		setScaleX(scale);
+		setScaleY(scale);
+	}
+
+	void Renderable::setScale(FVector scale) {
+		setScaleX(scale.x);
+		setScaleY(scale.y);
+	}
+
+	float Renderable::getScaleX() const {
+		return scale.x;
+	}
+
+	float Renderable::getScaleY() const {
+		return scale.y;
 	}
 
 	double Renderable::getRotation() const {
@@ -57,14 +121,28 @@ namespace CE {
 		return rotationEnabled;
 	}
 
-	float Renderable::getScale() const {
-		return scale;
+	void Renderable::setVerticalFlip() {
+		flipMode = SDL_FlipMode::SDL_FLIP_VERTICAL;
 	}
 
-	void Renderable::setScale(float scale) {
-		if (scale >= 0 && scale <= 1) {
-			this->scale = scale;
-		}
+	void Renderable::setHorizontalFlip() {
+		flipMode = SDL_FlipMode::SDL_FLIP_HORIZONTAL;
+	}
+
+	void Renderable::disableFlip() {
+		flipMode = SDL_FlipMode::SDL_FLIP_NONE;
+	}
+
+	void Renderable::setFlipMode(const SDL_FlipMode& mode) {
+		flipMode = mode;
+	}
+
+	SDL_FlipMode Renderable::getFlipMode() const {
+		return flipMode;
+	}
+
+	const SDL_FlipMode& Renderable::getFlipModeRef() const {
+		return flipMode;
 	}
 
 	float Renderable::getOpacity() const {
@@ -72,18 +150,26 @@ namespace CE {
 	}
 
 	void Renderable::setOpacity(float opacity) {
-		if (scale >= 0 && scale <= 255) {
+		if (opacity >= 0 && opacity <= 255) {
 			this->opacity = opacity;
 		}
 	}	
 
-	SDL_FRect Renderable::getRect() const {
-		return rect;
+	SDL_FRect Renderable::getSourceRect() const {
+		return sourceRect;
 	}
-	const SDL_FRect* Renderable::getRectPtr() const {
-		return const_cast<const SDL_FRect*>(&rect);
+	const SDL_FRect* Renderable::getSourceRectPtr() const {
+		return const_cast<const SDL_FRect*>(&sourceRect);
 	}
-	void Renderable::setRect(const SDL_FRect& rect) {
-		this->rect = rect;
+	void Renderable::setSourceRect(const SDL_FRect& rect) {
+		this->sourceRect = rect;
+	}
+
+	SDL_FRect Renderable::getDestinationRect() const {
+		return destinationRect;
+	}
+
+	const SDL_FRect* Renderable::getDestinationRectPtr() const {
+		return const_cast<const SDL_FRect*>(&destinationRect);
 	}
 }

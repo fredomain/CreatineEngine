@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\FVector.cpp" />
     <ClCompile Include="Source\Private\RenderManager.cpp" />
     <ClCompile Include="Source\Private\Scene.cpp" />
     <ClCompile Include="Source\Private\Init.cpp" />
@@ -34,8 +35,10 @@
     <ClCompile Include="Source\Private\Surface.cpp" />
     <ClCompile Include="Source\Private\TextureAsset.cpp" />
     <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
+    <ClCompile Include="Source\Public\RectAnchor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\FVector.h" />
     <ClInclude Include="Source\Public\RenderManager.h" />
     <ClInclude Include="Source\Public\Scene.h" />
     <ClInclude Include="Source\Public\Init.h" />

@@ -23,16 +23,21 @@ namespace CE {
 	}
 
 	void Image::init() {
-		setWidth(imageAsset.getTexture()->w);
-		setHeight(imageAsset.getTexture()->h);
+		// First, set the source rect size
+		setSourceWidth(static_cast<float>(imageAsset.getTexture()->w));
+		setSourceHeight(static_cast<float>(imageAsset.getTexture()->h));
+		// Then, destination rect must be set regarding the scale
+		setUniformScale(1.0f);
+
+		// Initialize parameters
 	}
 
 	void Image::renderSimple() const{
-		SDL_RenderTexture(imageAsset.getRenderer(), imageAsset.getTexture(), NULL, getRectPtr());
+		SDL_RenderTexture(imageAsset.getRenderer(), imageAsset.getTexture(), getSourceRectPtr(), getDestinationRectPtr());
 		//SDL_Log("renderSimple");
 	}
 	void Image::renderRotated() const{
-		SDL_RenderTextureRotated(imageAsset.getRenderer(), imageAsset.getTexture(), NULL, getRectPtr(), getRotation(), NULL, SDL_FlipMode::SDL_FLIP_NONE);
+		SDL_RenderTextureRotated(imageAsset.getRenderer(), imageAsset.getTexture(), getSourceRectPtr(), getDestinationRectPtr(), getRotation(), NULL, getFlipMode());
 		//SDL_Log("renderRotated");
 	}
 }
