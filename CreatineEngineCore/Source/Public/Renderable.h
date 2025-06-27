@@ -24,7 +24,6 @@ namespace CE {
 		void setPosition(float x, float y);
 		void setPosition(const FVector& position);
 		FVector getPosition() const;
-
 		void setPositionAnchor(RectAnchor anchor);
 		RectAnchor getPositionAnchor() const;
 		
@@ -36,6 +35,7 @@ namespace CE {
 
 		void setScaleX(float scaleX);
 		void setScaleY(float scaleY);		
+		void setScale(float scaleX, float scaleY);
 		void setScale(float scale);
 		void setScale(FVector scale);
 		float getScaleX() const;
@@ -43,6 +43,13 @@ namespace CE {
 
 		double getRotation() const;
 		void setRotation(double rotation);
+		void setRotationOrigin(float x, float y);
+		void setRotationOrigin(FVector rotationOrigin);
+		void setRotationOrigin(RectAnchor rotationAnchor);
+		float getRotationOriginX() const;
+		float getRotationOriginY() const;
+		FVector getRotationOrigin() const;
+		SDL_FPoint getRotationOriginSDL() const;
 
 		void enableRotation();
 		void disableRotation();
@@ -61,7 +68,7 @@ namespace CE {
 	protected:
 		//Renderable();
 
-		// Derived classes must use this to set the source width and height
+		// Derived classes must use these functions to set the source width and height
 		void setSourceWidth(float width);
 		void setSourceHeight(float height);
 		
@@ -72,21 +79,25 @@ namespace CE {
 		SDL_FRect getDestinationRect() const;
 		const SDL_FRect* getDestinationRectPtr() const;
 
+		FVector computeAnchorOffset(float w, float h, RectAnchor anchor) const;
+		void updateAnchorOffset();
+
 	private:
-		SDL_FRect sourceRect;					// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
-		SDL_FRect destinationRect;				// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
+		SDL_FRect sourceRect;			// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
+		SDL_FRect destinationRect;		// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
 
-		RectAnchor destinationAnchor;			// Used to select redering coordinates anchor (it is also the scalation origin)
-		FVector destinationAnchorOffset;		// Relative vector between 
+		FVector position;				// User selected coordinates
+		RectAnchor posAnchor;			// Destination rect anchor. Used to select redering coordinates anchor (it is also the scalation origin)
+		FVector posAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
 
-		FVector scale;						// Scale origin is the same than the coordinates anchor
+		FVector scale;					// Scale origin is the same than the coordinates anchor
 
-		bool rotationEnabled;					// Set false for an slight gain in performance if rotations are not needed
-		double rotation;						// Unit: degrees
-		FVector rotationOrigin;				// Rotation origin
-		SDL_FlipMode flipMode;					// Only applies when rotations are enabled
+		bool rotationEnabled;			// Set false for an slight gain in performance if rotations are not needed
+		double rotation;				// Unit: degrees
+		FVector rotationOrigin;			// Rotation origin (destination rect local frame)
+		SDL_FlipMode flipMode;			// Only applies when rotations are enabled
 
-		float opacity;							// Range
+		float opacity;					// Range [0, 255]
 
 	};
 }

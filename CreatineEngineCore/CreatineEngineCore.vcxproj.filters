@@ -57,13 +57,13 @@
     <ClCompile Include="Source\Private\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\RenderManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Public\RectAnchor.h">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\FVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Private\RenderEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,10 +116,10 @@
     <ClInclude Include="Source\Public\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\RenderManager.h">
+    <ClInclude Include="Source\Public\FVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\FVector.h">
+    <ClInclude Include="Source\Public\RenderEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

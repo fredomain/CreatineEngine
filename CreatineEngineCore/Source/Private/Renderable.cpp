@@ -4,19 +4,23 @@ namespace CE {
 	//Renderable::Renderable() : rect
 
 	float Renderable::getX() const{
-		return destinationRect.x;
+		return position.x;
 	}
 
 	void Renderable::setX(float x){
-		destinationRect.x = x;
+		position.x = x;
+		destinationRect.x = x - posAnchorOffset.x;
+		printf("destinationRect.x = %f\n", destinationRect.x);
 	}
 
 	float Renderable::getY() const {
-		return destinationRect.y;
+		return position.y;
 	}
 
 	void Renderable::setY(float y) {
-		destinationRect.y = y;
+		position.y = y;
+		destinationRect.y = y - posAnchorOffset.y;
+		printf("destinationRect.y = %f\n", destinationRect.y);
 	}
 
 	void Renderable::setPosition(float x, float y) {
@@ -34,11 +38,64 @@ namespace CE {
 	}
 
 	void Renderable::setPositionAnchor(RectAnchor anchor) {
-		destinationAnchor = anchor;
+		posAnchor = anchor;
+		// Update the anchor offset
+		updateAnchorOffset();
 	}
 
 	RectAnchor Renderable::getPositionAnchor() const{
+		return posAnchor;
+	}
 
+	void Renderable::updateAnchorOffset() {
+		posAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, posAnchor);
+		// Update position to reflect the change in the anchor offset (with the current position settings)
+		setPosition(getX(), getY());
+	}
+
+	FVector Renderable::computeAnchorOffset(float w, float h, RectAnchor anchor) const {
+		FVector offset;
+
+		switch (anchor) {
+		case RectAnchor::CENTER:
+			offset.x = w / 2;
+			offset.y = h / 2;
+			break;
+		case RectAnchor::TOP:
+			offset.x = w / 2;
+			offset.y = 0;
+			break;
+		case RectAnchor::BOTTOM:
+			offset.x = w / 2;
+			offset.y = h;
+			break;
+		case RectAnchor::LEFT:
+			offset.x = 0;
+			offset.y = h / 2;
+			break;
+		case RectAnchor::RIGHT:
+			offset.x = w;
+			offset.y = h / 2;
+			break;
+		case RectAnchor::TOP_LEFT:
+			offset.x = 0;
+			offset.y = 0;
+			break;
+		case RectAnchor::TOP_RIGHT:
+			offset.x = w;
+			offset.y = 0;
+			break;
+		case RectAnchor::BOTTOM_LEFT:
+			offset.x = 0;
+			offset.y = h;
+			break;
+		case RectAnchor::BOTTOM_RIGHT:
+			offset.x = w;
+			offset.y = h;
+			break;
+		}
+		
+		return offset;
 	}
 
 	float Renderable::getWidth() const {
@@ -73,6 +130,7 @@ namespace CE {
 		if (scale >= 0) {
 			this->scale.x = scale;
 			destinationRect.w = sourceRect.w * this->scale.x;
+			printf("destinationRect.w = %f\n", destinationRect.w);
 		}
 	}
 
@@ -80,17 +138,22 @@ namespace CE {
 		if (scale >= 0) {
 			this->scale.y = scale;
 			destinationRect.h = sourceRect.h * this->scale.y;
+			printf("destinationRect.h = %f\n", destinationRect.h);
 		}
 	}
 
+	void Renderable::setScale(float scaleX, float scaleY) {
+		setScaleX(scaleX);
+		setScaleY(scaleY);
+		updateAnchorOffset();
+	}
+
 	void Renderable::setScale(float scale) {
-		setScaleX(scale);
-		setScaleY(scale);
+		setScale(scale, scale);
 	}
 
 	void Renderable::setScale(FVector scale) {
-		setScaleX(scale.x);
-		setScaleY(scale.y);
+		setScale(scale.x, scale.y);
 	}
 
 	float Renderable::getScaleX() const {
@@ -107,6 +170,36 @@ namespace CE {
 
 	void Renderable::setRotation(double rotation) {
 		this->rotation = rotation;
+	}
+
+	void Renderable::setRotationOrigin(float x, float y) {
+		rotationOrigin.x = x;
+		rotationOrigin.y = y;
+		printf("Rotation origin: %f, %f\n", x, y);
+	}
+
+	void Renderable::setRotationOrigin(FVector rotationOrigin) {
+		setRotationOrigin(rotationOrigin.x, rotationOrigin.y);
+	}
+
+	void Renderable::setRotationOrigin(RectAnchor rotationAnchor) {
+		setRotationOrigin(computeAnchorOffset(destinationRect.w, destinationRect.h, rotationAnchor));
+	}
+
+	float Renderable::getRotationOriginX() const {
+		return rotationOrigin.x;
+	}
+
+	float Renderable::getRotationOriginY() const {
+		return rotationOrigin.y;
+	}
+
+	FVector Renderable::getRotationOrigin() const {
+		return rotationOrigin;
+	}
+
+	SDL_FPoint Renderable::getRotationOriginSDL() const {
+		return SDL_FPoint(rotationOrigin.x, rotationOrigin.y);
 	}
 
 	void Renderable::enableRotation(){

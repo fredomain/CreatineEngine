@@ -27,9 +27,13 @@ namespace CE {
 		setSourceWidth(static_cast<float>(imageAsset.getTexture()->w));
 		setSourceHeight(static_cast<float>(imageAsset.getTexture()->h));
 		// Then, destination rect must be set regarding the scale
-		setUniformScale(1.0f);
+		setScale(1.0f);
+		// Anchor offset can also be set
+		setPositionAnchor(getPositionAnchor());
+		setPosition(0.0f, 0.0f);
 
 		// Initialize parameters
+		setRotationOrigin(RectAnchor::CENTER);
 	}
 
 	void Image::renderSimple() const{
@@ -37,7 +41,8 @@ namespace CE {
 		//SDL_Log("renderSimple");
 	}
 	void Image::renderRotated() const{
-		SDL_RenderTextureRotated(imageAsset.getRenderer(), imageAsset.getTexture(), getSourceRectPtr(), getDestinationRectPtr(), getRotation(), NULL, getFlipMode());
+		SDL_FPoint rotationOriginSDL(getRotationOriginSDL());
+		SDL_RenderTextureRotated(imageAsset.getRenderer(), imageAsset.getTexture(), getSourceRectPtr(), getDestinationRectPtr(), getRotation(), &rotationOriginSDL, getFlipMode());
 		//SDL_Log("renderRotated");
 	}
 }

@@ -14,6 +14,27 @@
 #include <memory>
 /******************************/
 
+void drawCross(SDL_Renderer* renderer, int screenWidth, int screenHeight, float size = 20.0f)
+{
+	// Center of screen
+	float cx = screenWidth * 0.5f;
+	float cy = screenHeight * 0.5f;
+
+	// Line endpoints
+	SDL_FPoint line1Start = { cx - size * 0.5f, cy - size * 0.5f };
+	SDL_FPoint line1End = { cx + size * 0.5f, cy + size * 0.5f };
+
+	SDL_FPoint line2Start = { cx + size * 0.5f, cy - size * 0.5f };
+	SDL_FPoint line2End = { cx - size * 0.5f, cy + size * 0.5f };
+
+	// Set draw color (e.g., red)
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+	// Draw two lines forming an X
+	SDL_RenderLine(renderer, line1Start.x, line1Start.y, line1End.x, line1End.y);
+	SDL_RenderLine(renderer, line2Start.x, line2Start.y, line2End.x, line2End.y);
+}
+
 /********** PARAMETERS **********/
 //Screen dimension constants
 const uint16_t SCREEN_WIDTH = 960;
@@ -41,8 +62,6 @@ SDL_FRect character_ori;
 SDL_FRect character_dest;
 
 
-
-
 //Main loop flag
 bool quit = false;
 //Event handler
@@ -58,11 +77,17 @@ int main(int argc, char* args[]){
 	else{
 		//Load media
 		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
-		CE::Image imagenFondo(gRenderer, "Content/Images/background.png");
+		CE::Image imagenFondo(gRenderer, "Content/Images/background.jpg");
 		imagenFondo.imageAsset.load();
+		
+		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();
+		imagenFondo.setScale(0.2f);
+		imagenFondo.setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);	// Si la comento hay errores
 		imagenFondo.enableRotation();
-		imagenFondo.setRotation(0.01);
+		imagenFondo.setRotationOrigin(CE::RectAnchor::TOP_RIGHT);
+		imagenFondo.setRotation(45);
+		imagenFondo.setVerticalFlip();
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -108,11 +133,13 @@ int main(int argc, char* args[]){
 				}
 
 				// Clear screen
+				SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 				SDL_RenderClear(gRenderer);
 
 				// Render texture to screen
 				imagenFondo.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
+				drawCross(gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 				// Update screen
 				SDL_RenderPresent(gRenderer);
@@ -149,7 +176,7 @@ bool Init(){
 		else
 		{
 			//Initialize renderer color
-			SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+			SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 			//SDL_PropertiesID info = SDL_GetRendererProperties(gRenderer);
 		}
 	}

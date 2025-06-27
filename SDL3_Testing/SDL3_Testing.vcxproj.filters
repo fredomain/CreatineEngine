@@ -24,6 +24,7 @@
     <Image Include="Content\Images\character.png">
       <Filter>Content\Images</Filter>
     </Image>
+    <Image Include="Content\Images\background.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
