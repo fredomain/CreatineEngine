@@ -66,7 +66,17 @@ namespace CE {
 		void setOpacity(float opacity);
 
 	protected:
-		//Renderable();
+		Renderable(
+			FVector position = FVector(0.0f, 0.0f),
+			RectAnchor posAnchor = RectAnchor::TOP_LEFT,
+			FVector posAnchorOffset = FVector(0.0f, 0.0f),
+			FVector scale = FVector(1.0f, 1.0f),
+			float rotationEnabled = false,
+			double rotation = 0.0,
+			FVector rotationOrigin = FVector(0.0f, 0.0f),
+			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE,
+			float opacity = 1.0
+			);
 
 		// Derived classes must use these functions to set the source width and height
 		void setSourceWidth(float width);

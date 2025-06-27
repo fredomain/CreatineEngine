@@ -1,7 +1,31 @@
 #include "Renderable.h"
 
 namespace CE {
-	//Renderable::Renderable() : rect
+	Renderable::Renderable(
+		FVector position,
+		RectAnchor posAnchor,
+		FVector posAnchorOffset,
+		FVector scale,
+		float rotationEnabled,
+		double rotation,
+		FVector rotationOrigin,
+		SDL_FlipMode flipMode,
+		float opacity
+		) :
+		sourceRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
+		destinationRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
+		position(position),
+		posAnchor(posAnchor),
+		posAnchorOffset(posAnchorOffset),
+		scale(scale),
+		rotationEnabled(rotationEnabled),
+		rotation(rotation),
+		rotationOrigin(rotationOrigin),
+		flipMode(flipMode),
+		opacity(opacity){
+
+	}
+
 
 	float Renderable::getX() const{
 		return position.x;

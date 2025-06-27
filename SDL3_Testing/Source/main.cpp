@@ -87,7 +87,7 @@ int main(int argc, char* args[]){
 		imagenFondo.enableRotation();
 		imagenFondo.setRotationOrigin(CE::RectAnchor::TOP_RIGHT);
 		imagenFondo.setRotation(45);
-		imagenFondo.setVerticalFlip();
+		imagenFondo.setVerticalFlip(); 
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
