@@ -83,11 +83,18 @@ int main(int argc, char* args[]){
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();
 		imagenFondo.setScale(0.2f);
-		imagenFondo.setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);	// Si la comento hay errores
+		imagenFondo.setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 		imagenFondo.enableRotation();
 		imagenFondo.setRotationOrigin(CE::RectAnchor::TOP_RIGHT);
 		imagenFondo.setRotation(45);
-		imagenFondo.setVerticalFlip(); 
+		imagenFondo.setVerticalFlip();
+
+		CE::Logger logger("log.txt");
+		logger.setMinimumLogLevel(CE::LogLevel::Info);
+
+		logger.log("Debug info", CE::LogLevel::Debug);       // Ignorado
+		logger.log("App started", CE::LogLevel::Info);       // Mostrado
+		logger.log("Null pointer", CE::LogLevel::Error);     // Mostrado
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");

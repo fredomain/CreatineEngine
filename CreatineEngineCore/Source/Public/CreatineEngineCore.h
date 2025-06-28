@@ -2,9 +2,15 @@
 #ifndef CREATINEENGINECORE_H
 #define CREATINEENGINECORE_H
 
-#include "Sprite.h"
+
 #include "AssetManager.h"
+#include "Sprite.h"
 #include "MathConstants.h"
+#include "Logger.h"
+
+namespace CE {
+	//Logger logger;
+}
 
 
 

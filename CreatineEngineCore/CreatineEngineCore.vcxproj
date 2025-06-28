@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\Logger.cpp" />
     <ClCompile Include="Source\Private\RenderEngine.cpp" />
     <ClCompile Include="Source\Private\FVector.cpp" />
     <ClCompile Include="Source\Private\Scene.cpp" />
@@ -36,8 +37,10 @@
     <ClCompile Include="Source\Private\TextureAsset.cpp" />
     <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
     <ClCompile Include="Source\Public\RectAnchor.h" />
+    <ClCompile Include="Source\Private\TimingManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\Logger.h" />
     <ClInclude Include="Source\Public\RenderEngine.h" />
     <ClInclude Include="Source\Public\FVector.h" />
     <ClInclude Include="Source\Public\Scene.h" />
@@ -56,6 +59,7 @@
     <ClInclude Include="Source\Public\Surface.h" />
     <ClInclude Include="Source\Public\TextureAsset.h" />
     <ClInclude Include="Source\Public\SurfaceAsset.h" />
+    <ClInclude Include="Source\Public\TimingManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
