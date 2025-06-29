@@ -1,4 +1,5 @@
 # Ignore Generated Files
+DoxygenDocs/
 Intermediate/
 Output/
 

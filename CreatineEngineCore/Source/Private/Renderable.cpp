@@ -46,6 +46,11 @@ namespace CE {
 		printf("destinationRect.y = %f\n", destinationRect.y);
 	}
 
+	/**
+	 * @brief Set screen coordinates
+	 * @param x x-axis position
+	 * @param y y-axis position
+	 */
 	void Renderable::setPosition(float x, float y) {
 		setX(x);
 		setY(y);
