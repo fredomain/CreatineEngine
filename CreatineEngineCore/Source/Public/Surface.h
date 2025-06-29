@@ -6,8 +6,7 @@
 
 namespace CE {
 
-    class Surface :
-        public Renderable
+    class Surface : public Renderable
     {
     };
 

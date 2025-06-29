@@ -26,7 +26,6 @@ namespace CE {
 
 	}
 
-
 	float Renderable::getX() const{
 		return position.x;
 	}

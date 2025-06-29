@@ -19,7 +19,7 @@ namespace CE {
 		}
 		else {	// no rotation
 			renderSimple();
-		}		
+		}
 	}
 
 	void Image::init() {

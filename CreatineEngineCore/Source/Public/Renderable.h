@@ -96,7 +96,7 @@ namespace CE {
 		SDL_FRect sourceRect;			// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
 		SDL_FRect destinationRect;		// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
 
-		FVector position;				// User selected coordinates
+		FVector position;				// User selected coordinates (x, y). Destination rendering.
 		RectAnchor posAnchor;			// Destination rect anchor. Used to select redering coordinates anchor (it is also the scalation origin)
 		FVector posAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
 
