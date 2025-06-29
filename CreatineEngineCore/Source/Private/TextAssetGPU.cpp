@@ -1,18 +1,17 @@
-#include "Text.h"
+#include "TextAssetGPU.h"
 
 namespace CE {
-	TextAsset::TextAsset(SDL_Renderer* renderer, std::string& text, std::string& fontPath, SDL_Color textColor, AssetManager* assetManager)
-		: renderer(renderer), text(text), texture(nullptr), Asset(fontPath, assetManager)
+	TextAssetGPU::TextAssetGPU(SDL_Renderer* renderer, std::string text, std::string fontPath, int textSize, SDL_Color textColor)
+		: TextureAsset(renderer, std::move(fontPath)), text(text) , textSize(textSize), textWidth(0), textHeight(0), textColor(textColor)
 	{
-		textFont = TTF_OpenFont(fontPath.c_str(), textSize);
+		textFont = TTF_OpenFont(getPath().c_str(), textSize);
 	}
 
-	bool TextAsset::load()
+	bool TextAssetGPU::load()
 	{
 		bool success = true;
 
 		textFont = TTF_OpenFont(getPath().c_str(), textSize); //Reload the font in case we change the size
-
 
 		if (textFont == nullptr)
 		{
@@ -21,7 +20,7 @@ namespace CE {
 		}
 
 		//Remove previous texture to avoid memory leaks
-		SDL_DestroyTexture(texture);
+		SDL_DestroyTexture(texture.get());
 
 		//We create a surface from the text string, the font and color. The length value 0 means we compute the length by reading all characters until we reach a NULL characted (let's say automatic length detection)
 		SDL_Surface* textSurface = TTF_RenderText_Solid(textFont, text.c_str(), 0, textColor);
@@ -35,7 +34,7 @@ namespace CE {
 		else
 		{
 			//Convert surface into texture and check for errors
-			texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+			texture.reset(SDL_CreateTextureFromSurface(getRenderer(), textSurface));
 			if (texture == nullptr)
 			{
 				printf("Error converting text surface into texture: %s\n", SDL_GetError());

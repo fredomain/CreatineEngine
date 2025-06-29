@@ -21,7 +21,7 @@
     <ClCompile Include="Source\Private\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Text.cpp">
+    <ClCompile Include="Source\Private\TextAssetGPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\Renderable.cpp">
@@ -74,7 +74,7 @@
     <ClInclude Include="Source\Public\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Text.h">
+    <ClInclude Include="Source\Public\TextAssetGPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Renderable.h">
