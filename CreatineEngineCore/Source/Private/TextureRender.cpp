@@ -4,7 +4,7 @@
 namespace CE {
 
 	TextureRender::TextureRender(SDL_Renderer* renderer, std::string path, bool rotation_enabled)
-		: TextureRenderAsset(renderer, std::move(path)) {
+		: TextureAsset(renderer, std::move(path)) {
 		rotation_enabled ? enableRotation() : disableRotation();
 		
 	}

@@ -25,8 +25,6 @@
     <ClCompile Include="Source\Private\Scene.cpp" />
     <ClCompile Include="Source\Private\Init.cpp" />
     <ClCompile Include="Source\Private\GameEntity.cpp" />
-    <ClCompile Include="Source\Private\ImageAssetCPU.cpp" />
-    <ClCompile Include="Source\Private\ImageAssetGPU.cpp" />
     <ClCompile Include="Source\Private\AssetManager.cpp" />
     <ClCompile Include="Source\Private\Asset.cpp" />
     <ClCompile Include="Source\Private\TextureRender.cpp" />
@@ -49,8 +47,6 @@
     <ClInclude Include="Source\Public\Init.h" />
     <ClInclude Include="Source\Public\CreatineEngineCore.h" />
     <ClInclude Include="Source\Public\GameEntity.h" />
-    <ClInclude Include="Source\Public\ImageAssetCPU.h" />
-    <ClInclude Include="Source\Public\ImageAssetGPU.h" />
     <ClInclude Include="Source\Public\AssetManager.h" />
     <ClInclude Include="Source\Public\Asset.h" />
     <ClInclude Include="Source\Public\TextureRender.h" />

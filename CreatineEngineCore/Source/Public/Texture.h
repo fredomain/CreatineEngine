@@ -4,17 +4,35 @@
 
 #include <SDL3/SDL.h>
 
-namespace CE{
-	class Texture
-	{
+namespace CE {
+	/**
+	 * @brief Wrapper class for SDL_Texture (GPU Image). Contains a pointer to the SDL texture data structure.
+	 */
+	class Texture {
 	public:
-		~Texture();		
+		Texture() = default;
+		explicit Texture(SDL_Texture* texture);
+		~Texture();
 
-		SDL_Texture data;
+		// Delete copy constructor and assignment
+		Texture(const Texture&) = delete;
+		Texture& operator=(const Texture&) = delete;
+
+		// Move constructor and assignment
+		Texture(Texture&& other) noexcept;
+		Texture& operator=(Texture&& other) noexcept;
+
+		int getWidth() const;
+		int getHeight() const;
+
+		SDL_Texture* getData() const;
+		void setData(SDL_Texture* texture);
+		bool isValid();
+
+	protected:
+		SDL_Texture* data = nullptr;
 	};
+
 }
 
-
-
-#endif // !TEXTURERENDER_H
-
+#endif

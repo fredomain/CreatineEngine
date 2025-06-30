@@ -1,4 +1,5 @@
 #include "TextureAsset.h"
+#include <SDL_image.h>
 
 namespace CE {
 
@@ -14,8 +15,28 @@ namespace CE {
         return renderer;
     }
 
-    SDL_Texture* TextureAsset::getTexture() const {
-        return texture.get();
+    const Texture& TextureAsset::getTexture() const {
+        return texture;
     }
+
+	bool TextureAsset::load() {
+		SDL_Surface* surface_temporal = IMG_Load(getPath().c_str());
+		if (surface_temporal == NULL) {
+			SDL_Log("Unable to load image %s! SDL Error: %s\n", getPath().c_str(), SDL_GetError());
+			return false;
+		}
+		else {
+			// Create texture from surface pixels
+			texture.setData(SDL_CreateTextureFromSurface(getRenderer(), surface_temporal));
+			if (texture.isValid()) {
+				SDL_Log("Unable to create texture from %s! SDL Error: %s\n", getPath().c_str(), SDL_GetError());
+				return false;
+			}
+
+			SDL_DestroySurface(surface_temporal);	// Get rid of old loaded surface
+
+			return true;
+		}
+	}
 
 }

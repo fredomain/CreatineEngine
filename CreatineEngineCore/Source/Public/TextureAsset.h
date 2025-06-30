@@ -14,14 +14,14 @@ namespace CE {
         void setRenderer(SDL_Renderer* renderer);
         SDL_Renderer* getRenderer() const;
 
-        SDL_Texture* getTexture() const;
+        const Texture& getTexture() const;
 
-        virtual bool load() override = 0;   // Line needed to make this class abstract
+        virtual bool load() override;
 
     protected:
         explicit TextureAsset(SDL_Renderer* renderer, std::string path = "");
 
-        std::unique_ptr<Texture> texture;
+        Texture texture;
 
     private:
         SDL_Renderer* renderer = nullptr;
