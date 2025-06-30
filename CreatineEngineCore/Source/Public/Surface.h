@@ -2,15 +2,20 @@
 #ifndef SURFACE_H
 #define SURFACE_H
 
-#include "Renderable.h"
+#include <SDL3/SDL.h>
 
 namespace CE {
+	class Surface
+	{
+	public:
+		~Surface();
 
-    class Surface : public Renderable
-    {
-    };
+		SDL_Surface data;
 
+	};
 }
 
-#endif // !TEXT_H
+#endif // !SURFACE_H
+
+
 

@@ -14,7 +14,7 @@ namespace CE {
 
 		// renderizartodo();
 
-		addrenderable();
+		//addrenderable();
 	};
 
 }

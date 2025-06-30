@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\Image.cpp">
+    <ClCompile Include="Source\Private\TextureRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Sprite.cpp">
+    <ClCompile Include="Source\Private\SpriteTextureRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Text.cpp">
+    <ClCompile Include="Source\Private\TextTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\Renderable.cpp">
@@ -39,7 +39,7 @@
     <ClCompile Include="Source\Private\ImageAssetCPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Surface.cpp">
+    <ClCompile Include="Source\Private\SurfaceRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\TextureAsset.cpp">
@@ -72,15 +72,21 @@
     <ClCompile Include="Source\Private\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Private\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Private\Surface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\Image.h">
+    <ClInclude Include="Source\Public\TextureRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Sprite.h">
+    <ClInclude Include="Source\Public\SpriteTextureRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Text.h">
+    <ClInclude Include="Source\Public\TextTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Renderable.h">
@@ -98,7 +104,7 @@
     <ClInclude Include="Source\Public\ImageAssetCPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Surface.h">
+    <ClInclude Include="Source\Public\SurfaceRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\TextureAsset.h">
@@ -132,6 +138,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\Surface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

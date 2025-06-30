@@ -3,17 +3,10 @@
 #define SURFACEASSET_H
 
 #include "Asset.h"
-#include <SDL3/SDL.h>
+#include <Surface.h>
 #include <memory>
 
 namespace CE {
-
-    struct SDL_SurfaceDestroyer {
-        void operator()(SDL_Surface* surface) const {
-            if (surface) SDL_DestroySurface(surface);
-        }
-    };
-
     class SurfaceAsset : public Asset {
     public:
         //virtual ~SurfaceAsset() = default;
@@ -25,7 +18,7 @@ namespace CE {
     protected:
         explicit SurfaceAsset(std::string path = "");
 
-        std::unique_ptr<SDL_Surface, SDL_SurfaceDestroyer> surface;
+        std::unique_ptr<Surface> surface;
     };
 
 }
