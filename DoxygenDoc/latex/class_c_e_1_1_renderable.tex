@@ -1,0 +1,365 @@
+\doxysection{CE\+::Renderable Class Reference}
+\hypertarget{class_c_e_1_1_renderable}{}\label{class_c_e_1_1_renderable}\index{CE::Renderable@{CE::Renderable}}
+
+
+{\ttfamily \#include $<$Renderable.\+h$>$}
+
+Inheritance diagram for CE\+::Renderable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_e_1_1_renderable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_c_e_1_1_renderable_a23141ad84b2418a458e981423c4ff9c8}{render}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_c_e_1_1_renderable_ae5d27bc709c084e44943def68a6a030b}{init}} ()=0
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_aaef6c7cb792a025407e5ebb98919ff6f}{getX}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_adbbc0f56b32371d55f7d8e9a864d3a0f}{setX}} (float x)
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_ad16e9d500ce2a6eefd0e80e56d939df6}{getY}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_aca9949ae99cb0f99dc2a83435b2a12ba}{setY}} (float y)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_aa4b9726794b3af913894e06a3bb221e9}{set\+Position}} (float x, float y)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a491c1aaf11d5fd42866fdbfcf2cf044c}{set\+Position}} (const \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}} \&position)
+\item 
+\mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}} \mbox{\hyperlink{class_c_e_1_1_renderable_adf72961f3ac696cc79049b2ea852737c}{get\+Position}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a2ede63a922fa84c5cac51e7ee2254f91}{set\+Position\+Anchor}} (\mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{Rect\+Anchor}} anchor)
+\item 
+\mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{Rect\+Anchor}} \mbox{\hyperlink{class_c_e_1_1_renderable_a1965c78914bce48819600cba13c4b5e1}{get\+Position\+Anchor}} () const
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_ae48e19e42860ce35ea828fa777839d6f}{get\+Width}} () const
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_ac6b885eb04a7606febe3bcc112f62474}{get\+Height}} () const
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_a41f2fabb13c6d5599920af711e0ca8df}{get\+Source\+Width}} () const
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_aa27362d440ec383cee78c892333f1e1c}{get\+Source\+Height}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a50e978e115e3d190bf1da73878e77667}{set\+ScaleX}} (float scaleX)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a96bcafacda7c7a2f47a0b3bf6b41fdbf}{set\+ScaleY}} (float scaleY)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_aaef5eddb1d44649285b149d640060805}{set\+Scale}} (float scale)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a88471e2a9e72429aad730294789e1577}{set\+Scale}} (\mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}} scale)
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_a0133426274ddb0dd3cfb7d3433e2db3a}{get\+ScaleX}} () const
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_ae98e4d7a61ccc159aa767133fbb467be}{get\+ScaleY}} () const
+\item 
+double \mbox{\hyperlink{class_c_e_1_1_renderable_aaef501a873ec8530e471b221d917d3f1}{get\+Rotation}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a873c832ff2281bb7b9514b3e515220e3}{set\+Rotation}} (double rotation)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a40ef2eef99b2b76f9c883867484ff146}{enable\+Rotation}} ()
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a9584c347a228a86a699f10298e8e6672}{disable\+Rotation}} ()
+\item 
+bool \mbox{\hyperlink{class_c_e_1_1_renderable_a0f1795f63ff951107ecb4b418ba099ea}{is\+Rotation\+Enabled}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a8176a6d1c65bcfb7da03880f5a95e6a1}{set\+Vertical\+Flip}} ()
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a44ee65e2f420e477d9f9c2225d4ef28d}{set\+Horizontal\+Flip}} ()
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a3e62b8791386b3cdf467a5aadaa2c42c}{disable\+Flip}} ()
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a17f4c0c9e55d912bcc94e8017ca8e764}{set\+Flip\+Mode}} (const SDL\+\_\+\+Flip\+Mode \&mode)
+\item 
+SDL\+\_\+\+Flip\+Mode \mbox{\hyperlink{class_c_e_1_1_renderable_a9686034f914209a9eb8e1cff621d97b0}{get\+Flip\+Mode}} () const
+\item 
+const SDL\+\_\+\+Flip\+Mode \& \mbox{\hyperlink{class_c_e_1_1_renderable_a204d93ae5229aabb8fb6d257eca7e9a4}{get\+Flip\+Mode\+Ref}} () const
+\item 
+float \mbox{\hyperlink{class_c_e_1_1_renderable_aa313a4190184e62968d04d456158c09b}{get\+Opacity}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_afbb4b88e0e27c15660d1cb4262721c20}{set\+Opacity}} (float opacity)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_adfafa9fb2ee77f634eec7d96ec4bfc4f}{set\+Source\+Width}} (float width)
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a65bcd0d5712bd88e2ca427ebaeb2016f}{set\+Source\+Height}} (float height)
+\item 
+SDL\+\_\+\+FRect \mbox{\hyperlink{class_c_e_1_1_renderable_a2b38e7a0430ede7320dc7dd1b66c7598}{get\+Source\+Rect}} () const
+\item 
+const SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_renderable_aee10bc04fa45f196e248ebc895d4643e}{get\+Source\+Rect\+Ptr}} () const
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_renderable_a5d0728b73e79e4db5eebd9c0b2875b1b}{set\+Source\+Rect}} (const SDL\+\_\+\+FRect \&rect)
+\item 
+SDL\+\_\+\+FRect \mbox{\hyperlink{class_c_e_1_1_renderable_af77b06f6f182e3cdb597eaf3e9ac59d9}{get\+Destination\+Rect}} () const
+\item 
+const SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_renderable_a2b45546356d3cee8d0d30acbcfd99fb2}{get\+Destination\+Rect\+Ptr}} () const
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_e_1_1_renderable_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_e_1_1_renderable_a3e62b8791386b3cdf467a5aadaa2c42c}\index{CE::Renderable@{CE::Renderable}!disableFlip@{disableFlip}}
+\index{disableFlip@{disableFlip}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{disableFlip()}{disableFlip()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a3e62b8791386b3cdf467a5aadaa2c42c} 
+void CE\+::\+Renderable\+::disable\+Flip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a9584c347a228a86a699f10298e8e6672}\index{CE::Renderable@{CE::Renderable}!disableRotation@{disableRotation}}
+\index{disableRotation@{disableRotation}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{disableRotation()}{disableRotation()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a9584c347a228a86a699f10298e8e6672} 
+void CE\+::\+Renderable\+::disable\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a40ef2eef99b2b76f9c883867484ff146}\index{CE::Renderable@{CE::Renderable}!enableRotation@{enableRotation}}
+\index{enableRotation@{enableRotation}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{enableRotation()}{enableRotation()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a40ef2eef99b2b76f9c883867484ff146} 
+void CE\+::\+Renderable\+::enable\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_af77b06f6f182e3cdb597eaf3e9ac59d9}\index{CE::Renderable@{CE::Renderable}!getDestinationRect@{getDestinationRect}}
+\index{getDestinationRect@{getDestinationRect}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getDestinationRect()}{getDestinationRect()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_af77b06f6f182e3cdb597eaf3e9ac59d9} 
+SDL\+\_\+\+FRect CE\+::\+Renderable\+::get\+Destination\+Rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_a2b45546356d3cee8d0d30acbcfd99fb2}\index{CE::Renderable@{CE::Renderable}!getDestinationRectPtr@{getDestinationRectPtr}}
+\index{getDestinationRectPtr@{getDestinationRectPtr}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getDestinationRectPtr()}{getDestinationRectPtr()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a2b45546356d3cee8d0d30acbcfd99fb2} 
+const SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} CE\+::\+Renderable\+::get\+Destination\+Rect\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_a9686034f914209a9eb8e1cff621d97b0}\index{CE::Renderable@{CE::Renderable}!getFlipMode@{getFlipMode}}
+\index{getFlipMode@{getFlipMode}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getFlipMode()}{getFlipMode()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a9686034f914209a9eb8e1cff621d97b0} 
+SDL\+\_\+\+Flip\+Mode CE\+::\+Renderable\+::get\+Flip\+Mode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_a204d93ae5229aabb8fb6d257eca7e9a4}\index{CE::Renderable@{CE::Renderable}!getFlipModeRef@{getFlipModeRef}}
+\index{getFlipModeRef@{getFlipModeRef}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getFlipModeRef()}{getFlipModeRef()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a204d93ae5229aabb8fb6d257eca7e9a4} 
+const SDL\+\_\+\+Flip\+Mode \& CE\+::\+Renderable\+::get\+Flip\+Mode\+Ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_ac6b885eb04a7606febe3bcc112f62474}\index{CE::Renderable@{CE::Renderable}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_ac6b885eb04a7606febe3bcc112f62474} 
+float CE\+::\+Renderable\+::get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_aa313a4190184e62968d04d456158c09b}\index{CE::Renderable@{CE::Renderable}!getOpacity@{getOpacity}}
+\index{getOpacity@{getOpacity}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getOpacity()}{getOpacity()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aa313a4190184e62968d04d456158c09b} 
+float CE\+::\+Renderable\+::get\+Opacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_adf72961f3ac696cc79049b2ea852737c}\index{CE::Renderable@{CE::Renderable}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_adf72961f3ac696cc79049b2ea852737c} 
+\mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}} CE\+::\+Renderable\+::get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_a1965c78914bce48819600cba13c4b5e1}\index{CE::Renderable@{CE::Renderable}!getPositionAnchor@{getPositionAnchor}}
+\index{getPositionAnchor@{getPositionAnchor}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getPositionAnchor()}{getPositionAnchor()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a1965c78914bce48819600cba13c4b5e1} 
+\mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{Rect\+Anchor}} CE\+::\+Renderable\+::get\+Position\+Anchor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_aaef501a873ec8530e471b221d917d3f1}\index{CE::Renderable@{CE::Renderable}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aaef501a873ec8530e471b221d917d3f1} 
+double CE\+::\+Renderable\+::get\+Rotation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_a0133426274ddb0dd3cfb7d3433e2db3a}\index{CE::Renderable@{CE::Renderable}!getScaleX@{getScaleX}}
+\index{getScaleX@{getScaleX}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getScaleX()}{getScaleX()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a0133426274ddb0dd3cfb7d3433e2db3a} 
+float CE\+::\+Renderable\+::get\+ScaleX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_ae98e4d7a61ccc159aa767133fbb467be}\index{CE::Renderable@{CE::Renderable}!getScaleY@{getScaleY}}
+\index{getScaleY@{getScaleY}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getScaleY()}{getScaleY()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_ae98e4d7a61ccc159aa767133fbb467be} 
+float CE\+::\+Renderable\+::get\+ScaleY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_aa27362d440ec383cee78c892333f1e1c}\index{CE::Renderable@{CE::Renderable}!getSourceHeight@{getSourceHeight}}
+\index{getSourceHeight@{getSourceHeight}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getSourceHeight()}{getSourceHeight()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aa27362d440ec383cee78c892333f1e1c} 
+float CE\+::\+Renderable\+::get\+Source\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_a2b38e7a0430ede7320dc7dd1b66c7598}\index{CE::Renderable@{CE::Renderable}!getSourceRect@{getSourceRect}}
+\index{getSourceRect@{getSourceRect}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getSourceRect()}{getSourceRect()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a2b38e7a0430ede7320dc7dd1b66c7598} 
+SDL\+\_\+\+FRect CE\+::\+Renderable\+::get\+Source\+Rect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_aee10bc04fa45f196e248ebc895d4643e}\index{CE::Renderable@{CE::Renderable}!getSourceRectPtr@{getSourceRectPtr}}
+\index{getSourceRectPtr@{getSourceRectPtr}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getSourceRectPtr()}{getSourceRectPtr()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aee10bc04fa45f196e248ebc895d4643e} 
+const SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} CE\+::\+Renderable\+::get\+Source\+Rect\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_a41f2fabb13c6d5599920af711e0ca8df}\index{CE::Renderable@{CE::Renderable}!getSourceWidth@{getSourceWidth}}
+\index{getSourceWidth@{getSourceWidth}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getSourceWidth()}{getSourceWidth()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a41f2fabb13c6d5599920af711e0ca8df} 
+float CE\+::\+Renderable\+::get\+Source\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_ae48e19e42860ce35ea828fa777839d6f}\index{CE::Renderable@{CE::Renderable}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_ae48e19e42860ce35ea828fa777839d6f} 
+float CE\+::\+Renderable\+::get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_aaef6c7cb792a025407e5ebb98919ff6f}\index{CE::Renderable@{CE::Renderable}!getX@{getX}}
+\index{getX@{getX}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aaef6c7cb792a025407e5ebb98919ff6f} 
+float CE\+::\+Renderable\+::getX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_ad16e9d500ce2a6eefd0e80e56d939df6}\index{CE::Renderable@{CE::Renderable}!getY@{getY}}
+\index{getY@{getY}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_ad16e9d500ce2a6eefd0e80e56d939df6} 
+float CE\+::\+Renderable\+::getY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_ae5d27bc709c084e44943def68a6a030b}\index{CE::Renderable@{CE::Renderable}!init@{init}}
+\index{init@{init}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_ae5d27bc709c084e44943def68a6a030b} 
+virtual void CE\+::\+Renderable\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_e_1_1_image_ad32e7fcc393584160f0a451c48b4d80f}{CE\+::\+Image}}.
+
+\Hypertarget{class_c_e_1_1_renderable_a0f1795f63ff951107ecb4b418ba099ea}\index{CE::Renderable@{CE::Renderable}!isRotationEnabled@{isRotationEnabled}}
+\index{isRotationEnabled@{isRotationEnabled}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{isRotationEnabled()}{isRotationEnabled()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a0f1795f63ff951107ecb4b418ba099ea} 
+bool CE\+::\+Renderable\+::is\+Rotation\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_renderable_a23141ad84b2418a458e981423c4ff9c8}\index{CE::Renderable@{CE::Renderable}!render@{render}}
+\index{render@{render}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a23141ad84b2418a458e981423c4ff9c8} 
+virtual void CE\+::\+Renderable\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_e_1_1_image_af73b087a38deaaecb57fd4ffbc40ff98}{CE\+::\+Image}}.
+
+\Hypertarget{class_c_e_1_1_renderable_a17f4c0c9e55d912bcc94e8017ca8e764}\index{CE::Renderable@{CE::Renderable}!setFlipMode@{setFlipMode}}
+\index{setFlipMode@{setFlipMode}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setFlipMode()}{setFlipMode()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a17f4c0c9e55d912bcc94e8017ca8e764} 
+void CE\+::\+Renderable\+::set\+Flip\+Mode (\begin{DoxyParamCaption}\item[{const SDL\+\_\+\+Flip\+Mode \&}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a44ee65e2f420e477d9f9c2225d4ef28d}\index{CE::Renderable@{CE::Renderable}!setHorizontalFlip@{setHorizontalFlip}}
+\index{setHorizontalFlip@{setHorizontalFlip}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setHorizontalFlip()}{setHorizontalFlip()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a44ee65e2f420e477d9f9c2225d4ef28d} 
+void CE\+::\+Renderable\+::set\+Horizontal\+Flip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_afbb4b88e0e27c15660d1cb4262721c20}\index{CE::Renderable@{CE::Renderable}!setOpacity@{setOpacity}}
+\index{setOpacity@{setOpacity}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setOpacity()}{setOpacity()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_afbb4b88e0e27c15660d1cb4262721c20} 
+void CE\+::\+Renderable\+::set\+Opacity (\begin{DoxyParamCaption}\item[{float}]{opacity}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a491c1aaf11d5fd42866fdbfcf2cf044c}\index{CE::Renderable@{CE::Renderable}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a491c1aaf11d5fd42866fdbfcf2cf044c} 
+void CE\+::\+Renderable\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}} \&}]{position}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_aa4b9726794b3af913894e06a3bb221e9}\index{CE::Renderable@{CE::Renderable}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aa4b9726794b3af913894e06a3bb221e9} 
+void CE\+::\+Renderable\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a2ede63a922fa84c5cac51e7ee2254f91}\index{CE::Renderable@{CE::Renderable}!setPositionAnchor@{setPositionAnchor}}
+\index{setPositionAnchor@{setPositionAnchor}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setPositionAnchor()}{setPositionAnchor()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a2ede63a922fa84c5cac51e7ee2254f91} 
+void CE\+::\+Renderable\+::set\+Position\+Anchor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{Rect\+Anchor}}}]{anchor}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a873c832ff2281bb7b9514b3e515220e3}\index{CE::Renderable@{CE::Renderable}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a873c832ff2281bb7b9514b3e515220e3} 
+void CE\+::\+Renderable\+::set\+Rotation (\begin{DoxyParamCaption}\item[{double}]{rotation}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_aaef5eddb1d44649285b149d640060805}\index{CE::Renderable@{CE::Renderable}!setScale@{setScale}}
+\index{setScale@{setScale}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aaef5eddb1d44649285b149d640060805} 
+void CE\+::\+Renderable\+::set\+Scale (\begin{DoxyParamCaption}\item[{float}]{scale}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a88471e2a9e72429aad730294789e1577}\index{CE::Renderable@{CE::Renderable}!setScale@{setScale}}
+\index{setScale@{setScale}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a88471e2a9e72429aad730294789e1577} 
+void CE\+::\+Renderable\+::set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}}]{scale}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a50e978e115e3d190bf1da73878e77667}\index{CE::Renderable@{CE::Renderable}!setScaleX@{setScaleX}}
+\index{setScaleX@{setScaleX}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setScaleX()}{setScaleX()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a50e978e115e3d190bf1da73878e77667} 
+void CE\+::\+Renderable\+::set\+ScaleX (\begin{DoxyParamCaption}\item[{float}]{scaleX}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a96bcafacda7c7a2f47a0b3bf6b41fdbf}\index{CE::Renderable@{CE::Renderable}!setScaleY@{setScaleY}}
+\index{setScaleY@{setScaleY}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setScaleY()}{setScaleY()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a96bcafacda7c7a2f47a0b3bf6b41fdbf} 
+void CE\+::\+Renderable\+::set\+ScaleY (\begin{DoxyParamCaption}\item[{float}]{scaleY}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_a65bcd0d5712bd88e2ca427ebaeb2016f}\index{CE::Renderable@{CE::Renderable}!setSourceHeight@{setSourceHeight}}
+\index{setSourceHeight@{setSourceHeight}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setSourceHeight()}{setSourceHeight()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a65bcd0d5712bd88e2ca427ebaeb2016f} 
+void CE\+::\+Renderable\+::set\+Source\+Height (\begin{DoxyParamCaption}\item[{float}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_a5d0728b73e79e4db5eebd9c0b2875b1b}\index{CE::Renderable@{CE::Renderable}!setSourceRect@{setSourceRect}}
+\index{setSourceRect@{setSourceRect}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setSourceRect()}{setSourceRect()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a5d0728b73e79e4db5eebd9c0b2875b1b} 
+void CE\+::\+Renderable\+::set\+Source\+Rect (\begin{DoxyParamCaption}\item[{const SDL\+\_\+\+FRect \&}]{rect}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_adfafa9fb2ee77f634eec7d96ec4bfc4f}\index{CE::Renderable@{CE::Renderable}!setSourceWidth@{setSourceWidth}}
+\index{setSourceWidth@{setSourceWidth}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setSourceWidth()}{setSourceWidth()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_adfafa9fb2ee77f634eec7d96ec4bfc4f} 
+void CE\+::\+Renderable\+::set\+Source\+Width (\begin{DoxyParamCaption}\item[{float}]{width}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_c_e_1_1_renderable_a8176a6d1c65bcfb7da03880f5a95e6a1}\index{CE::Renderable@{CE::Renderable}!setVerticalFlip@{setVerticalFlip}}
+\index{setVerticalFlip@{setVerticalFlip}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setVerticalFlip()}{setVerticalFlip()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_a8176a6d1c65bcfb7da03880f5a95e6a1} 
+void CE\+::\+Renderable\+::set\+Vertical\+Flip (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_adbbc0f56b32371d55f7d8e9a864d3a0f}\index{CE::Renderable@{CE::Renderable}!setX@{setX}}
+\index{setX@{setX}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setX()}{setX()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_adbbc0f56b32371d55f7d8e9a864d3a0f} 
+void CE\+::\+Renderable\+::setX (\begin{DoxyParamCaption}\item[{float}]{x}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_c_e_1_1_renderable_aca9949ae99cb0f99dc2a83435b2a12ba}\index{CE::Renderable@{CE::Renderable}!setY@{setY}}
+\index{setY@{setY}!CE::Renderable@{CE::Renderable}}
+\doxysubsubsection{\texorpdfstring{setY()}{setY()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_renderable_aca9949ae99cb0f99dc2a83435b2a12ba} 
+void CE\+::\+Renderable\+::setY (\begin{DoxyParamCaption}\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Creatine\+Engine\+Core/\+Source/\+Public/\mbox{\hyperlink{_renderable_8h}{Renderable.\+h}}\item 
+Creatine\+Engine\+Core/\+Source/\+Private/\mbox{\hyperlink{_renderable_8cpp}{Renderable.\+cpp}}\end{DoxyCompactItemize}

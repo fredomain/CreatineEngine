@@ -1,0 +1,40 @@
+\doxysection{Surface\+Asset.\+h}
+\hypertarget{_surface_asset_8h_source}{}\label{_surface_asset_8h_source}\index{CreatineEngineCore/Source/Public/SurfaceAsset.h@{CreatineEngineCore/Source/Public/SurfaceAsset.h}}
+\mbox{\hyperlink{_surface_asset_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ SURFACEASSET\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ SURFACEASSET\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_asset_8h}{Asset.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_e_1_1_s_d_l___surface_destroyer}{SDL\_SurfaceDestroyer}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_c_e_1_1_s_d_l___surface_destroyer_af51c890103c9aba4240a87fd44aed11d}{operator()}}(SDL\_Surface*\ surface)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (surface)\ SDL\_DestroySurface(surface);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_surface_asset_a6ffcc1f99f8b229ee51a458863c57d8d}{SurfaceAsset}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//virtual\ \string~SurfaceAsset()\ =\ default;}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ SDL\_Surface*\ \mbox{\hyperlink{class_c_e_1_1_surface_asset_a29268c38acd746245dd2382f851c94ba}{getSurface}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_surface_asset_a67dfe59073aac40fc6e0264ef816efec}{load}}()\ \textcolor{keyword}{override}\ =\ 0;\ \ \ \textcolor{comment}{//\ Line\ needed\ to\ make\ this\ class\ abstract}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_c_e_1_1_surface_asset_a6ffcc1f99f8b229ee51a458863c57d8d}{SurfaceAsset}}(std::string\ path\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::unique\_ptr<SDL\_Surface,\ SDL\_SurfaceDestroyer>\ \mbox{\hyperlink{class_c_e_1_1_surface_asset_a5bdc7401945da3cb832605976f8b6a2b}{surface}};}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !SURFACEASSET\_H}}
+\DoxyCodeLine{00034\ }
+
+\end{DoxyCode}

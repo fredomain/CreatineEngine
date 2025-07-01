@@ -1,0 +1,47 @@
+\doxysection{Texture\+Asset.\+h}
+\hypertarget{_texture_asset_8h_source}{}\label{_texture_asset_8h_source}\index{CreatineEngineCore/Source/Public/TextureAsset.h@{CreatineEngineCore/Source/Public/TextureAsset.h}}
+\mbox{\hyperlink{_texture_asset_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TEXTUREASSET\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TEXTUREASSET\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_asset_8h}{Asset.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_e_1_1_s_d_l___texture_destroyer}{SDL\_TextureDestroyer}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_c_e_1_1_s_d_l___texture_destroyer_a3ea8cf3017cc9763073e6678c75f6192}{operator()}}(SDL\_Texture*\ texture)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (texture)\ SDL\_DestroyTexture(texture);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69}{TextureAsset}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//virtual\ \string~TextureAsset()\ =\ default;}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_a7480ef204c7fa887a65363babd9c098b}{setRenderer}}(SDL\_Renderer*\ renderer);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ SDL\_Renderer*\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_ab8f731bc6f7b328a0f762a0c3a51c32c}{getRenderer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_a512d3dc70806bd1a1b3acbf83dec9f4a}{getTexture}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_a1f81c68dbc79249ff3585a7e7405ad2c}{load}}()\ \textcolor{keyword}{override}\ =\ 0;\ \ \ \textcolor{comment}{//\ Line\ needed\ to\ make\ this\ class\ abstract}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69}{TextureAsset}}(SDL\_Renderer*\ renderer,\ std::string\ path\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::unique\_ptr<SDL\_Texture,\ SDL\_TextureDestroyer>\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_af9e2013b911f8875304843d653a2dd9a}{texture}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ SDL\_Renderer*\ renderer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !TEXTUREASSET\_H}}
+\DoxyCodeLine{00041\ }
+
+\end{DoxyCode}

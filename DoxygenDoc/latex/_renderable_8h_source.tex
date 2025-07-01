@@ -1,0 +1,100 @@
+\doxysection{Renderable.\+h}
+\hypertarget{_renderable_8h_source}{}\label{_renderable_8h_source}\index{CreatineEngineCore/Source/Public/Renderable.h@{CreatineEngineCore/Source/Public/Renderable.h}}
+\mbox{\hyperlink{_renderable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ RENDERABLE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ RENDERABLE\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//Using\ SDL}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_f_vector_8h}{FVector.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rect_anchor_8h}{RectAnchor.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <print>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_renderable}{Renderable}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a23141ad84b2418a458e981423c4ff9c8}{render}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_ae5d27bc709c084e44943def68a6a030b}{init}}()\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ After\ loading\ assets\ included\ in\ derived\ classes,\ if\ any}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aaef6c7cb792a025407e5ebb98919ff6f}{getX}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_adbbc0f56b32371d55f7d8e9a864d3a0f}{setX}}(\textcolor{keywordtype}{float}\ x);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_ad16e9d500ce2a6eefd0e80e56d939df6}{getY}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aca9949ae99cb0f99dc2a83435b2a12ba}{setY}}(\textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aa4b9726794b3af913894e06a3bb221e9}{setPosition}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aa4b9726794b3af913894e06a3bb221e9}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}\&\ position);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_renderable_adf72961f3ac696cc79049b2ea852737c}{getPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a2ede63a922fa84c5cac51e7ee2254f91}{setPositionAnchor}}(\mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{RectAnchor}}\ anchor);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{RectAnchor}}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a1965c78914bce48819600cba13c4b5e1}{getPositionAnchor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_ae48e19e42860ce35ea828fa777839d6f}{getWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_ac6b885eb04a7606febe3bcc112f62474}{getHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a41f2fabb13c6d5599920af711e0ca8df}{getSourceWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aa27362d440ec383cee78c892333f1e1c}{getSourceHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a50e978e115e3d190bf1da73878e77667}{setScaleX}}(\textcolor{keywordtype}{float}\ scaleX);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a96bcafacda7c7a2f47a0b3bf6b41fdbf}{setScaleY}}(\textcolor{keywordtype}{float}\ scaleY);\ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aaef5eddb1d44649285b149d640060805}{setScale}}(\textcolor{keywordtype}{float}\ scale);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aaef5eddb1d44649285b149d640060805}{setScale}}(\mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}\ scale);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a0133426274ddb0dd3cfb7d3433e2db3a}{getScaleX}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_ae98e4d7a61ccc159aa767133fbb467be}{getScaleY}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aaef501a873ec8530e471b221d917d3f1}{getRotation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a873c832ff2281bb7b9514b3e515220e3}{setRotation}}(\textcolor{keywordtype}{double}\ rotation);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a40ef2eef99b2b76f9c883867484ff146}{enableRotation}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a9584c347a228a86a699f10298e8e6672}{disableRotation}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a0f1795f63ff951107ecb4b418ba099ea}{isRotationEnabled}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a8176a6d1c65bcfb7da03880f5a95e6a1}{setVerticalFlip}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a44ee65e2f420e477d9f9c2225d4ef28d}{setHorizontalFlip}}();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a3e62b8791386b3cdf467a5aadaa2c42c}{disableFlip}}();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a17f4c0c9e55d912bcc94e8017ca8e764}{setFlipMode}}(\textcolor{keyword}{const}\ SDL\_FlipMode\&\ mode);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ SDL\_FlipMode\ \mbox{\hyperlink{class_c_e_1_1_renderable_a9686034f914209a9eb8e1cff621d97b0}{getFlipMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SDL\_FlipMode\&\ \mbox{\hyperlink{class_c_e_1_1_renderable_a204d93ae5229aabb8fb6d257eca7e9a4}{getFlipModeRef}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_renderable_aa313a4190184e62968d04d456158c09b}{getOpacity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_afbb4b88e0e27c15660d1cb4262721c20}{setOpacity}}(\textcolor{keywordtype}{float}\ opacity);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Renderable();}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Derived\ classes\ must\ use\ this\ to\ set\ the\ source\ width\ and\ height}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_adfafa9fb2ee77f634eec7d96ec4bfc4f}{setSourceWidth}}(\textcolor{keywordtype}{float}\ width);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a65bcd0d5712bd88e2ca427ebaeb2016f}{setSourceHeight}}(\textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ SDL\_FRect\ \mbox{\hyperlink{class_c_e_1_1_renderable_a2b38e7a0430ede7320dc7dd1b66c7598}{getSourceRect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SDL\_FRect*\ \mbox{\hyperlink{class_c_e_1_1_renderable_aee10bc04fa45f196e248ebc895d4643e}{getSourceRectPtr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_renderable_a5d0728b73e79e4db5eebd9c0b2875b1b}{setSourceRect}}(\textcolor{keyword}{const}\ SDL\_FRect\&\ rect);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ SDL\_FRect\ \mbox{\hyperlink{class_c_e_1_1_renderable_af77b06f6f182e3cdb597eaf3e9ac59d9}{getDestinationRect}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SDL\_FRect*\ \mbox{\hyperlink{class_c_e_1_1_renderable_a2b45546356d3cee8d0d30acbcfd99fb2}{getDestinationRectPtr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ SDL\_FRect\ sourceRect;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Must\ be\ setted\ in\ derived\ classes.\ x,\ y\ refer\ to\ the\ top\ left\ corner.\ Careful:\ SDL\_BlitSurface\ use\ SDL\_Rect,\ convert\ to\ int\ in\ working\ with\ surfaces}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ SDL\_FRect\ destinationRect;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Used\ to\ render,\ x,\ y,\ scale,\ rotation\ (and\ its\ local\ rotation\ axis\ position),\ flip\ operations\ applies\ to\ this\ destination\ rect}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_c_e_a0433cf28f6f192b78a80a0a7ca3767b6}{RectAnchor}}\ destinationAnchor;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Used\ to\ select\ redering\ coordinates\ anchor\ (it\ is\ also\ the\ scalation\ origin)}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}\ destinationAnchorOffset;\ \ \ \ \ \textcolor{comment}{//\ Relative\ vector\ between\ }}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}\ scale;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Scale\ origin\ is\ the\ same\ than\ the\ coordinates\ anchor}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ rotationEnabled;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ false\ for\ an\ slight\ gain\ in\ performance\ if\ rotations\ are\ not\ needed}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rotation;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Unit:\ degrees}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector}{FVector}}\ rotationOrigin;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rotation\ origin}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ SDL\_FlipMode\ flipMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ applies\ when\ rotations\ are\ enabled}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ opacity;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Range}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \};}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !RENDERABLE\_H}}
+
+\end{DoxyCode}

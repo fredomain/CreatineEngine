@@ -1,0 +1,37 @@
+\doxysection{Image.\+h}
+\hypertarget{_image_8h_source}{}\label{_image_8h_source}\index{CreatineEngineCore/Source/Public/Image.h@{CreatineEngineCore/Source/Public/Image.h}}
+\mbox{\hyperlink{_image_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ IMAGE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ IMAGE\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_renderable_8h}{Renderable.h}}"{}}\ \textcolor{comment}{//Parent\ header}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_image_asset_g_p_u_8h}{ImageAssetGPU.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_image_a1c76cd82fd0155772a983dc8df8915f9}{Image}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_e_1_1_renderable}{Renderable}}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_image_a1c76cd82fd0155772a983dc8df8915f9}{Image}}(SDL\_Renderer*\ renderer,\ std::string\ path,\ \textcolor{keywordtype}{bool}\ rotation\_enabled\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_image_af73b087a38deaaecb57fd4ffbc40ff98}{render}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_image_ad32e7fcc393584160f0a451c48b4d80f}{init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_image_asset_g_p_u}{ImageAssetGPU}}\ \mbox{\hyperlink{class_c_e_1_1_image_a8645d8b2adea92751ffdb394ad83e62c}{imageAsset}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_image_a923e3e398ddfe6b3f05f6108f737fbee}{renderSimple}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_image_a721d2b729708b4638f8d77aafc990636}{renderRotated}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !IMAGE\_H}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+
+\end{DoxyCode}

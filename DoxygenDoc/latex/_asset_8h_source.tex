@@ -1,0 +1,35 @@
+\doxysection{Asset.\+h}
+\hypertarget{_asset_8h_source}{}\label{_asset_8h_source}\index{CreatineEngineCore/Source/Public/Asset.h@{CreatineEngineCore/Source/Public/Asset.h}}
+\mbox{\hyperlink{_asset_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ ASSET\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ ASSET\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//virtual\ \string~Asset()\ =\ default;}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}{load}}()\ =\ 0;\ \ \ \ \textcolor{comment}{//\ Main\ load\ method\ (use\ internal\ path\ attribute)}}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}{load}}(\textcolor{keyword}{const}\ std::string\&\ newPath);\ \ \textcolor{comment}{//\ Set\ a\ new\ path\ and\ call\ load()}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}{getPath}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{setPath}}(\textcolor{keyword}{const}\ std::string\&\ newPath);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{setPath}}(std::string\&\&\ newPath);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}}(std::string\ path\ =\ \textcolor{stringliteral}{"{}"{}});\ \ \ \ \textcolor{comment}{//\ Enables\ derived\ classes\ to\ use\ the\ constructor\ delegation}}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::string\ path;}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !ASSET\_H}}
+\DoxyCodeLine{00029\ }
+
+\end{DoxyCode}

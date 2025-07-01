@@ -1,0 +1,38 @@
+\doxysection{Text\+Asset\+GPU.\+h}
+\hypertarget{_text_asset_g_p_u_8h_source}{}\label{_text_asset_g_p_u_8h_source}\index{CreatineEngineCore/Source/Public/TextAssetGPU.h@{CreatineEngineCore/Source/Public/TextAssetGPU.h}}
+\mbox{\hyperlink{_text_asset_g_p_u_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TEXT\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TEXT\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_asset_8h}{TextureAsset.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<SDL\_ttf.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_text_asset_g_p_u_ae0982c3c458d7c161ddcae67d4dcdac1}{TextAssetGPU}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69}{TextureAsset}}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_text_asset_g_p_u_ae0982c3c458d7c161ddcae67d4dcdac1}{TextAssetGPU}}(SDL\_Renderer*\ renderer,\ std::string\ text,\ std::string\ fontPath,\ \textcolor{keywordtype}{int}\ textSize\ =\ 10,\ SDL\_Color\ textColor\ =\ \{\ 0,0,0\ \});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_text_asset_g_p_u_a6a5e1c853da763181d9ed37bf32389b9}{\string~TextAssetGPU}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_text_asset_g_p_u_ab55af581937b1e97982a8c625818004d}{load}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Text\ variables\ */}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::string\ text;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ SDL\_Color\ textColor;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ textSize;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ TTF\_Font*\ textFont;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Intermediate\ variables\ */}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ textWidth;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ textHeight;}
+\DoxyCodeLine{00031\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !TEXT\_H}}
+
+\end{DoxyCode}

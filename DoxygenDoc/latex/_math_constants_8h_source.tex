@@ -1,0 +1,24 @@
+\doxysection{Math\+Constants.\+h}
+\hypertarget{_math_constants_8h_source}{}\label{_math_constants_8h_source}\index{CreatineEngineCore/Source/Public/MathConstants.h@{CreatineEngineCore/Source/Public/MathConstants.h}}
+\mbox{\hyperlink{_math_constants_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ MATHCONSTANTS\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ MATHCONSTANTS\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{comment}{//\ Epsilon\ value\ used\ for\ angle\ comparisons\ (in\ degrees).}}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ Use\ this\ to\ check\ if\ a\ rotation\ angle\ is\ effectively\ zero,}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{comment}{//\ e.g.,\ std::abs(angle)\ <\ ANGLE\_EPSILON}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_c_e_a59cf92cf93e877ae2fa8f45ff4310dbb}{NEAR\_ZERO\_THRESHOLD}}\ =\ 0.001;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Add\ more\ mathematical\ constants\ here\ as\ needed,\ e.g.:}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_c_e_a84f7f2fa455feb7fd55c09fb6b4a53b2}{PI}}\ =\ 3.14159265358979323846;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_c_e_aefcd3f82c0c08cbac99ca33f80c076a4}{DEG\_TO\_RAD}}\ =\ \mbox{\hyperlink{namespace_c_e_a84f7f2fa455feb7fd55c09fb6b4a53b2}{PI}}\ /\ 180.0;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MATHCONSTANTS\_H}}
+
+\end{DoxyCode}

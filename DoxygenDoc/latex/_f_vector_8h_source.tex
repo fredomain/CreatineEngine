@@ -1,0 +1,63 @@
+\doxysection{FVector.\+h}
+\hypertarget{_f_vector_8h_source}{}\label{_f_vector_8h_source}\index{CreatineEngineCore/Source/Public/FVector.h@{CreatineEngineCore/Source/Public/FVector.h}}
+\mbox{\hyperlink{_f_vector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ FVECTOR\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ FVECTOR\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_c_e}{CE}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_aad5b847f66c1961d81cfb4de19f21bd6}{x}};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ac53af4bd2d93abc99cd5e781a8c382f4}{y}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_aad5b847f66c1961d81cfb4de19f21bd6}{x}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ac53af4bd2d93abc99cd5e781a8c382f4}{y}});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Arithmetic\ operators}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a20d74415ea0b7f200323fa3c3132b68c}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a88c433cb723c032be7bb40f0b2ee37cb}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a145101023feac93b05d68737366d12ca}{operator*}}(\textcolor{keywordtype}{float}\ scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a3f333cc5d06210b499a44aa533896fac}{operator/}}(\textcolor{keywordtype}{float}\ scalar)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a012173533c79750001f425c834698edd}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ad4a73ea5dc079e3b6693b7de4459ba8b}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ \mbox{\hyperlink{class_c_e_1_1_f_vector_abce666dffc2dcd6519494b29a8ad27c9}{operator*=}}(\textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a1f91dd9b870fbc5600e2a8647628a111}{operator/=}}(\textcolor{keywordtype}{float}\ scalar);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comparison\ operators}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_abeeb5e474b05cee7842fa3bebcb9e32a}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_aa04effeba8f2827f9c9ab3cae4256f96}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vector\ math}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a4f24495fa78de0ab0c2e63a739fd6f37}{dot}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_af81adb2b6a43d88eaf6e0807fafa9a84}{cross}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab5280736559bfbe6fa2d3d109d1fa8c9}{length}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_abc20f5ed9bd5247042ebb66455ebebab}{lengthSquared}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Floating\ point\ comparison}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_aa268211efc89e763c23bf8ef9476d8fa}{isEqualTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\&\ other,\ \textcolor{keywordtype}{float}\ epsilon\ =\ 1e-\/6f)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normalization}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a7151cec90e8748032c7820b308af5bbc}{normalized}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a60b0ae524a9a6a838017bb2db1f389f0}{normalize}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rotation}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_c_e_1_1_f_vector_ab8ba6618f98c3491d1002146d3cef052}{FVector}}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a4e1a98332cdabb6126f9ff57114de10b}{getRotation}}(\textcolor{keywordtype}{float}\ radians)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_a5a74309364b2ca56f685fedc0265a070}{rotate}}(\textcolor{keywordtype}{float}\ radians);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Angle\ with\ respect\ to\ positive\ X\ axis\ (in\ radians)}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Returns\ in\ range\ [-\/pi,\ pi]}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_c_e_1_1_f_vector_ae75e325d0fa47c9d3ce6dd3237653edc}{angle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FVECTOR\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,152 @@
+\doxysection{SDL3\+\_\+\+Testing/\+Source/main.cpp File Reference}
+\hypertarget{_s_d_l3___testing_2_source_2main_8cpp}{}\label{_s_d_l3___testing_2_source_2main_8cpp}\index{SDL3\_Testing/Source/main.cpp@{SDL3\_Testing/Source/main.cpp}}
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$print$>$}\newline
+{\ttfamily \#include "{}Creatine\+Engine\+Core.\+h"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_ad19abaacb073bdef7940926f64b2aace}{Init}} ()
+\item 
+bool \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a8e21ef8f33ca4eb25e1a804ac55c0220}{Load\+Media}} ()
+\item 
+void \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a7f7a3199c392465d0767c6506c1af5b4}{Close}} ()
+\item 
+int \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a700a0caa5b70a06d1064e576f9f3cf65}{main}} (int argc, char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a8416ba3764516fa75341fcaac2dd0a99}{SCREEN\+\_\+\+WIDTH}} = 960
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a17356f760c4f9346f10641760dbedf87}{SCREEN\+\_\+\+HEIGHT}} = 540
+\item 
+SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a222f53a6a442d8f716dffd665e83528a}{g\+Window}} = NULL
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a4735638969a524c4ac90a88f23c59a1f}{g\+Renderer}} = NULL
+\item 
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a75bb3b40c5b3067c4197d7aa7d25ed9a}{g\+Hello\+World}} = NULL
+\item 
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a80e16f131309846d17aadc1e47f5955a}{character}} = NULL
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_af406c27c08b006fe8c37d26f6287e335}{g\+Hello\+World\+\_\+t}} = NULL
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a60680ad4afeaeafde4fb329aea2ac349}{character\+\_\+t}} = NULL
+\item 
+SDL\+\_\+\+FRect \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a03c3ec30ef784dab6a70aab3ed98f7e2}{character\+\_\+ori}}
+\item 
+SDL\+\_\+\+FRect \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a8628e2cc842afb1440b0913ec23f8759}{character\+\_\+dest}}
+\item 
+bool \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_ac746fa6ad48d19984a159f14bec028a3}{quit}} = false
+\item 
+SDL\+\_\+\+Event \mbox{\hyperlink{_s_d_l3___testing_2_source_2main_8cpp_a6b57f01d3c576db5368dd0efc2f435a4}{event}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a7f7a3199c392465d0767c6506c1af5b4}\index{main.cpp@{main.cpp}!Close@{Close}}
+\index{Close@{Close}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a7f7a3199c392465d0767c6506c1af5b4} 
+void Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_ad19abaacb073bdef7940926f64b2aace}\index{main.cpp@{main.cpp}!Init@{Init}}
+\index{Init@{Init}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_ad19abaacb073bdef7940926f64b2aace} 
+bool Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a8e21ef8f33ca4eb25e1a804ac55c0220}\index{main.cpp@{main.cpp}!LoadMedia@{LoadMedia}}
+\index{LoadMedia@{LoadMedia}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{LoadMedia()}{LoadMedia()}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a8e21ef8f33ca4eb25e1a804ac55c0220} 
+bool Load\+Media (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a700a0caa5b70a06d1064e576f9f3cf65}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a700a0caa5b70a06d1064e576f9f3cf65} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{args}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a80e16f131309846d17aadc1e47f5955a}\index{main.cpp@{main.cpp}!character@{character}}
+\index{character@{character}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{character}{character}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a80e16f131309846d17aadc1e47f5955a} 
+SDL\+\_\+\+Surface\texorpdfstring{$\ast$}{*} character = NULL}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a8628e2cc842afb1440b0913ec23f8759}\index{main.cpp@{main.cpp}!character\_dest@{character\_dest}}
+\index{character\_dest@{character\_dest}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{character\_dest}{character\_dest}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a8628e2cc842afb1440b0913ec23f8759} 
+SDL\+\_\+\+FRect character\+\_\+dest}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a03c3ec30ef784dab6a70aab3ed98f7e2}\index{main.cpp@{main.cpp}!character\_ori@{character\_ori}}
+\index{character\_ori@{character\_ori}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{character\_ori}{character\_ori}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a03c3ec30ef784dab6a70aab3ed98f7e2} 
+SDL\+\_\+\+FRect character\+\_\+ori}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a60680ad4afeaeafde4fb329aea2ac349}\index{main.cpp@{main.cpp}!character\_t@{character\_t}}
+\index{character\_t@{character\_t}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{character\_t}{character\_t}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a60680ad4afeaeafde4fb329aea2ac349} 
+SDL\+\_\+\+Texture\texorpdfstring{$\ast$}{*} character\+\_\+t = NULL}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a6b57f01d3c576db5368dd0efc2f435a4}\index{main.cpp@{main.cpp}!event@{event}}
+\index{event@{event}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{event}{event}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a6b57f01d3c576db5368dd0efc2f435a4} 
+SDL\+\_\+\+Event event}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a75bb3b40c5b3067c4197d7aa7d25ed9a}\index{main.cpp@{main.cpp}!gHelloWorld@{gHelloWorld}}
+\index{gHelloWorld@{gHelloWorld}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{gHelloWorld}{gHelloWorld}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a75bb3b40c5b3067c4197d7aa7d25ed9a} 
+SDL\+\_\+\+Surface\texorpdfstring{$\ast$}{*} g\+Hello\+World = NULL}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_af406c27c08b006fe8c37d26f6287e335}\index{main.cpp@{main.cpp}!gHelloWorld\_t@{gHelloWorld\_t}}
+\index{gHelloWorld\_t@{gHelloWorld\_t}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{gHelloWorld\_t}{gHelloWorld\_t}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_af406c27c08b006fe8c37d26f6287e335} 
+SDL\+\_\+\+Texture\texorpdfstring{$\ast$}{*} g\+Hello\+World\+\_\+t = NULL}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a4735638969a524c4ac90a88f23c59a1f}\index{main.cpp@{main.cpp}!gRenderer@{gRenderer}}
+\index{gRenderer@{gRenderer}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{gRenderer}{gRenderer}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a4735638969a524c4ac90a88f23c59a1f} 
+SDL\+\_\+\+Renderer\texorpdfstring{$\ast$}{*} g\+Renderer = NULL}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a222f53a6a442d8f716dffd665e83528a}\index{main.cpp@{main.cpp}!gWindow@{gWindow}}
+\index{gWindow@{gWindow}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{gWindow}{gWindow}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a222f53a6a442d8f716dffd665e83528a} 
+SDL\+\_\+\+Window\texorpdfstring{$\ast$}{*} g\+Window = NULL}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_ac746fa6ad48d19984a159f14bec028a3}\index{main.cpp@{main.cpp}!quit@{quit}}
+\index{quit@{quit}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{quit}{quit}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_ac746fa6ad48d19984a159f14bec028a3} 
+bool quit = false}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a17356f760c4f9346f10641760dbedf87}\index{main.cpp@{main.cpp}!SCREEN\_HEIGHT@{SCREEN\_HEIGHT}}
+\index{SCREEN\_HEIGHT@{SCREEN\_HEIGHT}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_HEIGHT}{SCREEN\_HEIGHT}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a17356f760c4f9346f10641760dbedf87} 
+const uint16\+\_\+t SCREEN\+\_\+\+HEIGHT = 540}
+
+\Hypertarget{_s_d_l3___testing_2_source_2main_8cpp_a8416ba3764516fa75341fcaac2dd0a99}\index{main.cpp@{main.cpp}!SCREEN\_WIDTH@{SCREEN\_WIDTH}}
+\index{SCREEN\_WIDTH@{SCREEN\_WIDTH}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_WIDTH}{SCREEN\_WIDTH}}
+{\footnotesize\ttfamily \label{_s_d_l3___testing_2_source_2main_8cpp_a8416ba3764516fa75341fcaac2dd0a99} 
+const uint16\+\_\+t SCREEN\+\_\+\+WIDTH = 960}
+

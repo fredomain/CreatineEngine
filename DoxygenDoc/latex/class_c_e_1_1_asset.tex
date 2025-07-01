@@ -1,0 +1,119 @@
+\doxysection{CE\+::Asset Class Reference}
+\hypertarget{class_c_e_1_1_asset}{}\label{class_c_e_1_1_asset}\index{CE::Asset@{CE::Asset}}
+
+
+{\ttfamily \#include $<$Asset.\+h$>$}
+
+Inheritance diagram for CE\+::Asset\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_e_1_1_asset}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}{load}} ()=0
+\item 
+bool \mbox{\hyperlink{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a}{load}} (const std\+::string \&new\+Path)
+\item 
+std\+::string \mbox{\hyperlink{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em path Getter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{set\+Path}} (const std\+::string \&new\+Path)
+\begin{DoxyCompactList}\small\item\em path Setter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}{set\+Path}} (std\+::string \&\&new\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}} (std\+::string path="{}"{})
+\begin{DoxyCompactList}\small\item\em \doxylink{class_c_e_1_1_asset}{Asset} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_c_e_1_1_asset_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}\index{CE::Asset@{CE::Asset}!Asset@{Asset}}
+\index{Asset@{Asset}!CE::Asset@{CE::Asset}}
+\doxysubsubsection{\texorpdfstring{Asset()}{Asset()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6} 
+CE\+::\+Asset\+::\+Asset (\begin{DoxyParamCaption}\item[{std\+::string}]{path}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+\doxylink{class_c_e_1_1_asset}{Asset} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \+: path to the \doxylink{class_c_e_1_1_asset}{Asset} file (image, sound, text font...) \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_e_1_1_asset_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}\index{CE::Asset@{CE::Asset}!getPath@{getPath}}
+\index{getPath@{getPath}!CE::Asset@{CE::Asset}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0} 
+std\+::string CE\+::\+Asset\+::get\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+path Getter 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_c_e_1_1_asset}{Asset} path as string 
+\end{DoxyReturn}
+\Hypertarget{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}\index{CE::Asset@{CE::Asset}!load@{load}}
+\index{load@{load}!CE::Asset@{CE::Asset}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2} 
+virtual bool CE\+::\+Asset\+::load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_e_1_1_image_asset_c_p_u_a773d166cef79e0538e51a7c229e9b581}{CE\+::\+Image\+Asset\+CPU}}, \mbox{\hyperlink{class_c_e_1_1_image_asset_g_p_u_a4680d2e09d40445abb71c66ba3be34f5}{CE\+::\+Image\+Asset\+GPU}}, \mbox{\hyperlink{class_c_e_1_1_surface_asset_a67dfe59073aac40fc6e0264ef816efec}{CE\+::\+Surface\+Asset}}, \mbox{\hyperlink{class_c_e_1_1_text_asset_g_p_u_ab55af581937b1e97982a8c625818004d}{CE\+::\+Text\+Asset\+GPU}}, and \mbox{\hyperlink{class_c_e_1_1_texture_asset_a1f81c68dbc79249ff3585a7e7405ad2c}{CE\+::\+Texture\+Asset}}.
+
+\Hypertarget{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a}\index{CE::Asset@{CE::Asset}!load@{load}}
+\index{load@{load}!CE::Asset@{CE::Asset}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a} 
+bool CE\+::\+Asset\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Path}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}\index{CE::Asset@{CE::Asset}!setPath@{setPath}}
+\index{setPath@{setPath}!CE::Asset@{CE::Asset}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb} 
+void CE\+::\+Asset\+::set\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Path}{}\end{DoxyParamCaption})}
+
+
+
+path Setter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Path} & string value to replace the current "{}path"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}\index{CE::Asset@{CE::Asset}!setPath@{setPath}}
+\index{setPath@{setPath}!CE::Asset@{CE::Asset}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff} 
+void CE\+::\+Asset\+::set\+Path (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{new\+Path}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Creatine\+Engine\+Core/\+Source/\+Public/\mbox{\hyperlink{_asset_8h}{Asset.\+h}}\item 
+Creatine\+Engine\+Core/\+Source/\+Private/\mbox{\hyperlink{_asset_8cpp}{Asset.\+cpp}}\end{DoxyCompactItemize}

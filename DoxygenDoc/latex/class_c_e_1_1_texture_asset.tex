@@ -1,0 +1,114 @@
+\doxysection{CE\+::Texture\+Asset Class Reference}
+\hypertarget{class_c_e_1_1_texture_asset}{}\label{class_c_e_1_1_texture_asset}\index{CE::TextureAsset@{CE::TextureAsset}}
+
+
+{\ttfamily \#include $<$Texture\+Asset.\+h$>$}
+
+Inheritance diagram for CE\+::Texture\+Asset\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_e_1_1_texture_asset}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_texture_asset_a7480ef204c7fa887a65363babd9c098b}{set\+Renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_texture_asset_ab8f731bc6f7b328a0f762a0c3a51c32c}{get\+Renderer}} () const
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_texture_asset_a512d3dc70806bd1a1b3acbf83dec9f4a}{get\+Texture}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_c_e_1_1_texture_asset_a1f81c68dbc79249ff3585a7e7405ad2c}{load}} () override=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_asset}{CE\+::\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a}{load}} (const std\+::string \&new\+Path)
+\item 
+std\+::string \mbox{\hyperlink{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em path Getter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{set\+Path}} (const std\+::string \&new\+Path)
+\begin{DoxyCompactList}\small\item\em path Setter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}{set\+Path}} (std\+::string \&\&new\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69}{Texture\+Asset}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::string path="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_asset}{CE\+::\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}} (std\+::string path="{}"{})
+\begin{DoxyCompactList}\small\item\em \doxylink{class_c_e_1_1_asset}{Asset} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ SDL\+\_\+\+Texture, \mbox{\hyperlink{struct_c_e_1_1_s_d_l___texture_destroyer}{SDL\+\_\+\+Texture\+Destroyer}} $>$ \mbox{\hyperlink{class_c_e_1_1_texture_asset_af9e2013b911f8875304843d653a2dd9a}{texture}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_c_e_1_1_texture_asset_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69}\index{CE::TextureAsset@{CE::TextureAsset}!TextureAsset@{TextureAsset}}
+\index{TextureAsset@{TextureAsset}!CE::TextureAsset@{CE::TextureAsset}}
+\doxysubsubsection{\texorpdfstring{TextureAsset()}{TextureAsset()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69} 
+CE\+::\+Texture\+Asset\+::\+Texture\+Asset (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{, }\item[{std\+::string}]{path}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_e_1_1_texture_asset_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_e_1_1_texture_asset_ab8f731bc6f7b328a0f762a0c3a51c32c}\index{CE::TextureAsset@{CE::TextureAsset}!getRenderer@{getRenderer}}
+\index{getRenderer@{getRenderer}!CE::TextureAsset@{CE::TextureAsset}}
+\doxysubsubsection{\texorpdfstring{getRenderer()}{getRenderer()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_texture_asset_ab8f731bc6f7b328a0f762a0c3a51c32c} 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} CE\+::\+Texture\+Asset\+::get\+Renderer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_texture_asset_a512d3dc70806bd1a1b3acbf83dec9f4a}\index{CE::TextureAsset@{CE::TextureAsset}!getTexture@{getTexture}}
+\index{getTexture@{getTexture}!CE::TextureAsset@{CE::TextureAsset}}
+\doxysubsubsection{\texorpdfstring{getTexture()}{getTexture()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_texture_asset_a512d3dc70806bd1a1b3acbf83dec9f4a} 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} CE\+::\+Texture\+Asset\+::get\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_texture_asset_a1f81c68dbc79249ff3585a7e7405ad2c}\index{CE::TextureAsset@{CE::TextureAsset}!load@{load}}
+\index{load@{load}!CE::TextureAsset@{CE::TextureAsset}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_texture_asset_a1f81c68dbc79249ff3585a7e7405ad2c} 
+virtual bool CE\+::\+Texture\+Asset\+::load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}{CE\+::\+Asset}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_c_e_1_1_image_asset_g_p_u_a4680d2e09d40445abb71c66ba3be34f5}{CE\+::\+Image\+Asset\+GPU}}, and \mbox{\hyperlink{class_c_e_1_1_text_asset_g_p_u_ab55af581937b1e97982a8c625818004d}{CE\+::\+Text\+Asset\+GPU}}.
+
+\Hypertarget{class_c_e_1_1_texture_asset_a7480ef204c7fa887a65363babd9c098b}\index{CE::TextureAsset@{CE::TextureAsset}!setRenderer@{setRenderer}}
+\index{setRenderer@{setRenderer}!CE::TextureAsset@{CE::TextureAsset}}
+\doxysubsubsection{\texorpdfstring{setRenderer()}{setRenderer()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_texture_asset_a7480ef204c7fa887a65363babd9c098b} 
+void CE\+::\+Texture\+Asset\+::set\+Renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_c_e_1_1_texture_asset_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_e_1_1_texture_asset_af9e2013b911f8875304843d653a2dd9a}\index{CE::TextureAsset@{CE::TextureAsset}!texture@{texture}}
+\index{texture@{texture}!CE::TextureAsset@{CE::TextureAsset}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_texture_asset_af9e2013b911f8875304843d653a2dd9a} 
+std\+::unique\+\_\+ptr$<$SDL\+\_\+\+Texture, \mbox{\hyperlink{struct_c_e_1_1_s_d_l___texture_destroyer}{SDL\+\_\+\+Texture\+Destroyer}}$>$ CE\+::\+Texture\+Asset\+::texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Creatine\+Engine\+Core/\+Source/\+Public/\mbox{\hyperlink{_texture_asset_8h}{Texture\+Asset.\+h}}\item 
+Creatine\+Engine\+Core/\+Source/\+Private/\mbox{\hyperlink{_texture_asset_8cpp}{Texture\+Asset.\+cpp}}\end{DoxyCompactItemize}

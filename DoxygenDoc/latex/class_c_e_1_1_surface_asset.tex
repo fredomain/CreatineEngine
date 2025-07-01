@@ -1,0 +1,98 @@
+\doxysection{CE\+::Surface\+Asset Class Reference}
+\hypertarget{class_c_e_1_1_surface_asset}{}\label{class_c_e_1_1_surface_asset}\index{CE::SurfaceAsset@{CE::SurfaceAsset}}
+
+
+{\ttfamily \#include $<$Surface\+Asset.\+h$>$}
+
+Inheritance diagram for CE\+::Surface\+Asset\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_e_1_1_surface_asset}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_surface_asset_a29268c38acd746245dd2382f851c94ba}{get\+Surface}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_c_e_1_1_surface_asset_a67dfe59073aac40fc6e0264ef816efec}{load}} () override=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_asset}{CE\+::\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a}{load}} (const std\+::string \&new\+Path)
+\item 
+std\+::string \mbox{\hyperlink{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em path Getter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{set\+Path}} (const std\+::string \&new\+Path)
+\begin{DoxyCompactList}\small\item\em path Setter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}{set\+Path}} (std\+::string \&\&new\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_surface_asset_a6ffcc1f99f8b229ee51a458863c57d8d}{Surface\+Asset}} (std\+::string path="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_asset}{CE\+::\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}} (std\+::string path="{}"{})
+\begin{DoxyCompactList}\small\item\em \doxylink{class_c_e_1_1_asset}{Asset} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ SDL\+\_\+\+Surface, \mbox{\hyperlink{struct_c_e_1_1_s_d_l___surface_destroyer}{SDL\+\_\+\+Surface\+Destroyer}} $>$ \mbox{\hyperlink{class_c_e_1_1_surface_asset_a5bdc7401945da3cb832605976f8b6a2b}{surface}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_c_e_1_1_surface_asset_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_e_1_1_surface_asset_a6ffcc1f99f8b229ee51a458863c57d8d}\index{CE::SurfaceAsset@{CE::SurfaceAsset}!SurfaceAsset@{SurfaceAsset}}
+\index{SurfaceAsset@{SurfaceAsset}!CE::SurfaceAsset@{CE::SurfaceAsset}}
+\doxysubsubsection{\texorpdfstring{SurfaceAsset()}{SurfaceAsset()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_surface_asset_a6ffcc1f99f8b229ee51a458863c57d8d} 
+CE\+::\+Surface\+Asset\+::\+Surface\+Asset (\begin{DoxyParamCaption}\item[{std\+::string}]{path}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_e_1_1_surface_asset_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_e_1_1_surface_asset_a29268c38acd746245dd2382f851c94ba}\index{CE::SurfaceAsset@{CE::SurfaceAsset}!getSurface@{getSurface}}
+\index{getSurface@{getSurface}!CE::SurfaceAsset@{CE::SurfaceAsset}}
+\doxysubsubsection{\texorpdfstring{getSurface()}{getSurface()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_surface_asset_a29268c38acd746245dd2382f851c94ba} 
+SDL\+\_\+\+Surface \texorpdfstring{$\ast$}{*} CE\+::\+Surface\+Asset\+::get\+Surface (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_c_e_1_1_surface_asset_a67dfe59073aac40fc6e0264ef816efec}\index{CE::SurfaceAsset@{CE::SurfaceAsset}!load@{load}}
+\index{load@{load}!CE::SurfaceAsset@{CE::SurfaceAsset}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_surface_asset_a67dfe59073aac40fc6e0264ef816efec} 
+virtual bool CE\+::\+Surface\+Asset\+::load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}{CE\+::\+Asset}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_c_e_1_1_image_asset_c_p_u_a773d166cef79e0538e51a7c229e9b581}{CE\+::\+Image\+Asset\+CPU}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_c_e_1_1_surface_asset_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_e_1_1_surface_asset_a5bdc7401945da3cb832605976f8b6a2b}\index{CE::SurfaceAsset@{CE::SurfaceAsset}!surface@{surface}}
+\index{surface@{surface}!CE::SurfaceAsset@{CE::SurfaceAsset}}
+\doxysubsubsection{\texorpdfstring{surface}{surface}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_surface_asset_a5bdc7401945da3cb832605976f8b6a2b} 
+std\+::unique\+\_\+ptr$<$SDL\+\_\+\+Surface, \mbox{\hyperlink{struct_c_e_1_1_s_d_l___surface_destroyer}{SDL\+\_\+\+Surface\+Destroyer}}$>$ CE\+::\+Surface\+Asset\+::surface\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Creatine\+Engine\+Core/\+Source/\+Public/\mbox{\hyperlink{_surface_asset_8h}{Surface\+Asset.\+h}}\item 
+Creatine\+Engine\+Core/\+Source/\+Private/\mbox{\hyperlink{_surface_asset_8cpp}{Surface\+Asset.\+cpp}}\end{DoxyCompactItemize}

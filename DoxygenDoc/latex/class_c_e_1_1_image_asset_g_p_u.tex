@@ -1,0 +1,87 @@
+\doxysection{CE\+::Image\+Asset\+GPU Class Reference}
+\hypertarget{class_c_e_1_1_image_asset_g_p_u}{}\label{class_c_e_1_1_image_asset_g_p_u}\index{CE::ImageAssetGPU@{CE::ImageAssetGPU}}
+
+
+{\ttfamily \#include $<$Image\+Asset\+GPU.\+h$>$}
+
+Inheritance diagram for CE\+::Image\+Asset\+GPU\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_e_1_1_image_asset_g_p_u}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_image_asset_g_p_u_a5d4ac9a9dffeb5a765fe6ec6b4b4ee31}{Image\+Asset\+GPU}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::string path)
+\item 
+bool \mbox{\hyperlink{class_c_e_1_1_image_asset_g_p_u_a4680d2e09d40445abb71c66ba3be34f5}{load}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_texture_asset}{CE\+::\+Texture\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_e_1_1_texture_asset_a7480ef204c7fa887a65363babd9c098b}{set\+Renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_texture_asset_ab8f731bc6f7b328a0f762a0c3a51c32c}{get\+Renderer}} () const
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_e_1_1_texture_asset_a512d3dc70806bd1a1b3acbf83dec9f4a}{get\+Texture}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_asset}{CE\+::\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a}{load}} (const std\+::string \&new\+Path)
+\item 
+std\+::string \mbox{\hyperlink{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em path Getter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{set\+Path}} (const std\+::string \&new\+Path)
+\begin{DoxyCompactList}\small\item\em path Setter \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}{set\+Path}} (std\+::string \&\&new\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_texture_asset}{CE\+::\+Texture\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_texture_asset_a3bad801d77e90c404ec3269b0166fb69}{Texture\+Asset}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::string path="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_c_e_1_1_asset}{CE\+::\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_e_1_1_asset_a92d3a7975843602c274d18ad3c2155d6}{Asset}} (std\+::string path="{}"{})
+\begin{DoxyCompactList}\small\item\em \doxylink{class_c_e_1_1_asset}{Asset} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_c_e_1_1_texture_asset}{CE\+::\+Texture\+Asset}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ SDL\+\_\+\+Texture, \mbox{\hyperlink{struct_c_e_1_1_s_d_l___texture_destroyer}{SDL\+\_\+\+Texture\+Destroyer}} $>$ \mbox{\hyperlink{class_c_e_1_1_texture_asset_af9e2013b911f8875304843d653a2dd9a}{texture}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_c_e_1_1_image_asset_g_p_u_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_e_1_1_image_asset_g_p_u_a5d4ac9a9dffeb5a765fe6ec6b4b4ee31}\index{CE::ImageAssetGPU@{CE::ImageAssetGPU}!ImageAssetGPU@{ImageAssetGPU}}
+\index{ImageAssetGPU@{ImageAssetGPU}!CE::ImageAssetGPU@{CE::ImageAssetGPU}}
+\doxysubsubsection{\texorpdfstring{ImageAssetGPU()}{ImageAssetGPU()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_image_asset_g_p_u_a5d4ac9a9dffeb5a765fe6ec6b4b4ee31} 
+CE\+::\+Image\+Asset\+GPU\+::\+Image\+Asset\+GPU (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer}{, }\item[{std\+::string}]{path}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_e_1_1_image_asset_g_p_u_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_e_1_1_image_asset_g_p_u_a4680d2e09d40445abb71c66ba3be34f5}\index{CE::ImageAssetGPU@{CE::ImageAssetGPU}!load@{load}}
+\index{load@{load}!CE::ImageAssetGPU@{CE::ImageAssetGPU}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{class_c_e_1_1_image_asset_g_p_u_a4680d2e09d40445abb71c66ba3be34f5} 
+bool CE\+::\+Image\+Asset\+GPU\+::load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_c_e_1_1_texture_asset_a1f81c68dbc79249ff3585a7e7405ad2c}{CE\+::\+Texture\+Asset}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Creatine\+Engine\+Core/\+Source/\+Public/\mbox{\hyperlink{_image_asset_g_p_u_8h}{Image\+Asset\+GPU.\+h}}\item 
+Creatine\+Engine\+Core/\+Source/\+Private/\mbox{\hyperlink{_image_asset_g_p_u_8cpp}{Image\+Asset\+GPU.\+cpp}}\end{DoxyCompactItemize}
