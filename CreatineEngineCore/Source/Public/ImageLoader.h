@@ -13,7 +13,7 @@ namespace CE {
 
         using CallbackFunc = void(*)(SDL_Surface*, void*);
 
-        void setCallback(CallbackFunc cb, void* userData);
+        void setLoadCallback(CallbackFunc cb, void* callbackObject);
         void load() override;        
 
     private:

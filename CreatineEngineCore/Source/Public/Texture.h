@@ -4,7 +4,6 @@
 
 #include <Renderable.h>
 #include "ImageLoader.h"
-#include <SDL_ttf.h>
 
 namespace CE {
 	/**
@@ -15,35 +14,21 @@ namespace CE {
 		// Constructors destructors
 		//Texture() = default;
 		Texture(SDL_Renderer* renderer,
-				SDL_Texture* texture,
-				float rotationEnabled = false,
-				double rotation = 0.0,
-				FVector rotationOrigin = FVector(0.0f, 0.0f),
-				SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
-		);
-		Texture(SDL_Renderer* renderer,
-				SDL_Surface* surface,
-				float rotationEnabled = false,
-				double rotation = 0.0,
-				FVector rotationOrigin = FVector(0.0f, 0.0f),
-				SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+				SDL_Texture* texture
 		);
 
 		Texture(SDL_Renderer* renderer,
-				ImageLoader& imageLoader,
-				float rotationEnabled = false,
-				double rotation = 0.0,
-				FVector rotationOrigin = FVector(0.0f, 0.0f),
-				SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+				SDL_Surface* surface
+		);
+
+		Texture(SDL_Renderer* renderer,
+				ImageLoader& imageLoader
 		);
 		Texture(SDL_Renderer* renderer,
 			std::string text,
-			TTF_Font font,
-			SDL_Color textColor,
-			float rotationEnabled = false,
-			double rotation = 0.0,
-			FVector rotationOrigin = FVector(0.0f, 0.0f),
-			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+			TTF_Font* font,
+			size_t textSize,
+			SDL_Color textColor
 		);
 		~Texture();
 
@@ -55,9 +40,10 @@ namespace CE {
 
 		// Virtual functions
 		void render() const override;
-		void createFromSDL_Surface(SDL_Surface* surface);
-		void createFromString(std::string string);
 		void init() override;
+		void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) override;
+
+		void createFromSDL_Surface(SDL_Surface* surface);
 
 		// Renderer operations
 		void setRenderer(SDL_Renderer* renderer);
@@ -68,47 +54,15 @@ namespace CE {
 		void setData(SDL_Texture* texture);
 		bool isValid();
 
-		int getSDL_TextureWidth() const;
-		int getSDL_TextureHeight() const;
-
-		// Rotation operations
-		double getRotation() const;
-		void setRotation(double rotation);
-		void setRotationOrigin(float x, float y);
-		void setRotationOrigin(FVector rotationOrigin);
-		void setRotationOrigin(RectAnchor rotationAnchor);
-		float getRotationOriginX() const;
-		float getRotationOriginY() const;
-		FVector getRotationOrigin() const;
-		SDL_FPoint getRotationOriginSDL() const;
-
-		void enableRotation();
-		void disableRotation();
-		bool isRotationEnabled() const;
-
-		// Flip operations
-		void setVerticalFlip();
-		void setHorizontalFlip();
-		void disableFlip();
-		void setFlipMode(const SDL_FlipMode& mode);
-		SDL_FlipMode getFlipMode() const;
-		const SDL_FlipMode& getFlipModeRef() const;
+		int getDataWidth() const;
+		int getDataHeight() const;
 
 	protected:
-		void renderSimple() const;
-		void renderRotated() const;
-
 		SDL_Texture* data = nullptr;
+		SDL_Renderer* renderer = nullptr;
 
 	private:
 		static void onSurfaceLoaded(SDL_Surface* surf, void* userData);
-
-		SDL_Renderer* renderer = nullptr;
-
-		bool rotationEnabled;			// Set false for an slight gain in performance if rotations are not needed
-		double rotation;				// Unit: degrees
-		FVector rotationOrigin;			// Rotation origin (destination rect local frame)
-		SDL_FlipMode flipMode;			// Only applies when rotations are enabled
 		
 	};
 

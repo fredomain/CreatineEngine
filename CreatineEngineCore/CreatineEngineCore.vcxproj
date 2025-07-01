@@ -34,6 +34,8 @@
     <ClCompile Include="Source\Private\TimingManager.cpp" />
     <ClCompile Include="Source\Private\Texture.cpp" />
     <ClCompile Include="Source\Private\Surface.cpp" />
+    <ClCompile Include="Source\Private\TextureRotatable.cpp" />
+    <ClCompile Include="Source\Private\SpriteTextureRotatable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\Logger.h" />
@@ -52,6 +54,8 @@
     <ClInclude Include="Source\Public\TimingManager.h" />
     <ClInclude Include="Source\Public\Texture.h" />
     <ClInclude Include="Source\Public\Surface.h" />
+    <ClInclude Include="Source\Public\TextureRotatable.h" />
+    <ClInclude Include="Source\Public\SpriteTextureRotatable.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

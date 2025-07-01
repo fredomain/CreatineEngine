@@ -75,31 +75,40 @@ int main(int argc, char* args[]){
 		SDL_Log("Failed to initialize!\n");
 	}
 	else{
+		// Forma 1
 		/*gHelloWorld = IMG_Load("Content/Images/background.jpg");
 		if (gHelloWorld == NULL) {
 			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
 		}
 		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
 
-		CE::ImageLoader imageLoader("Content/Images/background.jpg");
-		CE::Texture imagenFondo(gRenderer, imageLoader);
+		// Forma 2
+		//CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		//CE::Texture imagenFondo(gRenderer, imageLoader);
+		//imageLoader.load();
 
-		imageLoader.load();
+		// Forma 3
+		SDL_Color color{ 255, 255, 0, 255 };
+		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
+		CE::TextureRotatable imagenFondo(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();
-		imagenFondo.setScale(0.2f);
-		imagenFondo.setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-		imagenFondo.enableRotation();
-		imagenFondo.setRotationOrigin(CE::RectAnchor::TOP_RIGHT);
+		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+		imagenFondo.setScale(0.5);
+		imagenFondo.setRotationOrigin(CE::RectAnchor::CENTER);
 		imagenFondo.setRotation(45);
-		imagenFondo.setVerticalFlip();
+		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
+
+		
 
 		CE::Logger logger("log.txt");
-
-		logger.log("Debug info", CE::LogLevel::Debug);       // Ignorado
-		logger.log("App started", CE::LogLevel::Info);       // Mostrado
-		logger.log("Null pointer", CE::LogLevel::Error);     // Mostrado
+		logger.log("Debug", CE::LogLevel::Debug);
+		logger.log("Critical", CE::LogLevel::Critical);
+		logger.log("Info", CE::LogLevel::Info);
+		logger.log("Error", CE::LogLevel::Error);
+		logger.log("verbose", CE::LogLevel::Verbose);
+		logger.log("Warn", CE::LogLevel::Warn);
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -172,6 +181,8 @@ int main(int argc, char* args[]){
 
 bool Init(){
 	bool success = true;	//Initialization flag
+
+	TTF_Init();
 
 	//Initialize SDL
 	if (!SDL_Init(SDL_INIT_VIDEO)){

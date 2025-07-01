@@ -1,84 +1,43 @@
 #include "Texture.h"
-#include "MathConstants.h"
 
 namespace CE {
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
-		SDL_Texture* texture,
-		float rotationEnabled,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
+		SDL_Texture* texture
 	) :
 		renderer(renderer),
-		data(texture),
-		rotationEnabled(rotationEnabled),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
-
+		data(texture){
 	}
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
-		SDL_Surface* surface,
-		float rotationEnabled,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
+		SDL_Surface* surface
 	) :
-		renderer(renderer),
-		rotationEnabled(rotationEnabled),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
+		renderer(renderer){
 
 		createFromSDL_Surface(surface);
 	}
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
-		ImageLoader& imageLoader,
-		float rotationEnabled,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
+		ImageLoader& imageLoader
 	) :
-		renderer(renderer),
-		rotationEnabled(rotationEnabled),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
+		renderer(renderer) {
 
-		imageLoader.setCallback(&Texture::onSurfaceLoaded, this);
+		imageLoader.setLoadCallback(&Texture::onSurfaceLoaded, this);
 	}
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
 		std::string text,
-		TTF_Font font,
-		SDL_Color textColor,
-		float rotationEnabled,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
+		TTF_Font* font,
+		size_t textSize,
+		SDL_Color textColor
 	) :
-		renderer(renderer),
-		rotationEnabled(rotationEnabled),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
+		renderer(renderer) {
 
-		SDL_Surface* surface = TTF_RenderText_Solid(&gFont, text.c_str(), textColor);	// Create a temporal surface (it will be converted to SDL_Texture)
-		if (surface == NULL)
-		{
-			printf("Unable to render text surface! SDL_ttf Error: %s\n", SDL_GetError());
-		}
-		else {
-			createFromSDL_Surface(surface);
-			SDL_DestroySurface(surface);	// Destroy the temporal surface
-		}
+		createFromString(text, font, textSize, textColor);
 	}
 
 	Texture::~Texture() {
@@ -99,16 +58,29 @@ namespace CE {
 	}
 
 	void Texture::render() const {
-		if (isRotationEnabled()) {
-			if (std::abs(getRotation()) > CE::NEAR_ZERO_THRESHOLD) {		// render with rotation
-				renderRotated();
-			}
-			else {
-				renderSimple();
-			}
+		SDL_RenderTexture(renderer, data, getSourceRectPtr(), getDestinationRectPtr());
+	}
+
+	void Texture::init() {
+		// First, set the source rect size
+		//setSourceWidth(static_cast<float>(TextureRenderAsset.getTexture()->w));
+		//setSourceHeight(static_cast<float>(TextureRenderAsset.getTexture()->h));
+		// Then, destination rect must be set regarding the scale
+		setScale(1.0f);
+		// Anchor offset can also be set
+		setPositionAnchor(getPositionAnchor());
+		setPosition(0.0f, 0.0f);
+	}
+
+	void Texture::createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) {
+		SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), textSize, textColor);	// Create a temporal surface (it will be converted to SDL_Texture)
+		if (surface == NULL)
+		{
+			printf("Unable to render text surface! SDL_ttf Error: %s\n", SDL_GetError());
 		}
-		else {	// no rotation
-			renderSimple();
+		else {
+			createFromSDL_Surface(surface);
+			SDL_DestroySurface(surface);	// Destroy the temporal surface
 		}
 	}
 
@@ -129,24 +101,6 @@ namespace CE {
 		}
 	}
 
-	void Texture::createFromString(std::string string) {
-		// TODO
-	}
-
-	void Texture::init() {
-		// First, set the source rect size
-		//setSourceWidth(static_cast<float>(TextureRenderAsset.getTexture()->w));
-		//setSourceHeight(static_cast<float>(TextureRenderAsset.getTexture()->h));
-		// Then, destination rect must be set regarding the scale
-		setScale(1.0f);
-		// Anchor offset can also be set
-		setPositionAnchor(getPositionAnchor());
-		setPosition(0.0f, 0.0f);
-
-		// Initialize parameters
-		setRotationOrigin(RectAnchor::CENTER);
-	}
-
 	void Texture::setRenderer(SDL_Renderer* renderer) {
 		this->renderer = renderer;
 	}
@@ -155,24 +109,14 @@ namespace CE {
 		return renderer;
 	}
 
-	void Texture::renderSimple() const {
-		SDL_RenderTexture(renderer, data, getSourceRectPtr(), getDestinationRectPtr());
-		//SDL_Log("renderSimple");
-	}
-	void Texture::renderRotated() const {
-		SDL_FPoint rotationOriginSDL(getRotationOriginSDL());
-		SDL_RenderTextureRotated(renderer, data, getSourceRectPtr(), getDestinationRectPtr(), getRotation(), &rotationOriginSDL, getFlipMode());
-		//SDL_Log("renderRotated");
-	}
-
-	int Texture::getSDL_TextureWidth() const {
+	int Texture::getDataWidth() const {
 		/*int w = 0;
 		SDL_QueryTexture(data, nullptr, nullptr, &w, nullptr);
 		return w;*/
 		return data ? data->w : 0;
 	}
 
-	int Texture::getSDL_TextureHeight() const {
+	int Texture::getDataHeight() const {
 		/*int h = 0;
 		SDL_QueryTexture(data, nullptr, nullptr, nullptr, &h);
 		return h;*/
@@ -189,80 +133,6 @@ namespace CE {
 
 	bool Texture::isValid() {
 		return data ? true : false;
-	}
-
-	double Texture::getRotation() const {
-		return rotation;
-	}
-
-	void Texture::setRotation(double rotation) {
-		this->rotation = rotation;
-	}
-
-	void Texture::setRotationOrigin(float x, float y) {
-		rotationOrigin.x = x;
-		rotationOrigin.y = y;
-		printf("Rotation origin: %f, %f\n", x, y);
-	}
-
-	void Texture::setRotationOrigin(FVector rotationOrigin) {
-		setRotationOrigin(rotationOrigin.x, rotationOrigin.y);
-	}
-
-	void Texture::setRotationOrigin(RectAnchor rotationAnchor) {
-		setRotationOrigin(computeAnchorOffset(getWidth(), getHeight(), rotationAnchor));
-	}
-
-	float Texture::getRotationOriginX() const {
-		return rotationOrigin.x;
-	}
-
-	float Texture::getRotationOriginY() const {
-		return rotationOrigin.y;
-	}
-
-	FVector Texture::getRotationOrigin() const {
-		return rotationOrigin;
-	}
-
-	SDL_FPoint Texture::getRotationOriginSDL() const {
-		return SDL_FPoint(rotationOrigin.x, rotationOrigin.y);
-	}
-
-	void Texture::enableRotation() {
-		rotationEnabled = true;
-	}
-
-	void Texture::disableRotation() {
-		rotationEnabled = false;
-	}
-
-	bool Texture::isRotationEnabled() const {
-		return rotationEnabled;
-	}
-
-	void Texture::setVerticalFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_VERTICAL;
-	}
-
-	void Texture::setHorizontalFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_HORIZONTAL;
-	}
-
-	void Texture::disableFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_NONE;
-	}
-
-	void Texture::setFlipMode(const SDL_FlipMode& mode) {
-		flipMode = mode;
-	}
-
-	SDL_FlipMode Texture::getFlipMode() const {
-		return flipMode;
-	}
-
-	const SDL_FlipMode& Texture::getFlipModeRef() const {
-		return flipMode;
 	}
 
 	void Texture::onSurfaceLoaded(SDL_Surface* surface, void* callbackObject) {

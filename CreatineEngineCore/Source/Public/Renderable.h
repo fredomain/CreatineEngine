@@ -6,6 +6,7 @@
 #include <SDL3/SDL.h>
 #include "FVector.h"
 #include "RectAnchor.h"
+#include <SDL_ttf.h>
 #include <print>
 
 namespace CE {
@@ -13,10 +14,9 @@ namespace CE {
 	{
 	public:
 		// Virtual pure functions
-		virtual void render() const = 0;
-		virtual void createFromSDL_Surface(SDL_Surface* surface) = 0;
-		virtual void createFromString(std::string string) = 0;
+		virtual void render() const = 0;		
 		virtual void init() = 0;
+		virtual void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) = 0;
 
 		// Position operations
 		float getX() const;

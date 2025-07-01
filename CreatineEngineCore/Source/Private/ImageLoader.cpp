@@ -10,7 +10,12 @@ namespace CE {
         : AssetLoader(std::move(path)) {
     }
 
-    void ImageLoader::setCallback(CallbackFunc cb, void* callbackObject) {
+    /**
+     * @brief Sets the callback function to be invoked during image loading.
+     * @param cb The callback function to be called during image loading.
+     * @param callbackObject A pointer to the object that will be passed to the callback function.
+     */
+    void ImageLoader::setLoadCallback(CallbackFunc cb, void* callbackObject) {
         callback = cb;
         this->callbackObject = callbackObject;
     }

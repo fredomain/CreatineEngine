@@ -25,7 +25,7 @@ namespace CE {
 	void Renderable::setX(float x){
 		position.x = x;
 		destinationRect.x = x - posAnchorOffset.x;
-		printf("destinationRect.x = %f\n", destinationRect.x);
+		//printf("destinationRect.x = %f\n", destinationRect.x);
 	}
 
 	float Renderable::getY() const {
@@ -35,7 +35,7 @@ namespace CE {
 	void Renderable::setY(float y) {
 		position.y = y;
 		destinationRect.y = y - posAnchorOffset.y;
-		printf("destinationRect.y = %f\n", destinationRect.y);
+		//printf("destinationRect.y = %f\n", destinationRect.y);
 	}
 
 	/**
@@ -150,7 +150,7 @@ namespace CE {
 		if (scale >= 0) {
 			this->scale.x = scale;
 			destinationRect.w = sourceRect.w * this->scale.x;
-			printf("destinationRect.w = %f\n", destinationRect.w);
+			//printf("destinationRect.w = %f\n", destinationRect.w);
 		}
 	}
 
@@ -158,7 +158,7 @@ namespace CE {
 		if (scale >= 0) {
 			this->scale.y = scale;
 			destinationRect.h = sourceRect.h * this->scale.y;
-			printf("destinationRect.h = %f\n", destinationRect.h);
+			//printf("destinationRect.h = %f\n", destinationRect.h);
 		}
 	}
 
