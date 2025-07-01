@@ -3,7 +3,7 @@
 #define IMAGE_H
 
 #include "Renderable.h" //Parent header
-#include "ImageAssetGPU.h"
+#include "Assets/ImageAssetGPU.h"
 
 namespace CE {
 

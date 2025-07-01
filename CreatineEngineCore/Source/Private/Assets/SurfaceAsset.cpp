@@ -1,4 +1,4 @@
-#include "SurfaceAsset.h"
+#include "Assets/SurfaceAsset.h"
 
 namespace CE {
 

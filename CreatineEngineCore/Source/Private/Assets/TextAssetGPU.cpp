@@ -1,4 +1,4 @@
-#include "TextAssetGPU.h"
+#include "Assets/TextAssetGPU.h"
 
 namespace CE {
 	TextAssetGPU::TextAssetGPU(SDL_Renderer* renderer, std::string text, std::string fontPath, int textSize, SDL_Color textColor)

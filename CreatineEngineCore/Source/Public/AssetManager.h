@@ -2,7 +2,7 @@
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include "Asset.h"
+#include "Assets/Asset.h"
 #include <vector>
 #include <memory>
 

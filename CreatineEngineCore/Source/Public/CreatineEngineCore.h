@@ -2,7 +2,7 @@
 #ifndef CREATINEENGINECORE_H
 #define CREATINEENGINECORE_H
 
-#include "Sprite.h"
+#include "Renderable/Sprite.h"
 #include "AssetManager.h"
 #include "MathConstants.h"
 

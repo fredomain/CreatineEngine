@@ -16,13 +16,13 @@ Inheritance diagram for CE\+::Asset\+:\begin{figure}[H]
 virtual bool \mbox{\hyperlink{class_c_e_1_1_asset_ae45475b393f01a272e2fadfc2fb318a2}{load}} ()=0
 \item 
 bool \mbox{\hyperlink{class_c_e_1_1_asset_ac1f21ba17758e8c61abd317871e9af6a}{load}} (const std\+::string \&new\+Path)
-\item 
+\begin{DoxyCompactList}\small\item\em General asset load function. To be replaced/overloaded by the child classes. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_c_e_1_1_asset_a6d77cad4393485d7689c68a5b012bbf0}{get\+Path}} () const
 \begin{DoxyCompactList}\small\item\em path Getter \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_e_1_1_asset_a6a72a7bf5234380e1d1506e53187c0bb}{set\+Path}} (const std\+::string \&new\+Path)
-\begin{DoxyCompactList}\small\item\em path Setter \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em path Setter (lvalue reference variant) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}{set\+Path}} (std\+::string \&\&new\+Path)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Path setter (rvalue reference variant) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -83,8 +83,12 @@ Implemented in \mbox{\hyperlink{class_c_e_1_1_image_asset_c_p_u_a773d166cef79e05
 bool CE\+::\+Asset\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Path}{}\end{DoxyParamCaption})}
 
 
+
+General asset load function. To be replaced/overloaded by the child classes. 
+
+
 \begin{DoxyParams}{Parameters}
-{\em new\+Path} & \\
+{\em new\+Path} & path to load the required asset (image, sound, text font...) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -98,11 +102,11 @@ void CE\+::\+Asset\+::set\+Path (\begin{DoxyParamCaption}\item[{const std\+::str
 
 
 
-path Setter 
+path Setter (lvalue reference variant) 
 
 
 \begin{DoxyParams}{Parameters}
-{\em new\+Path} & string value to replace the current "{}path"{} \\
+{\em new\+Path} & string value to replace the current "{}path"{} (lvalue) \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_c_e_1_1_asset_a1772176b6b211116753d2f08ab3dbaff}\index{CE::Asset@{CE::Asset}!setPath@{setPath}}
@@ -113,7 +117,16 @@ void CE\+::\+Asset\+::set\+Path (\begin{DoxyParamCaption}\item[{std\+::string \&
 
 
 
+Path setter (rvalue reference variant) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Path} & string value to replace the current "{}path"{} (rvalue) \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Creatine\+Engine\+Core/\+Source/\+Public/\mbox{\hyperlink{_asset_8h}{Asset.\+h}}\item 
-Creatine\+Engine\+Core/\+Source/\+Private/\mbox{\hyperlink{_asset_8cpp}{Asset.\+cpp}}\end{DoxyCompactItemize}
+Creatine\+Engine\+Core/\+Source/\+Public/\+Assets/\mbox{\hyperlink{_asset_8h}{Asset.\+h}}\item 
+Creatine\+Engine\+Core/\+Source/\+Private/\+Assets/\mbox{\hyperlink{_asset_8cpp}{Asset.\+cpp}}\end{DoxyCompactItemize}

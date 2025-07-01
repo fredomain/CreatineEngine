@@ -15,37 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\Image.cpp">
+    <ClCompile Include="Source\Private\Renderable\Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Sprite.cpp">
+    <ClCompile Include="Source\Private\Renderable\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\TextAssetGPU.cpp">
+    <ClCompile Include="Source\Private\Assets\TextAssetGPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Renderable.cpp">
+    <ClCompile Include="Source\Private\Renderable\Renderable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Asset.cpp">
+    <ClCompile Include="Source\Private\Assets\Asset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\AssetManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\ImageAssetGPU.cpp">
+    <ClCompile Include="Source\Private\Assets\ImageAssetGPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\ImageAssetCPU.cpp">
+    <ClCompile Include="Source\Private\Assets\ImageAssetCPU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Surface.cpp">
+    <ClCompile Include="Source\Private\Renderable\Surface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\TextureAsset.cpp">
+    <ClCompile Include="Source\Private\Assets\TextureAsset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\SurfaceAsset.cpp">
+    <ClCompile Include="Source\Private\Assets\SurfaceAsset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\GameEntity.cpp">
@@ -68,37 +68,37 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\Image.h">
+    <ClInclude Include="Source\Public\Renderable\Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Sprite.h">
+    <ClInclude Include="Source\Public\Renderable\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\TextAssetGPU.h">
+    <ClInclude Include="Source\Public\Assets\TextAssetGPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Renderable.h">
+    <ClInclude Include="Source\Public\Renderable\Renderable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Asset.h">
+    <ClInclude Include="Source\Public\Assets\Asset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\AssetManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\ImageAssetGPU.h">
+    <ClInclude Include="Source\Public\Assets\ImageAssetGPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\ImageAssetCPU.h">
+    <ClInclude Include="Source\Public\Assets\ImageAssetCPU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Surface.h">
+    <ClInclude Include="Source\Public\Renderable\Surface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\TextureAsset.h">
+    <ClInclude Include="Source\Public\Assets\TextureAsset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\SurfaceAsset.h">
+    <ClInclude Include="Source\Public\Assets\SurfaceAsset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\GameEntity.h">

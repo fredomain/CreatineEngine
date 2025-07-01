@@ -1,4 +1,4 @@
-#include "Asset.h"
+#include "Assets/Asset.h"
 #include <memory>
 
 namespace CE {
@@ -11,8 +11,8 @@ namespace CE {
     }
 
     /**
-     * @brief 
-     * @param newPath 
+     * @brief General asset load function. To be replaced/overloaded by the child classes
+     * @param newPath path to load the required asset (image, sound, text font...)
      * @return 
      */
     bool Asset::load(const std::string& newPath) {
@@ -29,13 +29,18 @@ namespace CE {
     }
 
     /**
-     * @brief path Setter
-     * @param newPath string value to replace the current "path"
+     * @brief path Setter (lvalue reference variant)
+     * @param newPath string value to replace the current "path" (lvalue)
      */
     void Asset::setPath(const std::string& newPath) {
         path = newPath;
     }
 
+
+    /**
+     * @brief Path setter (rvalue reference variant)
+     * @param newPath string value to replace the current "path" (rvalue)
+     */
     void Asset::setPath(std::string&& newPath) {
         path = std::move(newPath);
     }
