@@ -11,12 +11,7 @@ namespace CE {
         logFile.close();
     }
 
-    void Logger::setMinimumLogLevel(LogLevel level) {
-        minLogLevel = level;
-    }
-
     void Logger::log(const std::string& message, LogLevel level, const std::string& category) {
-        if (level < minLogLevel) return;
         writeToOutput(category, level, message);
     }
 

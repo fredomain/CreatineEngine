@@ -7,9 +7,9 @@ namespace CE {
         : path(std::move(path)) {
     }
 
-    bool AssetLoader::load(const std::string& newPath) {
+    void AssetLoader::load(const std::string& newPath) {
         setPath(newPath);
-        return load();
+        load();
     }
 
     std::string AssetLoader::getPath() const {
@@ -18,10 +18,6 @@ namespace CE {
 
     void AssetLoader::setPath(const std::string& newPath) {
         path = newPath;
-    }
-
-    void AssetLoader::setPath(std::string&& newPath) {
-        path = std::move(newPath);
     }
 
 }

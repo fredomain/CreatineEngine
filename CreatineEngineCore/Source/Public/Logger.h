@@ -44,14 +44,12 @@ namespace CE {
         Logger(const std::string& filePath);
         ~Logger();
 
-        void setMinimumLogLevel(LogLevel level);
         void log(const std::string& message,
             LogLevel level = LogLevel::Info,
             const std::string& category = "General");
 
     private:
         std::ofstream logFile;
-        LogLevel minLogLevel = LogLevel::Verbose;
 
         void writeToOutput(const std::string& category, LogLevel level, const std::string& message);
         static std::string getCurrentTimestamp();

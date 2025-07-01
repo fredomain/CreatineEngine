@@ -75,15 +75,16 @@ int main(int argc, char* args[]){
 		SDL_Log("Failed to initialize!\n");
 	}
 	else{
-		//Load media
-
-		//CE::Texture imagenFondo(gRenderer, "Content/Images/background.jpg");
-		gHelloWorld = IMG_Load("Content/Images/background.jpg");
+		/*gHelloWorld = IMG_Load("Content/Images/background.jpg");
 		if (gHelloWorld == NULL) {
 			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
 		}
-		CE::Texture imagenFondo(gRenderer, gHelloWorld);
-		//imagenFondo.imageAsset.load();
+		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
+
+		CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		CE::Texture imagenFondo(gRenderer, imageLoader);
+
+		imageLoader.load();
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();
@@ -95,7 +96,6 @@ int main(int argc, char* args[]){
 		imagenFondo.setVerticalFlip();
 
 		CE::Logger logger("log.txt");
-		logger.setMinimumLogLevel(CE::LogLevel::Info);
 
 		logger.log("Debug info", CE::LogLevel::Debug);       // Ignorado
 		logger.log("App started", CE::LogLevel::Info);       // Mostrado

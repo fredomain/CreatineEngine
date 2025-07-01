@@ -4,6 +4,7 @@
 
 #include <Renderable.h>
 #include "ImageLoader.h"
+#include <SDL_ttf.h>
 
 namespace CE {
 	/**
@@ -29,19 +30,21 @@ namespace CE {
 		);
 
 		Texture(SDL_Renderer* renderer,
-				ImageLoader* imageLoader,
+				ImageLoader& imageLoader,
 				float rotationEnabled = false,
 				double rotation = 0.0,
 				FVector rotationOrigin = FVector(0.0f, 0.0f),
 				SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
 		);
-		/*Texture(SDL_Renderer* renderer,
-			std::string string,
+		Texture(SDL_Renderer* renderer,
+			std::string text,
+			TTF_Font font,
+			SDL_Color textColor,
 			float rotationEnabled = false,
 			double rotation = 0.0,
 			FVector rotationOrigin = FVector(0.0f, 0.0f),
 			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
-		);*/
+		);
 		~Texture();
 
 		Texture(const Texture&) = delete;				// Delete copy constructor 
@@ -98,6 +101,8 @@ namespace CE {
 		SDL_Texture* data = nullptr;
 
 	private:
+		static void onSurfaceLoaded(SDL_Surface* surf, void* userData);
+
 		SDL_Renderer* renderer = nullptr;
 
 		bool rotationEnabled;			// Set false for an slight gain in performance if rotations are not needed

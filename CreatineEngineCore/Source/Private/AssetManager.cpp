@@ -9,7 +9,10 @@ namespace CE {
 
     void AssetManager::loadAllAssets() {
         for (auto& assetLoader : assetLoaderList) {
-            if (!assetLoader->load(assetLoader->getPath())) {
+            try {
+                assetLoader->load(assetLoader->getPath());
+            }
+            catch(std::runtime_error){
                 std::print("Error loading asset: {}\n", assetLoader->getPath());
             }
         }

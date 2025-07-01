@@ -1,5 +1,8 @@
 #include "ImageLoader.h"
 #include <SDL_image.h>
+#include <stdexcept>
+
+#include <print>
 
 namespace CE {
 
@@ -7,15 +10,23 @@ namespace CE {
         : AssetLoader(std::move(path)) {
     }
 
-	bool ImageLoader::load() {
-		/*surface.setData(IMG_Load(getPath().c_str()));
-		if (surface.isValid())
-		{
-			SDL_Log("Unable to load image %s! SDL Error: %s\n", getPath().c_str(), SDL_GetError());
-			return false;
-		}*/
+    void ImageLoader::setCallback(CallbackFunc cb, void* callbackObject) {
+        callback = cb;
+        this->callbackObject = callbackObject;
+    }
 
-		return true;
-	}
+    void ImageLoader::load() {
+        SDL_Surface* surface = IMG_Load(path.c_str());
+        if (!surface) {
+            throw std::runtime_error(SDL_GetError());
+        }
+
+        if (callback) {
+            callback(surface, callbackObject);
+            std::print("Calling callback");
+        }
+
+        SDL_DestroySurface(surface);
+    }
 
 }

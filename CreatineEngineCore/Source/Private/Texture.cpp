@@ -39,7 +39,7 @@ namespace CE {
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
-		ImageLoader* imageLoader,
+		ImageLoader& imageLoader,
 		float rotationEnabled,
 		double rotation,
 		FVector rotationOrigin,
@@ -51,6 +51,34 @@ namespace CE {
 		rotationOrigin(rotationOrigin),
 		flipMode(flipMode) {
 
+		imageLoader.setCallback(&Texture::onSurfaceLoaded, this);
+	}
+
+	Texture::Texture(
+		SDL_Renderer* renderer,
+		std::string text,
+		TTF_Font font,
+		SDL_Color textColor,
+		float rotationEnabled,
+		double rotation,
+		FVector rotationOrigin,
+		SDL_FlipMode flipMode
+	) :
+		renderer(renderer),
+		rotationEnabled(rotationEnabled),
+		rotation(rotation),
+		rotationOrigin(rotationOrigin),
+		flipMode(flipMode) {
+
+		SDL_Surface* surface = TTF_RenderText_Solid(&gFont, text.c_str(), textColor);	// Create a temporal surface (it will be converted to SDL_Texture)
+		if (surface == NULL)
+		{
+			printf("Unable to render text surface! SDL_ttf Error: %s\n", SDL_GetError());
+		}
+		else {
+			createFromSDL_Surface(surface);
+			SDL_DestroySurface(surface);	// Destroy the temporal surface
+		}
 	}
 
 	Texture::~Texture() {
@@ -235,5 +263,10 @@ namespace CE {
 
 	const SDL_FlipMode& Texture::getFlipModeRef() const {
 		return flipMode;
+	}
+
+	void Texture::onSurfaceLoaded(SDL_Surface* surface, void* callbackObject) {
+		Texture* self = static_cast<Texture*>(callbackObject);
+		self->createFromSDL_Surface(surface);
 	}
 }

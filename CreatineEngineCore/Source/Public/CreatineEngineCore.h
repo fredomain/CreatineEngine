@@ -5,6 +5,7 @@
 
 #include "AssetManager.h"
 #include "SpriteTexture.h"
+#include "ImageLoader.h"
 #include "MathConstants.h"
 #include "Logger.h"
 

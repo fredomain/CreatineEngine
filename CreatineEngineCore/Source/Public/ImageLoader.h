@@ -3,20 +3,22 @@
 #define IMAGEASSET_H
 
 #include "AssetLoader.h"
-#include <Surface.h>
-#include <memory>
+#include <SDL3/SDL.h>
 
 namespace CE {
+
     class ImageLoader : public AssetLoader {
     public:
-
-        const Surface& getSurface() const;
-
-        bool load() override;
-
-    protected:
         explicit ImageLoader(std::string path = "");
 
+        using CallbackFunc = void(*)(SDL_Surface*, void*);
+
+        void setCallback(CallbackFunc cb, void* userData);
+        void load() override;        
+
+    private:
+        CallbackFunc callback = nullptr;
+        void* callbackObject = nullptr;
     };
 
 }
