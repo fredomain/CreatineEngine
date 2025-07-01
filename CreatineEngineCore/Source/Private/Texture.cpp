@@ -6,10 +6,10 @@ namespace CE {
 	Texture::Texture(
 		SDL_Renderer* renderer,
 		SDL_Texture* texture,
-		float rotationEnabled = false,
-		double rotation = 0.0,
-		FVector rotationOrigin = FVector(0.0f, 0.0f),
-		SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+		float rotationEnabled,
+		double rotation,
+		FVector rotationOrigin,
+		SDL_FlipMode flipMode
 	) :
 		renderer(renderer),
 		data(texture),
@@ -23,10 +23,10 @@ namespace CE {
 	Texture::Texture(
 		SDL_Renderer* renderer,
 		SDL_Surface* surface,
-		float rotationEnabled = false,
-		double rotation = 0.0,
-		FVector rotationOrigin = FVector(0.0f, 0.0f),
-		SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+		float rotationEnabled,
+		double rotation,
+		FVector rotationOrigin,
+		SDL_FlipMode flipMode
 	) :
 		renderer(renderer),
 		rotationEnabled(rotationEnabled),
@@ -40,10 +40,10 @@ namespace CE {
 	Texture::Texture(
 		SDL_Renderer* renderer,
 		ImageLoader* imageLoader,
-		float rotationEnabled = false,
-		double rotation = 0.0,
-		FVector rotationOrigin = FVector(0.0f, 0.0f),
-		SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+		float rotationEnabled,
+		double rotation,
+		FVector rotationOrigin,
+		SDL_FlipMode flipMode
 	) :
 		renderer(renderer),
 		rotationEnabled(rotationEnabled),
@@ -96,8 +96,8 @@ namespace CE {
 			//return false;
 		}
 		else {
-			setSourceWidth(data->w);
-			setSourceHeight(data->h);
+			setSourceWidth(static_cast<float>(data->w));
+			setSourceHeight(static_cast<float>(data->h));
 		}
 	}
 
@@ -117,6 +117,14 @@ namespace CE {
 
 		// Initialize parameters
 		setRotationOrigin(RectAnchor::CENTER);
+	}
+
+	void Texture::setRenderer(SDL_Renderer* renderer) {
+		this->renderer = renderer;
+	}
+
+	SDL_Renderer* Texture::getRenderer() const {
+		return renderer;
 	}
 
 	void Texture::renderSimple() const {

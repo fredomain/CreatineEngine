@@ -4,7 +4,7 @@
 
 
 #include "AssetManager.h"
-#include "Sprite.h"
+#include "SpriteTexture.h"
 #include "MathConstants.h"
 #include "Logger.h"
 

@@ -68,15 +68,6 @@ namespace CE {
 		int getSDL_TextureWidth() const;
 		int getSDL_TextureHeight() const;
 
-		// Scale operations
-		void setScaleX(float scaleX);
-		void setScaleY(float scaleY);
-		void setScale(float scaleX, float scaleY);
-		void setScale(float scale);
-		void setScale(FVector scale);
-		float getScaleX() const;
-		float getScaleY() const;
-
 		// Rotation operations
 		double getRotation() const;
 		void setRotation(double rotation);

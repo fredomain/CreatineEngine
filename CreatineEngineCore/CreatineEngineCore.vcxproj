@@ -29,7 +29,6 @@
     <ClCompile Include="Source\Private\AssetLoader.cpp" />
     <ClCompile Include="Source\Private\Renderable.cpp" />
     <ClCompile Include="Source\Private\SpriteTexture.cpp" />
-    <ClCompile Include="Source\Private\TextTextureBORRAR.cpp" />
     <ClCompile Include="Source\Private\ImageLoader.cpp" />
     <ClCompile Include="Source\Public\RectAnchor.h" />
     <ClCompile Include="Source\Private\TimingManager.cpp" />
@@ -48,8 +47,7 @@
     <ClInclude Include="Source\Public\AssetLoader.h" />
     <ClInclude Include="Source\Public\MathConstants.h" />
     <ClInclude Include="Source\Public\Renderable.h" />
-    <ClInclude Include="Source\Public\SpriteTextureRender.h" />
-    <ClInclude Include="Source\Public\TextTextureBORRAR.h" />
+    <ClInclude Include="Source\Public\SpriteTexture.h" />
     <ClInclude Include="Source\Public\ImageLoader.h" />
     <ClInclude Include="Source\Public\TimingManager.h" />
     <ClInclude Include="Source\Public\Texture.h" />

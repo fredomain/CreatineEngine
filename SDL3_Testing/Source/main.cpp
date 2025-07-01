@@ -76,9 +76,14 @@ int main(int argc, char* args[]){
 	}
 	else{
 		//Load media
-		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
-		CE::Image imagenFondo(gRenderer, "Content/Images/background.jpg");
-		imagenFondo.imageAsset.load();
+
+		//CE::Texture imagenFondo(gRenderer, "Content/Images/background.jpg");
+		gHelloWorld = IMG_Load("Content/Images/background.jpg");
+		if (gHelloWorld == NULL) {
+			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
+		}
+		CE::Texture imagenFondo(gRenderer, gHelloWorld);
+		//imagenFondo.imageAsset.load();
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();

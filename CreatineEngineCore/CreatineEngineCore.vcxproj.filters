@@ -18,9 +18,6 @@
     <ClCompile Include="Source\Private\SpriteTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\TextTextureBORRAR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Private\Renderable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -65,10 +62,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\SpriteTextureRender.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\TextTextureBORRAR.h">
+    <ClInclude Include="Source\Public\SpriteTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Renderable.h">

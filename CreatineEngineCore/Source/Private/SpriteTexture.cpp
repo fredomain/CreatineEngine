@@ -1,4 +1,4 @@
-#include "SpriteTextureRender.h"
+#include "SpriteTexture.h"
 
 namespace CE {
 
