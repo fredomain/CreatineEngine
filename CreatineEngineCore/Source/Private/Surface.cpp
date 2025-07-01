@@ -20,11 +20,11 @@ namespace CE {
         return *this;
     }
 
-    int Surface::getWidth() const {
+    int Surface::getSDL_SurfaceWidth() const {
         return data ? data->w : 0;
     }
 
-    int Surface::getHeight() const {
+    int Surface::getSDL_SurfaceHeight() const {
         return data ? data->h : 0;
     }
 

@@ -2,7 +2,7 @@
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include "Asset.h"
+#include "AssetLoader.h"
 #include <vector>
 #include <memory>
 
@@ -10,16 +10,16 @@ namespace CE {
 
     class AssetManager {
     public:
-        void registerAsset(std::shared_ptr<Asset> asset);
+        void registerAssetLoader(std::shared_ptr<AssetLoader> asset);
         void loadAllAssets();
 
         int getLoadedCount() const;
         int getTotalCount() const;
 
     private:
-        std::vector<std::shared_ptr<Asset>> assets;
+        std::vector<std::shared_ptr<AssetLoader>> assetLoaderList;
     };
 
 }
 
-#endif // !ASSETMANAGER_H
+#endif

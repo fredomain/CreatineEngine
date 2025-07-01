@@ -6,10 +6,6 @@ namespace CE {
 		RectAnchor posAnchor,
 		FVector posAnchorOffset,
 		FVector scale,
-		float rotationEnabled,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode,
 		float opacity
 		) :
 		sourceRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
@@ -18,10 +14,6 @@ namespace CE {
 		posAnchor(posAnchor),
 		posAnchorOffset(posAnchorOffset),
 		scale(scale),
-		rotationEnabled(rotationEnabled),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode),
 		opacity(opacity){
 
 	}
@@ -190,80 +182,6 @@ namespace CE {
 
 	float Renderable::getScaleY() const {
 		return scale.y;
-	}
-
-	double Renderable::getRotation() const {
-		return rotation;
-	}
-
-	void Renderable::setRotation(double rotation) {
-		this->rotation = rotation;
-	}
-
-	void Renderable::setRotationOrigin(float x, float y) {
-		rotationOrigin.x = x;
-		rotationOrigin.y = y;
-		printf("Rotation origin: %f, %f\n", x, y);
-	}
-
-	void Renderable::setRotationOrigin(FVector rotationOrigin) {
-		setRotationOrigin(rotationOrigin.x, rotationOrigin.y);
-	}
-
-	void Renderable::setRotationOrigin(RectAnchor rotationAnchor) {
-		setRotationOrigin(computeAnchorOffset(destinationRect.w, destinationRect.h, rotationAnchor));
-	}
-
-	float Renderable::getRotationOriginX() const {
-		return rotationOrigin.x;
-	}
-
-	float Renderable::getRotationOriginY() const {
-		return rotationOrigin.y;
-	}
-
-	FVector Renderable::getRotationOrigin() const {
-		return rotationOrigin;
-	}
-
-	SDL_FPoint Renderable::getRotationOriginSDL() const {
-		return SDL_FPoint(rotationOrigin.x, rotationOrigin.y);
-	}
-
-	void Renderable::enableRotation(){
-		rotationEnabled = true;
-	}
-
-	void Renderable::disableRotation() {
-		rotationEnabled = false;
-	}
-
-	bool Renderable::isRotationEnabled() const{
-		return rotationEnabled;
-	}
-
-	void Renderable::setVerticalFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_VERTICAL;
-	}
-
-	void Renderable::setHorizontalFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_HORIZONTAL;
-	}
-
-	void Renderable::disableFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_NONE;
-	}
-
-	void Renderable::setFlipMode(const SDL_FlipMode& mode) {
-		flipMode = mode;
-	}
-
-	SDL_FlipMode Renderable::getFlipMode() const {
-		return flipMode;
-	}
-
-	const SDL_FlipMode& Renderable::getFlipModeRef() const {
-		return flipMode;
 	}
 
 	float Renderable::getOpacity() const {

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef ASSET_H
-#define ASSET_H
+#ifndef ASSETLOADER_H
+#define ASSETLOADER_H
 
 #include <string>
 
 namespace CE {
 
-    class Asset {
+    class AssetLoader {
     public:
         //virtual ~Asset() = default;
         virtual bool load() = 0;    // Main load method (use internal path attribute)
@@ -17,7 +17,7 @@ namespace CE {
         void setPath(std::string&& newPath);
 
     protected:
-        explicit Asset(std::string path = "");    // Enables derived classes to use the constructor delegation
+        explicit AssetLoader(std::string path = "");    // Enables derived classes to use the constructor delegation
     
 
     private:
@@ -25,5 +25,5 @@ namespace CE {
     };
 }
 
-#endif // !ASSET_H
+#endif
 

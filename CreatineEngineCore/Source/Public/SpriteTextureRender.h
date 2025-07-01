@@ -1,16 +1,16 @@
 #pragma once
-#ifndef SPRITETEXTURERENDER_H
-#define SPRITETEXTURERENDER_H
+#ifndef SPRITETEXTURE_H
+#define SPRITETEXTURE_H
 
-#include "TextureRender.h" //Parent header
+#include "Texture.h" //Parent header
 
 namespace CE {
-	class SpriteTextureRender : public TextureRender
+	class SpriteTexture : public Texture
 	{
 	};
 }
 
-#endif // !SPRITETEXTURERENDER_H
+#endif
 
 
 
