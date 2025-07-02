@@ -60,10 +60,16 @@
     <ClCompile Include="Source\Private\Surface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\TextureRotatable.cpp">
+    <ClCompile Include="Source\Private\TextureRotatableRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\SpriteTextureRotatable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Private\TextureRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Private\SurfaceRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,10 +122,16 @@
     <ClInclude Include="Source\Public\Surface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\TextureRotatable.h">
+    <ClInclude Include="Source\Public\TextureRotatableRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\SpriteTextureRotatable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\TextureRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\SurfaceRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

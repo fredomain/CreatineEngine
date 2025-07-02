@@ -83,6 +83,8 @@ namespace CE {
 
         static std::string generateFilename();
         static std::string buildLogLabel(const std::string& category, LogLevel level);
+        static std::string formatTimestamp(const std::tm& tm, const std::string& format);
+
         inline static const std::string baseLogDirectory = "Logs/";
         inline static LogLevel minimumLogLevel = LogLevel::Verbose;
     };

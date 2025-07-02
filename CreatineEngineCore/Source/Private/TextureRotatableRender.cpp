@@ -1,37 +1,37 @@
-#include "TextureRotatable.h"
+#include "TextureRotatableRender.h"
 #include "MathConstants.h"
 
 namespace CE {
 
-	TextureRotatable::TextureRotatable(
+	TextureRotatableRender::TextureRotatableRender(
 		SDL_Renderer* renderer,
 		SDL_Texture* texture,
 		double rotation,
 		FVector rotationOrigin,
 		SDL_FlipMode flipMode
 	) :
-		Texture(renderer, texture),
+		TextureRender(renderer, texture),
 		rotation(rotation),
 		rotationOrigin(rotationOrigin),
 		flipMode(flipMode) {
 
 	}
 
-	TextureRotatable::TextureRotatable(
+	TextureRotatableRender::TextureRotatableRender(
 		SDL_Renderer* renderer,
 		SDL_Surface* surface,
 		double rotation,
 		FVector rotationOrigin,
 		SDL_FlipMode flipMode
 	) :
-		Texture(renderer, surface),
+		TextureRender(renderer, surface),
 		rotation(rotation),
 		rotationOrigin(rotationOrigin),
 		flipMode(flipMode) {
 
 	}
 
-	TextureRotatable::TextureRotatable(
+	TextureRotatableRender::TextureRotatableRender(
 		SDL_Renderer* renderer,
 		ImageLoader& imageLoader,
 		double rotation,
@@ -39,14 +39,14 @@ namespace CE {
 		SDL_FlipMode flipMode
 	) :
 
-		Texture(renderer, imageLoader),
+		TextureRender(renderer, imageLoader),
 		rotation(rotation),
 		rotationOrigin(rotationOrigin),
 		flipMode(flipMode) {
 
 	}
 
-	TextureRotatable::TextureRotatable(
+	TextureRotatableRender::TextureRotatableRender(
 		SDL_Renderer* renderer,
 		std::string text,
 		TTF_Font* font,
@@ -56,14 +56,14 @@ namespace CE {
 		FVector rotationOrigin,
 		SDL_FlipMode flipMode
 	) :
-		Texture(renderer, text, font, textSize, textColor),
+		TextureRender(renderer, text, font, textSize, textColor),
 		rotation(rotation),
 		rotationOrigin(rotationOrigin),
 		flipMode(flipMode) {
 
 	}
 
-	void TextureRotatable::render() const {
+	void TextureRotatableRender::render() const {
 
 		if (std::abs(getRotation()) > CE::NEAR_ZERO_THRESHOLD) {		// render with rotation
 			SDL_FPoint rotationOriginSDL(getRotationOriginSDL());
@@ -71,77 +71,77 @@ namespace CE {
 			//SDL_Log("renderRotated");
 		}
 		else {
-			Texture::render();
+			TextureRender::render();
 		}
 	}
 
-	void TextureRotatable::init() {
-		Texture::init();
+	void TextureRotatableRender::init() {
+		TextureRender::init();
 
 		// Initialize parameters
 		rotation = 0.0;
 		setRotationOrigin(RectAnchor::CENTER);
 	}
 
-	double TextureRotatable::getRotation() const {
+	double TextureRotatableRender::getRotation() const {
 		return rotation;
 	}
 
-	void TextureRotatable::setRotation(double rotation) {
+	void TextureRotatableRender::setRotation(double rotation) {
 		this->rotation = rotation;
 	}
 
-	void TextureRotatable::setRotationOrigin(float x, float y) {
+	void TextureRotatableRender::setRotationOrigin(float x, float y) {
 		rotationOrigin.x = x;
 		rotationOrigin.y = y;
 		//printf("Rotation origin: %f, %f\n", x, y);
 	}
 
-	void TextureRotatable::setRotationOrigin(FVector rotationOrigin) {
+	void TextureRotatableRender::setRotationOrigin(FVector rotationOrigin) {
 		setRotationOrigin(rotationOrigin.x, rotationOrigin.y);
 	}
 
-	void TextureRotatable::setRotationOrigin(RectAnchor rotationAnchor) {
+	void TextureRotatableRender::setRotationOrigin(RectAnchor rotationAnchor) {
 		setRotationOrigin(computeAnchorOffset(getWidth(), getHeight(), rotationAnchor));
 	}
 
-	float TextureRotatable::getRotationOriginX() const {
+	float TextureRotatableRender::getRotationOriginX() const {
 		return rotationOrigin.x;
 	}
 
-	float TextureRotatable::getRotationOriginY() const {
+	float TextureRotatableRender::getRotationOriginY() const {
 		return rotationOrigin.y;
 	}
 
-	FVector TextureRotatable::getRotationOrigin() const {
+	FVector TextureRotatableRender::getRotationOrigin() const {
 		return rotationOrigin;
 	}
 
-	SDL_FPoint TextureRotatable::getRotationOriginSDL() const {
+	SDL_FPoint TextureRotatableRender::getRotationOriginSDL() const {
 		return SDL_FPoint(rotationOrigin.x, rotationOrigin.y);
 	}
 
-	void TextureRotatable::setVerticalFlip() {
+	void TextureRotatableRender::setVerticalFlip() {
 		flipMode = SDL_FlipMode::SDL_FLIP_VERTICAL;
 	}
 
-	void TextureRotatable::setHorizontalFlip() {
+	void TextureRotatableRender::setHorizontalFlip() {
 		flipMode = SDL_FlipMode::SDL_FLIP_HORIZONTAL;
 	}
 
-	void TextureRotatable::disableFlip() {
+	void TextureRotatableRender::disableFlip() {
 		flipMode = SDL_FlipMode::SDL_FLIP_NONE;
 	}
 
-	void TextureRotatable::setFlipMode(const SDL_FlipMode& mode) {
+	void TextureRotatableRender::setFlipMode(const SDL_FlipMode& mode) {
 		flipMode = mode;
 	}
 
-	SDL_FlipMode TextureRotatable::getFlipMode() const {
+	SDL_FlipMode TextureRotatableRender::getFlipMode() const {
 		return flipMode;
 	}
 
-	const SDL_FlipMode& TextureRotatable::getFlipModeRef() const {
+	const SDL_FlipMode& TextureRotatableRender::getFlipModeRef() const {
 		return flipMode;
 	}
 }

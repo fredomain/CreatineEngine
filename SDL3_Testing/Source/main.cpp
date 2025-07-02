@@ -83,9 +83,9 @@ int main(int argc, char* args[]){
 		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
 
 		// Forma 2
-		//CE::ImageLoader imageLoader("Content/Images/background.jpg");
-		//CE::Texture imagenFondo(gRenderer, imageLoader);
-		//imageLoader.load();
+		CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		CE::Texture imagenFondo(gRenderer, imageLoader);
+		imageLoader.load();
 
 		// Forma 3
 		SDL_Color color{ 255, 255, 0, 255 };
@@ -100,8 +100,8 @@ int main(int argc, char* args[]){
 		imagenFondo.setRotation(45);
 		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
 
-		
 
+		//CE::Logger::setMinimumLogLevel(CE::LogLevel::Info);
 		CE::Logger logger("log.txt");
 		logger.log("Debug", CE::LogLevel::Debug);
 		logger.log("Critical", CE::LogLevel::Critical);
@@ -109,7 +109,6 @@ int main(int argc, char* args[]){
 		logger.log("Error", CE::LogLevel::Error);
 		logger.log("verbose", CE::LogLevel::Verbose);
 		logger.log("Warn", CE::LogLevel::Warn);
-
 		CE::Logger::logMessage(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
 
 		if (!LoadMedia()){

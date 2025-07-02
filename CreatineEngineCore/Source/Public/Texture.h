@@ -9,7 +9,7 @@ namespace CE {
 	/**
 	 * @brief Wrapper class for SDL_Texture (GPU Image). Contains a pointer to the SDL texture data structure.
 	 */
-	class Texture : public Renderable{
+	class Texture {
 	public:
 		// Constructors destructors
 		//Texture() = default;
