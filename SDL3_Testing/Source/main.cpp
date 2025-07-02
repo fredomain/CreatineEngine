@@ -14,6 +14,27 @@
 #include <memory>
 /******************************/
 
+void drawCross(SDL_Renderer* renderer, int screenWidth, int screenHeight, float size = 20.0f)
+{
+	// Center of screen
+	float cx = screenWidth * 0.5f;
+	float cy = screenHeight * 0.5f;
+
+	// Line endpoints
+	SDL_FPoint line1Start = { cx - size * 0.5f, cy - size * 0.5f };
+	SDL_FPoint line1End = { cx + size * 0.5f, cy + size * 0.5f };
+
+	SDL_FPoint line2Start = { cx + size * 0.5f, cy - size * 0.5f };
+	SDL_FPoint line2End = { cx - size * 0.5f, cy + size * 0.5f };
+
+	// Set draw color (e.g., red)
+	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+	// Draw two lines forming an X
+	SDL_RenderLine(renderer, line1Start.x, line1Start.y, line1End.x, line1End.y);
+	SDL_RenderLine(renderer, line2Start.x, line2Start.y, line2End.x, line2End.y);
+}
+
 /********** PARAMETERS **********/
 //Screen dimension constants
 const uint16_t SCREEN_WIDTH = 960;
@@ -41,8 +62,6 @@ SDL_FRect character_ori;
 SDL_FRect character_dest;
 
 
-
-
 //Main loop flag
 bool quit = false;
 //Event handler
@@ -56,13 +75,42 @@ int main(int argc, char* args[]){
 		SDL_Log("Failed to initialize!\n");
 	}
 	else{
-		//Load media
-		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
-		CE::Image imagenFondo(gRenderer, "Content/Images/background.png");
-		imagenFondo.imageAsset.load();
+		// Forma 1
+		/*gHelloWorld = IMG_Load("Content/Images/background.jpg");
+		if (gHelloWorld == NULL) {
+			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
+		}
+		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
+
+		// Forma 2
+		//CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		//CE::Texture imagenFondo(gRenderer, imageLoader);
+		//imageLoader.load();
+
+		// Forma 3
+		SDL_Color color{ 255, 255, 0, 255 };
+		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
+		CE::TextureRotatable imagenFondo(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
+		
+		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();
-		imagenFondo.enableRotation();
-		imagenFondo.setRotation(0.01);
+		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+		imagenFondo.setScale(0.5);
+		imagenFondo.setRotationOrigin(CE::RectAnchor::CENTER);
+		imagenFondo.setRotation(45);
+		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
+
+		
+
+		CE::Logger logger("log.txt");
+		logger.log("Debug", CE::LogLevel::Debug);
+		logger.log("Critical", CE::LogLevel::Critical);
+		logger.log("Info", CE::LogLevel::Info);
+		logger.log("Error", CE::LogLevel::Error);
+		logger.log("verbose", CE::LogLevel::Verbose);
+		logger.log("Warn", CE::LogLevel::Warn);
+
+		CE::Logger::logMessage(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -108,11 +156,13 @@ int main(int argc, char* args[]){
 				}
 
 				// Clear screen
+				SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 				SDL_RenderClear(gRenderer);
 
 				// Render texture to screen
 				imagenFondo.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
+				drawCross(gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 				// Update screen
 				SDL_RenderPresent(gRenderer);
@@ -134,6 +184,8 @@ int main(int argc, char* args[]){
 bool Init(){
 	bool success = true;	//Initialization flag
 
+	TTF_Init();
+
 	//Initialize SDL
 	if (!SDL_Init(SDL_INIT_VIDEO)){
 		SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
@@ -149,7 +201,7 @@ bool Init(){
 		else
 		{
 			//Initialize renderer color
-			SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+			SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 			//SDL_PropertiesID info = SDL_GetRendererProperties(gRenderer);
 		}
 	}

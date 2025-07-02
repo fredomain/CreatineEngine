@@ -1,126 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Source\Private\Logger.cpp" />
+    <ClCompile Include="Source\Private\RenderEngine.cpp" />
+    <ClCompile Include="Source\Private\FVector.cpp" />
+    <ClCompile Include="Source\Private\Scene.cpp" />
+    <ClCompile Include="Source\Private\Init.cpp" />
+    <ClCompile Include="Source\Private\GameEntity.cpp" />
+    <ClCompile Include="Source\Private\AssetManager.cpp" />
+    <ClCompile Include="Source\Private\Asset.cpp" />
+    <ClCompile Include="Source\Private\Image.cpp" />
+    <ClCompile Include="Source\Private\Renderable.cpp" />
+    <ClCompile Include="Source\Private\Sprite.cpp" />
+    <ClCompile Include="Source\Private\Text.cpp" />
+    <ClCompile Include="Source\Private\TextureAsset.cpp" />
+    <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
+    <ClCompile Include="Source\Public\RectAnchor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\Renderable\Image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Renderable\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Assets\TextAssetGPU.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Renderable\Renderable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Assets\Asset.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\AssetManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Assets\ImageAssetGPU.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Assets\ImageAssetCPU.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Renderable\Surface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Assets\TextureAsset.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Assets\SurfaceAsset.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\GameEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Init.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\RenderManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Public\RectAnchor.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\FVector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\Public\Renderable\Image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Renderable\Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Assets\TextAssetGPU.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Renderable\Renderable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Assets\Asset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\AssetManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Assets\ImageAssetGPU.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Assets\ImageAssetCPU.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Renderable\Surface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Assets\TextureAsset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Assets\SurfaceAsset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\GameEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\MathConstants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\CreatineEngineCore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Init.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\RenderManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\FVector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Source\Public\Logger.h" />
+    <ClInclude Include="Source\Public\RenderEngine.h" />
+    <ClInclude Include="Source\Public\FVector.h" />
+    <ClInclude Include="Source\Public\Scene.h" />
+    <ClInclude Include="Source\Public\Init.h" />
+    <ClInclude Include="Source\Public\CreatineEngineCore.h" />
+    <ClInclude Include="Source\Public\GameEntity.h" />
+    <ClInclude Include="Source\Public\ImageAssetCPU.h" />
+    <ClInclude Include="Source\Public\ImageAssetGPU.h" />
+    <ClInclude Include="Source\Public\AssetManager.h" />
+    <ClInclude Include="Source\Public\Asset.h" />
+    <ClInclude Include="Source\Public\Image.h" />
+    <ClInclude Include="Source\Public\MathConstants.h" />
+    <ClInclude Include="Source\Public\Renderable.h" />
+    <ClInclude Include="Source\Public\Sprite.h" />
+    <ClInclude Include="Source\Public\Text.h" />
+    <ClInclude Include="Source\Public\Surface.h" />
+    <ClInclude Include="Source\Public\TextureAsset.h" />
+    <ClInclude Include="Source\Public\SurfaceAsset.h" />
   </ItemGroup>
 </Project>

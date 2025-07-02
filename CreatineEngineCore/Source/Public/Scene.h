@@ -3,7 +3,7 @@
 #define SCENE_H
 
 #include "AssetManager.h"
-#include "RenderManager.h"
+#include "RenderEngine.h"
 
 namespace CE {
 
@@ -11,7 +11,7 @@ namespace CE {
 	{
 	private:
 		AssetManager assetManager;
-		RenderManager renderManager;
+		RenderEngine renderManager;
 	};
 
 }

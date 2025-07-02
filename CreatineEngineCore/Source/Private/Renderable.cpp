@@ -1,24 +1,48 @@
 #include "Renderable/Renderable.h"
 
 namespace CE {
-	//Renderable::Renderable() : rect
+	Renderable::Renderable(
+		FVector position,
+		RectAnchor posAnchor,
+		FVector posAnchorOffset,
+		FVector scale,
+		float opacity
+		) :
+		sourceRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
+		destinationRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
+		position(position),
+		posAnchor(posAnchor),
+		posAnchorOffset(posAnchorOffset),
+		scale(scale),
+		opacity(opacity){
+
+	}
 
 	float Renderable::getX() const{
-		return destinationRect.x;
+		return position.x;
 	}
 
 	void Renderable::setX(float x){
-		destinationRect.x = x;
+		position.x = x;
+		destinationRect.x = x - posAnchorOffset.x;
+		//printf("destinationRect.x = %f\n", destinationRect.x);
 	}
 
 	float Renderable::getY() const {
-		return destinationRect.y;
+		return position.y;
 	}
 
 	void Renderable::setY(float y) {
-		destinationRect.y = y;
+		position.y = y;
+		destinationRect.y = y - posAnchorOffset.y;
+		//printf("destinationRect.y = %f\n", destinationRect.y);
 	}
 
+	/**
+	 * @brief Set screen coordinates
+	 * @param x x-axis position
+	 * @param y y-axis position
+	 */
 	void Renderable::setPosition(float x, float y) {
 		setX(x);
 		setY(y);
@@ -34,11 +58,64 @@ namespace CE {
 	}
 
 	void Renderable::setPositionAnchor(RectAnchor anchor) {
-		destinationAnchor = anchor;
+		posAnchor = anchor;
+		// Update the anchor offset
+		updateAnchorOffset();
 	}
 
 	RectAnchor Renderable::getPositionAnchor() const{
+		return posAnchor;
+	}
 
+	void Renderable::updateAnchorOffset() {
+		posAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, posAnchor);
+		// Update position to reflect the change in the anchor offset (with the current position settings)
+		setPosition(getX(), getY());
+	}
+
+	FVector Renderable::computeAnchorOffset(float w, float h, RectAnchor anchor) const {
+		FVector offset;
+
+		switch (anchor) {
+		case RectAnchor::CENTER:
+			offset.x = w / 2;
+			offset.y = h / 2;
+			break;
+		case RectAnchor::TOP:
+			offset.x = w / 2;
+			offset.y = 0;
+			break;
+		case RectAnchor::BOTTOM:
+			offset.x = w / 2;
+			offset.y = h;
+			break;
+		case RectAnchor::LEFT:
+			offset.x = 0;
+			offset.y = h / 2;
+			break;
+		case RectAnchor::RIGHT:
+			offset.x = w;
+			offset.y = h / 2;
+			break;
+		case RectAnchor::TOP_LEFT:
+			offset.x = 0;
+			offset.y = 0;
+			break;
+		case RectAnchor::TOP_RIGHT:
+			offset.x = w;
+			offset.y = 0;
+			break;
+		case RectAnchor::BOTTOM_LEFT:
+			offset.x = 0;
+			offset.y = h;
+			break;
+		case RectAnchor::BOTTOM_RIGHT:
+			offset.x = w;
+			offset.y = h;
+			break;
+		}
+		
+		return offset;
 	}
 
 	float Renderable::getWidth() const {
@@ -73,6 +150,7 @@ namespace CE {
 		if (scale >= 0) {
 			this->scale.x = scale;
 			destinationRect.w = sourceRect.w * this->scale.x;
+			//printf("destinationRect.w = %f\n", destinationRect.w);
 		}
 	}
 
@@ -80,17 +158,22 @@ namespace CE {
 		if (scale >= 0) {
 			this->scale.y = scale;
 			destinationRect.h = sourceRect.h * this->scale.y;
+			//printf("destinationRect.h = %f\n", destinationRect.h);
 		}
 	}
 
+	void Renderable::setScale(float scaleX, float scaleY) {
+		setScaleX(scaleX);
+		setScaleY(scaleY);
+		updateAnchorOffset();
+	}
+
 	void Renderable::setScale(float scale) {
-		setScaleX(scale);
-		setScaleY(scale);
+		setScale(scale, scale);
 	}
 
 	void Renderable::setScale(FVector scale) {
-		setScaleX(scale.x);
-		setScaleY(scale.y);
+		setScale(scale.x, scale.y);
 	}
 
 	float Renderable::getScaleX() const {
@@ -99,50 +182,6 @@ namespace CE {
 
 	float Renderable::getScaleY() const {
 		return scale.y;
-	}
-
-	double Renderable::getRotation() const {
-		return rotation;
-	}
-
-	void Renderable::setRotation(double rotation) {
-		this->rotation = rotation;
-	}
-
-	void Renderable::enableRotation(){
-		rotationEnabled = true;
-	}
-
-	void Renderable::disableRotation() {
-		rotationEnabled = false;
-	}
-
-	bool Renderable::isRotationEnabled() const{
-		return rotationEnabled;
-	}
-
-	void Renderable::setVerticalFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_VERTICAL;
-	}
-
-	void Renderable::setHorizontalFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_HORIZONTAL;
-	}
-
-	void Renderable::disableFlip() {
-		flipMode = SDL_FlipMode::SDL_FLIP_NONE;
-	}
-
-	void Renderable::setFlipMode(const SDL_FlipMode& mode) {
-		flipMode = mode;
-	}
-
-	SDL_FlipMode Renderable::getFlipMode() const {
-		return flipMode;
-	}
-
-	const SDL_FlipMode& Renderable::getFlipModeRef() const {
-		return flipMode;
 	}
 
 	float Renderable::getOpacity() const {
