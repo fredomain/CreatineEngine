@@ -1,4 +1,4 @@
-#include "Assets/ImageAssetCPU.h"
+#include "ImageAssetCPU.h"
 #include <SDL_image.h>
 
 namespace CE {

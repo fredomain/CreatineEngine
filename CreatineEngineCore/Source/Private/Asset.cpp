@@ -1,4 +1,4 @@
-#include "Assets/Asset.h"
+#include "Asset.h"
 #include <memory>
 
 namespace CE {

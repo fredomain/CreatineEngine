@@ -1,4 +1,4 @@
-#include "Renderable/Sprite.h"
+#include "Sprite.h"
 
 namespace CE {
 }
