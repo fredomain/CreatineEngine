@@ -94,7 +94,7 @@ namespace CE {
 	void TextureRotatable::setRotationOrigin(float x, float y) {
 		rotationOrigin.x = x;
 		rotationOrigin.y = y;
-		printf("Rotation origin: %f, %f\n", x, y);
+		//printf("Rotation origin: %f, %f\n", x, y);
 	}
 
 	void TextureRotatable::setRotationOrigin(FVector rotationOrigin) {

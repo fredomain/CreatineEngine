@@ -110,6 +110,8 @@ int main(int argc, char* args[]){
 		logger.log("verbose", CE::LogLevel::Verbose);
 		logger.log("Warn", CE::LogLevel::Warn);
 
+		CE::Logger::logMessage(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
+
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
 		}
