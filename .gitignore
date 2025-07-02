@@ -2,6 +2,7 @@
 DoxygenDocs/
 Intermediate/
 Output/
+Logs/
 
 # Ignore Visual Studio temporary files
 *.user
