@@ -1,4 +1,4 @@
-#include "Renderable/Renderable.h"
+#include "Renderable.h"
 
 namespace CE {
 	Renderable::Renderable(
