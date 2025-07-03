@@ -15,8 +15,7 @@ namespace CE {
 	public:
 		// Virtual pure functions
 		virtual void render() const = 0;		
-		virtual void init() = 0;
-		virtual void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) = 0;
+		virtual void init();
 
 		// Position operations
 		float getX() const;

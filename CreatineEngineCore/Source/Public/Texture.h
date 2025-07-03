@@ -38,11 +38,7 @@ namespace CE {
 		Texture(Texture&& other) noexcept;
 		Texture& operator=(Texture&& other) noexcept;
 
-		// Virtual functions
-		void render() const override;
-		void init() override;
-		void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) override;
-
+		void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor);
 		void createFromSDL_Surface(SDL_Surface* surface);
 
 		// Renderer operations
@@ -54,8 +50,8 @@ namespace CE {
 		void setData(SDL_Texture* texture);
 		bool isValid();
 
-		int getDataWidth() const;
-		int getDataHeight() const;
+		int getWidth() const;
+		int getHeight() const;
 
 	protected:
 		SDL_Texture* data = nullptr;

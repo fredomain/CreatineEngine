@@ -57,21 +57,6 @@ namespace CE {
 		return *this;
 	}
 
-	void Texture::render() const {
-		SDL_RenderTexture(renderer, data, getSourceRectPtr(), getDestinationRectPtr());
-	}
-
-	void Texture::init() {
-		// First, set the source rect size
-		//setSourceWidth(static_cast<float>(TextureRenderAsset.getTexture()->w));
-		//setSourceHeight(static_cast<float>(TextureRenderAsset.getTexture()->h));
-		// Then, destination rect must be set regarding the scale
-		setScale(1.0f);
-		// Anchor offset can also be set
-		setPositionAnchor(getPositionAnchor());
-		setPosition(0.0f, 0.0f);
-	}
-
 	void Texture::createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) {
 		SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), textSize, textColor);	// Create a temporal surface (it will be converted to SDL_Texture)
 		if (surface == NULL)
@@ -109,14 +94,14 @@ namespace CE {
 		return renderer;
 	}
 
-	int Texture::getDataWidth() const {
+	int Texture::getWidth() const {
 		/*int w = 0;
 		SDL_QueryTexture(data, nullptr, nullptr, &w, nullptr);
 		return w;*/
 		return data ? data->w : 0;
 	}
 
-	int Texture::getDataHeight() const {
+	int Texture::getHeight() const {
 		/*int h = 0;
 		SDL_QueryTexture(data, nullptr, nullptr, nullptr, &h);
 		return h;*/

@@ -28,16 +28,16 @@
     <ClCompile Include="Source\Private\AssetManager.cpp" />
     <ClCompile Include="Source\Private\AssetLoader.cpp" />
     <ClCompile Include="Source\Private\Renderable.cpp" />
-    <ClCompile Include="Source\Private\SpriteTexture.cpp" />
+    <ClCompile Include="Source\Private\AnimatedTextureInstance.cpp" />
     <ClCompile Include="Source\Private\ImageLoader.cpp" />
     <ClCompile Include="Source\Public\RectAnchor.h" />
     <ClCompile Include="Source\Private\TimingManager.cpp" />
     <ClCompile Include="Source\Private\Texture.cpp" />
     <ClCompile Include="Source\Private\Surface.cpp" />
-    <ClCompile Include="Source\Private\TextureRotatableRender.cpp" />
-    <ClCompile Include="Source\Private\SpriteTextureRotatable.cpp" />
-    <ClCompile Include="Source\Private\SurfaceRender.cpp" />
-    <ClCompile Include="Source\Private\TextureRender.cpp" />
+    <ClCompile Include="Source\Private\TextureRotatableInstance.cpp" />
+    <ClCompile Include="Source\Private\AnimatedTextureRotatableInstance.cpp" />
+    <ClCompile Include="Source\Private\SurfaceInstance.cpp" />
+    <ClCompile Include="Source\Private\TextureInstance.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\Logger.h" />
@@ -51,15 +51,15 @@
     <ClInclude Include="Source\Public\AssetLoader.h" />
     <ClInclude Include="Source\Public\MathConstants.h" />
     <ClInclude Include="Source\Public\Renderable.h" />
-    <ClInclude Include="Source\Public\SpriteTexture.h" />
+    <ClInclude Include="Source\Public\AnimatedTextureInstance.h" />
     <ClInclude Include="Source\Public\ImageLoader.h" />
     <ClInclude Include="Source\Public\TimingManager.h" />
     <ClInclude Include="Source\Public\Texture.h" />
     <ClInclude Include="Source\Public\Surface.h" />
-    <ClInclude Include="Source\Public\TextureRotatableRender.h" />
-    <ClInclude Include="Source\Public\SpriteTextureRotatable.h" />
-    <ClInclude Include="Source\Public\SurfaceRender.h" />
-    <ClInclude Include="Source\Public\TextureRender.h" />
+    <ClInclude Include="Source\Public\TextureRotatableInstance.h" />
+    <ClInclude Include="Source\Public\AnimatedTextureRotatableInstance.h" />
+    <ClInclude Include="Source\Public\SurfaceInstance.h" />
+    <ClInclude Include="Source\Public\TextureInstance.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

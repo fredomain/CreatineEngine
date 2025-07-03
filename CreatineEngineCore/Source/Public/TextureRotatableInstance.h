@@ -1,35 +1,35 @@
 #pragma once
-#ifndef TEXTUREROTATABLERENDER_H
-#define TEXTUREROTATABLERENDER_H
+#ifndef TEXTUREROTATABLEINSTANCE_H
+#define TEXTUREROTATABLEINSTANCE_H
 
-#include "TextureRender.h"
+#include "TextureInstance.h"
 
 namespace CE {
 
-	class TextureRotatableRender : public TextureRender
+	class TextureRotatableInstance : public TextureInstance
 	{
 	public:
 
-		TextureRotatableRender(SDL_Renderer* renderer,
+		TextureRotatableInstance(SDL_Renderer* renderer,
 			SDL_Texture* texture,
 			double rotation = 0.0,
 			FVector rotationOrigin = FVector(0.0f, 0.0f),
 			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
 		);
-		TextureRotatableRender(SDL_Renderer* renderer,
+		TextureRotatableInstance(SDL_Renderer* renderer,
 			SDL_Surface* surface,
 			double rotation = 0.0,
 			FVector rotationOrigin = FVector(0.0f, 0.0f),
 			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
 		);
 
-		TextureRotatableRender(SDL_Renderer* renderer,
+		TextureRotatableInstance(SDL_Renderer* renderer,
 			ImageLoader& imageLoader,
 			double rotation = 0.0,
 			FVector rotationOrigin = FVector(0.0f, 0.0f),
 			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
 		);
-		TextureRotatableRender(SDL_Renderer* renderer,
+		TextureRotatableInstance(SDL_Renderer* renderer,
 			std::string text,
 			TTF_Font* font,
 			size_t textSize,

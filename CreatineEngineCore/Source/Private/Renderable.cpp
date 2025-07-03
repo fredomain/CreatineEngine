@@ -18,6 +18,17 @@ namespace CE {
 
 	}
 
+	void Renderable::init() {
+		// First, set the source rect size
+		//setSourceWidth(static_cast<float>(TextureRenderAsset.getTexture()->w));
+		//setSourceHeight(static_cast<float>(TextureRenderAsset.getTexture()->h));
+		// Then, destination rect must be set regarding the scale
+		setScale(1.0f);
+		// Anchor offset can also be set
+		setPositionAnchor(getPositionAnchor());
+		setPosition(0.0f, 0.0f);
+	}
+
 	float Renderable::getX() const{
 		return position.x;
 	}

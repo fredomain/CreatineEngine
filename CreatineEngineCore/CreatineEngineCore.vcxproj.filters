@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\SpriteTexture.cpp">
+    <ClCompile Include="Source\Private\AnimatedTextureInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\Renderable.cpp">
@@ -60,21 +60,21 @@
     <ClCompile Include="Source\Private\Surface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\TextureRotatableRender.cpp">
+    <ClCompile Include="Source\Private\TextureRotatableInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\SpriteTextureRotatable.cpp">
+    <ClCompile Include="Source\Private\AnimatedTextureRotatableInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\TextureRender.cpp">
+    <ClCompile Include="Source\Private\TextureInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\SurfaceRender.cpp">
+    <ClCompile Include="Source\Private\SurfaceInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\SpriteTexture.h">
+    <ClInclude Include="Source\Public\AnimatedTextureInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Renderable.h">
@@ -122,16 +122,16 @@
     <ClInclude Include="Source\Public\Surface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\TextureRotatableRender.h">
+    <ClInclude Include="Source\Public\TextureRotatableInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\SpriteTextureRotatable.h">
+    <ClInclude Include="Source\Public\AnimatedTextureRotatableInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\TextureRender.h">
+    <ClInclude Include="Source\Public\TextureInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\SurfaceRender.h">
+    <ClInclude Include="Source\Public\SurfaceInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
