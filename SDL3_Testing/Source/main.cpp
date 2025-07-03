@@ -334,4 +334,5 @@ void Close(){
 
 	// Quit SDL subsystems
 	SDL_Quit();
+	Mix_Quit();
 }
