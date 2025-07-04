@@ -11,7 +11,7 @@ namespace CE {
     public:
         explicit ImageLoader(std::string path = "");
 
-        using CallbackFunc = void(*)(SDL_Surface*, void*);
+        using CallbackFunc = void(*)(SDL_Surface*, void*);  // Texture callback function pointer type
 
         void setLoadCallback(CallbackFunc cb, void* callbackObject);
         void load() override;        

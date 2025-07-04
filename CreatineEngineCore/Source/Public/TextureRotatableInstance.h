@@ -10,34 +10,9 @@ namespace CE {
 	{
 	public:
 
-		TextureRotatableInstance(SDL_Renderer* renderer,
-			SDL_Texture* texture,
-			double rotation = 0.0,
-			FVector rotationOrigin = FVector(0.0f, 0.0f),
-			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
-		);
-		TextureRotatableInstance(SDL_Renderer* renderer,
-			SDL_Surface* surface,
-			double rotation = 0.0,
-			FVector rotationOrigin = FVector(0.0f, 0.0f),
-			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
-		);
-
-		TextureRotatableInstance(SDL_Renderer* renderer,
-			ImageLoader& imageLoader,
-			double rotation = 0.0,
-			FVector rotationOrigin = FVector(0.0f, 0.0f),
-			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
-		);
-		TextureRotatableInstance(SDL_Renderer* renderer,
-			std::string text,
-			TTF_Font* font,
-			size_t textSize,
-			SDL_Color textColor,
-			double rotation = 0.0,
-			FVector rotationOrigin = FVector(0.0f, 0.0f),
-			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
-		);
+		// Conctructors & destructor
+		TextureRotatableInstance(Texture& texture);
+		~TextureRotatableInstance();
 
 		// Virtual functions
 		void render() const override;

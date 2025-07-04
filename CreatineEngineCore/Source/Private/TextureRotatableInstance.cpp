@@ -3,71 +3,17 @@
 
 namespace CE {
 
-	TextureRotatableInstance::TextureRotatableInstance(
-		SDL_Renderer* renderer,
-		SDL_Texture* texture,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
-	) :
-		TextureInstance(renderer, texture),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
-
+	TextureRotatableInstance::TextureRotatableInstance(Texture& texture) : TextureInstance(texture) {
 	}
-
-	TextureRotatableInstance::TextureRotatableInstance(
-		SDL_Renderer* renderer,
-		SDL_Surface* surface,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
-	) :
-		TextureInstance(renderer, surface),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
-
-	}
-
-	TextureRotatableInstance::TextureRotatableInstance(
-		SDL_Renderer* renderer,
-		ImageLoader& imageLoader,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
-	) :
-
-		TextureInstance(renderer, imageLoader),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
-
-	}
-
-	TextureRotatableInstance::TextureRotatableInstance(
-		SDL_Renderer* renderer,
-		std::string text,
-		TTF_Font* font,
-		size_t textSize,
-		SDL_Color textColor,
-		double rotation,
-		FVector rotationOrigin,
-		SDL_FlipMode flipMode
-	) :
-		TextureInstance(renderer, text, font, textSize, textColor),
-		rotation(rotation),
-		rotationOrigin(rotationOrigin),
-		flipMode(flipMode) {
-
+	TextureRotatableInstance::~TextureRotatableInstance(){
+		TextureInstance::~TextureInstance();
 	}
 
 	void TextureRotatableInstance::render() const {
 
 		if (std::abs(getRotation()) > CE::NEAR_ZERO_THRESHOLD) {		// render with rotation
 			SDL_FPoint rotationOriginSDL(getRotationOriginSDL());
-			SDL_RenderTextureRotated(renderer, data, getSourceRectPtr(), getDestinationRectPtr(), getRotation(), &rotationOriginSDL, getFlipMode());
+			SDL_RenderTextureRotated(texture->getRenderer(), texture->getData(), getSourceRectPtr(), getDestinationRectPtr(), getRotation(), &rotationOriginSDL, getFlipMode());
 			//SDL_Log("renderRotated");
 		}
 		else {

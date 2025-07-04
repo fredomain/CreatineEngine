@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\AnimatedSurfaceInstance.cpp" />
     <ClCompile Include="Source\Private\Logger.cpp" />
     <ClCompile Include="Source\Private\RenderEngine.cpp" />
     <ClCompile Include="Source\Private\FVector.cpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="Source\Private\TextureInstance.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\AnimatedSurfaceInstance.h" />
     <ClInclude Include="Source\Public\Logger.h" />
     <ClInclude Include="Source\Public\RenderEngine.h" />
     <ClInclude Include="Source\Public\FVector.h" />

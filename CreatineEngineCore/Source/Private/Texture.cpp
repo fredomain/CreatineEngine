@@ -80,10 +80,16 @@ namespace CE {
 			SDL_Log("Unable to create texture from SDL_Surface! SDL Error: %s\n", SDL_GetError());
 			//return false;
 		}
-		else {
-			setSourceWidth(static_cast<float>(data->w));
-			setSourceHeight(static_cast<float>(data->h));
-		}
+	}
+
+	void Texture::addUpdateCallback(UpdateCallback cb, void* callbackObject){
+		observerMap[callbackObject] = cb;
+	}
+
+	void Texture::removeUpdateCallback(void* callbackObject){
+		if (callbackObject) {
+			observerMap.erase(callbackObject);
+		}		
 	}
 
 	void Texture::setRenderer(SDL_Renderer* renderer) {
@@ -123,5 +129,11 @@ namespace CE {
 	void Texture::onSurfaceLoaded(SDL_Surface* surface, void* callbackObject) {
 		Texture* self = static_cast<Texture*>(callbackObject);
 		self->createFromSDL_Surface(surface);
+
+		// Notify observers
+		for (const auto& [obj, cb] : self->observerMap) {
+			cb(obj);
+		}
+
 	}
 }

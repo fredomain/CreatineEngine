@@ -72,6 +72,9 @@
     <ClCompile Include="Source\Private\SurfaceInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Private\AnimatedSurfaceInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\AnimatedTextureInstance.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\SurfaceInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\AnimatedSurfaceInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

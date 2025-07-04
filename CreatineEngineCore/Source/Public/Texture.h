@@ -4,6 +4,7 @@
 
 #include <Renderable.h>
 #include "ImageLoader.h"
+#include <unordered_map>
 
 namespace CE {
 	/**
@@ -11,6 +12,22 @@ namespace CE {
 	 */
 	class Texture {
 	public:
+		using UpdateCallback = void(*)(void* callbackObject);		// Texture Instance callback function pòinter type
+
+		class ObserverInfo {
+		public:
+			ObserverInfo(UpdateCallback cb, void* obj)
+				: cb(cb), callbackObject(obj) {
+			}
+
+			void notify() const {
+				if (cb) cb(callbackObject);
+			}
+
+			UpdateCallback cb;
+			void* callbackObject;
+		};
+
 		// Constructors destructors
 		//Texture() = default;
 		Texture(SDL_Renderer* renderer,
@@ -41,6 +58,10 @@ namespace CE {
 		void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor);
 		void createFromSDL_Surface(SDL_Surface* surface);
 
+		// Functions called by observers
+		void addUpdateCallback(UpdateCallback cb, void* callbackObject);
+		void removeUpdateCallback(void* callbackObject);
+
 		// Renderer operations
 		void setRenderer(SDL_Renderer* renderer);
 		SDL_Renderer* getRenderer() const;
@@ -58,7 +79,9 @@ namespace CE {
 		SDL_Renderer* renderer = nullptr;
 
 	private:
-		static void onSurfaceLoaded(SDL_Surface* surf, void* userData);
+		static void onSurfaceLoaded(SDL_Surface* surf, void* userData);		// Function called by an assigned ImageLoader
+
+		std::unordered_map<void*, UpdateCallback> observerMap;
 		
 	};
 
