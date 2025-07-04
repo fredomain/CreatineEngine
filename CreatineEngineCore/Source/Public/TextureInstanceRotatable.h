@@ -1,18 +1,24 @@
 #pragma once
-#ifndef TEXTUREROTATABLEINSTANCE_H
-#define TEXTUREROTATABLEINSTANCE_H
+#ifndef TEXTUREINSTANCEROTATABLE_H
+#define TEXTUREINSTANCEROTATABLE_H
 
 #include "TextureInstance.h"
 
 namespace CE {
 
-	class TextureRotatableInstance : public TextureInstance
+	class TextureInstanceRotatable : public TextureInstance
 	{
 	public:
 
 		// Conctructors & destructor
-		TextureRotatableInstance(Texture& texture);
-		~TextureRotatableInstance();
+		TextureInstanceRotatable(
+			Texture* texture,
+			double rotation = 0.0,
+			FVector rotationOrigin = FVector(0.0f, 0.0f),
+			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE
+			);
+
+		~TextureInstanceRotatable();
 
 		// Virtual functions
 		void render() const override;

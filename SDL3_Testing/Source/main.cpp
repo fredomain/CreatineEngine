@@ -84,18 +84,21 @@ int main(int argc, char* args[]){
 
 		// Forma 2
 		CE::ImageLoader imageLoader("Content/Images/background.jpg");
-		CE::Texture imagenFondo(gRenderer, imageLoader);
+		CE::Texture imagenFondoT(gRenderer, imageLoader);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
 		imageLoader.load();
 
 		// Forma 3
-		SDL_Color color{ 255, 255, 0, 255 };
+		/*SDL_Color color{255, 255, 0, 255};
 		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
-		CE::TextureRotatable imagenFondo(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
+		CE::Texture imagenFondoT(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		imagenFondo.init();
 		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-		imagenFondo.setScale(0.5);
+		imagenFondo.setScale(0.5f);
+		
 		imagenFondo.setRotationOrigin(CE::RectAnchor::CENTER);
 		imagenFondo.setRotation(45);
 		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);

@@ -28,7 +28,7 @@ namespace CE {
 
         if (callback) {
             callback(surface, callbackObject);
-            std::print("Calling callback");
+            //std::print("Calling callback");
         }
 
         SDL_DestroySurface(surface);

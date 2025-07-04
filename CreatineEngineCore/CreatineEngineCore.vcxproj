@@ -19,49 +19,49 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\AnimatedSurfaceInstance.cpp" />
-    <ClCompile Include="Source\Private\Logger.cpp" />
-    <ClCompile Include="Source\Private\RenderEngine.cpp" />
-    <ClCompile Include="Source\Private\FVector.cpp" />
-    <ClCompile Include="Source\Private\Scene.cpp" />
-    <ClCompile Include="Source\Private\Init.cpp" />
-    <ClCompile Include="Source\Private\GameEntity.cpp" />
-    <ClCompile Include="Source\Private\AssetManager.cpp" />
+    <ClCompile Include="Source\Private\SurfaceInstanceAnimated.cpp" />
     <ClCompile Include="Source\Private\AssetLoader.cpp" />
-    <ClCompile Include="Source\Private\Renderable.cpp" />
-    <ClCompile Include="Source\Private\AnimatedTextureInstance.cpp" />
+    <ClCompile Include="Source\Private\AssetManager.cpp" />
+    <ClCompile Include="Source\Private\FVector.cpp" />
+    <ClCompile Include="Source\Private\GameEntity.cpp" />
     <ClCompile Include="Source\Private\ImageLoader.cpp" />
-    <ClCompile Include="Source\Public\RectAnchor.h" />
-    <ClCompile Include="Source\Private\TimingManager.cpp" />
-    <ClCompile Include="Source\Private\Texture.cpp" />
+    <ClCompile Include="Source\Private\Init.cpp" />
+    <ClCompile Include="Source\Private\Logger.cpp" />
+    <ClCompile Include="Source\Private\Renderable.cpp" />
+    <ClCompile Include="Source\Private\RenderEngine.cpp" />
+    <ClCompile Include="Source\Private\Scene.cpp" />
     <ClCompile Include="Source\Private\Surface.cpp" />
-    <ClCompile Include="Source\Private\TextureRotatableInstance.cpp" />
-    <ClCompile Include="Source\Private\AnimatedTextureRotatableInstance.cpp" />
     <ClCompile Include="Source\Private\SurfaceInstance.cpp" />
+    <ClCompile Include="Source\Private\Texture.cpp" />
     <ClCompile Include="Source\Private\TextureInstance.cpp" />
+    <ClCompile Include="Source\Private\TextureInstanceAnimated.cpp" />
+    <ClCompile Include="Source\Private\TextureInstanceRotatable.cpp" />
+    <ClCompile Include="Source\Private\TextureInstanceRotatableAnimated.cpp" />
+    <ClCompile Include="Source\Private\TimingManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\AnimatedSurfaceInstance.h" />
-    <ClInclude Include="Source\Public\Logger.h" />
-    <ClInclude Include="Source\Public\RenderEngine.h" />
-    <ClInclude Include="Source\Public\FVector.h" />
-    <ClInclude Include="Source\Public\Scene.h" />
-    <ClInclude Include="Source\Public\Init.h" />
-    <ClInclude Include="Source\Public\CreatineEngineCore.h" />
-    <ClInclude Include="Source\Public\GameEntity.h" />
-    <ClInclude Include="Source\Public\AssetManager.h" />
+    <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />
     <ClInclude Include="Source\Public\AssetLoader.h" />
-    <ClInclude Include="Source\Public\MathConstants.h" />
-    <ClInclude Include="Source\Public\Renderable.h" />
-    <ClInclude Include="Source\Public\AnimatedTextureInstance.h" />
+    <ClInclude Include="Source\Public\AssetManager.h" />
+    <ClInclude Include="Source\Public\CreatineEngineCore.h" />
+    <ClInclude Include="Source\Public\FVector.h" />
+    <ClInclude Include="Source\Public\GameEntity.h" />
     <ClInclude Include="Source\Public\ImageLoader.h" />
-    <ClInclude Include="Source\Public\TimingManager.h" />
-    <ClInclude Include="Source\Public\Texture.h" />
+    <ClInclude Include="Source\Public\Init.h" />
+    <ClInclude Include="Source\Public\Logger.h" />
+    <ClInclude Include="Source\Public\MathConstants.h" />
+    <ClInclude Include="Source\Public\RectAnchor.h" />
+    <ClInclude Include="Source\Public\Renderable.h" />
+    <ClInclude Include="Source\Public\RenderEngine.h" />
+    <ClInclude Include="Source\Public\Scene.h" />
     <ClInclude Include="Source\Public\Surface.h" />
-    <ClInclude Include="Source\Public\TextureRotatableInstance.h" />
-    <ClInclude Include="Source\Public\AnimatedTextureRotatableInstance.h" />
     <ClInclude Include="Source\Public\SurfaceInstance.h" />
+    <ClInclude Include="Source\Public\Texture.h" />
     <ClInclude Include="Source\Public\TextureInstance.h" />
+    <ClInclude Include="Source\Public\TextureInstanceAnimated.h" />
+    <ClInclude Include="Source\Public\TextureInstanceRotatable.h" />
+    <ClInclude Include="Source\Public\TextureInstanceRotatableAnimated.h" />
+    <ClInclude Include="Source\Public\TimingManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -119,13 +119,13 @@
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
@@ -179,7 +179,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

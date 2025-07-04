@@ -4,8 +4,8 @@
 
 
 #include "AssetManager.h"
-#include "SpriteTexture.h"
-#include "SpriteTextureRotatable.h"
+#include "TextureInstanceAnimated.h"
+#include "TextureInstanceRotatableAnimated.h"
 #include "ImageLoader.h"
 #include "MathConstants.h"
 #include "Logger.h"

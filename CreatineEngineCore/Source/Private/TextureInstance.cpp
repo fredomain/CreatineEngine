@@ -1,9 +1,17 @@
 #include "TextureInstance.h"
+#include <print>
 
 namespace CE {
 
-	TextureInstance::TextureInstance(Texture&) : texture(texture){
+	TextureInstance::TextureInstance(Texture* texture) : texture(texture){
 		texture->addUpdateCallback(&TextureInstance::onTextureLoaded, this);
+
+		// if texture is already loaded, set the needed parameters
+		if (texture->isValid()) {
+			setSourceWidth(static_cast<float>(texture->getWidth()));
+			setSourceHeight(static_cast<float>(texture->getHeight()));
+			//std::print("Source setted\n");
+		}
 	}
 
 	TextureInstance::~TextureInstance() {

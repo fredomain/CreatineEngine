@@ -1,10 +1,11 @@
 #pragma once
 #ifndef SURFACEINSTANCE_H
-#define SURFACESURFACEINSTANCE_HENDER_H
+#define SURFACEINSTANCE_H
+
+#include "Renderable.h"
 
 namespace CE {
 
-#include "Renderable.h"
 	class SurfaceInstance : public Renderable
 	{
 

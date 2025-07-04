@@ -11,7 +11,7 @@ namespace CE {
 	{
 	public:
 		// Conctructors & destructor
-		TextureInstance(Texture& texture);
+		TextureInstance(Texture* texture);
 		~TextureInstance();
 
 		// Virtual functions
