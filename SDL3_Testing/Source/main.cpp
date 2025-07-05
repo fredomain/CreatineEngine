@@ -83,17 +83,43 @@ int main(int argc, char* args[]){
 		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
 
 		// Forma 2
-		CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		/*CE::ImageLoader imageLoader("Content/Images/background.jpg");
 		CE::Texture imagenFondoT(gRenderer, imageLoader);
 		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
 		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("cargado: {}\n", imageLoader.isLoaded());
 		imageLoader.load();
+		std::print("cargado: {}\n", imageLoader.isLoaded());*/
 
 		// Forma 3
+		/*CE::AssetLoaderManager assetLoaderManager;
+		//assetLoaderManager.registerAssetLoader(std::make_shared<CE::ImageLoader>("Content/Images/background.jpg"));
+		auto imageLoader = std::make_shared<CE::ImageLoader>("Content/Images/background.jpg");
+		assetLoaderManager.registerAssetLoader(imageLoader);
+
+		CE::Texture imagenFondoT(gRenderer, imageLoader.get());
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("cargado: {}\n", imageLoader->isLoaded());
+		//imageLoader->load();
+		assetLoaderManager.loadAllAssets();
+		std::print("cargado: {}\n", imageLoader->isLoaded());*/
+
+		// Forma 4
 		/*SDL_Color color{255, 255, 0, 255};
 		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
 		CE::Texture imagenFondoT(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
 		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
+
+		// Forma 5
+		CE::AssetLoaderManager assetLoaderManager;
+		CE::Texture imagenFondoT(gRenderer, "Content/Images/background.jpg", assetLoaderManager);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+		assetLoaderManager.loadAllAssets();
+		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		//imagenFondo.init();

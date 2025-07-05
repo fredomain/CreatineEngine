@@ -13,12 +13,15 @@ namespace CE {
         virtual void load() = 0;    // Main load method (use internal path attribute)
         void load(const std::string& newPath);  // Set a new path and call load()
 
+        virtual bool isLoaded() const = 0;
+
         std::string getPath() const;
         void setPath(const std::string& newPath);
 
     protected:
         explicit AssetLoader(std::string path = "");    // Enables derived classes to use the constructor delegation
         std::string path;
+
         
     };
 }

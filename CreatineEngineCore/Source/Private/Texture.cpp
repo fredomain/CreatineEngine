@@ -1,4 +1,6 @@
 #include "Texture.h"
+#include <memory>
+#include <string>
 
 namespace CE {
 
@@ -21,11 +23,30 @@ namespace CE {
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
-		ImageLoader& imageLoader
+		ImageLoader* imageLoader
 	) :
 		renderer(renderer) {
 
-		imageLoader.setLoadCallback(&Texture::onSurfaceLoaded, this);
+		imageLoader->setLoadCallback(&Texture::onSurfaceLoaded, this);
+	}
+
+	/**
+	 * @brief Constructs a Texture object and registers an ImageLoader for the specified loading path.
+	 * Useful to avoid manually creating a ImageLoader.
+	 * @param renderer A pointer to the SDL_Renderer used for rendering the texture.
+	 * @param loadingPath The file path or directory from which to load the texture asset.
+	 * @param assetLoaderManager A reference to the AssetLoaderManager responsible for managing asset loaders.
+	 */
+	Texture::Texture(
+		SDL_Renderer* renderer,
+		std::string loadingPath,
+		AssetLoaderManager& assetLoaderManager
+	) :
+		renderer(renderer) {
+
+		ImageLoader* imageLoader = new ImageLoader(loadingPath);	// use a normal pointers this object here have not ownership over the ImageLoader created
+		imageLoader->setLoadCallback(&Texture::onSurfaceLoaded, this);	// Set a callback as when creating with an ImmageLoader
+		assetLoaderManager.registerAssetLoader(std::shared_ptr<ImageLoader>(imageLoader));
 	}
 
 	Texture::Texture(

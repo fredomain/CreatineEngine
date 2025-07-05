@@ -2,7 +2,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "AssetManager.h"
+#include "AssetLoaderManager.h"
 #include "RenderEngine.h"
 
 namespace CE {
@@ -10,7 +10,7 @@ namespace CE {
 	class Scene
 	{
 	private:
-		AssetManager assetManager;
+		AssetLoaderManager assetManager;
 		RenderEngine renderManager;
 	};
 

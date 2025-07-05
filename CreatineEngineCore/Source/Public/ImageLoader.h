@@ -9,16 +9,23 @@ namespace CE {
 
     class ImageLoader : public AssetLoader {
     public:
-        explicit ImageLoader(std::string path = "");
-
         using CallbackFunc = void(*)(SDL_Surface*, void*);  // Texture callback function pointer type
 
+        // Constructors
+        explicit ImageLoader(std::string path = "");        
+
         void setLoadCallback(CallbackFunc cb, void* callbackObject);
-        void load() override;        
+
+        void load() override;
+        bool isLoaded() const override;
 
     private:
         CallbackFunc callback = nullptr;
         void* callbackObject = nullptr;
+
+        SDL_Surface* surface;       // Pointer to the loaded surface. 
+                                    // This class is not owner of it
+                                    // but the Surface or Texture that receives the callback
     };
 
 }

@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Private\SurfaceInstanceAnimated.cpp" />
     <ClCompile Include="Source\Private\AssetLoader.cpp" />
-    <ClCompile Include="Source\Private\AssetManager.cpp" />
+    <ClCompile Include="Source\Private\AssetLoaderManager.cpp" />
     <ClCompile Include="Source\Private\FVector.cpp" />
     <ClCompile Include="Source\Private\GameEntity.cpp" />
     <ClCompile Include="Source\Private\ImageLoader.cpp" />
@@ -42,7 +42,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />
     <ClInclude Include="Source\Public\AssetLoader.h" />
-    <ClInclude Include="Source\Public\AssetManager.h" />
+    <ClInclude Include="Source\Public\AssetLoaderManager.h" />
     <ClInclude Include="Source\Public\CreatineEngineCore.h" />
     <ClInclude Include="Source\Public\FVector.h" />
     <ClInclude Include="Source\Public\GameEntity.h" />

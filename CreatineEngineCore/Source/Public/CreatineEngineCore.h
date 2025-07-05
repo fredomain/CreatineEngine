@@ -3,7 +3,7 @@
 #define CREATINEENGINECORE_H
 
 
-#include "AssetManager.h"
+#include "AssetLoaderManager.h"
 #include "TextureInstanceAnimated.h"
 #include "TextureInstanceRotatableAnimated.h"
 #include "ImageLoader.h"
