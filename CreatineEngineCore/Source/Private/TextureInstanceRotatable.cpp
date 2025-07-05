@@ -30,13 +30,13 @@ namespace CE {
 		}
 	}
 
-	void TextureInstanceRotatable::init() {
+	/*void TextureInstanceRotatable::init() {
 		TextureInstance::init();
 
 		// Initialize parameters
 		rotation = 0.0;
 		setRotationOrigin(RectAnchor::CENTER);
-	}
+	}*/
 
 	double TextureInstanceRotatable::getRotation() const {
 		return rotation;

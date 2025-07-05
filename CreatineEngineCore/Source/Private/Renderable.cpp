@@ -3,31 +3,30 @@
 namespace CE {
 	Renderable::Renderable(
 		FVector position,
-		RectAnchor posAnchor,
-		FVector posAnchorOffset,
+		RectAnchor positionAnchor,
+		FVector positionAnchorOffset,
 		FVector scale,
 		float opacity
 		) :
 		sourceRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
 		destinationRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
 		position(position),
-		posAnchor(posAnchor),
-		posAnchorOffset(posAnchorOffset),
+		positionAnchor(positionAnchor),
+		positionAnchorOffset(positionAnchorOffset),
 		scale(scale),
 		opacity(opacity){
 
 	}
 
-	void Renderable::init() {
-		// First, set the source rect size
-		//setSourceWidth(static_cast<float>(TextureRenderAsset.getTexture()->w));
-		//setSourceHeight(static_cast<float>(TextureRenderAsset.getTexture()->h));
-		// Then, destination rect must be set regarding the scale
+	/**
+	 * @brief Initializes the Renderable object to its default state.
+	 */
+	/*void Renderable::init() {
 		setScale(1.0f);
-		// Anchor offset can also be set
-		setPositionAnchor(getPositionAnchor());
-		setPosition(0.0f, 0.0f);
-	}
+		//destinationRect = 0;
+		
+		setPositionAnchor(RectAnchor::CENTER);
+	}*/
 
 	float Renderable::getX() const{
 		return position.x;
@@ -35,7 +34,7 @@ namespace CE {
 
 	void Renderable::setX(float x){
 		position.x = x;
-		destinationRect.x = x - posAnchorOffset.x;
+		destinationRect.x = x - positionAnchorOffset.x;
 		//printf("destinationRect.x = %f\n", destinationRect.x);
 	}
 
@@ -45,7 +44,7 @@ namespace CE {
 
 	void Renderable::setY(float y) {
 		position.y = y;
-		destinationRect.y = y - posAnchorOffset.y;
+		destinationRect.y = y - positionAnchorOffset.y;
 		//printf("destinationRect.y = %f\n", destinationRect.y);
 	}
 
@@ -69,17 +68,22 @@ namespace CE {
 	}
 
 	void Renderable::setPositionAnchor(RectAnchor anchor) {
-		posAnchor = anchor;
+		positionAnchor = anchor;
 		// Update the anchor offset
 		updateAnchorOffset();
 	}
 
 	RectAnchor Renderable::getPositionAnchor() const{
-		return posAnchor;
+		return positionAnchor;
 	}
 
+	FVector Renderable::getPositionAnchorOffset() const {
+		return positionAnchorOffset;
+	}
+
+	//
 	void Renderable::updateAnchorOffset() {
-		posAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, posAnchor);
+		positionAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, positionAnchor);
 		// Update position to reflect the change in the anchor offset (with the current position settings)
 		setPosition(getX(), getY());
 	}

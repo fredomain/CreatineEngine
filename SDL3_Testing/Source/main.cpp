@@ -96,7 +96,7 @@ int main(int argc, char* args[]){
 		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
-		imagenFondo.init();
+		//imagenFondo.init();
 		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 		imagenFondo.setScale(0.5f);
 		
@@ -105,7 +105,7 @@ int main(int argc, char* args[]){
 		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
 
 		imagenFondo2.setPositionAnchor(CE::RectAnchor::CENTER);
-		imagenFondo2.init();
+		//imagenFondo2.init();
 		imagenFondo2.setPosition(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
 		imagenFondo2.setScale(0.2f);
 

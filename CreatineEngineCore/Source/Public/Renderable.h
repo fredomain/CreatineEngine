@@ -15,7 +15,7 @@ namespace CE {
 	public:
 		// Virtual pure functions
 		virtual void render() const = 0;		
-		virtual void init();
+		//virtual void init();
 
 		// Position operations
 		float getX() const;
@@ -29,6 +29,7 @@ namespace CE {
 		FVector getPosition() const;
 		void setPositionAnchor(RectAnchor anchor);
 		RectAnchor getPositionAnchor() const;
+		FVector getPositionAnchorOffset() const;
 		
 		// Size operations
 		float getWidth() const;
@@ -53,8 +54,8 @@ namespace CE {
 	protected:
 		Renderable(
 			FVector position = FVector(0.0f, 0.0f),
-			RectAnchor posAnchor = RectAnchor::TOP_LEFT,
-			FVector posAnchorOffset = FVector(0.0f, 0.0f),
+			RectAnchor positionAnchor = RectAnchor::TOP_LEFT,
+			FVector positionAnchorOffset = FVector(0.0f, 0.0f),
 			FVector scale = FVector(1.0f, 1.0f),
 			float opacity = 1.0
 			);
@@ -78,8 +79,8 @@ namespace CE {
 		SDL_FRect destinationRect;		// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
 
 		FVector position;				// User selected coordinates (x, y). Destination rendering.
-		RectAnchor posAnchor;			// Destination rect anchor. Used to select redering coordinates anchor (it is also the scalation origin)
-		FVector posAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
+		RectAnchor positionAnchor;			// Destination rect anchor. Used to select rendering coordinates anchor (it is also the scalation origin)
+		FVector positionAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
 
 		FVector scale;					// Scale origin is the same than the coordinates anchor
 

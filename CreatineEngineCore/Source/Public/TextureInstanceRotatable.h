@@ -22,7 +22,7 @@ namespace CE {
 
 		// Virtual functions
 		void render() const override;
-		void init() override;
+		//void init() override;
 
 		// Rotation operations
 		double getRotation() const;
