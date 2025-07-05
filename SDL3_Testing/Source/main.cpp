@@ -86,6 +86,7 @@ int main(int argc, char* args[]){
 		CE::ImageLoader imageLoader("Content/Images/background.jpg");
 		CE::Texture imagenFondoT(gRenderer, imageLoader);
 		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
 		imageLoader.load();
 
 		// Forma 3
@@ -102,6 +103,15 @@ int main(int argc, char* args[]){
 		imagenFondo.setRotationOrigin(CE::RectAnchor::CENTER);
 		imagenFondo.setRotation(45);
 		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
+
+		imagenFondo2.setPositionAnchor(CE::RectAnchor::CENTER);
+		imagenFondo2.init();
+		imagenFondo2.setPosition(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
+		imagenFondo2.setScale(0.2f);
+
+		imagenFondo2.setRotationOrigin(CE::RectAnchor::CENTER);
+		imagenFondo2.setRotation(25);
+		imagenFondo2.setFlipMode(SDL_FlipMode::SDL_FLIP_HORIZONTAL);
 
 
 		//CE::Logger::setMinimumLogLevel(CE::LogLevel::Info);
@@ -163,6 +173,7 @@ int main(int argc, char* args[]){
 
 				// Render texture to screen
 				imagenFondo.render();
+				imagenFondo2.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
 				drawCross(gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
