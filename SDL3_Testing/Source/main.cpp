@@ -80,7 +80,9 @@ int main(int argc, char* args[]){
 		if (gHelloWorld == NULL) {
 			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
 		}
-		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
+		CE::Texture imagenFondoT(gRenderer, gHelloWorld);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);*/
 
 		// Forma 2
 		/*CE::ImageLoader imageLoader("Content/Images/background.jpg");

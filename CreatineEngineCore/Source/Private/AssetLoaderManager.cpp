@@ -6,14 +6,14 @@ namespace CE {
 
     void AssetLoaderManager::registerAssetLoader(std::shared_ptr<AssetLoader> asset) {
         // Prevent duplicate paths
-        for (const auto& existing : assetLoaderList) {
+        /*for (const auto& existing : assetLoaderList) {
             if (existing->getPath() == asset->getPath()) {
                 Logger::logMessage(LogFileType::Engine,
                     "Asset already registered",
                     LogLevel::Warn, "AssetManagment");
                 return; // Already registered
             }
-        }
+        }*/
         assetLoaderList.push_back(asset);
     }
 

@@ -28,6 +28,14 @@ namespace CE {
 		setPositionAnchor(RectAnchor::CENTER);
 	}*/
 
+	void Renderable::setRenderOrder(uint8_t renderOrder) {
+		this->renderOrder = renderOrder;
+	}
+
+	uint8_t Renderable::getRenderOrder() const {
+		return renderOrder;
+	}
+
 	float Renderable::getX() const{
 		return position.x;
 	}

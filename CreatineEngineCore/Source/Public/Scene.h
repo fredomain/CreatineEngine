@@ -4,6 +4,7 @@
 
 #include "AssetLoaderManager.h"
 #include "RenderEngine.h"
+#include "TimingManager.h"
 
 namespace CE {
 
@@ -12,6 +13,7 @@ namespace CE {
 	private:
 		AssetLoaderManager assetManager;
 		RenderEngine renderManager;
+		TimingManager timingManager;
 	};
 
 }

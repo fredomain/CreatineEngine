@@ -17,6 +17,10 @@ namespace CE {
 		virtual void render() const = 0;		
 		//virtual void init();
 
+		// Render priority
+		void setRenderOrder(uint8_t renderOrder);
+		uint8_t getRenderOrder() const;
+
 		// Position operations
 		float getX() const;
 		void setX(float x);
@@ -75,6 +79,8 @@ namespace CE {
 		void updateAnchorOffset();
 
 	private:
+		uint8_t renderOrder;			// Render priority [0,255] (0 -> render in the background)
+
 		SDL_FRect sourceRect;			// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
 		SDL_FRect destinationRect;		// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
 
