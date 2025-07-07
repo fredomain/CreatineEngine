@@ -4,3 +4,9 @@
 [07-07-2025 14:06:54][ERROR][General] [Thread 27108] Error
 [07-07-2025 14:06:54][VERBOSE][General] [Thread 27108] verbose
 [07-07-2025 14:06:54][WARN][General] [Thread 27108] Warn
+[07-07-2025 14:11:34][DEBUG][General] [Thread 26652] Debug
+[07-07-2025 14:11:34][CRITICAL][General] [Thread 26652] Critical
+[07-07-2025 14:11:34][INFO][General] [Thread 26652] Info
+[07-07-2025 14:11:34][ERROR][General] [Thread 26652] Error
+[07-07-2025 14:11:34][VERBOSE][General] [Thread 26652] verbose
+[07-07-2025 14:11:34][WARN][General] [Thread 26652] Warn

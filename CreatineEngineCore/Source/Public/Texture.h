@@ -2,7 +2,9 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include <Renderable.h>
+#include <Resource.h>
+#include <SDL3/SDL.h>
+#include <SDL_ttf.h>
 #include "ImageLoader.h"
 #include <unordered_map>
 #include "AssetLoaderManager.h"
@@ -11,7 +13,7 @@ namespace CE {
 	/**
 	 * @brief Wrapper class for SDL_Texture (GPU Image). Contains a pointer to the SDL texture data structure.
 	 */
-	class Texture {
+	class Texture : public Resource {
 	public:
 		using UpdateCallback = void(*)(void* callbackObject);		// Texture Instance callback function pòinter type
 

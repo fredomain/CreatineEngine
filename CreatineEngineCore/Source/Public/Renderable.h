@@ -6,7 +6,7 @@
 #include <SDL3/SDL.h>
 #include "FVector.h"
 #include "RectAnchor.h"
-#include <SDL_ttf.h>
+
 #include <print>
 
 namespace CE {

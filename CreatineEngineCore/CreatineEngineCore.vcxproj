@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\CreatineEngineCore.cpp" />
+    <ClCompile Include="Source\Private\Resource.cpp" />
     <ClCompile Include="Source\Private\MathUtils.cpp" />
     <ClCompile Include="Source\Private\RectAnchor.cpp" />
     <ClCompile Include="Source\Private\RectPosition.cpp" />
@@ -44,12 +46,13 @@
     <ClCompile Include="Source\Private\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\CreatineEngineCore.h" />
+    <ClInclude Include="Source\Public\Resource.h" />
     <ClInclude Include="Source\Public\MathUtils.h" />
     <ClInclude Include="Source\Public\RectPosition.h" />
     <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />
     <ClInclude Include="Source\Public\AssetLoader.h" />
     <ClInclude Include="Source\Public\AssetLoaderManager.h" />
-    <ClInclude Include="Source\Public\CreatineEngineCore.h" />
     <ClInclude Include="Source\Public\FVector.h" />
     <ClInclude Include="Source\Public\GameEntity.h" />
     <ClInclude Include="Source\Public\ImageLoader.h" />
