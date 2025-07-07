@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\MathUtils.cpp" />
+    <ClCompile Include="Source\Private\RectAnchor.cpp" />
+    <ClCompile Include="Source\Private\RectPosition.cpp" />
     <ClCompile Include="Source\Private\SurfaceInstanceAnimated.cpp" />
     <ClCompile Include="Source\Private\AssetLoader.cpp" />
     <ClCompile Include="Source\Private\AssetLoaderManager.cpp" />
@@ -38,8 +41,11 @@
     <ClCompile Include="Source\Private\TextureInstanceRotatable.cpp" />
     <ClCompile Include="Source\Private\TextureInstanceRotatableAnimated.cpp" />
     <ClCompile Include="Source\Private\TimingManager.cpp" />
+    <ClCompile Include="Source\Private\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\MathUtils.h" />
+    <ClInclude Include="Source\Public\RectPosition.h" />
     <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />
     <ClInclude Include="Source\Public\AssetLoader.h" />
     <ClInclude Include="Source\Public\AssetLoaderManager.h" />
@@ -62,6 +68,7 @@
     <ClInclude Include="Source\Public\TextureInstanceRotatable.h" />
     <ClInclude Include="Source\Public\TextureInstanceRotatableAnimated.h" />
     <ClInclude Include="Source\Public\TimingManager.h" />
+    <ClInclude Include="Source\Public\Vector.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

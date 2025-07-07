@@ -64,19 +64,22 @@ namespace CE {
         Logger(const std::string& filePath);
         ~Logger();
 
-        void log(const std::string& message,
-            LogLevel level = LogLevel::Info,
-            const std::string& category = "General",
-            LogOutput output = LogOutput::Both);
-
-        static void logMessage(LogFileType type,
+        void log(
             const std::string& message,
             LogLevel level = LogLevel::Info,
-            const std::string& category = "General",
+            const std::string& category = "General",                                   
+            LogOutput output = LogOutput::Both);
+
+        static void logMessage(
+            LogFileType type,
+            const std::string& message,
+            LogLevel level = LogLevel::Info,
+            const std::string& category = "General",                  
             LogOutput output = LogOutput::Both);
 
         static void setMinimumLogLevel(LogLevel level);
         static LogLevel getMinimumLogLevel();
+        static void setLogDirectory(std::string logDirectory);
 
     private:
         std::ofstream logFile;
@@ -85,7 +88,7 @@ namespace CE {
         static std::string buildLogLabel(const std::string& category, LogLevel level);
         static std::string formatTimestamp(const std::tm& tm, const std::string& format);
 
-        inline static const std::string baseLogDirectory = "Logs/";
+        inline static std::string baseLogDirectory = "Logs/";
         inline static LogLevel minimumLogLevel = LogLevel::Verbose;
     };
 

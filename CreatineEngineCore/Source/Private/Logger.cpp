@@ -28,7 +28,11 @@ namespace CE {
      * @param category The category or module associated with the log message.
      * @param output Specifies where the log message should be sent (terminal, file, or both).
      */
-    void Logger::log(const std::string& message, LogLevel level, const std::string& category, LogOutput output) {
+    void Logger::log(
+        const std::string& message,
+        LogLevel level,
+        const std::string& category,        
+        LogOutput output) {
         if (level < minimumLogLevel) return;
 
         if (output == LogOutput::Terminal || output == LogOutput::Both) {
@@ -55,10 +59,11 @@ namespace CE {
      * @param category The category or module associated with the log message.
      * @param output Specifies where to output the log message (file, terminal, or both).
      */
-    void Logger::logMessage(LogFileType type,
+    void Logger::logMessage(
+        LogFileType type,
         const std::string& message,
         LogLevel level,
-        const std::string& category,
+        const std::string& category,                      
         LogOutput output)
     {
         if (level < minimumLogLevel) return;
@@ -109,6 +114,10 @@ namespace CE {
      */
     LogLevel Logger::getMinimumLogLevel() {
         return minimumLogLevel;
+    }
+
+    void Logger::setLogDirectory(std::string logDirectory) {
+        baseLogDirectory = logDirectory;
     }
 
     /**

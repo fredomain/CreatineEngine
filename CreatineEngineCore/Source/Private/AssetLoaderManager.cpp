@@ -23,9 +23,11 @@ namespace CE {
                 assetLoader->load(assetLoader->getPath());
             }
             catch (const std::runtime_error&) {
-                Logger::logMessage(LogFileType::Engine,
+                Logger::logMessage(
+                    LogFileType::Engine,
                     std::format("Error loading asset: {}\n", assetLoader->getPath()),
-                    LogLevel::Warn, "AssetManagment");                    
+                    LogLevel::Info,
+                    "Asset Loader Manager");                    
             }
         }
     }

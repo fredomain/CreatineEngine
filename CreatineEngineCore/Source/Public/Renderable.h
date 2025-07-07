@@ -75,7 +75,7 @@ namespace CE {
 		SDL_FRect getDestinationRect() const;
 		const SDL_FRect* getDestinationRectPtr() const;
 
-		FVector computeAnchorOffset(float w, float h, RectAnchor anchor) const;
+		
 		void updateAnchorOffset();
 
 	private:

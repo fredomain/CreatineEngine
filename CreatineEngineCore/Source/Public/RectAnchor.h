@@ -2,6 +2,8 @@
 #ifndef RECTANCHOR_H
 #define RECTANCHOR_H
 
+#include "FVector.h"
+
 namespace CE {
 
 	enum RectAnchor {
@@ -15,6 +17,10 @@ namespace CE {
 		BOTTOM_LEFT,
 		BOTTOM_RIGHT
 	};
+
+	FVector computeAnchorOffset(float w, float h, RectAnchor anchor);
 }
+
+
 
 #endif // !RECTANCHOR_H
