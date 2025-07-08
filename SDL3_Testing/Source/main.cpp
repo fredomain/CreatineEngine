@@ -89,37 +89,82 @@ int main(int argc, char* args[]){
 		if (gHelloWorld == NULL) {
 			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
 		}
-		CE::Texture imagenFondo(gRenderer, gHelloWorld);*/
+		CE::Texture imagenFondoT(gRenderer, gHelloWorld);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);*/
 
 		// Forma 2
-		//CE::ImageLoader imageLoader("Content/Images/background.jpg");
-		//CE::Texture imagenFondo(gRenderer, imageLoader);
-		//imageLoader.load();
+		/*CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		CE::Texture imagenFondoT(gRenderer, imageLoader);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("cargado: {}\n", imageLoader.isLoaded());
+		imageLoader.load();
+		std::print("cargado: {}\n", imageLoader.isLoaded());*/
 
 		// Forma 3
-		SDL_Color color{ 255, 255, 0, 255 };
+		/*CE::AssetLoaderManager assetLoaderManager;
+		//assetLoaderManager.registerAssetLoader(std::make_shared<CE::ImageLoader>("Content/Images/background.jpg"));
+		auto imageLoader = std::make_shared<CE::ImageLoader>("Content/Images/background.jpg");
+		assetLoaderManager.registerAssetLoader(imageLoader);
+
+		CE::Texture imagenFondoT(gRenderer, imageLoader.get());
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("cargado: {}\n", imageLoader->isLoaded());
+		//imageLoader->load();
+		assetLoaderManager.loadAllAssets();
+		std::print("cargado: {}\n", imageLoader->isLoaded());*/
+
+		// Forma 4
+		/*SDL_Color color{255, 255, 0, 255};
 		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
+<<<<<<< HEAD
 		CE::TextureRotatable imagenFondo(gRenderer, "Mori pro, Andres pelotudo", font, 26, color);
+=======
+		CE::Texture imagenFondoT(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
+
+		// Forma 5
+		CE::AssetLoaderManager assetLoaderManager;
+		CE::Texture imagenFondoT(gRenderer, "Content/Images/background.jpg", assetLoaderManager);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+		assetLoaderManager.loadAllAssets();
+		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+
+>>>>>>> feature/base-class-design
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
-		imagenFondo.init();
+		//imagenFondo.init();
 		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-		imagenFondo.setScale(0.5);
+		imagenFondo.setScale(0.5f);
+		
 		imagenFondo.setRotationOrigin(CE::RectAnchor::CENTER);
 		imagenFondo.setRotation(45);
 		//imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
 
-		
+		imagenFondo2.setPositionAnchor(CE::RectAnchor::CENTER);
+		//imagenFondo2.init();
+		imagenFondo2.setPosition(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
+		imagenFondo2.setScale(0.2f);
 
-		CE::Logger logger("log.txt");
+		imagenFondo2.setRotationOrigin(CE::RectAnchor::CENTER);
+		imagenFondo2.setRotation(25);
+		imagenFondo2.setFlipMode(SDL_FlipMode::SDL_FLIP_HORIZONTAL);
+
+
+		//CE::Logger::setMinimumLogLevel(CE::LogLevel::Info);
+		CE::Logger logger("log.log");
 		logger.log("Debug", CE::LogLevel::Debug);
 		logger.log("Critical", CE::LogLevel::Critical);
 		logger.log("Info", CE::LogLevel::Info);
 		logger.log("Error", CE::LogLevel::Error);
 		logger.log("verbose", CE::LogLevel::Verbose);
 		logger.log("Warn", CE::LogLevel::Warn);
-
 		CE::Logger::logMessage(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
+		CE::Logger::logMessage(CE::LogFileType::Graphics, "Andres es muy guapo", CE::LogLevel::Info, "Texturas", CE::LogOutput::Terminal);
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -212,6 +257,7 @@ int main(int argc, char* args[]){
 
 				// Render texture to screen
 				imagenFondo.render();
+				imagenFondo2.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
 				drawCross(gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -313,6 +359,8 @@ bool LoadMedia(){
 }
 
 void Close(){
+
+	CE::Logger::shutdown();
 	// Deallocate surfaces
 	SDL_DestroyTexture(character_t);
 

@@ -2,16 +2,18 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "AssetManager.h"
+#include "AssetLoaderManager.h"
 #include "RenderEngine.h"
+#include "TimingManager.h"
 
 namespace CE {
 
 	class Scene
 	{
 	private:
-		AssetManager assetManager;
+		AssetLoaderManager assetLoaderManager;
 		RenderEngine renderManager;
+		TimingManager timingManager;
 	};
 
 }

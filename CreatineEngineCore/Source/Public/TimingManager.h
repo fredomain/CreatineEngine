@@ -1,26 +1,40 @@
-// TimingManager.h
 #pragma once
 #ifndef TIMINGMANAGER_H
 #define TIMINGMANAGER_H
 
 #include <chrono>
-#include <cmath>
-
-// Uncomment or define this in build flags to enable fixed timestep
-// Use fixed time for physics (collisions for example)
-//#define TIMING_USE_FIXED_STEP
+#include <vector>
 
 namespace CE {
 
     class TimingManager {
     public:
-        TimingManager(double fixedTimeStep = 1.0 / 60.0);   // Ignore the argument if TIMING_USE_FIXED_STEP is not defined
+        TimingManager(double fixedTimeStep = 1.0 / 60.0, int targetFPS = 60);
 
         void start();
+        void reset();
         void update();
 
-        float getDeltaTime() const;
-        double getTotalTime() const;
+        void pause();
+        void resume();
+        bool isPaused() const;
+
+        void frameRateControl();
+        float getCurrentFPS() const;
+
+        void setTargetFPS(int fps);
+        int getTargetFPS() const;
+        double getTargetFrameDuration() const;
+
+        void setGameSpeed(double speed);
+        double getGameSpeed() const;
+
+        float getDeltaTime() const;       // Tiempo real entre frames
+        float getGameDeltaTime() const;   // Tiempo de juego entre frames
+
+        double getTotalTime() const;      // Tiempo real acumulado
+        double getGameTime() const;       // Tiempo de juego acumulado
+
         double getTimeDrift() const;
         void correctDrift();
 
@@ -33,10 +47,26 @@ namespace CE {
         using Clock = std::chrono::steady_clock;
         using TimePoint = Clock::time_point;
 
+        struct SpeedChange {
+            double speed;
+            double timeAtChange;
+        };
+
         TimePoint startTime;
         TimePoint lastTime;
+        bool paused;
+        TimePoint pauseStartTime;
+
         float deltaTime;
+        float gameDeltaTime;
         double accumulatedTime;
+        double gameAccumulatedTime;
+
+        int targetFPS;
+        double targetFrameDuration;
+
+        double gameSpeed;
+        std::vector<SpeedChange> speedHistory;
 
 #ifdef TIMING_USE_FIXED_STEP
         double fixedTimeStep;
@@ -46,4 +76,4 @@ namespace CE {
 
 }
 
-#endif // TIMINGMANAGER_H
+#endif

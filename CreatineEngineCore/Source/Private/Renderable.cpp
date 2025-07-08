@@ -3,19 +3,37 @@
 namespace CE {
 	Renderable::Renderable(
 		FVector position,
-		RectAnchor posAnchor,
-		FVector posAnchorOffset,
+		RectAnchor positionAnchor,
+		FVector positionAnchorOffset,
 		FVector scale,
 		float opacity
 		) :
 		sourceRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
 		destinationRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
 		position(position),
-		posAnchor(posAnchor),
-		posAnchorOffset(posAnchorOffset),
+		positionAnchor(positionAnchor),
+		positionAnchorOffset(positionAnchorOffset),
 		scale(scale),
 		opacity(opacity){
 
+	}
+
+	/**
+	 * @brief Initializes the Renderable object to its default state.
+	 */
+	/*void Renderable::init() {
+		setScale(1.0f);
+		//destinationRect = 0;
+		
+		setPositionAnchor(RectAnchor::CENTER);
+	}*/
+
+	void Renderable::setRenderOrder(uint8_t renderOrder) {
+		this->renderOrder = renderOrder;
+	}
+
+	uint8_t Renderable::getRenderOrder() const {
+		return renderOrder;
 	}
 
 	float Renderable::getX() const{
@@ -24,7 +42,7 @@ namespace CE {
 
 	void Renderable::setX(float x){
 		position.x = x;
-		destinationRect.x = x - posAnchorOffset.x;
+		destinationRect.x = x - positionAnchorOffset.x;
 		//printf("destinationRect.x = %f\n", destinationRect.x);
 	}
 
@@ -34,7 +52,7 @@ namespace CE {
 
 	void Renderable::setY(float y) {
 		position.y = y;
-		destinationRect.y = y - posAnchorOffset.y;
+		destinationRect.y = y - positionAnchorOffset.y;
 		//printf("destinationRect.y = %f\n", destinationRect.y);
 	}
 
@@ -58,64 +76,24 @@ namespace CE {
 	}
 
 	void Renderable::setPositionAnchor(RectAnchor anchor) {
-		posAnchor = anchor;
+		positionAnchor = anchor;
 		// Update the anchor offset
 		updateAnchorOffset();
 	}
 
 	RectAnchor Renderable::getPositionAnchor() const{
-		return posAnchor;
+		return positionAnchor;
 	}
 
+	FVector Renderable::getPositionAnchorOffset() const {
+		return positionAnchorOffset;
+	}
+
+	//
 	void Renderable::updateAnchorOffset() {
-		posAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, posAnchor);
+		positionAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, positionAnchor);
 		// Update position to reflect the change in the anchor offset (with the current position settings)
 		setPosition(getX(), getY());
-	}
-
-	FVector Renderable::computeAnchorOffset(float w, float h, RectAnchor anchor) const {
-		FVector offset;
-
-		switch (anchor) {
-		case RectAnchor::CENTER:
-			offset.x = w / 2;
-			offset.y = h / 2;
-			break;
-		case RectAnchor::TOP:
-			offset.x = w / 2;
-			offset.y = 0;
-			break;
-		case RectAnchor::BOTTOM:
-			offset.x = w / 2;
-			offset.y = h;
-			break;
-		case RectAnchor::LEFT:
-			offset.x = 0;
-			offset.y = h / 2;
-			break;
-		case RectAnchor::RIGHT:
-			offset.x = w;
-			offset.y = h / 2;
-			break;
-		case RectAnchor::TOP_LEFT:
-			offset.x = 0;
-			offset.y = 0;
-			break;
-		case RectAnchor::TOP_RIGHT:
-			offset.x = w;
-			offset.y = 0;
-			break;
-		case RectAnchor::BOTTOM_LEFT:
-			offset.x = 0;
-			offset.y = h;
-			break;
-		case RectAnchor::BOTTOM_RIGHT:
-			offset.x = w;
-			offset.y = h;
-			break;
-		}
-		
-		return offset;
 	}
 
 	float Renderable::getWidth() const {

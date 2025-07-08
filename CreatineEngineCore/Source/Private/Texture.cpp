@@ -1,4 +1,6 @@
 #include "Texture.h"
+#include <memory>
+#include <string>
 
 namespace CE {
 
@@ -21,11 +23,30 @@ namespace CE {
 
 	Texture::Texture(
 		SDL_Renderer* renderer,
-		ImageLoader& imageLoader
+		ImageLoader* imageLoader
 	) :
 		renderer(renderer) {
 
-		imageLoader.setLoadCallback(&Texture::onSurfaceLoaded, this);
+		imageLoader->setLoadCallback(&Texture::onSurfaceLoaded, this);
+	}
+
+	/**
+	 * @brief Constructs a Texture object and registers an ImageLoader for the specified loading path.
+	 * Useful to avoid manually creating a ImageLoader.
+	 * @param renderer A pointer to the SDL_Renderer used for rendering the texture.
+	 * @param loadingPath The file path or directory from which to load the texture asset.
+	 * @param assetLoaderManager A reference to the AssetLoaderManager responsible for managing asset loaders.
+	 */
+	Texture::Texture(
+		SDL_Renderer* renderer,
+		std::string loadingPath,
+		AssetLoaderManager& assetLoaderManager
+	) :
+		renderer(renderer) {
+
+		ImageLoader* imageLoader = new ImageLoader(loadingPath);	// use a normal pointers this object here have not ownership over the ImageLoader created
+		imageLoader->setLoadCallback(&Texture::onSurfaceLoaded, this);	// Set a callback as when creating with an ImmageLoader
+		assetLoaderManager.registerAssetLoader(std::shared_ptr<ImageLoader>(imageLoader));
 	}
 
 	Texture::Texture(
@@ -57,21 +78,6 @@ namespace CE {
 		return *this;
 	}
 
-	void Texture::render() const {
-		SDL_RenderTexture(renderer, data, getSourceRectPtr(), getDestinationRectPtr());
-	}
-
-	void Texture::init() {
-		// First, set the source rect size
-		//setSourceWidth(static_cast<float>(TextureRenderAsset.getTexture()->w));
-		//setSourceHeight(static_cast<float>(TextureRenderAsset.getTexture()->h));
-		// Then, destination rect must be set regarding the scale
-		setScale(1.0f);
-		// Anchor offset can also be set
-		setPositionAnchor(getPositionAnchor());
-		setPosition(0.0f, 0.0f);
-	}
-
 	void Texture::createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) {
 		SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), textSize, textColor);	// Create a temporal surface (it will be converted to SDL_Texture)
 		if (surface == NULL)
@@ -95,10 +101,16 @@ namespace CE {
 			SDL_Log("Unable to create texture from SDL_Surface! SDL Error: %s\n", SDL_GetError());
 			//return false;
 		}
-		else {
-			setSourceWidth(static_cast<float>(data->w));
-			setSourceHeight(static_cast<float>(data->h));
-		}
+	}
+
+	void Texture::addUpdateCallback(UpdateCallback cb, void* callbackObject){
+		observerMap[callbackObject] = cb;
+	}
+
+	void Texture::removeUpdateCallback(void* callbackObject){
+		if (callbackObject) {
+			observerMap.erase(callbackObject);
+		}		
 	}
 
 	void Texture::setRenderer(SDL_Renderer* renderer) {
@@ -109,14 +121,14 @@ namespace CE {
 		return renderer;
 	}
 
-	int Texture::getDataWidth() const {
+	int Texture::getWidth() const {
 		/*int w = 0;
 		SDL_QueryTexture(data, nullptr, nullptr, &w, nullptr);
 		return w;*/
 		return data ? data->w : 0;
 	}
 
-	int Texture::getDataHeight() const {
+	int Texture::getHeight() const {
 		/*int h = 0;
 		SDL_QueryTexture(data, nullptr, nullptr, nullptr, &h);
 		return h;*/
@@ -138,5 +150,11 @@ namespace CE {
 	void Texture::onSurfaceLoaded(SDL_Surface* surface, void* callbackObject) {
 		Texture* self = static_cast<Texture*>(callbackObject);
 		self->createFromSDL_Surface(surface);
+
+		// Notify observers
+		for (const auto& [obj, cb] : self->observerMap) {
+			cb(obj);
+		}
+
 	}
 }

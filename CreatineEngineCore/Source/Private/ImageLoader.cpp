@@ -7,7 +7,7 @@
 namespace CE {
 
     ImageLoader::ImageLoader(std::string path)
-        : AssetLoader(std::move(path)) {
+        : AssetLoader(std::move(path)), surface(nullptr) {
     }
 
     /**
@@ -21,17 +21,21 @@ namespace CE {
     }
 
     void ImageLoader::load() {
-        SDL_Surface* surface = IMG_Load(path.c_str());
+        surface = IMG_Load(path.c_str());
         if (!surface) {
             throw std::runtime_error(SDL_GetError());
         }
 
         if (callback) {
             callback(surface, callbackObject);
-            std::print("Calling callback");
+            //std::print("Calling callback");
         }
 
         SDL_DestroySurface(surface);
     }
 
+    bool ImageLoader::isLoaded() const{
+        return surface? true : false;
+
+    }
 }

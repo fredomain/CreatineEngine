@@ -2,22 +2,30 @@
 #ifndef RENDERENGINE_H
 #define RENDERENGINE_H
 
-#include "Renderable.h"
-#include <queue>
+#include <vector>
+#include <algorithm>
+#include "Renderable.h" // Base class for all renderables
 
 namespace CE {
 
-	class RenderEngine
-	{
-	private:
-		std::queue<Renderable> renderList;
+    class RenderEngine {
+    public:
+        // Registers a new renderable and marks the list as needing sorting
+        void registerRenderable(Renderable* renderable);
 
-		// renderizartodo();
+        // Removes a renderable from the list
+        void unregisterRenderable(Renderable* renderable);
 
-		//addrenderable();
-	};
+        // Sorts (if needed) and calls render() on all renderables
+        void render();
 
-}
+    private:
+        std::vector<Renderable*> renderList;
+        bool needsSort = false;
 
-#endif // !RENDERENGINE_H
+        void sortRenderListIfNeeded();
+    };
 
+} // namespace CE
+
+#endif

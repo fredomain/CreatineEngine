@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ASSETMANAGER_H
-#define ASSETMANAGER_H
+#ifndef ASSETLOADERMANAGER_H
+#define ASSETLOADERMANAGER_H
 
 #include "AssetLoader.h"
 #include <vector>
@@ -8,10 +8,10 @@
 
 namespace CE {
 
-    class AssetManager {
+    class AssetLoaderManager {
     public:
         void registerAssetLoader(std::shared_ptr<AssetLoader> asset);
-        void loadAllAssets();
+        void loadAllAssets() const;
 
         int getLoadedCount() const;
         int getTotalCount() const;

@@ -2,13 +2,14 @@
 #ifndef SURFACE_H
 #define SURFACE_H
 
-#include <Renderable.h>
+#include "Resource.h"
+#include <SDL3/SDL.h>
 
 namespace CE {
     /**
      * @brief Wrapper class for SDL_Surface (CPU Image). Contains a pointer to the SDL surface data structure.
      */
-    class Surface : public Renderable {
+    class Surface : public Resource {
     public:
         Surface() = default;
         explicit Surface(SDL_Surface* surface);

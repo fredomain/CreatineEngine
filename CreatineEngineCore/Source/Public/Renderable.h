@@ -6,7 +6,7 @@
 #include <SDL3/SDL.h>
 #include "FVector.h"
 #include "RectAnchor.h"
-#include <SDL_ttf.h>
+
 #include <print>
 
 namespace CE {
@@ -15,8 +15,11 @@ namespace CE {
 	public:
 		// Virtual pure functions
 		virtual void render() const = 0;		
-		virtual void init() = 0;
-		virtual void createFromString(std::string text, TTF_Font* font, size_t textSize, SDL_Color textColor) = 0;
+		//virtual void init();
+
+		// Render priority
+		void setRenderOrder(uint8_t renderOrder);
+		uint8_t getRenderOrder() const;
 
 		// Position operations
 		float getX() const;
@@ -30,6 +33,7 @@ namespace CE {
 		FVector getPosition() const;
 		void setPositionAnchor(RectAnchor anchor);
 		RectAnchor getPositionAnchor() const;
+		FVector getPositionAnchorOffset() const;
 		
 		// Size operations
 		float getWidth() const;
@@ -54,8 +58,8 @@ namespace CE {
 	protected:
 		Renderable(
 			FVector position = FVector(0.0f, 0.0f),
-			RectAnchor posAnchor = RectAnchor::TOP_LEFT,
-			FVector posAnchorOffset = FVector(0.0f, 0.0f),
+			RectAnchor positionAnchor = RectAnchor::TOP_LEFT,
+			FVector positionAnchorOffset = FVector(0.0f, 0.0f),
 			FVector scale = FVector(1.0f, 1.0f),
 			float opacity = 1.0
 			);
@@ -71,16 +75,18 @@ namespace CE {
 		SDL_FRect getDestinationRect() const;
 		const SDL_FRect* getDestinationRectPtr() const;
 
-		FVector computeAnchorOffset(float w, float h, RectAnchor anchor) const;
+		
 		void updateAnchorOffset();
 
 	private:
+		uint8_t renderOrder;			// Render priority [0,255] (0 -> render in the background)
+
 		SDL_FRect sourceRect;			// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
 		SDL_FRect destinationRect;		// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
 
 		FVector position;				// User selected coordinates (x, y). Destination rendering.
-		RectAnchor posAnchor;			// Destination rect anchor. Used to select redering coordinates anchor (it is also the scalation origin)
-		FVector posAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
+		RectAnchor positionAnchor;			// Destination rect anchor. Used to select rendering coordinates anchor (it is also the scalation origin)
+		FVector positionAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
 
 		FVector scale;					// Scale origin is the same than the coordinates anchor
 

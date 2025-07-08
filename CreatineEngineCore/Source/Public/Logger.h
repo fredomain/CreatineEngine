@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include <string>
+#include <unordered_map>
 #include <print>
 #include <chrono>
 #include <ctime>
@@ -64,12 +65,14 @@ namespace CE {
         Logger(const std::string& filePath);
         ~Logger();
 
-        void log(const std::string& message,
+        void log(
+            const std::string& message,
             LogLevel level = LogLevel::Info,
             const std::string& category = "General",
             LogOutput output = LogOutput::Both);
 
-        static void logMessage(LogFileType type,
+        static void logMessage(
+            LogFileType type,
             const std::string& message,
             LogLevel level = LogLevel::Info,
             const std::string& category = "General",
@@ -77,14 +80,21 @@ namespace CE {
 
         static void setMinimumLogLevel(LogLevel level);
         static LogLevel getMinimumLogLevel();
+        static void setLogDirectory(std::string logDirectory);
+
+        static void shutdown(); // Close presitent opened streams
 
     private:
         std::ofstream logFile;
 
         static std::string generateFilename();
         static std::string buildLogLabel(const std::string& category, LogLevel level);
-        inline static const std::string baseLogDirectory = "Logs/";
+        static std::string formatTimestamp(const std::tm& tm, const std::string& format);
+
+        inline static std::string baseLogDirectory = "Logs/";
         inline static LogLevel minimumLogLevel = LogLevel::Verbose;
+
+        inline static std::unordered_map<LogFileType, std::ofstream> staticLogFiles; // Persistent streams
     };
 
 } // namespace CE
