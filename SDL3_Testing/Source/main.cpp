@@ -119,9 +119,6 @@ int main(int argc, char* args[]){
 		// Forma 4
 		/*SDL_Color color{255, 255, 0, 255};
 		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
-<<<<<<< HEAD
-		CE::TextureRotatable imagenFondo(gRenderer, "Mori pro, Andres pelotudo", font, 26, color);
-=======
 		CE::Texture imagenFondoT(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
 		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
 
@@ -134,7 +131,6 @@ int main(int argc, char* args[]){
 		assetLoaderManager.loadAllAssets();
 		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
 
->>>>>>> feature/base-class-design
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
 		//imagenFondo.init();
