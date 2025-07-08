@@ -6,5 +6,9 @@
 
 int main()
 {
+    CE::CreatineEngineCore::init();
+
     std::print("Hello World!\n");
+
+    CE::CreatineEngineCore::quit();
 }
