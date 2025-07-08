@@ -31,4 +31,11 @@
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Content\Sounds\beat.wav" />
+    <Media Include="Content\Sounds\high.wav" />
+    <Media Include="Content\Sounds\low.wav" />
+    <Media Include="Content\Sounds\medium.wav" />
+    <Media Include="Content\Sounds\scratch.wav" />
+  </ItemGroup>
 </Project>

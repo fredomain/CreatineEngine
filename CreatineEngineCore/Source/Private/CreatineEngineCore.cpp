@@ -3,7 +3,7 @@
 namespace CE {
 	void CreatineEngineCore::init() {
 		// Initialize SDL
-		if (!SDL_Init(SDL_INIT_VIDEO)) {
+		if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
 			SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		}
 		else {
@@ -14,6 +14,7 @@ namespace CE {
 	void CreatineEngineCore::quit() {
 		// Shutdown SDL 
 		TTF_Quit();
+		Mix_Quit();
 		SDL_Quit();
 
 		Logger::shutdown();

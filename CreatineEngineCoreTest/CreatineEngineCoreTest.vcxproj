@@ -81,16 +81,16 @@
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\CreatineEngineCore\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
+    <IncludePath>..\CreatineEngineCore\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;C:\GameDevLib\SDL_mixer-main\include\SDL3_mixer;$(IncludePath)</IncludePath>
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;C:\GameDevLib\SDL_mixer-main\VisualC\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>..\CreatineEngineCore\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
+    <IncludePath>..\CreatineEngineCore\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;C:\GameDevLib\SDL_mixer-main\include\SDL3_mixer;$(IncludePath)</IncludePath>
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;C:\GameDevLib\SDL_mixer-main\VisualC\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -131,7 +131,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;C:\GameDevLib\SDL_mixer-main\VisualC\x64\Debug\SDL3_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,7 +147,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;C:\GameDevLib\SDL_mixer-main\VisualC\x64\Debug\SDL3_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

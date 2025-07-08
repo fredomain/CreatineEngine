@@ -61,6 +61,14 @@ SDL_Texture* character_t = NULL;
 SDL_FRect character_ori;
 SDL_FRect character_dest;
 
+Mix_Music* gMusic = nullptr;			// The image that will be continuously playing
+
+Mix_Chunk* gScratch = nullptr;			// The sound effect that will be used
+Mix_Chunk* gHigh = nullptr;
+Mix_Chunk* gMedium = nullptr;
+Mix_Chunk* gLow = nullptr;
+
+SDL_AudioSpec* audioSpec = new SDL_AudioSpec;		// Audio specifications for SDL mixer loading
 
 //Main loop flag
 bool quit = false;
@@ -192,6 +200,47 @@ int main(int argc, char* args[]){
 						case SDLK_RIGHT:
 							character_dest.x += 10.0f;
 							break;
+						case SDLK_1:
+							printf("Reproducing scratch...\n");
+							Mix_PlayChannel(-1, gHigh, 0);
+							break;
+
+						case SDLK_2:
+							printf("Reproducing high sound effect...\n");
+							Mix_PlayChannel(-1, gHigh, 0);
+							break;
+
+						case SDLK_3:
+							printf("Reproducing medium sound effect...\n");
+							Mix_PlayChannel(-1, gMedium, 0);
+							break;
+
+						case SDLK_4:
+							printf("Reproducing low sound effect...\n");
+							Mix_PlayChannel(-1, gLow, 0);
+							break;
+
+						case SDLK_M:
+							printf("Reproducing music...\n");
+							if (Mix_PausedMusic() == 1)
+							{
+								Mix_ResumeMusic();
+							}
+							else
+							{
+								Mix_PlayMusic(gMusic, -1);
+							}
+							break;
+
+						case SDLK_P:
+							printf("Pausing music...\n");
+							Mix_PauseMusic();
+							break;
+
+						case SDLK_H:
+							printf("Halting music...\n");
+							Mix_HaltMusic();
+							break;
 						}
 					}
 				}
@@ -229,7 +278,7 @@ bool Init(){
 	TTF_Init();
 
 	//Initialize SDL
-	if (!SDL_Init(SDL_INIT_VIDEO)){
+	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)){
 		SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		success = false;
 	}else
@@ -245,6 +294,18 @@ bool Init(){
 			//Initialize renderer color
 			SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 			//SDL_PropertiesID info = SDL_GetRendererProperties(gRenderer);
+		}
+
+		//Define the audio device specifications
+		audioSpec->freq = 44100;
+		audioSpec->format = MIX_DEFAULT_FORMAT;
+		audioSpec->channels = 2;
+
+		// Initialize the audio device
+		if (Mix_OpenAudio(0, audioSpec) < 0)
+		{
+			printf("SDL mixer could not initialize: %s", SDL_GetError());
+			success = false;
 		}
 	}
 
@@ -273,6 +334,19 @@ bool LoadMedia(){
 		SDL_DestroySurface(character);
 	}
 
+	// Load music & sound files
+	gMusic = Mix_LoadMUS("Content/Sounds/beat.wav");
+	gScratch = Mix_LoadWAV("Content/Sounds/scratch.wav");
+	gHigh = Mix_LoadWAV("Content/Sounds/high.wav");
+	gMedium = Mix_LoadWAV("Content/Sounds/medium.wav");
+	gLow = Mix_LoadWAV("Content/Sounds/low.wav");
+
+	if (gMusic == NULL || gScratch == NULL || gHigh == NULL || gMedium == NULL || gLow == NULL)
+	{
+		printf("Failed to load audio file: %s", SDL_GetError());
+		success = false;
+	}
+
 	return success;
 }
 
@@ -287,5 +361,6 @@ void Close(){
 	gWindow = NULL;
 
 	// Quit SDL subsystems
+	Mix_Quit();
 	SDL_Quit();
 }
