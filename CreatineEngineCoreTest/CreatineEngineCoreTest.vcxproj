@@ -70,6 +70,28 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>..\CreatineEngineCore\Source\Public;$(IncludePath)</IncludePath>
+    <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>..\CreatineEngineCore\Source\Public;$(IncludePath)</IncludePath>
+    <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>..\CreatineEngineCore\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
+    <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>..\CreatineEngineCore\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
+    <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -109,6 +131,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -124,10 +147,16 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CreatineEngineCore\CreatineEngineCore.vcxproj">
+      <Project>{357200ee-4962-497c-853b-5cd1b4b3fdb5}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

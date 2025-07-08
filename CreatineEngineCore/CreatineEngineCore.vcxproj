@@ -30,7 +30,6 @@
     <ClCompile Include="Source\Private\FVector.cpp" />
     <ClCompile Include="Source\Private\GameEntity.cpp" />
     <ClCompile Include="Source\Private\ImageLoader.cpp" />
-    <ClCompile Include="Source\Private\Init.cpp" />
     <ClCompile Include="Source\Private\Logger.cpp" />
     <ClCompile Include="Source\Private\Renderable.cpp" />
     <ClCompile Include="Source\Private\RenderEngine.cpp" />
@@ -56,7 +55,6 @@
     <ClInclude Include="Source\Public\FVector.h" />
     <ClInclude Include="Source\Public\GameEntity.h" />
     <ClInclude Include="Source\Public\ImageLoader.h" />
-    <ClInclude Include="Source\Public\Init.h" />
     <ClInclude Include="Source\Public\Logger.h" />
     <ClInclude Include="Source\Public\MathConstants.h" />
     <ClInclude Include="Source\Public\RectAnchor.h" />
