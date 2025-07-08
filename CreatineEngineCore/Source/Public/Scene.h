@@ -11,7 +11,7 @@ namespace CE {
 	class Scene
 	{
 	private:
-		AssetLoaderManager assetManager;
+		AssetLoaderManager assetLoaderManager;
 		RenderEngine renderManager;
 		TimingManager timingManager;
 	};

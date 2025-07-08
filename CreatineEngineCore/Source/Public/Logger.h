@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include <string>
+#include <unordered_map>
 #include <print>
 #include <chrono>
 #include <ctime>
@@ -67,19 +68,21 @@ namespace CE {
         void log(
             const std::string& message,
             LogLevel level = LogLevel::Info,
-            const std::string& category = "General",                                   
+            const std::string& category = "General",
             LogOutput output = LogOutput::Both);
 
         static void logMessage(
             LogFileType type,
             const std::string& message,
             LogLevel level = LogLevel::Info,
-            const std::string& category = "General",                  
+            const std::string& category = "General",
             LogOutput output = LogOutput::Both);
 
         static void setMinimumLogLevel(LogLevel level);
         static LogLevel getMinimumLogLevel();
         static void setLogDirectory(std::string logDirectory);
+
+        static void shutdown(); // Close presitent opened streams
 
     private:
         std::ofstream logFile;
@@ -90,6 +93,8 @@ namespace CE {
 
         inline static std::string baseLogDirectory = "Logs/";
         inline static LogLevel minimumLogLevel = LogLevel::Verbose;
+
+        inline static std::unordered_map<LogFileType, std::ofstream> staticLogFiles; // Persistent streams
     };
 
 } // namespace CE

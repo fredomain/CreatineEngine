@@ -46,7 +46,7 @@ namespace CE {
 	class CreatineEngineCore
 	{
 	private:
-		CreatineEngineCore() = delete;									// Delete default constructor
+		CreatineEngineCore() = delete;										// Delete default constructor
 		CreatineEngineCore(const CreatineEngineCore&) = delete;				// Delete copy constructor
 		CreatineEngineCore& operator=(const CreatineEngineCore&) = delete;	// Delete operator = copy
 

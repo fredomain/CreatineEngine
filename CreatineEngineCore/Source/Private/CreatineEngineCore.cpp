@@ -15,6 +15,8 @@ namespace CE {
 		// Shutdown SDL 
 		TTF_Quit();
 		SDL_Quit();
+
+		Logger::shutdown();
 	}
 
 }

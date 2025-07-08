@@ -2,10 +2,8 @@
 
 namespace CE {
 
-    /**
-     * @brief Constructs a Logger object and opens a log file for writing, creating any necessary directories in the file path.
-     * @param filePath The path to the log file to open or create.
-     */
+    //std::unordered_map<LogFileType, std::ofstream> Logger::staticLogFiles;
+
     Logger::Logger(const std::string& filePath) {
         auto dir = std::filesystem::path(filePath).parent_path();
         if (!dir.empty()) {
@@ -14,29 +12,21 @@ namespace CE {
         logFile.open(filePath, std::ios::out | std::ios::app);
     }
 
-    /**
-     * @brief Destroys the Logger object and closes the associated log file.
-     */
     Logger::~Logger() {
-        logFile.close();
+        if (logFile.is_open()) {
+            logFile.close();
+        }
     }
 
-    /**
-     * @brief Logs a message with a specified log level, category, and output destination.
-     * @param message The message to be logged.
-     * @param level The severity level of the log message.
-     * @param category The category or module associated with the log message.
-     * @param output Specifies where the log message should be sent (terminal, file, or both).
-     */
     void Logger::log(
         const std::string& message,
         LogLevel level,
-        const std::string& category,        
+        const std::string& category,
         LogOutput output) {
         if (level < minimumLogLevel) return;
 
         if (output == LogOutput::Terminal || output == LogOutput::Both) {
-            std::string color = logLevelProperties[static_cast<int>(level)].ansiColorCode;
+            std::string color = getLevelColor(level);
             std::print("{}{} [Thread {}] {}\x1b[0m\n",
                 color,
                 buildLogLabel(category, level),
@@ -51,41 +41,18 @@ namespace CE {
         }
     }
 
-    /**
-     * @brief Logs a message to a file, the terminal, or both, with specified log type, level, category, and output destination.
-     * @param type The type of log file to write to (e.g., Engine, Game, Audio, Graphics, Network).
-     * @param message The message to be logged.
-     * @param level The severity level of the log message.
-     * @param category The category or module associated with the log message.
-     * @param output Specifies where to output the log message (file, terminal, or both).
-     */
     void Logger::logMessage(
         LogFileType type,
         const std::string& message,
         LogLevel level,
-        const std::string& category,                      
+        const std::string& category,
         LogOutput output)
     {
         if (level < minimumLogLevel) return;
 
-        std::string path;
-        switch (type) {
-        case LogFileType::Engine:   path = baseLogDirectory + "Engine/" + generateFilename(); break;
-        case LogFileType::Game:     path = baseLogDirectory + "Game/" + generateFilename(); break;
-        case LogFileType::Audio:    path = baseLogDirectory + "Audio/" + generateFilename(); break;
-        case LogFileType::Graphics: path = baseLogDirectory + "Graphics/" + generateFilename(); break;
-        case LogFileType::Network:  path = baseLogDirectory + "Network/" + generateFilename(); break;
-        }
-
-        auto dir = std::filesystem::path(path).parent_path();
-        if (!dir.empty()) {
-            std::filesystem::create_directories(dir);
-        }
-
-        std::ofstream file(path, std::ios::out | std::ios::app);
-
+        // Terminal
         if (output == LogOutput::Terminal || output == LogOutput::Both) {
-            std::string color = logLevelProperties[static_cast<int>(level)].ansiColorCode;
+            std::string color = getLevelColor(level);
             std::print("{}{} [Thread {}] {}\x1b[0m\n",
                 color,
                 buildLogLabel(category, level),
@@ -93,25 +60,45 @@ namespace CE {
                 message);
         }
 
-        if ((output == LogOutput::File || output == LogOutput::Both) && file.is_open()) {
-            file << buildLogLabel(category, level)
-                << " [Thread " << std::this_thread::get_id() << "] "
-                << message << std::endl;
+        // Open or resuse persistent streams
+        auto& file = staticLogFiles[type];
+        if (output == LogOutput::File || output == LogOutput::Both) {            
+            if (!file.is_open()) {
+                std::string path;
+                switch (type) {
+                case LogFileType::Engine:
+                    path = baseLogDirectory + "Engine/" + generateFilename(); break;
+                case LogFileType::Game:
+                    path = baseLogDirectory + "Game/" + generateFilename(); break;
+                case LogFileType::Audio:
+                    path = baseLogDirectory + "Audio/" + generateFilename(); break;
+                case LogFileType::Graphics:
+                    path = baseLogDirectory + "Graphics/" + generateFilename(); break;
+                case LogFileType::Network:
+                    path = baseLogDirectory + "Network/" + generateFilename(); break;
+                }
+
+                auto dir = std::filesystem::path(path).parent_path();
+                if (!dir.empty()) {
+                    std::filesystem::create_directories(dir);
+                }
+
+                file.open(path, std::ios::out | std::ios::app);
+            }
+
+            // if the file is finally opened
+            if (file.is_open()) {
+                file << buildLogLabel(category, level)
+                    << " [Thread " << std::this_thread::get_id() << "] "
+                    << message << std::endl;
+            }
         }
     }
 
-    /**
-     * @brief Sets the minimum log level for the logger.
-     * @param level The minimum log level to be set. Messages below this level will be ignored.
-     */
     void Logger::setMinimumLogLevel(LogLevel level) {
         minimumLogLevel = level;
     }
 
-    /**
-     * @brief Retrieves the minimum log level currently set for the logger.
-     * @return The minimum LogLevel value configured for the logger.
-     */
     LogLevel Logger::getMinimumLogLevel() {
         return minimumLogLevel;
     }
@@ -120,10 +107,6 @@ namespace CE {
         baseLogDirectory = logDirectory;
     }
 
-    /**
-     * @brief Generates a log filename based on the current date and time.
-     * @return A string containing the generated filename in the format 'DD-MM-YYYY_HH-MM-SS.log', representing the current local date and time.
-     */
     std::string Logger::generateFilename() {
         auto now = std::chrono::system_clock::now();
         std::time_t now_c = std::chrono::system_clock::to_time_t(now);
@@ -134,12 +117,6 @@ namespace CE {
         return formatTimestamp(tm, "%d-%m-%Y_%H-%M-%S") + ".log";
     }
 
-    /**
-     * @brief Builds a formatted log label string containing the current timestamp, log level, and category.
-     * @param category The log category to include in the label.
-     * @param level The log level to include in the label.
-     * @return A string containing the formatted log label with timestamp, log level, and category.
-     */
     std::string Logger::buildLogLabel(const std::string& category, LogLevel level) {
         auto now = std::chrono::system_clock::now();
         std::time_t now_c = std::chrono::system_clock::to_time_t(now);
@@ -154,16 +131,19 @@ namespace CE {
         return oss.str();
     }
 
-    /**
-     * @brief Formats a timestamp according to the specified format string.
-     * @param tm The time structure representing the date and time to format.
-     * @param format The format string specifying how the timestamp should be formatted (e.g., "%Y-%m-%d %H:%M:%S").
-     * @return A string containing the formatted timestamp.
-     */
     std::string Logger::formatTimestamp(const std::tm& tm, const std::string& format) {
         std::ostringstream oss;
         oss << std::put_time(&tm, format.c_str());
         return oss.str();
+    }
+
+    void Logger::shutdown() {
+        for (auto& [type, file] : staticLogFiles) {
+            if (file.is_open()) {
+                file.close();
+            }
+        }
+        staticLogFiles.clear();
     }
 
 } // namespace CE

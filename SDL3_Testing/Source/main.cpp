@@ -143,7 +143,7 @@ int main(int argc, char* args[]){
 
 
 		//CE::Logger::setMinimumLogLevel(CE::LogLevel::Info);
-		CE::Logger logger("log.txt");
+		CE::Logger logger("log.log");
 		logger.log("Debug", CE::LogLevel::Debug);
 		logger.log("Critical", CE::LogLevel::Critical);
 		logger.log("Info", CE::LogLevel::Info);
@@ -151,6 +151,7 @@ int main(int argc, char* args[]){
 		logger.log("verbose", CE::LogLevel::Verbose);
 		logger.log("Warn", CE::LogLevel::Warn);
 		CE::Logger::logMessage(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
+		CE::Logger::logMessage(CE::LogFileType::Graphics, "Andres es muy guapo", CE::LogLevel::Info, "Texturas", CE::LogOutput::Terminal);
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -276,6 +277,8 @@ bool LoadMedia(){
 }
 
 void Close(){
+
+	CE::Logger::shutdown();
 	// Deallocate surfaces
 	SDL_DestroyTexture(character_t);
 
