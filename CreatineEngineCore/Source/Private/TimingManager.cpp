@@ -41,23 +41,23 @@ namespace CE {
     }
 
     void TimingManager::update() {
-		TimePoint now = Clock::now();                                       // Captures the current time
-		std::chrono::duration<float> diff = now - lastTime;                 // Calculates the time difference between the last update and now
-		deltaTime = diff.count();                                           // Converts the time difference to seconds (float)
-		accumulatedTime += static_cast<double>(deltaTime);                  // Accumulates the real time in seconds
+        TimePoint now = Clock::now();                                       // Captures the current time
+        std::chrono::duration<float> diff = now - lastTime;                 // Calculates the time difference between the last update and now
+        deltaTime = diff.count();                                           // Converts the time difference to seconds (float)
+        accumulatedTime += static_cast<double>(deltaTime);                  // Accumulates the real time in seconds
 
         if (paused) {
-			gameDeltaTime = 0.0f;                                           // If paused, game delta time is zero
+            gameDeltaTime = 0.0f;                                           // If paused, game delta time is zero
         }
         else {
-			gameDeltaTime = deltaTime * static_cast<float>(gameSpeed);      // Calculates the game delta time based on the game speed
-			gameAccumulatedTime += static_cast<double>(gameDeltaTime);      //  Accumulates the game time in seconds
+            gameDeltaTime = deltaTime * static_cast<float>(gameSpeed);      // Calculates the game delta time based on the game speed
+            gameAccumulatedTime += static_cast<double>(gameDeltaTime);      //  Accumulates the game time in seconds
         }
-
-		lastTime = now;                                                     // Updates the last time to the current time
+        
+        lastTime = now;                                                     // Updates the last time to the current time
 
 #ifdef TIMING_USE_FIXED_STEP
-		fixedTimeAccumulator += deltaTime;                                  // Accumulates the real time for fixed step updates
+        fixedTimeAccumulator += deltaTime;                                  // Accumulates the real time for fixed step updates
 #endif
     }
 
