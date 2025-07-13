@@ -39,7 +39,11 @@ namespace CE {
 		updateEntityList(timingManager.getGameDeltaTime());
 		render();
 		timingManager.frameRateControl();	// Control frame rate if needed
-	}	
+	}
+
+	AssetLoaderManager& Scene::getAssetLoaderManager(){
+		return assetLoaderManager;
+	}
 
 	void Scene::registerEntity(std::unique_ptr<Entity>&& entity) {
 		entityList.emplace_back(std::move(entity));

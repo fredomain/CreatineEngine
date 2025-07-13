@@ -12,6 +12,8 @@ namespace CE {
 	}
 
 	void CreatineEngineCore::quit() {
+		SceneManager::shutdown();
+
 		// Shutdown SDL 
 		TTF_Quit();
 		Mix_Quit();

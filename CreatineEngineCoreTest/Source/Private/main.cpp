@@ -8,6 +8,7 @@ int main()
     std::print("Hello World!\n");
 
     // Initialize the game
+    CE::SceneManager::initializeWindow("Creatine Engine Core Test", 640, 480);
     //CE::SceneManager::addScene
 
     // Game loop

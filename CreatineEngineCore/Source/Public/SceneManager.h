@@ -29,14 +29,16 @@ namespace CE {
             return instance;
         }
 
+        // Destructor
+        ~SceneManager();
+
         // Prohibir copiar y mover
         SceneManager(const SceneManager&) = delete;
         SceneManager& operator=(const SceneManager&) = delete;
         SceneManager(SceneManager&&) = delete;
         SceneManager& operator=(SceneManager&&) = delete;
 
-        // Inicialización del sistema gráfico
-        bool initializeGraphics(const std::string& title, int width, int height, bool fullscreen = false);
+        static bool initializeWindow(const std::string& title, int width, int height, bool fullscreen = false);
 
         static void addScene(const std::string& name, std::unique_ptr<Scene> scene);
         static void setTransitionScene(std::unique_ptr<TransitionScene> scene);
@@ -52,6 +54,9 @@ namespace CE {
         static bool inTransition();
 
         static WindowManager& getWindowManager();
+        static SDL_Renderer* getWindowRenderer();
+
+        static void shutdown();
     };
 
 }

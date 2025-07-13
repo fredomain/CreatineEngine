@@ -88,7 +88,7 @@ namespace CE {
     }
 
     void WindowManager::loadDefaultIcon() {
-        setWindowIcon("Content/Icon/icon32p.bmp");
+        setWindowIcon("Content/Icon/icon32p.ico");
     }
 
 }

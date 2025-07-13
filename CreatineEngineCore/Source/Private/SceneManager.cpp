@@ -2,8 +2,27 @@
 
 namespace CE {
 
-    bool SceneManager::initializeGraphics(const std::string& title, int width, int height, bool fullscreen) {
-        if (!windowManager.initialize(title, width, height, fullscreen)) {
+    SceneManager::~SceneManager() {
+        shutdown();
+    }
+
+    void SceneManager::shutdown() {
+        SceneManager& mgr = get();
+        /*for (auto& pair : mgr.scenes) {       // this is not needed, destructor are already called with clear() below
+            pair.second.get()->shutdown();
+        }*/
+        mgr.scenes.clear();           // Destructors will be called        
+        mgr.transitionScene.release();
+
+        mgr.currentScene = nullptr;
+        mgr.nextScene = nullptr;
+
+        mgr.windowManager.shutdown();
+    }
+
+    bool SceneManager::initializeWindow(const std::string& title, int width, int height, bool fullscreen) {
+        SceneManager& mgr = get();
+        if (!mgr.windowManager.initialize(title, width, height, fullscreen)) {
             SDL_Log("Failed to initialize WindowManager");
             return false;
         }
@@ -98,4 +117,7 @@ namespace CE {
         return get().windowManager;
     }
 
+    SDL_Renderer* SceneManager::getWindowRenderer() {
+        return get().windowManager.getRenderer();
+    }
 }

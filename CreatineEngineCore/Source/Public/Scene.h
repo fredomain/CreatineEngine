@@ -28,6 +28,8 @@ namespace CE {
 
 		virtual void update();
 
+		AssetLoaderManager& getAssetLoaderManager();
+
 		void registerEntity(std::unique_ptr<Entity>&& entity);
 		void unregisterEntity(Entity* entity);
 
