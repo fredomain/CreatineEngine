@@ -23,7 +23,6 @@
 #include "TextureInstanceRotatableAnimated.h"
 
 // Managers
-#include "AssetLoaderManager.h"
 #include "ResourceManager.h"
 #include "RenderEngine.h"
 #include "TimingManager.h"

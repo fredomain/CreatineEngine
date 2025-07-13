@@ -41,13 +41,13 @@ namespace CE {
 	Texture::Texture(
 		SDL_Renderer* renderer,
 		std::string loadingPath,
-		AssetLoaderManager& assetLoaderManager
+		ResourceManager& resourceManager
 	) :
 		renderer(renderer) {
 
 		ImageLoader* imageLoader = new ImageLoader(loadingPath);	// use a normal pointers this object here have not ownership over the ImageLoader created
 		imageLoader->setLoadCallback(&Texture::onSurfaceLoaded, this);	// Set a callback as when creating with an ImmageLoader
-		assetLoaderManager.registerAssetLoader(dynamic_cast<AssetLoader*>(imageLoader));
+		resourceManager.registerAssetLoader(dynamic_cast<AssetLoader*>(imageLoader));
 	}
 
 	/**

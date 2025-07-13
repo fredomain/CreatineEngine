@@ -7,7 +7,7 @@
 #include <SDL_ttf.h>
 #include "ImageLoader.h"
 #include <unordered_map>
-#include "AssetLoaderManager.h"
+#include "ResourceManager.h"
 
 namespace CE {
 	/**
@@ -47,7 +47,7 @@ namespace CE {
 
 		Texture(SDL_Renderer* renderer,
 			std::string loadingPath,
-			AssetLoaderManager& assetLoaderManager
+			ResourceManager& resourceManager
 		);
 
 		Texture(SDL_Renderer* renderer,

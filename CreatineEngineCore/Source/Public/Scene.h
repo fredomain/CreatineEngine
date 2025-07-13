@@ -3,7 +3,6 @@
 #define SCENE_H
 
 #include "Entity.h"
-#include "AssetLoaderManager.h"
 #include "ResourceManager.h"
 #include "RenderEngine.h"
 #include "TimingManager.h"
@@ -28,7 +27,7 @@ namespace CE {
 
 		virtual void update();
 
-		AssetLoaderManager& getAssetLoaderManager();
+		ResourceManager& getResourceManager();
 
 		void registerEntity(std::unique_ptr<Entity>&& entity);
 		void unregisterEntity(Entity* entity);
@@ -44,7 +43,6 @@ namespace CE {
 		void updateEntityList(float deltaTime);
 		void render();
 
-		AssetLoaderManager assetLoaderManager;
 		ResourceManager resourceManager;
 		RenderEngine renderEngine;
 		TimingManager timingManager;
