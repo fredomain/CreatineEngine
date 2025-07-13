@@ -34,3 +34,9 @@
 [09-07-2025 01:10:43][ERROR][General] [Thread 12616] Error
 [09-07-2025 01:10:43][VERBOSE][General] [Thread 12616] verbose
 [09-07-2025 01:10:43][WARN][General] [Thread 12616] Warn
+[13-07-2025 16:31:11][DEBUG][General] [Thread 1708] Debug
+[13-07-2025 16:31:11][CRITICAL][General] [Thread 1708] Critical
+[13-07-2025 16:31:11][INFO][General] [Thread 1708] Info
+[13-07-2025 16:31:11][ERROR][General] [Thread 1708] Error
+[13-07-2025 16:31:11][VERBOSE][General] [Thread 1708] verbose
+[13-07-2025 16:31:11][WARN][General] [Thread 1708] Warn

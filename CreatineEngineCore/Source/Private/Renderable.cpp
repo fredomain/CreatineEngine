@@ -18,6 +18,14 @@ namespace CE {
 
 	}
 
+	void Renderable::enableRender() {
+		executeRender = true;
+	}
+
+	void Renderable::disableRender() {
+		executeRender = false;
+	}
+
 	/**
 	 * @brief Initializes the Renderable object to its default state.
 	 */

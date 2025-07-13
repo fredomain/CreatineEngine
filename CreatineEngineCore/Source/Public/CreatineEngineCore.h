@@ -24,12 +24,15 @@
 
 // Managers
 #include "AssetLoaderManager.h"
+#include "ResourceManager.h"
 #include "RenderEngine.h"
 #include "TimingManager.h"
+#include "WindowManager.h"
 
 // Game logic
-#include "GameEntity.h"
+#include "Entity.h"
 #include "Scene.h"
+#include "SceneManager.h"
 
 // Math
 #include "Vector.h"
@@ -39,7 +42,6 @@
 
 // Utils
 #include "Logger.h"
-
 
 namespace CE {
 

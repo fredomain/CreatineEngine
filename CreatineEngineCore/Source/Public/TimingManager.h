@@ -38,6 +38,8 @@ namespace CE {
         double getTimeDrift() const;
         void correctDrift();
 
+
+
 #ifdef TIMING_USE_FIXED_STEP
         bool shouldStepFixedUpdate();
         double getFixedTimeStep() const;
