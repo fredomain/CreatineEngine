@@ -5,11 +5,7 @@
 
 namespace CE {
 
-    /**
-     * @brief Constructs a TimingManager object to manage timing and frame rate control for a game or simulation.
-     * @param fixedTimeStep The fixed time step duration (in seconds) used for fixed-step updates. Only used if TIMING_USE_FIXED_STEP is defined.
-     * @param targetFPS The desired target frames per second for the application. If set to a value greater than 0, the target frame duration is calculated accordingly.
-     */
+
     TimingManager::TimingManager(double fixedTimeStep, int targetFPS)
         : deltaTime(0.0f), gameDeltaTime(0.0f),
         accumulatedTime(0.0), gameAccumulatedTime(0.0),
@@ -22,9 +18,7 @@ namespace CE {
     {
     }
 
-    /**
-     * @brief Initializes and starts the timing manager, resetting all timing variables and state.
-     */
+
     void TimingManager::start() {
         startTime = Clock::now();
         lastTime = startTime;
@@ -46,23 +40,23 @@ namespace CE {
     }
 
     void TimingManager::update() {
-        TimePoint now = Clock::now();
-        std::chrono::duration<float> diff = now - lastTime;
-        deltaTime = diff.count();
-        accumulatedTime += static_cast<double>(deltaTime);
+		TimePoint now = Clock::now();                                       // Captures the current time
+		std::chrono::duration<float> diff = now - lastTime;                 // Calculates the time difference between the last update and now
+		deltaTime = diff.count();                                           // Converts the time difference to seconds (float)
+		accumulatedTime += static_cast<double>(deltaTime);                  // Accumulates the real time in seconds
 
         if (paused) {
-            gameDeltaTime = 0.0f;
+			gameDeltaTime = 0.0f;                                           // If paused, game delta time is zero
         }
         else {
-            gameDeltaTime = deltaTime * static_cast<float>(gameSpeed);
-            gameAccumulatedTime += static_cast<double>(gameDeltaTime);
+			gameDeltaTime = deltaTime * static_cast<float>(gameSpeed);      // Calculates the game delta time based on the game speed
+			gameAccumulatedTime += static_cast<double>(gameDeltaTime);      //  Accumulates the game time in seconds
         }
 
-        lastTime = now;
+		lastTime = now;                                                     // Updates the last time to the current time
 
 #ifdef TIMING_USE_FIXED_STEP
-        fixedTimeAccumulator += deltaTime;
+		fixedTimeAccumulator += deltaTime;                                  // Accumulates the real time for fixed step updates
 #endif
     }
 
