@@ -1,15 +1,19 @@
 #include "RenderEngine.h"
+#include <algorithm>
 
 namespace CE {
 
+    RenderEngine::RenderEngine(SDL_Renderer* renderer)
+        : renderer(renderer) {
+    }
+
     void RenderEngine::registerRenderable(Renderable* renderable) {
         renderList.push_back(renderable);
-        needsSort = true; // Mark list as needing sorting
+        needsSort = true;
     }
 
     void RenderEngine::unregisterRenderable(Renderable* renderable) {
         std::erase(renderList, renderable);
-        // No need to set needsSort: erasing doesn't break order
     }
 
     void RenderEngine::sortRenderListIfNeeded() {
@@ -23,10 +27,67 @@ namespace CE {
     }
 
     void RenderEngine::render() {
+        /*
+        if (viewportSet) {
+            SDL_RenderSetViewport(renderer, &currentViewport);
+            SDL_RenderSetScale(renderer, scaleX, scaleY);
+        }
+        */
+
+        if (clearEnabled) {
+            SDL_SetRenderDrawColor(renderer, clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+            SDL_RenderClear(renderer);
+        }
+
         sortRenderListIfNeeded();
         for (auto* renderable : renderList) {
             renderable->render();
         }
+
+        SDL_RenderPresent(renderer);
+
+        /*
+        if (viewportSet) {
+            SDL_RenderSetViewport(renderer, nullptr);
+            SDL_RenderSetScale(renderer, 1.0f, 1.0f); // Restaurar escala
+        }
+        */
     }
 
-} // namespace CE
+    void RenderEngine::enableClear(bool enable) {
+        clearEnabled = enable;
+    }
+
+    void RenderEngine::setClearColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+        clearColor = { r, g, b, a };
+    }
+
+    void RenderEngine::setRenderer(SDL_Renderer* newRenderer) {
+        renderer = newRenderer;
+    }
+
+    SDL_Renderer* RenderEngine::getRenderer() const {
+        return renderer;
+    }
+
+    // Viewport (desactivado por ahora)
+    /*
+    void RenderEngine::setViewportAndScale(const SDL_Rect& viewport, int logicalWidth, int logicalHeight) {
+        currentViewport = viewport;
+        viewportSet = true;
+
+        // Calcular escala
+        scaleX = static_cast<float>(viewport.w) / logicalWidth;
+        scaleY = static_cast<float>(viewport.h) / logicalHeight;
+    }
+
+    void RenderEngine::resetViewportAndScale() {
+        viewportSet = false;
+    }
+    */
+
+    void RenderEngine::clear() {
+        renderList.clear();
+    }
+
+}

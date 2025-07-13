@@ -36,6 +36,7 @@ namespace CE {
     }
 
     void TimingManager::reset() {
+        speedHistory.clear();
         start();
     }
 

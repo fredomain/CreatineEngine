@@ -1,6 +1,7 @@
 #include "Texture.h"
 #include <memory>
 #include <string>
+#include "Logger.h"
 
 namespace CE {
 
@@ -46,9 +47,17 @@ namespace CE {
 
 		ImageLoader* imageLoader = new ImageLoader(loadingPath);	// use a normal pointers this object here have not ownership over the ImageLoader created
 		imageLoader->setLoadCallback(&Texture::onSurfaceLoaded, this);	// Set a callback as when creating with an ImmageLoader
-		assetLoaderManager.registerAssetLoader(std::shared_ptr<ImageLoader>(imageLoader));
+		assetLoaderManager.registerAssetLoader(dynamic_cast<AssetLoader*>(imageLoader));
 	}
 
+	/**
+	 * @brief Constructs a Texture object from a text string using the specified font, size, and color.
+	 * @param renderer Pointer to the SDL_Renderer used for rendering the texture.
+	 * @param text The text string to render as a texture.
+	 * @param font Pointer to the TTF_Font used to render the text.
+	 * @param textSize The size of the text to render.
+	 * @param textColor The color to use when rendering the text.
+	 */
 	Texture::Texture(
 		SDL_Renderer* renderer,
 		std::string text,
@@ -82,6 +91,7 @@ namespace CE {
 		SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), textSize, textColor);	// Create a temporal surface (it will be converted to SDL_Texture)
 		if (surface == NULL)
 		{
+			//Logger::logMessage()
 			printf("Unable to render text surface! SDL_ttf Error: %s\n", SDL_GetError());
 		}
 		else {

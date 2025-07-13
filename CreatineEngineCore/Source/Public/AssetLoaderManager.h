@@ -10,14 +10,17 @@ namespace CE {
 
     class AssetLoaderManager {
     public:
-        void registerAssetLoader(std::shared_ptr<AssetLoader> asset);
+        void registerAssetLoader(AssetLoader* asset);
+        void unregisterAssetLoader(AssetLoader* asset);
         void loadAllAssets() const;
 
         int getLoadedCount() const;
         int getTotalCount() const;
 
+        void clear();
+
     private:
-        std::vector<std::shared_ptr<AssetLoader>> assetLoaderList;
+        std::vector<AssetLoader*> assetLoaderList;
     };
 
 }

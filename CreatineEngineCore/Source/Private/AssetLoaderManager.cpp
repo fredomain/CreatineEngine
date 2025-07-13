@@ -4,7 +4,7 @@
 
 namespace CE {
 
-    void AssetLoaderManager::registerAssetLoader(std::shared_ptr<AssetLoader> asset) {
+    void AssetLoaderManager::registerAssetLoader(AssetLoader* asset) {
         // Prevent duplicate paths
         /*for (const auto& existing : assetLoaderList) {
             if (existing->getPath() == asset->getPath()) {
@@ -15,6 +15,10 @@ namespace CE {
             }
         }*/
         assetLoaderList.push_back(asset);
+    }
+
+    void AssetLoaderManager::unregisterAssetLoader(AssetLoader* asset) {
+        assetLoaderList.erase(std::remove(assetLoaderList.begin(), assetLoaderList.end(), asset), assetLoaderList.end());
     }
 
     void AssetLoaderManager::loadAllAssets() const {
@@ -42,6 +46,10 @@ namespace CE {
             if (loader->isLoaded()) ++count;
         }
         return count;
+    }
+
+    void AssetLoaderManager::clear() {
+        assetLoaderList.clear();
     }
 
 }
