@@ -9,10 +9,13 @@
 #include <SDL_mixer.h>
 
 // Graphic
-#include "ImageLoader.h"
-
 #include "Surface.h"
+#include "ImageSurface.h"
+#include "TextSurface.h"
+
 #include "Texture.h"
+#include "ImageTexture.h"
+#include "TextTexture.h"
 
 #include "RectAnchor.h"
 #include "SurfaceInstance.h"
@@ -44,6 +47,9 @@
 
 namespace CE {
 
+	/**
+	 * @brief Provides static methods to initialize and shut down the Creatine Engine Core. Instantiation and copying of this class are disabled.
+	 */
 	class CreatineEngineCore
 	{
 	private:

@@ -7,6 +7,9 @@
 
 namespace CE {
 
+    /**
+     * @brief Manages the creation, configuration, and control of an application window using SDL.
+     */
     class WindowManager {
     public:
         WindowManager();

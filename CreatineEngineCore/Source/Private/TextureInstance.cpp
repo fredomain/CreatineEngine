@@ -3,7 +3,7 @@
 
 namespace CE {
 
-	TextureInstance::TextureInstance(Texture* texture) : texture(texture){
+	TextureInstance::TextureInstance(std::shared_ptr<Texture> texture) : texture(texture){
 		texture->addUpdateCallback(&TextureInstance::onTextureLoaded, this);
 
 		// if texture is already loaded, set the needed parameters

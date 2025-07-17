@@ -13,6 +13,7 @@ namespace CE {
 
 	void CreatineEngineCore::quit() {
 		SceneManager::shutdown();
+		ResourceManager::clearUnused();
 
 		// Shutdown SDL 
 		TTF_Quit();

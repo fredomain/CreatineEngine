@@ -60,6 +60,9 @@ namespace CE {
         return logLevelProperties[static_cast<int>(level)].ansiColorCode;
     }
 
+    /**
+     * @brief Provides logging functionality to write messages to log files and/or console with support for log levels, categories, and output options.
+     */
     class Logger {
     public:
         Logger(const std::string& filePath);

@@ -11,14 +11,14 @@ namespace CE {
 	{
 	public:
 		// Conctructors & destructor
-		TextureInstance(Texture* texture);
+		TextureInstance(std::shared_ptr<Texture> texture);
 		~TextureInstance();
 
 		// Virtual functions
 		void render() const override;
 
 	protected:
-		Texture* texture;
+		std::shared_ptr<Texture> texture;
 
 	private:
 		static void onTextureLoaded(void* callbackObject);

@@ -9,6 +9,9 @@ namespace CE {
     class Vector;
     class FVector;
 
+    /**
+     * @brief TODO
+     */
     class MathUtils {
     public:
         static FVector toFVector(const Vector& vec);

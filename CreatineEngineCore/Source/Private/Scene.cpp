@@ -12,11 +12,10 @@ namespace CE {
 	}
 
 	void Scene::initialize() {
-		resourceManager.loadAllAssets();		
+
 	}
 
 	void Scene::shutdown() {
-		resourceManager.clear();
 		renderEngine.clear();
 		timingManager.reset();
 
@@ -40,10 +39,6 @@ namespace CE {
 		timingManager.frameRateControl();	// Control frame rate if needed
 	}
 
-	ResourceManager& Scene::getResourceManager(){
-		return resourceManager;
-	}
-
 	void Scene::registerEntity(std::unique_ptr<Entity>&& entity) {
 		entityList.emplace_back(std::move(entity));
 	}
@@ -57,24 +52,8 @@ namespace CE {
 	}
 
 	// --- Component registration ---
-	void Scene::registerComponent(AssetLoader& assetLoader) {
-		resourceManager.registerAssetLoader(&assetLoader);
-	}
-
-	void Scene::registerComponent(Resource& resource) {
-		resourceManager.registerResource(&resource);
-	}
-
 	void Scene::registerComponent(Renderable& renderable) {
 		renderEngine.registerRenderable(&renderable);
-	}
-
-	void Scene::unregisterComponent(AssetLoader& assetLoader) {
-		resourceManager.unregisterAssetLoader(&assetLoader);
-	}
-
-	void Scene::unregisterComponent(Resource& resource) {
-		resourceManager.unregisterResource(&resource);
 	}
 
 	void Scene::unregisterComponent(Renderable& renderable) {

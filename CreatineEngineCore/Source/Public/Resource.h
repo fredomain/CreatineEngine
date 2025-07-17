@@ -6,17 +6,8 @@ namespace CE {
 
     class Resource {
     public:
-        /*
-        // Cannot be created straightforward
-        Resource() = delete;
-        Resource(const Resource&) = delete;
-        Resource& operator=(const Resource&) = delete;
-
-        Resource(Resource&&) = delete;
-        Resource& operator=(Resource&&) = delete;
-
-        virtual ~Resource() = default; // Virtual destructor for inheritance
-        */
+        virtual void load() = 0;
+        virtual bool isLoaded() const = 0;
     };
 
 }

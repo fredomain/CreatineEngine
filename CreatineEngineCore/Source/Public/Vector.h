@@ -6,6 +6,9 @@
 
 namespace CE {
 
+    /**
+     * @brief Represents a 2D vector with integer components and provides arithmetic, comparison, and vector math operations.
+     */
     class Vector {
     public:
         int x;

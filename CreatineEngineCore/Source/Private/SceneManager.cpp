@@ -8,14 +8,12 @@ namespace CE {
 
     void SceneManager::shutdown() {
         SceneManager& mgr = get();
-        /*for (auto& pair : mgr.scenes) {       // this is not needed, destructor are already called with clear() below
-            pair.second.get()->shutdown();
-        }*/
+        mgr.currentScene = nullptr;
+        mgr.nextScene = nullptr;
         mgr.scenes.clear();           // Destructors will be called        
         mgr.transitionScene.release();
 
-        mgr.currentScene = nullptr;
-        mgr.nextScene = nullptr;
+        
 
         mgr.windowManager.shutdown();
     }
@@ -40,14 +38,20 @@ namespace CE {
     void SceneManager::loadScene(const std::string& scene) {
         SceneManager& mgr = get();
 
-        if (!mgr.isTransitioning && mgr.currentScene) {
-            mgr.currentScene->shutdown();
-        }
-
+        // First, initialize the loaded scene (if found), then shutdown the last scene
+        // and the at last clean not used resources, so shared resources are kept in memory
+        Scene* loadedScene;
         auto it = mgr.scenes.find(scene);           // Find the scene for that string key
         if (it != mgr.scenes.end()) {               // Within the unordered map
-            mgr.currentScene = it->second.get();    // Get the object for that element and get a raw pointer to it
-            mgr.currentScene->initialize();
+            loadedScene = it->second.get();         // Get the object for that element and get a raw pointer to it
+            loadedScene->initialize();
+
+            if (!mgr.isTransitioning && mgr.currentScene) { // transitionScene is always in memory
+                mgr.currentScene->shutdown();
+                ResourceManager::clearUnused();
+            }            
+
+            mgr.currentScene = loadedScene;
         }
         else {
             throw std::runtime_error("Scene '" + scene + "' not found");
@@ -58,12 +62,15 @@ namespace CE {
         if (scene) {
             SceneManager& mgr = get();
 
-            if (!mgr.isTransitioning && mgr.currentScene) {
+            // First, initialize the loaded scene, then shutdown the last scene
+            // and the at last clean not used resources, so shared resources are kept in memory
+            scene->initialize();
+            if (!mgr.isTransitioning && mgr.currentScene) { // transitionScene is always in memory
                 mgr.currentScene->shutdown();
-            }
+                ResourceManager::clearUnused();
+            }           
 
-            mgr.currentScene = scene;
-            mgr.currentScene->initialize();           
+            mgr.currentScene = scene;        
         }
         else {
             throw std::runtime_error("Scene not valid");
@@ -85,6 +92,7 @@ namespace CE {
         mgr.transitionScene.get()->initialize();        // Initialize the transition scene
         mgr.transitionScene.get()->update();            // Update and render it before starting the current scene shutdown
         mgr.currentScene->shutdown();
+        ResourceManager::clearUnused();
         mgr.currentScene = mgr.transitionScene.get();   // Set the transition scene as the current scene        
     }
 

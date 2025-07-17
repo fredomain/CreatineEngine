@@ -8,6 +8,9 @@
 
 namespace CE {
 
+    /**
+     * @brief Manages rendering of Renderable objects using an SDL_Renderer, providing control over renderable registration, rendering, clear settings, and renderer management.
+     */
     class RenderEngine {
     public:
         // Constructor

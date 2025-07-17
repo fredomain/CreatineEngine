@@ -6,6 +6,9 @@
 
 namespace CE {
 
+	/**
+	 * @brief Defines anchor positions for a rectangle.
+	 */
 	enum RectAnchor {
 		CENTER,
 		TOP,

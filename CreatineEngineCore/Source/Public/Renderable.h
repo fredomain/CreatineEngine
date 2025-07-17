@@ -10,6 +10,10 @@
 #include <print>
 
 namespace CE {
+	
+	/**
+	 * @brief Renderable is an abstract base class representing objects that can be rendered.
+	 */
 	class Renderable
 	{
 	public:

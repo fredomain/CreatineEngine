@@ -122,13 +122,12 @@ int main(int argc, char* args[]){
 		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
 
 		// Forma 5
-		CE::AssetLoaderManager assetLoaderManager;
-		CE::Texture imagenFondoT(gRenderer, "Content/Images/background.jpg", assetLoaderManager);
-		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
-		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
-		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
-		assetLoaderManager.loadAllAssets();
-		std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+		//CE::ImageTexture imagenFondoT(gRenderer, "Content/Images/background.jpg");
+		CE::TextureInstanceRotatable imagenFondo(CE::ResourceManager::getImageTexture("fondo", gRenderer, "Content/Images/background.jpg"));
+		CE::TextureInstanceRotatable imagenFondo2(CE::ResourceManager::getImageTexture("fondo", gRenderer, "Content/Images/background.jpg"));
+		//std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+		CE::ResourceManager::load();
+		//std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
 
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);

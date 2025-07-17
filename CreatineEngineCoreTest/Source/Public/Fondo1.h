@@ -14,7 +14,7 @@ public:
 protected:
 	CE::Scene& scene;
 
-	static std::unique_ptr<CE::Texture> texture;
+	static std::unique_ptr<CE::TextureInstance> texture;
 };
 
 #endif

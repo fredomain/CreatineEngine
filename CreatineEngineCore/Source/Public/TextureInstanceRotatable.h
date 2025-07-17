@@ -12,7 +12,7 @@ namespace CE {
 
 		// Conctructors & destructor
 		TextureInstanceRotatable(
-			Texture* texture,
+			std::shared_ptr<Texture> texture,
 			double rotation = 0.0,
 			FVector rotationOrigin = FVector(0.0f, 0.0f),
 			SDL_FlipMode flipMode = SDL_FlipMode::SDL_FLIP_NONE

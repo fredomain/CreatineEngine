@@ -4,7 +4,7 @@
 namespace CE {
 
 	TextureInstanceRotatable::TextureInstanceRotatable(
-		Texture* texture,
+		std::shared_ptr<Texture> texture,
 		double rotation,
 		FVector rotationOrigin,
 		SDL_FlipMode flipMode

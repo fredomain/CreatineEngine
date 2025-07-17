@@ -11,6 +11,9 @@
 
 namespace CE {
 
+    /**
+     * @brief Manages scenes and transitions within an application, providing methods for scene control, window management, and rendering.
+     */
     class SceneManager {
     private:
         std::unordered_map<std::string, std::unique_ptr<Scene>> scenes;

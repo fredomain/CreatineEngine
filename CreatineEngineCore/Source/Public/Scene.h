@@ -12,6 +12,9 @@
 
 namespace CE {
 
+	/**
+	 * @brief Represents a scene in a graphical application, managing entities, components, and resources.
+	 */
 	class Scene
 	{
 	public:
@@ -27,23 +30,16 @@ namespace CE {
 
 		virtual void update();
 
-		ResourceManager& getResourceManager();
-
 		void registerEntity(std::unique_ptr<Entity>&& entity);
 		void unregisterEntity(Entity* entity);
 
-		void registerComponent(AssetLoader& assetLoader);
-		void registerComponent(Resource& resource);
 		void registerComponent(Renderable& renderable);
-		void unregisterComponent(AssetLoader& assetLoader);
-		void unregisterComponent(Resource& resource);
 		void unregisterComponent(Renderable& renderable);
 
 	protected:
 		void updateEntityList(float deltaTime);
 		void render();
 
-		ResourceManager resourceManager;
 		RenderEngine renderEngine;
 		TimingManager timingManager;
 

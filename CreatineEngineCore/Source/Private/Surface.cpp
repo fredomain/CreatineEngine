@@ -3,10 +3,6 @@
 namespace CE {
     Surface::Surface(SDL_Surface* surface) : data(surface) {}
 
-    Surface::~Surface() {
-        if (data) SDL_DestroySurface(data);
-    }
-
     Surface::Surface(Surface&& other) noexcept : data(other.data) {
         other.data = nullptr;
     }
@@ -20,11 +16,23 @@ namespace CE {
         return *this;
     }
 
-    int Surface::getSDL_SurfaceWidth() const {
+    Surface::~Surface() {
+        if (data) SDL_DestroySurface(data);
+    }
+
+    void Surface::load() {
+
+    }
+
+    bool Surface::isLoaded() const {
+        return isValid();
+    }
+
+    int Surface::getWidth() const {
         return data ? data->w : 0;
     }
 
-    int Surface::getSDL_SurfaceHeight() const {
+    int Surface::getHeight() const {
         return data ? data->h : 0;
     }
 
@@ -33,10 +41,13 @@ namespace CE {
     }
 
     void Surface::setData(SDL_Surface* surface) {
-        data = surface;
+        if (surface) {
+            data = surface;
+            observerBroadcast.notifyObservers();	// If data is set, notify observers
+        }        
     }
 
-    bool Surface::isValid() {
+    bool Surface::isValid() const {
         return data ? true : false;
     }
 }
