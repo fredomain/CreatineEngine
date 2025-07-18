@@ -1,25 +1,21 @@
 #include "Scene.h"
 #include "Entity.h"
+#include "SceneManager.h"
 
 namespace CE {
 
-	Scene::Scene(SDL_Renderer* renderer)
-		: renderEngine(renderer) {
+	Scene::Scene()
+		: renderEngine(SceneManager::getWindowRenderer()) {
 	}
 
 	Scene::~Scene() {
-		shutdown();
+		renderEngine.clear();
+		timingManager.reset();
+		entityList.clear();
 	}
 
 	void Scene::initialize() {
 
-	}
-
-	void Scene::shutdown() {
-		renderEngine.clear();
-		timingManager.reset();
-
-		entityList.clear();
 	}
 
 	void Scene::render() {		

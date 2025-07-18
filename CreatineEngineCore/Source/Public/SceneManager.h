@@ -4,6 +4,7 @@
 
 #include <unordered_map>
 #include <string>
+#include <functional>
 #include <memory>
 #include "Scene.h"
 #include "WindowManager.h"
@@ -16,10 +17,10 @@ namespace CE {
      */
     class SceneManager {
     private:
-        std::unordered_map<std::string, std::unique_ptr<Scene>> scenes;
-        Scene* currentScene = nullptr;
-        Scene* nextScene = nullptr;
+        std::unordered_map<std::string, std::function<std::unique_ptr<Scene>()>> sceneDescriptors;
+        std::unique_ptr<Scene> currentScene = nullptr;
         std::unique_ptr<TransitionScene> transitionScene = nullptr;
+        std::string nextSceneName = "";
         bool isTransitioning = false;
 
         WindowManager windowManager;
@@ -43,18 +44,18 @@ namespace CE {
 
         static bool initializeWindow(const std::string& title, int width, int height, bool fullscreen = false);
 
-        static void addScene(const std::string& name, std::unique_ptr<Scene> scene);
+        static void registerScene(const std::string& name, std::function<std::unique_ptr<Scene>()> sceneDescription);
         static void setTransitionScene(std::unique_ptr<TransitionScene> scene);
 
-        static void loadScene(const std::string& name);
-        static void loadScene(Scene* scene);
+        static void loadScene(const std::string& name);        
         static void loadSceneWithTransition(const std::string& targetScene);
 
         static void update();
 
         static Scene* getCurrentScene();
-        static Scene* getNextScene();
+        static std::string getNextSceneName();
         static bool inTransition();
+        static void endTransition();
 
         static WindowManager& getWindowManager();
         static SDL_Renderer* getWindowRenderer();

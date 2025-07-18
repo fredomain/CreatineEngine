@@ -3,14 +3,16 @@
 
 namespace CE {
 
-    void TransitionScene::setTargetScene(Scene* scene) {
-        targetScene = scene;
+    void TransitionScene::setTargetScene(const std::string& sceneName) {
+        targetSceneName = sceneName;
     }
 
     void TransitionScene::update() {
-        Scene::update();        // Calls base class to update and render
-        // Then call the targetScene. This is an static transition screen
-        SceneManager::loadScene(targetScene);
+        // Call base scene update to render background or animations
+        Scene::update();
+
+        SceneManager::loadScene(targetSceneName);
+        SceneManager::endTransition();
     }
 
 }

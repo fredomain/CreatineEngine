@@ -19,14 +19,13 @@ namespace CE {
 	{
 	public:
 
-		Scene(SDL_Renderer* renderer);
+		Scene();
 		virtual ~Scene();
 
 		/**
 		 * @brief Loads or initializes resources or data.
 		 */
 		virtual void initialize();
-		virtual void shutdown();
 
 		virtual void update();
 
