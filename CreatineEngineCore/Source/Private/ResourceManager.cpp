@@ -29,13 +29,25 @@ namespace CE {
     }
 
     void ResourceManager::loadTextures() const {
+        Logger::log(LogFileType::Engine,
+            std::format("Loading texture resources list. Size: {}", textureMap.size()),
+            LogLevel::Verbose,
+            "Resource Manager");
         for (auto& pair : textureMap) {
             if (auto ptr = pair.second.lock()) {
                 if (!ptr->isLoaded()) {
+                    Logger::log(LogFileType::Engine,
+                        "Loading Texture...",
+                        LogLevel::Verbose,
+                        "Resource Manager");
                     ptr->load();
                 }
             }
         }
+        Logger::log(LogFileType::Engine,
+            "Texture resources list loaded",
+            LogLevel::Verbose,
+            "Resource Manager");
     }
 
     void ResourceManager::reload() {
@@ -115,7 +127,7 @@ namespace CE {
 
         std::shared_ptr<Texture> shared = rm.findTexture(label);
         if (shared) {      // Texture found
-            Logger::logMessage(LogFileType::Engine,
+            Logger::log(LogFileType::Engine,
                 std::format("ImageTexture {} already loaded", label),
                 LogLevel::Verbose,
                 "Resource Manager");
@@ -123,7 +135,7 @@ namespace CE {
         else {              // Texture not found, return a new one
             shared = std::make_shared<ImageTexture>(renderer, path);
             rm.textureMap[label] = shared;
-            Logger::logMessage(
+            Logger::log(
                 LogFileType::Engine,
                 std::format("ImageTexture {} has been loaded", label),
                 LogLevel::Verbose,

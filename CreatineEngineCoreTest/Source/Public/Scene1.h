@@ -6,7 +6,9 @@
 
 class Scene1 : public CE::Scene
 {
-
+public:
+	Scene1();
+	void initialize() override;
 };
 
 #endif

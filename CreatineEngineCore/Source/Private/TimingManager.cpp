@@ -64,14 +64,14 @@ namespace CE {
     void TimingManager::pause() {
         if (!paused) {
             paused = true;
-            Logger::logMessage(LogFileType::Engine, "Game paused", LogLevel::Info, "Timing Manager");
+            Logger::log(LogFileType::Engine, "Game paused", LogLevel::Info, "Timing Manager");
         }
     }
 
     void TimingManager::resume() {
         if (paused) {
             paused = false;
-            Logger::logMessage(LogFileType::Engine, "Game resumed", LogLevel::Info, "Timing Manager");
+            Logger::log(LogFileType::Engine, "Game resumed", LogLevel::Info, "Timing Manager");
         }
     }
 
@@ -119,7 +119,7 @@ namespace CE {
                 "[TimingManager] Game speed changed to {:.2f} at {:.3f}s",
                 speed, accumulatedTime
             );
-            Logger::logMessage(LogFileType::Engine, message, LogLevel::Info, "Timing Manager");
+            Logger::log(LogFileType::Engine, message, LogLevel::Info, "Timing Manager");
         }
     }
 

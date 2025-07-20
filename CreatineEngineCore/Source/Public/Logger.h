@@ -74,7 +74,7 @@ namespace CE {
             const std::string& category = "General",
             LogOutput output = LogOutput::Both);
 
-        static void logMessage(
+        static void log(
             LogFileType type,
             const std::string& message,
             LogLevel level = LogLevel::Info,

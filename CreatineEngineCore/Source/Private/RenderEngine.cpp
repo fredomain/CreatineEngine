@@ -1,5 +1,6 @@
 #include "RenderEngine.h"
 #include <algorithm>
+#include "Logger.h"
 
 namespace CE {
 
@@ -40,11 +41,13 @@ namespace CE {
         }
 
         sortRenderListIfNeeded();
+        Logger::log(LogFileType::Engine, std::format("{} will be rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
         for (auto* renderable : renderList) {
             renderable->render();
         }
 
         SDL_RenderPresent(renderer);
+        Logger::log(LogFileType::Engine, std::format("Screen rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
 
         /*
         if (viewportSet) {
@@ -54,8 +57,12 @@ namespace CE {
         */
     }
 
-    void RenderEngine::enableClear(bool enable) {
-        clearEnabled = enable;
+    void RenderEngine::enableClear() {
+        clearEnabled = true;
+    }
+
+    void RenderEngine::disableClear() {
+        clearEnabled = false;
     }
 
     void RenderEngine::setClearColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {

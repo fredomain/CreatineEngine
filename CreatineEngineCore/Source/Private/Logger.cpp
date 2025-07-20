@@ -41,7 +41,7 @@ namespace CE {
         }
     }
 
-    void Logger::logMessage(
+    void Logger::log(
         LogFileType type,
         const std::string& message,
         LogLevel level,

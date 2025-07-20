@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Entity.h"
 #include "SceneManager.h"
+#include "Logger.h"
 
 namespace CE {
 
@@ -15,7 +16,8 @@ namespace CE {
 	}
 
 	void Scene::initialize() {
-
+		timingManager.start();
+		initializeEntityList();
 	}
 
 	void Scene::render() {		
@@ -28,6 +30,13 @@ namespace CE {
 		}
 	}
 
+	void Scene::initializeEntityList() {
+		Logger::log(LogFileType::Engine, std::format("Initializing entity list ({} elements)", entityList.size()), LogLevel::Verbose);
+		for (auto& entity : entityList) {
+			entity->initialize();
+		}
+	}
+
 	void Scene::update() {
 		timingManager.update();				// Update timing manager to update deltaTime		
 		updateEntityList(timingManager.getGameDeltaTime());
@@ -35,7 +44,7 @@ namespace CE {
 		timingManager.frameRateControl();	// Control frame rate if needed
 	}
 
-	void Scene::registerEntity(std::unique_ptr<Entity>&& entity) {
+	void Scene::registerEntity(std::unique_ptr<Entity> entity) {
 		entityList.emplace_back(std::move(entity));
 	}
 

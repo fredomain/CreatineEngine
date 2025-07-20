@@ -1,5 +1,6 @@
 #include "TextureInstanceRotatable.h"
 #include "MathConstants.h"
+#include "Logger.h"
 
 namespace CE {
 
@@ -19,7 +20,7 @@ namespace CE {
 	}
 
 	void TextureInstanceRotatable::render() const {
-
+		//Logger::log(LogFileType::Engine, "Rendering TextureInstanceRotatable", LogLevel::Verbose);
 		if (std::abs(getRotation()) > CE::NEAR_ZERO_THRESHOLD) {		// render with rotation
 			SDL_FPoint rotationOriginSDL(getRotationOriginSDL());
 			SDL_RenderTextureRotated(texture->getRenderer(), texture->getData(), getSourceRectPtr(), getDestinationRectPtr(), getRotation(), &rotationOriginSDL, getFlipMode());

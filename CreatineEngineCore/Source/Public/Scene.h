@@ -18,18 +18,27 @@ namespace CE {
 	class Scene
 	{
 	public:
-
+		/**
+		 * @brief Constructs a new Scene object.
+		 Call ResourceManager::get functions here to register resources before
+		 SceneManager calls ResourceManager::load()
+		 */
 		Scene();
 		virtual ~Scene();
 
 		/**
-		 * @brief Loads or initializes resources or data.
+		 * @brief Initializes data. Call after loading resources.
 		 */
 		virtual void initialize();
 
 		virtual void update();
 
-		void registerEntity(std::unique_ptr<Entity>&& entity);
+		/**
+		 * @brief Registers an entity for management or processing.
+		 * Call this function in the constructor of the scene.
+		 * @param entity A unique pointer to the Entity to be registered. Ownership of the entity is transferred to the function.
+		 */
+		void registerEntity(std::unique_ptr<Entity> entity);
 		void unregisterEntity(Entity* entity);
 
 		void registerComponent(Renderable& renderable);
@@ -37,6 +46,7 @@ namespace CE {
 
 	protected:
 		void updateEntityList(float deltaTime);
+		void initializeEntityList();
 		void render();
 
 		RenderEngine renderEngine;

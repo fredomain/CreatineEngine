@@ -41,11 +41,15 @@ namespace CE {
             throw std::runtime_error("Scene '" + name + "' not found");
         }
 
-        // Build and initialize the new scene
-        mgr.currentScene = it->second();
-        mgr.currentScene->initialize();
-
-        ResourceManager::clearUnused();
+        // Build and initialize the new scene (last scene object will be destroyed)
+        mgr.currentScene = it->second();    // Here resources of this new scene are registered (first, it->second() is executed, and then assigned to currentScene, 
+                                            // deleting the old scene object
+                                            // So then, last scene is gone, with its resources
+                                            // This happens because the std::unique_ptr<Scene> currentScene stops poiting to the last scene,
+                                            // so the object is deleted
+        ResourceManager::clearUnused();     // Clear registered resources from the last scene but not used in the new loaded scene 
+        ResourceManager::load();            // Then load registered resources
+        mgr.currentScene->initialize();     // With resources loaded, entities can be initialized
     }
 
     void SceneManager::loadSceneWithTransition(const std::string& targetScene) {

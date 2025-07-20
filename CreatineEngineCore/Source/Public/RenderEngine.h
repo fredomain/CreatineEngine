@@ -24,8 +24,9 @@ namespace CE {
         void render();
 
         // Settings
-        void enableClear(bool enable);                         // Activar/desactivar SDL_RenderClear
-        void setClearColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a); // Cambiar color de limpieza
+        void enableClear();                         // Enable SDL_RenderClear
+        void disableClear();                         // Enable SDL_RenderClear
+        void setClearColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a); // Change clear color
 
         // Cambiar renderer en tiempo de ejecución (opcional)
         void setRenderer(SDL_Renderer* newRenderer);

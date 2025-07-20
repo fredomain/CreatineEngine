@@ -11,10 +11,12 @@ class Fondo1 : public CE::Entity
 public:
 	Fondo1(CE::Scene& scene);
 
-protected:
-	CE::Scene& scene;
+	void update(float deltaTime) override;
 
-	static std::unique_ptr<CE::TextureInstance> texture;
+	void initialize() override;
+
+protected:
+	std::unique_ptr<CE::TextureInstanceRotatable> textureInst;
 };
 
 #endif

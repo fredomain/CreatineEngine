@@ -131,7 +131,6 @@ int main(int argc, char* args[]){
 
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
-		//imagenFondo.init();
 		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 		imagenFondo.setScale(0.5f);
 		
@@ -140,13 +139,13 @@ int main(int argc, char* args[]){
 		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
 
 		imagenFondo2.setPositionAnchor(CE::RectAnchor::CENTER);
-		//imagenFondo2.init();
+
 		imagenFondo2.setPosition(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
 		imagenFondo2.setScale(0.2f);
 
-		imagenFondo2.setRotationOrigin(CE::RectAnchor::CENTER);
+		/*imagenFondo2.setRotationOrigin(CE::RectAnchor::CENTER);
 		imagenFondo2.setRotation(25);
-		imagenFondo2.setFlipMode(SDL_FlipMode::SDL_FLIP_HORIZONTAL);
+		imagenFondo2.setFlipMode(SDL_FlipMode::SDL_FLIP_HORIZONTAL);*/
 
 
 		//CE::Logger::setMinimumLogLevel(CE::LogLevel::Info);
@@ -157,8 +156,8 @@ int main(int argc, char* args[]){
 		logger.log("Error", CE::LogLevel::Error);
 		logger.log("verbose", CE::LogLevel::Verbose);
 		logger.log("Warn", CE::LogLevel::Warn);
-		CE::Logger::logMessage(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
-		CE::Logger::logMessage(CE::LogFileType::Graphics, "Andres es muy guapo", CE::LogLevel::Info, "Texturas", CE::LogOutput::Terminal);
+		CE::Logger::log(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
+		CE::Logger::log(CE::LogFileType::Graphics, "Andres es muy guapo", CE::LogLevel::Info, "Texturas", CE::LogOutput::Terminal);
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -245,7 +244,7 @@ int main(int argc, char* args[]){
 				}
 
 				// Clear screen
-				SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
+				//SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 				SDL_RenderClear(gRenderer);
 
 				// Render texture to screen
@@ -274,10 +273,14 @@ int main(int argc, char* args[]){
 bool Init(){
 	bool success = true;	//Initialization flag
 
-	TTF_Init();
+	CE::CreatineEngineCore::init();
+	CE::SceneManager::initializeWindow("Creatine Engine Core Test", 640, 480, false);
+	gRenderer = CE::SceneManager::getWindowRenderer();
+
+	//TTF_Init();
 
 	//Initialize SDL
-	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)){
+	/*if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
 		SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		success = false;
 	}else
@@ -294,18 +297,18 @@ bool Init(){
 			SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 			//SDL_PropertiesID info = SDL_GetRendererProperties(gRenderer);
 		}
+	}*/
 
-		//Define the audio device specifications
-		audioSpec->freq = 44100;
-		audioSpec->format = MIX_DEFAULT_FORMAT;
-		audioSpec->channels = 2;
+	//Define the audio device specifications
+	audioSpec->freq = 44100;
+	audioSpec->format = MIX_DEFAULT_FORMAT;
+	audioSpec->channels = 2;
 
-		// Initialize the audio device
-		if (Mix_OpenAudio(0, audioSpec) < 0)
-		{
-			printf("SDL mixer could not initialize: %s", SDL_GetError());
-			success = false;
-		}
+	// Initialize the audio device
+	if (Mix_OpenAudio(0, audioSpec) < 0)
+	{
+		printf("SDL mixer could not initialize: %s", SDL_GetError());
+		success = false;
 	}
 
 	return success;
@@ -350,16 +353,8 @@ bool LoadMedia(){
 }
 
 void Close(){
-
-	CE::Logger::shutdown();
 	// Deallocate surfaces
 	SDL_DestroyTexture(character_t);
 
-	// Destroy window
-	SDL_DestroyWindow(gWindow);
-	gWindow = NULL;
-
-	// Quit SDL subsystems
-	Mix_Quit();
-	SDL_Quit();
+	CE::CreatineEngineCore::quit();
 }
