@@ -75,6 +75,7 @@ namespace CE {
 		SDL_FRect getSourceRect() const;
 		const SDL_FRect* getSourceRectPtr() const;
 		void setSourceRect(const SDL_FRect& rect);
+		void updateDestinationRectSize();
 
 		SDL_FRect getDestinationRect() const;
 		const SDL_FRect* getDestinationRectPtr() const;

@@ -8,5 +8,5 @@ Scene1::Scene1() {
 void Scene1::initialize() {
 	Scene::initialize();
 	renderEngine.enableClear();
-	renderEngine.setClearColor(0, 255, 0, 255);
+	renderEngine.setClearColor(0, 0, 0, 255);
 }

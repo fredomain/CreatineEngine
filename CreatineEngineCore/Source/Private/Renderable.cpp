@@ -26,16 +26,6 @@ namespace CE {
 		executeRender = false;
 	}
 
-	/**
-	 * @brief Initializes the Renderable object to its default state.
-	 */
-	/*void Renderable::init() {
-		setScale(1.0f);
-		//destinationRect = 0;
-		
-		setPositionAnchor(RectAnchor::CENTER);
-	}*/
-
 	void Renderable::setRenderOrder(uint8_t renderOrder) {
 		this->renderOrder = renderOrder;
 	}
@@ -111,7 +101,7 @@ namespace CE {
 	void Renderable::setSourceWidth(float width) {
 		if (width > 0) {
 			sourceRect.w = width;
-		}		
+		}
 	}
 
 	float Renderable::getHeight() const {
@@ -188,6 +178,11 @@ namespace CE {
 	}
 	void Renderable::setSourceRect(const SDL_FRect& rect) {
 		this->sourceRect = rect;
+	}
+
+	void Renderable::updateDestinationRectSize() {
+		destinationRect.w = sourceRect.w * scale.x;
+		destinationRect.h = sourceRect.h * scale.y;
 	}
 
 	SDL_FRect Renderable::getDestinationRect() const {

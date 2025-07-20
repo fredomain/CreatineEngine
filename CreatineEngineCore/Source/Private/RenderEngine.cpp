@@ -41,13 +41,13 @@ namespace CE {
         }
 
         sortRenderListIfNeeded();
-        Logger::log(LogFileType::Engine, std::format("{} will be rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
+        //Logger::log(LogFileType::Engine, std::format("{} will be rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
         for (auto* renderable : renderList) {
             renderable->render();
         }
 
         SDL_RenderPresent(renderer);
-        Logger::log(LogFileType::Engine, std::format("Screen rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
+        //Logger::log(LogFileType::Engine, std::format("Screen rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
 
         /*
         if (viewportSet) {

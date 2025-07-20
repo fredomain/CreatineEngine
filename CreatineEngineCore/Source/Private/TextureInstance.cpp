@@ -30,7 +30,9 @@ namespace CE {
 		TextureInstance* self = static_cast<TextureInstance*>(callbackObject);
 		self->setSourceWidth(static_cast<float>(self->texture->getWidth()));
 		self->setSourceHeight(static_cast<float>(self->texture->getHeight()));
-		Logger::log(LogFileType::Engine, "Texture loaded callback", LogLevel::Verbose);
+		self->updateDestinationRectSize();
+		self->updateAnchorOffset();
+		//Logger::log(LogFileType::Engine, "Texture loaded callback", LogLevel::Verbose);
 	}
 
 }

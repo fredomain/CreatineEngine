@@ -46,7 +46,7 @@ namespace CE {
         bool needsSort = false;
 
         bool clearEnabled = true;                               // Por defecto limpia el framebuffer
-        SDL_Color clearColor{ 20, 20, 20, 255 };               // Color por defecto
+        SDL_Color clearColor{ 0, 0, 0, 255 };               // Color por defecto
 
         // Viewport (desactivado por ahora)
         /*
