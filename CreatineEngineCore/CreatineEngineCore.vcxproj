@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\DynamicNumberTextureInstance.cpp" />
     <ClCompile Include="Source\Private\InstantiableResource.cpp" />
     <ClCompile Include="Source\Private\ObserverBroadcast.cpp" />
     <ClCompile Include="Source\Private\ObserverInfo.cpp" />
@@ -56,6 +57,7 @@
     <ClCompile Include="Source\Private\TextTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\DynamicNumberTextureInstance.h" />
     <ClInclude Include="Source\Public\InstantiableResource.h" />
     <ClInclude Include="Source\Public\ObserverBroadcast.h" />
     <ClInclude Include="Source\Public\ObserverInfo.h" />

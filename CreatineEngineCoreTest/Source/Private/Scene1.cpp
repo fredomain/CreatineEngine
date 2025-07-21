@@ -3,6 +3,7 @@
 
 Scene1::Scene1() {
 	registerEntity(std::make_unique<Fondo1>(*this));
+	registerEntity(std::make_unique<Fondo1>(*this));
 }
 
 void Scene1::initialize() {

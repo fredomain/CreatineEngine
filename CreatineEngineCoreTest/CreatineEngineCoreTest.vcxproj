@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\FPS_Display.cpp" />
     <ClCompile Include="Source\Private\Fondo1.cpp" />
     <ClCompile Include="Source\Private\Scene1.cpp" />
     <ClCompile Include="Source\Private\Scene2.cpp" />
@@ -163,6 +164,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\FPS_Display.h" />
     <ClInclude Include="Source\Public\Fondo1.h" />
     <ClInclude Include="Source\Public\Scene1.h" />
     <ClInclude Include="Source\Public\Scene2.h" />
