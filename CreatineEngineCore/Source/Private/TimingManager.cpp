@@ -84,12 +84,12 @@ namespace CE {
             return;
         }
 
-        TimePoint frameEnd = Clock::now();
-        std::chrono::duration<double> frameDuration = frameEnd - lastTime;
+		TimePoint frameEnd = Clock::now();                                          // Captures the end time of the frame
+		std::chrono::duration<double> frameDuration = frameEnd - lastTime;		    // Calculates the duration of the frame in seconds
 
-        double sleepTime = targetFrameDuration - frameDuration.count();
+		double sleepTime = targetFrameDuration - frameDuration.count();             // Calculates the time to sleep to maintain the target frame rate
         if (sleepTime > 0.0) {
-            std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
+			std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));  // Sleeps for the calculated time
         }
     }
 
@@ -149,15 +149,18 @@ namespace CE {
         return accumulatedTime - realElapsed.count();
     }
 
+    /**
+	 * @brief Corrects the time drift by adjusting the accumulated game time based on the real elapsed time.
+     */
     void TimingManager::correctDrift() {
-        auto now = Clock::now();
-        std::chrono::duration<double> realElapsed = now - startTime;
-        double driftFactor = realElapsed.count() / accumulatedTime;
+		auto now = Clock::now();                                                                    // Captures the current time
+		std::chrono::duration<double> realElapsed = now - startTime;                                // Calculates the real elapsed time since star
+		double driftFactor = realElapsed.count() / accumulatedTime;                                 // Calculates the drift factor based on the real elapsed time and accumulated time
 
         accumulatedTime = realElapsed.count();
 
         gameAccumulatedTime = 0.0;
-        for (size_t i = 1; i < speedHistory.size(); ++i) {
+		for (size_t i = 1; i < speedHistory.size(); ++i) {                                          // Iterates through the speed history to adjust the game accumulated time
             double segmentTime = speedHistory[i].timeAtChange - speedHistory[i - 1].timeAtChange;
             segmentTime *= driftFactor;
             gameAccumulatedTime += segmentTime * speedHistory[i - 1].speed;
