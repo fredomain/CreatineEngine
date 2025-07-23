@@ -7,6 +7,8 @@
 
 #include "Fondo1.h"
 
+#include <print>
+
 int main()
 {
     CE::CreatineEngineCore::init();
@@ -30,11 +32,23 @@ int main()
 
     // Game loop
     bool working = true;
+    uint32_t i = 0;
+    float accumulatedDeltaTime = 0.0f;
+    auto start = std::chrono::high_resolution_clock::now();
     while (working) {
         CE::SceneManager::update();
+        accumulatedDeltaTime += CE::SceneManager::getCurrentScene()->getTimingManager().getDeltaTime();
+        if (i > 999) {
+            //std::println("{}", static_cast<unsigned int>(CE::SceneManager::getCurrentScene()->getTimingManager().getCurrentFPS()));
+            std::chrono::duration<double, std::milli> duration = std::chrono::high_resolution_clock::now() - start;
+            start = std::chrono::high_resolution_clock::now();
+            std::println("{}, {}", duration, accumulatedDeltaTime/1000);
+            accumulatedDeltaTime = 0.0;
+            i = 0;            
+        }
+        i++;
+        //std::println("{}", i);
     }
-
-    getchar();
 
     CE::CreatineEngineCore::quit();
 }

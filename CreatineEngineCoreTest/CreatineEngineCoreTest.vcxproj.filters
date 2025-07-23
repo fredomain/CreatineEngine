@@ -30,9 +30,6 @@
     <ClCompile Include="Source\Private\Fondo1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\FPS_Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\SimpleTransitionScene.h">
@@ -45,9 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Fondo1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Public\FPS_Display.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

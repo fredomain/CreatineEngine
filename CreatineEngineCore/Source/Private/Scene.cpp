@@ -38,10 +38,11 @@ namespace CE {
 	}
 
 	void Scene::update() {
-		timingManager.update();				// Update timing manager to update deltaTime		
+		//timingManager.update();				// Update timing manager to update deltaTime		
 		updateEntityList(timingManager.getGameDeltaTime());
 		render();
-		timingManager.frameRateControl();	// Control frame rate if needed
+		timingManager.update();				// Update timing manager to update deltaTime
+		//timingManager.frameRateControl();
 	}
 
 	void Scene::registerEntity(std::unique_ptr<Entity> entity) {
@@ -63,5 +64,9 @@ namespace CE {
 
 	void Scene::unregisterComponent(Renderable& renderable) {
 		renderEngine.unregisterRenderable(&renderable);
+	}
+
+	const TimingManager& Scene::getTimingManager() {
+		return timingManager;
 	}
 }

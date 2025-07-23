@@ -28,36 +28,60 @@ namespace CE {
         gameAccumulatedTime = 0.0;
         paused = false;
 
-        speedHistory.clear();
-        speedHistory.push_back({ gameSpeed, 0.0 });
 #ifdef TIMING_USE_FIXED_STEP
         fixedTimeAccumulator = 0.0;
 #endif
     }
 
     void TimingManager::reset() {
-        speedHistory.clear();
         start();
     }
 
     void TimingManager::update() {
-        TimePoint now = Clock::now();                                       // Captures the current time
-        std::chrono::duration<float> diff = now - lastTime;                 // Calculates the time difference between the last update and now
-        deltaTime = diff.count();                                           // Converts the time difference to seconds (float)
-        accumulatedTime += static_cast<double>(deltaTime);                  // Accumulates the real time in seconds
+        now = Clock::now(); // Captura el tiempo actual
 
-        if (paused) {
-            gameDeltaTime = 0.0f;                                           // If paused, game delta time is zero
+        // Calcula el tiempo transcurrido desde el último frame
+        diff = now - lastTime;
+
+        // Si tienes FPS objetivo, calcula el siguiente timestamp absoluto
+        if (targetFPS > 0) {
+            // Calcula el instante objetivo del próximo frame
+            lastTime += std::chrono::duration_cast<Clock::duration>(
+                std::chrono::duration<double>(targetFrameDuration)
+            );
+
+
+            // Si estamos adelantados, dormimos hasta el instante objetivo
+            if (now < lastTime) {
+                std::this_thread::sleep_until(lastTime);
+                now = Clock::now(); // Vuelve a capturar el tiempo real después del sleep
+            }
+            else {
+                // Si estamos retrasados, sincronizamos para evitar acumulación de error
+                lastTime = now;
+                diff = std::chrono::duration<float>::zero(); // No queremos avanzar tiempo de juego extra
+            }
         }
         else {
-            gameDeltaTime = deltaTime * static_cast<float>(gameSpeed);      // Calculates the game delta time based on the game speed
-            gameAccumulatedTime += static_cast<double>(gameDeltaTime);      //  Accumulates the game time in seconds
+            // Si no hay límite de FPS, sincroniza timestamp
+            lastTime = now;
         }
-        
-        lastTime = now;                                                     // Updates the last time to the current time
+
+        // Actualiza deltaTime (tiempo real entre frames en segundos)
+        deltaTime = diff.count();
+        accumulatedTime += static_cast<double>(deltaTime);
+
+        // Actualiza el tiempo de juego, teniendo en cuenta la pausa y la velocidad
+        if (paused) {
+            gameDeltaTime = 0.0f;
+        }
+        else {
+            gameDeltaTime = deltaTime * static_cast<float>(gameSpeed);
+            gameAccumulatedTime += static_cast<double>(gameDeltaTime);
+        }
 
 #ifdef TIMING_USE_FIXED_STEP
-        fixedTimeAccumulator += deltaTime;                                  // Accumulates the real time for fixed step updates
+        fixedTimeAccumulator += deltaTime; // Acumula tiempo para lógica de paso fijo
 #endif
     }
 
@@ -79,20 +103,6 @@ namespace CE {
         return paused;
     }
 
-    void TimingManager::frameRateControl() {
-        if (targetFPS <= 0 || paused) {
-            return;
-        }
-
-        TimePoint frameEnd = Clock::now();
-        std::chrono::duration<double> frameDuration = frameEnd - lastTime;
-
-        double sleepTime = targetFrameDuration - frameDuration.count();
-        if (sleepTime > 0.0) {
-            std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
-        }
-    }
-
     float TimingManager::getCurrentFPS() const {
         return (deltaTime > 0.0f) ? (1.0f / deltaTime) : 0.0f;
     }
@@ -112,7 +122,6 @@ namespace CE {
 
     void TimingManager::setGameSpeed(double speed) {
         if (speed != gameSpeed) {
-            speedHistory.push_back({ speed, accumulatedTime });
             gameSpeed = speed;
 
             std::string message = std::format(
@@ -141,36 +150,6 @@ namespace CE {
 
     double TimingManager::getGameTime() const {
         return gameAccumulatedTime;
-    }
-
-    double TimingManager::getTimeDrift() const {
-        auto now = Clock::now();
-        std::chrono::duration<double> realElapsed = now - startTime;
-        return accumulatedTime - realElapsed.count();
-    }
-
-    void TimingManager::correctDrift() {
-        auto now = Clock::now();
-        std::chrono::duration<double> realElapsed = now - startTime;
-        double driftFactor = realElapsed.count() / accumulatedTime;
-
-        accumulatedTime = realElapsed.count();
-
-        gameAccumulatedTime = 0.0;
-        for (size_t i = 1; i < speedHistory.size(); ++i) {
-            double segmentTime = speedHistory[i].timeAtChange - speedHistory[i - 1].timeAtChange;
-            segmentTime *= driftFactor;
-            gameAccumulatedTime += segmentTime * speedHistory[i - 1].speed;
-            speedHistory[i].timeAtChange = speedHistory[i - 1].timeAtChange + segmentTime;
-        }
-
-        if (!speedHistory.empty()) {
-            double lastSegmentTime = accumulatedTime - speedHistory.back().timeAtChange;
-            gameAccumulatedTime += lastSegmentTime * speedHistory.back().speed;
-        }
-
-        speedHistory.clear();
-        speedHistory.push_back({ gameSpeed, accumulatedTime });
     }
 
 #ifdef TIMING_USE_FIXED_STEP

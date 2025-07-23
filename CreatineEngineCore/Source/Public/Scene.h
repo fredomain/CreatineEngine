@@ -44,6 +44,8 @@ namespace CE {
 		void registerComponent(Renderable& renderable);
 		void unregisterComponent(Renderable& renderable);
 
+		const TimingManager& getTimingManager();
+
 	protected:
 		void updateEntityList(float deltaTime);
 		void initializeEntityList();

@@ -41,7 +41,7 @@ namespace CE {
         void resume();
         bool isPaused() const;
 
-        void frameRateControl();
+
         float getCurrentFPS() const;
 
         void setTargetFPS(int fps);
@@ -56,10 +56,6 @@ namespace CE {
 
         double getTotalTime() const;      // Accumulated Real Time
         double getGameTime() const;       // Accumulated GameTime
-
-        double getTimeDrift() const;
-        void correctDrift();
-
 
 
 #ifdef TIMING_USE_FIXED_STEP
@@ -81,6 +77,9 @@ namespace CE {
         bool paused;
         TimePoint pauseStartTime;
 
+        TimePoint now;
+        std::chrono::duration<float> diff;
+
         float deltaTime;
         float gameDeltaTime;
         double accumulatedTime;
@@ -90,7 +89,6 @@ namespace CE {
         double targetFrameDuration;
 
         double gameSpeed;
-        std::vector<SpeedChange> speedHistory;
 
 #ifdef TIMING_USE_FIXED_STEP
         double fixedTimeStep;
