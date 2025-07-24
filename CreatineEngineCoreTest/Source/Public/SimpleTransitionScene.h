@@ -3,10 +3,18 @@
 #define SIMPLETRANSITIONSCENE_H
 
 #include "TransitionScene.h"
+#include "LoadingLabel.h"
 
 class SimpleTransitionScene : public CE::TransitionScene
 {
+public:
+	SimpleTransitionScene();
 
+	void initialize() override;
+	void update() override;
+
+private:
+	LoadingLabel* loadingLabel;
 };
 
 #endif

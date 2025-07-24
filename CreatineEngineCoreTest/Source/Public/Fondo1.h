@@ -12,10 +12,8 @@ public:
 	Fondo1(CE::Scene& scene);
 
 	void update(float deltaTime) override;
-
 	void initialize() override;
 
-protected:
 	std::unique_ptr<CE::TextureInstanceRotatable> textureInst;
 };
 

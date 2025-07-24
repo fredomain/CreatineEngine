@@ -18,8 +18,8 @@ namespace CE {
     class SceneManager {
     private:
         std::unordered_map<std::string, std::function<std::unique_ptr<Scene>()>> sceneDescriptors;
-        std::unique_ptr<Scene> currentScene = nullptr;
-        std::unique_ptr<TransitionScene> transitionScene = nullptr;
+        std::shared_ptr<Scene> currentScene = nullptr;
+        std::shared_ptr<TransitionScene> transitionScene = nullptr;
         std::string nextSceneName = "";
         bool isTransitioning = false;
 
@@ -45,7 +45,7 @@ namespace CE {
         static bool initializeWindow(const std::string& title, int width, int height, bool fullscreen = false);
 
         static void registerScene(const std::string& name, std::function<std::unique_ptr<Scene>()> sceneDescription);
-        static void setTransitionScene(std::unique_ptr<TransitionScene> scene);
+        static void setTransitionScene(std::shared_ptr<TransitionScene> scene);
 
         static void loadScene(const std::string& name);        
         static void loadSceneWithTransition(const std::string& targetScene);

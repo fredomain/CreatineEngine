@@ -7,12 +7,16 @@ namespace CE {
         targetSceneName = sceneName;
     }
 
+    void TransitionScene::loadTargetScene() {
+        SceneManager::loadScene(targetSceneName);
+        SceneManager::endTransition();
+    }
+
     void TransitionScene::update() {
         // Call base scene update to render background or animations
         Scene::update();
 
-        SceneManager::loadScene(targetSceneName);
-        SceneManager::endTransition();
+        loadTargetScene();
     }
 
 }

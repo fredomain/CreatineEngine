@@ -29,7 +29,7 @@ namespace CE {
         get().sceneDescriptors[name] = std::move(sceneDescription);
     }
 
-    void SceneManager::setTransitionScene(std::unique_ptr<TransitionScene> scene) {
+    void SceneManager::setTransitionScene(std::shared_ptr<TransitionScene> scene) {
         get().transitionScene = std::move(scene);
     }
 
@@ -66,7 +66,7 @@ namespace CE {
         mgr.transitionScene->initialize();
 
         mgr.isTransitioning = true;
-        mgr.currentScene = std::move(mgr.transitionScene);
+        mgr.currentScene = mgr.transitionScene;
     }
 
     void SceneManager::update() {

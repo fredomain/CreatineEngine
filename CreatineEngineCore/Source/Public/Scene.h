@@ -21,7 +21,8 @@ namespace CE {
 		/**
 		 * @brief Constructs a new Scene object.
 		 Call ResourceManager::get functions here to register resources before
-		 SceneManager calls ResourceManager::load()
+		 SceneManager calls ResourceManager::load().
+		 Create/register entities here.
 		 */
 		Scene();
 		virtual ~Scene();

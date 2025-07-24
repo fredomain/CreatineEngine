@@ -1,1 +1,43 @@
 #include "Scene2.h"
+
+Scene2::Scene2() {
+	fondo = new Fondo1(*this);
+	registerEntity(static_cast<std::unique_ptr<Fondo1>>(fondo));
+}
+
+void Scene2::initialize() {
+	Scene::initialize();
+	renderEngine.enableClear();
+	timingManager.setTargetFPS(0);
+
+	fondo->textureInst->setPositionAnchor(CE::RectAnchor::CENTER);
+	fondo->textureInst->setPosition(static_cast<float>(CE::SceneManager::getWindowManager().getWidth()) / 2, static_cast<float>(CE::SceneManager::getWindowManager().getHeight() / 2));
+	fondo->textureInst->setScale(0.5f);
+
+	fondo->textureInst->setRotationOrigin(CE::RectAnchor::CENTER);
+	fondo->textureInst->setRotation(0);
+
+	CE::Logger::log(CE::LogFileType::Engine, std::format("x: {}, y: {}", fondo->textureInst->getX(), fondo->textureInst->getY()), CE::LogLevel::Verbose);
+}
+
+void Scene2::update() {
+	Scene::update();
+	//Handle events on queue
+	while (SDL_PollEvent(&e) != 0)
+	{
+		//User requests quit
+		if (e.type == SDL_EVENT_QUIT)
+		{
+			std::println("Esto deberia salirse!!!");
+		}
+		else if (e.type == SDL_EVENT_KEY_DOWN) {
+			//Select surfaces based on key press
+			switch (e.key.key)
+			{
+			case SDLK_1:
+				CE::SceneManager::loadSceneWithTransition("Scene1");
+				break;
+			}
+		}
+	}
+}

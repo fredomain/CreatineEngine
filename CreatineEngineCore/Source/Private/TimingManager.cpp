@@ -5,7 +5,6 @@
 
 namespace CE {
 
-
     TimingManager::TimingManager(double fixedTimeStep, int targetFPS)
         : deltaTime(0.0f), gameDeltaTime(0.0f),
         accumulatedTime(0.0), gameAccumulatedTime(0.0),
@@ -16,12 +15,22 @@ namespace CE {
         , fixedTimeStep(fixedTimeStep), fixedTimeAccumulator(0.0)
 #endif
     {
+        if (targetFPS > 0) {
+            targetFrameDurationChrono = std::chrono::duration_cast<Clock::duration>(
+                std::chrono::duration<double>(targetFrameDuration)
+            );
+        }
+        else {
+            targetFrameDurationChrono = Clock::duration::zero();
+        }
     }
-
 
     void TimingManager::start() {
         startTime = Clock::now();
         lastTime = startTime;
+        now = startTime;
+        nextFrameTime = startTime;
+        diff = std::chrono::duration<float>::zero();
         deltaTime = 0.0f;
         gameDeltaTime = 0.0f;
         accumulatedTime = 0.0;
@@ -38,40 +47,33 @@ namespace CE {
     }
 
     void TimingManager::update() {
-        now = Clock::now(); // Captura el tiempo actual
-
-        // Calcula el tiempo transcurrido desde el último frame
-        diff = now - lastTime;
-
-        // Si tienes FPS objetivo, calcula el siguiente timestamp absoluto
-        if (targetFPS > 0) {
-            // Calcula el instante objetivo del próximo frame
-            lastTime += std::chrono::duration_cast<Clock::duration>(
-                std::chrono::duration<double>(targetFrameDuration)
-            );
-
-
-            // Si estamos adelantados, dormimos hasta el instante objetivo
-            if (now < lastTime) {
-                std::this_thread::sleep_until(lastTime);
-                now = Clock::now(); // Vuelve a capturar el tiempo real después del sleep
+        now = Clock::now(); // Capture current time
+                
+        if (getTargetFPS() > 0) {   // FPS control
+            // Compute target time for the next frame
+            nextFrameTime = lastTime + targetFrameDurationChrono;
+            if (now < nextFrameTime) {
+                std::this_thread::sleep_until(nextFrameTime);   // Sleep until next frame if ahead of schedule
+                lastTime = nextFrameTime;
+                diff = targetFrameDurationChrono;
             }
             else {
-                // Si estamos retrasados, sincronizamos para evitar acumulación de error
+                diff = now - lastTime;
                 lastTime = now;
-                diff = std::chrono::duration<float>::zero(); // No queremos avanzar tiempo de juego extra
             }
         }
-        else {
-            // Si no hay límite de FPS, sincroniza timestamp
+        else {  // Max FPS (FPS control disabled)
+            diff = now - lastTime;
             lastTime = now;
         }
 
-        // Actualiza deltaTime (tiempo real entre frames en segundos)
+        // Update lastTime to current time
         deltaTime = diff.count();
+        /*----------------------------------------*/
+
+        // Accumulate real elapsed time
         accumulatedTime += static_cast<double>(deltaTime);
 
-        // Actualiza el tiempo de juego, teniendo en cuenta la pausa y la velocidad
         if (paused) {
             gameDeltaTime = 0.0f;
         }
@@ -81,7 +83,7 @@ namespace CE {
         }
 
 #ifdef TIMING_USE_FIXED_STEP
-        fixedTimeAccumulator += deltaTime; // Acumula tiempo para lógica de paso fijo
+        fixedTimeAccumulator += deltaTime;
 #endif
     }
 
@@ -110,6 +112,15 @@ namespace CE {
     void TimingManager::setTargetFPS(int fps) {
         targetFPS = fps;
         targetFrameDuration = (fps > 0) ? 1.0 / static_cast<double>(fps) : 0.0;
+
+        if (fps > 0) {
+            targetFrameDurationChrono = std::chrono::duration_cast<Clock::duration>(
+                std::chrono::duration<double>(targetFrameDuration)
+            );
+        }
+        else {
+            targetFrameDurationChrono = Clock::duration::zero();
+        }
     }
 
     int TimingManager::getTargetFPS() const {

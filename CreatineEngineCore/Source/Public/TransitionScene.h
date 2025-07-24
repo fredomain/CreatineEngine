@@ -25,7 +25,13 @@ namespace CE {
         void setTargetScene(const std::string& sceneName);
 
         /**
+         * @brief Call this function in children when the transition ends
+         */
+        void loadTargetScene();
+
+        /**
          * @brief Updates and renders the transition screen. Loads the target scene when done.
+         * Use it as template for children update functions
          */
         void update() override;
     };
