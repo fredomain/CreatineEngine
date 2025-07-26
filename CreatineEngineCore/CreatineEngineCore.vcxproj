@@ -19,47 +19,81 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\Logger.cpp" />
-    <ClCompile Include="Source\Private\RenderEngine.cpp" />
-    <ClCompile Include="Source\Private\FVector.cpp" />
+    <ClCompile Include="Source\Private\DynamicNumberTextureInstance.cpp" />
+    <ClCompile Include="Source\Private\InstantiableResource.cpp" />
+    <ClCompile Include="Source\Private\ObserverBroadcast.cpp" />
+    <ClCompile Include="Source\Private\ObserverInfo.cpp" />
+    <ClCompile Include="Source\Private\ImageSurface.cpp" />
+    <ClCompile Include="Source\Private\ImageSurfaceGenerator.cpp" />
+    <ClCompile Include="Source\Private\ImageTexture.cpp" />
+    <ClCompile Include="Source\Private\CreatineEngineCore.cpp" />
+    <ClCompile Include="Source\Private\ResourceManager.cpp" />
+    <ClCompile Include="Source\Private\Resource.cpp" />
+    <ClCompile Include="Source\Private\MathUtils.cpp" />
+    <ClCompile Include="Source\Private\RectAnchor.cpp" />
+    <ClCompile Include="Source\Private\RectPosition.cpp" />
     <ClCompile Include="Source\Private\Scene.cpp" />
-    <ClCompile Include="Source\Private\Init.cpp" />
-    <ClCompile Include="Source\Private\GameEntity.cpp" />
-    <ClCompile Include="Source\Private\ImageAssetCPU.cpp" />
-    <ClCompile Include="Source\Private\ImageAssetGPU.cpp" />
-    <ClCompile Include="Source\Private\AssetManager.cpp" />
-    <ClCompile Include="Source\Private\Asset.cpp" />
-    <ClCompile Include="Source\Private\Image.cpp" />
+    <ClCompile Include="Source\Private\SceneManager.cpp" />
+    <ClCompile Include="Source\Private\SurfaceInstanceAnimated.cpp" />
+    <ClCompile Include="Source\Private\FVector.cpp" />
+    <ClCompile Include="Source\Private\Entity.cpp" />
+    <ClCompile Include="Source\Private\Logger.cpp" />
     <ClCompile Include="Source\Private\Renderable.cpp" />
-    <ClCompile Include="Source\Private\Sprite.cpp" />
-    <ClCompile Include="Source\Private\Text.cpp" />
+    <ClCompile Include="Source\Private\RenderEngine.cpp" />
     <ClCompile Include="Source\Private\Surface.cpp" />
-    <ClCompile Include="Source\Private\TextureAsset.cpp" />
-    <ClCompile Include="Source\Private\SurfaceAsset.cpp" />
-    <ClCompile Include="Source\Public\RectAnchor.h" />
+    <ClCompile Include="Source\Private\SurfaceInstance.cpp" />
+    <ClCompile Include="Source\Private\Texture.cpp" />
+    <ClCompile Include="Source\Private\TextureInstance.cpp" />
+    <ClCompile Include="Source\Private\TextureInstanceAnimated.cpp" />
+    <ClCompile Include="Source\Private\TextureInstanceRotatable.cpp" />
+    <ClCompile Include="Source\Private\TextureInstanceRotatableAnimated.cpp" />
     <ClCompile Include="Source\Private\TimingManager.cpp" />
+    <ClCompile Include="Source\Private\TransitionScene.cpp" />
+    <ClCompile Include="Source\Private\Vector.cpp" />
+    <ClCompile Include="Source\Private\WindowManager.cpp" />
+    <ClCompile Include="Source\Private\SurfaceGenerator.cpp" />
+    <ClCompile Include="Source\Private\TextSurface.cpp" />
+    <ClCompile Include="Source\Private\TextSurfaceGenerator.cpp" />
+    <ClCompile Include="Source\Private\TextTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\Logger.h" />
-    <ClInclude Include="Source\Public\RenderEngine.h" />
-    <ClInclude Include="Source\Public\FVector.h" />
-    <ClInclude Include="Source\Public\Scene.h" />
-    <ClInclude Include="Source\Public\Init.h" />
+    <ClInclude Include="Source\Public\DynamicNumberTextureInstance.h" />
+    <ClInclude Include="Source\Public\InstantiableResource.h" />
+    <ClInclude Include="Source\Public\ObserverBroadcast.h" />
+    <ClInclude Include="Source\Public\ObserverInfo.h" />
+    <ClInclude Include="Source\Public\ImageSurface.h" />
+    <ClInclude Include="Source\Public\ImageSurfaceGenerator.h" />
+    <ClInclude Include="Source\Public\ImageTexture.h" />
     <ClInclude Include="Source\Public\CreatineEngineCore.h" />
-    <ClInclude Include="Source\Public\GameEntity.h" />
-    <ClInclude Include="Source\Public\ImageAssetCPU.h" />
-    <ClInclude Include="Source\Public\ImageAssetGPU.h" />
-    <ClInclude Include="Source\Public\AssetManager.h" />
-    <ClInclude Include="Source\Public\Asset.h" />
-    <ClInclude Include="Source\Public\Image.h" />
+    <ClInclude Include="Source\Public\ResourceManager.h" />
+    <ClInclude Include="Source\Public\Resource.h" />
+    <ClInclude Include="Source\Public\MathUtils.h" />
+    <ClInclude Include="Source\Public\RectPosition.h" />
+    <ClInclude Include="Source\Public\Scene.h" />
+    <ClInclude Include="Source\Public\SceneManager.h" />
+    <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />
+    <ClInclude Include="Source\Public\FVector.h" />
+    <ClInclude Include="Source\Public\Entity.h" />
+    <ClInclude Include="Source\Public\Logger.h" />
     <ClInclude Include="Source\Public\MathConstants.h" />
+    <ClInclude Include="Source\Public\RectAnchor.h" />
     <ClInclude Include="Source\Public\Renderable.h" />
-    <ClInclude Include="Source\Public\Sprite.h" />
-    <ClInclude Include="Source\Public\Text.h" />
+    <ClInclude Include="Source\Public\RenderEngine.h" />
     <ClInclude Include="Source\Public\Surface.h" />
-    <ClInclude Include="Source\Public\TextureAsset.h" />
-    <ClInclude Include="Source\Public\SurfaceAsset.h" />
+    <ClInclude Include="Source\Public\SurfaceInstance.h" />
+    <ClInclude Include="Source\Public\Texture.h" />
+    <ClInclude Include="Source\Public\TextureInstance.h" />
+    <ClInclude Include="Source\Public\TextureInstanceAnimated.h" />
+    <ClInclude Include="Source\Public\TextureInstanceRotatable.h" />
+    <ClInclude Include="Source\Public\TextureInstanceRotatableAnimated.h" />
     <ClInclude Include="Source\Public\TimingManager.h" />
+    <ClInclude Include="Source\Public\TransitionScene.h" />
+    <ClInclude Include="Source\Public\Vector.h" />
+    <ClInclude Include="Source\Public\WindowManager.h" />
+    <ClInclude Include="Source\Public\SurfaceGenerator.h" />
+    <ClInclude Include="Source\Public\TextSurface.h" />
+    <ClInclude Include="Source\Public\TextSurfaceGenerator.h" />
+    <ClInclude Include="Source\Public\TextTexture.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -116,14 +150,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;C:\GameDevLib\SDL_mixer-main\include\SDL3_mixer;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>Output\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Intermediate\$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;C:\GameDevLib\SDL_mixer-main\include\SDL3_mixer;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>.\Source\Public;C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\include;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\include\SDL3_image;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\include\SDL3_ttf;$(IncludePath)</IncludePath>
@@ -177,7 +211,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>C:\GameDevLib\SDL3-devel-3.2.4-VC\SDL3-3.2.4\lib\x64\SDL3.lib;C:\GameDevLib\SDL3_image-devel-3.2.4-VC\SDL3_image-3.2.4\lib\x64\SDL3_image.lib;C:\GameDevLib\SDL3_ttf-devel-3.2.0-VC\SDL3_ttf-3.2.0\lib\x64\SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

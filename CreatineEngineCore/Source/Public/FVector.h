@@ -6,6 +6,9 @@
 
 namespace CE {
 
+    /**
+     * @brief Represents a 2D vector with floating-point components and provides common vector operations.
+     */
     class FVector {
     public:
         float x;

@@ -4,7 +4,14 @@
 
 #include <fstream>
 #include <string>
+#include <unordered_map>
 #include <print>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+#include <filesystem>
+#include <thread>
 
 namespace CE {
 
@@ -15,6 +22,20 @@ namespace CE {
         Warn,
         Error,
         Critical
+    };
+
+    enum class LogFileType {
+        Engine,
+        Game,
+        Audio,
+        Graphics,
+        Network
+    };
+
+    enum class LogOutput {
+        File,
+        Terminal,
+        Both
     };
 
     struct LogLevelInfo {
@@ -39,22 +60,44 @@ namespace CE {
         return logLevelProperties[static_cast<int>(level)].ansiColorCode;
     }
 
+    /**
+     * @brief Provides logging functionality to write messages to log files and/or console with support for log levels, categories, and output options.
+     */
     class Logger {
     public:
         Logger(const std::string& filePath);
         ~Logger();
 
-        void setMinimumLogLevel(LogLevel level);
-        void log(const std::string& message,
+        void log(
+            const std::string& message,
             LogLevel level = LogLevel::Info,
-            const std::string& category = "General");
+            const std::string& category = "General",
+            LogOutput output = LogOutput::Both);
+
+        static void log(
+            LogFileType type,
+            const std::string& message,
+            LogLevel level = LogLevel::Info,
+            const std::string& category = "General",
+            LogOutput output = LogOutput::Both);
+
+        static void setMinimumLogLevel(LogLevel level);
+        static LogLevel getMinimumLogLevel();
+        static void setLogDirectory(std::string logDirectory);
+
+        static void shutdown(); // Close presitent opened streams
 
     private:
         std::ofstream logFile;
-        LogLevel minLogLevel = LogLevel::Verbose;
 
-        void writeToOutput(const std::string& category, LogLevel level, const std::string& message);
-        static std::string getCurrentTimestamp();
+        static std::string generateFilename();
+        static std::string buildLogLabel(const std::string& category, LogLevel level);
+        static std::string formatTimestamp(const std::tm& tm, const std::string& format);
+
+        inline static std::string baseLogDirectory = "Logs/";
+        inline static LogLevel minimumLogLevel = LogLevel::Verbose;
+
+        inline static std::unordered_map<LogFileType, std::ofstream> staticLogFiles; // Persistent streams
     };
 
 } // namespace CE

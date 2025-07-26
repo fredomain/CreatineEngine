@@ -61,6 +61,14 @@ SDL_Texture* character_t = NULL;
 SDL_FRect character_ori;
 SDL_FRect character_dest;
 
+Mix_Music* gMusic = nullptr;			// The image that will be continuously playing
+
+Mix_Chunk* gScratch = nullptr;			// The sound effect that will be used
+Mix_Chunk* gHigh = nullptr;
+Mix_Chunk* gMedium = nullptr;
+Mix_Chunk* gLow = nullptr;
+
+SDL_AudioSpec* audioSpec = new SDL_AudioSpec;		// Audio specifications for SDL mixer loading
 
 //Main loop flag
 bool quit = false;
@@ -75,26 +83,81 @@ int main(int argc, char* args[]){
 		SDL_Log("Failed to initialize!\n");
 	}
 	else{
-		//Load media
-		//CE::Image* imagenFondo = new CE::Image(gRenderer, "Content/Images/background.png");
-		CE::Image imagenFondo(gRenderer, "Content/Images/background.jpg");
-		imagenFondo.imageAsset.load();
+		// Forma 1
+		/*gHelloWorld = IMG_Load("Content/Images/background.jpg");
+		if (gHelloWorld == NULL) {
+			SDL_Log("Unable to load image %s! SDL Error: %s\n", "brackground.jpg", SDL_GetError());
+		}
+		CE::Texture imagenFondoT(gRenderer, gHelloWorld);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);*/
+
+		// Forma 2
+		/*CE::ImageLoader imageLoader("Content/Images/background.jpg");
+		CE::Texture imagenFondoT(gRenderer, imageLoader);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("cargado: {}\n", imageLoader.isLoaded());
+		imageLoader.load();
+		std::print("cargado: {}\n", imageLoader.isLoaded());*/
+
+		// Forma 3
+		/*CE::AssetLoaderManager assetLoaderManager;
+		//assetLoaderManager.registerAssetLoader(std::make_shared<CE::ImageLoader>("Content/Images/background.jpg"));
+		auto imageLoader = std::make_shared<CE::ImageLoader>("Content/Images/background.jpg");
+		assetLoaderManager.registerAssetLoader(imageLoader);
+
+		CE::Texture imagenFondoT(gRenderer, imageLoader.get());
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);
+		CE::TextureInstanceRotatable imagenFondo2(&imagenFondoT);
+		std::print("cargado: {}\n", imageLoader->isLoaded());
+		//imageLoader->load();
+		assetLoaderManager.loadAllAssets();
+		std::print("cargado: {}\n", imageLoader->isLoaded());*/
+
+		// Forma 4
+		/*SDL_Color color{255, 255, 0, 255};
+		TTF_Font* font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
+		CE::Texture imagenFondoT(gRenderer, "Mori feo, Andres pelotudo", font, 26, color);
+		CE::TextureInstanceRotatable imagenFondo(&imagenFondoT);*/
+
+		// Forma 5
+		//CE::ImageTexture imagenFondoT(gRenderer, "Content/Images/background.jpg");
+		CE::TextureInstanceRotatable imagenFondo(CE::ResourceManager::getImageTexture("fondo", gRenderer, "Content/Images/background.jpg"));
+		CE::TextureInstanceRotatable imagenFondo2(CE::ResourceManager::getImageTexture("fondo", gRenderer, "Content/Images/background.jpg"));
+		//std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+		CE::ResourceManager::load();
+		//std::print("Cargados: {}\n", assetLoaderManager.getLoadedCount());
+
 		
 		imagenFondo.setPositionAnchor(CE::RectAnchor::CENTER);
-		imagenFondo.init();
-		imagenFondo.setScale(0.2f);
-		imagenFondo.setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-		imagenFondo.enableRotation();
-		imagenFondo.setRotationOrigin(CE::RectAnchor::TOP_RIGHT);
+		imagenFondo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+		imagenFondo.setScale(0.5f);
+		
+		imagenFondo.setRotationOrigin(CE::RectAnchor::CENTER);
 		imagenFondo.setRotation(45);
-		imagenFondo.setVerticalFlip();
+		imagenFondo.setFlipMode(SDL_FlipMode::SDL_FLIP_VERTICAL);
 
-		CE::Logger logger("log.txt");
-		logger.setMinimumLogLevel(CE::LogLevel::Info);
+		imagenFondo2.setPositionAnchor(CE::RectAnchor::CENTER);
 
-		logger.log("Debug info", CE::LogLevel::Debug);       // Ignorado
-		logger.log("App started", CE::LogLevel::Info);       // Mostrado
-		logger.log("Null pointer", CE::LogLevel::Error);     // Mostrado
+		imagenFondo2.setPosition(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4);
+		imagenFondo2.setScale(0.2f);
+
+		/*imagenFondo2.setRotationOrigin(CE::RectAnchor::CENTER);
+		imagenFondo2.setRotation(25);
+		imagenFondo2.setFlipMode(SDL_FlipMode::SDL_FLIP_HORIZONTAL);*/
+
+
+		//CE::Logger::setMinimumLogLevel(CE::LogLevel::Info);
+		CE::Logger logger("log.log");
+		logger.log("Debug", CE::LogLevel::Debug);
+		logger.log("Critical", CE::LogLevel::Critical);
+		logger.log("Info", CE::LogLevel::Info);
+		logger.log("Error", CE::LogLevel::Error);
+		logger.log("verbose", CE::LogLevel::Verbose);
+		logger.log("Warn", CE::LogLevel::Warn);
+		CE::Logger::log(CE::LogFileType::Engine, "Reconcha", CE::LogLevel::Warn, "Graphics");
+		CE::Logger::log(CE::LogFileType::Graphics, "Andres es muy guapo", CE::LogLevel::Info, "Texturas", CE::LogOutput::Terminal);
 
 		if (!LoadMedia()){
 			SDL_Log("Failed to load media!\n");
@@ -135,16 +198,58 @@ int main(int argc, char* args[]){
 						case SDLK_RIGHT:
 							character_dest.x += 10.0f;
 							break;
+						case SDLK_1:
+							printf("Reproducing scratch...\n");
+							Mix_PlayChannel(-1, gHigh, 0);
+							break;
+
+						case SDLK_2:
+							printf("Reproducing high sound effect...\n");
+							Mix_PlayChannel(-1, gHigh, 0);
+							break;
+
+						case SDLK_3:
+							printf("Reproducing medium sound effect...\n");
+							Mix_PlayChannel(-1, gMedium, 0);
+							break;
+
+						case SDLK_4:
+							printf("Reproducing low sound effect...\n");
+							Mix_PlayChannel(-1, gLow, 0);
+							break;
+
+						case SDLK_M:
+							printf("Reproducing music...\n");
+							if (Mix_PausedMusic() == 1)
+							{
+								Mix_ResumeMusic();
+							}
+							else
+							{
+								Mix_PlayMusic(gMusic, -1);
+							}
+							break;
+
+						case SDLK_P:
+							printf("Pausing music...\n");
+							Mix_PauseMusic();
+							break;
+
+						case SDLK_H:
+							printf("Halting music...\n");
+							Mix_HaltMusic();
+							break;
 						}
 					}
 				}
 
 				// Clear screen
-				SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
+				//SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 				SDL_RenderClear(gRenderer);
 
 				// Render texture to screen
 				imagenFondo.render();
+				imagenFondo2.render();
 				SDL_RenderTexture(gRenderer, character_t, NULL, &character_dest);
 				drawCross(gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -168,8 +273,14 @@ int main(int argc, char* args[]){
 bool Init(){
 	bool success = true;	//Initialization flag
 
+	CE::CreatineEngineCore::init();
+	CE::SceneManager::initializeWindow("Creatine Engine Core Test", 640, 480, false);
+	gRenderer = CE::SceneManager::getWindowRenderer();
+
+	//TTF_Init();
+
 	//Initialize SDL
-	if (!SDL_Init(SDL_INIT_VIDEO)){
+	/*if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
 		SDL_Log("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		success = false;
 	}else
@@ -186,6 +297,18 @@ bool Init(){
 			SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 			//SDL_PropertiesID info = SDL_GetRendererProperties(gRenderer);
 		}
+	}*/
+
+	//Define the audio device specifications
+	audioSpec->freq = 44100;
+	audioSpec->format = MIX_DEFAULT_FORMAT;
+	audioSpec->channels = 2;
+
+	// Initialize the audio device
+	if (Mix_OpenAudio(0, audioSpec) < 0)
+	{
+		printf("SDL mixer could not initialize: %s", SDL_GetError());
+		success = false;
 	}
 
 	return success;
@@ -213,6 +336,19 @@ bool LoadMedia(){
 		SDL_DestroySurface(character);
 	}
 
+	// Load music & sound files
+	gMusic = Mix_LoadMUS("Content/Sounds/beat.wav");
+	gScratch = Mix_LoadWAV("Content/Sounds/scratch.wav");
+	gHigh = Mix_LoadWAV("Content/Sounds/high.wav");
+	gMedium = Mix_LoadWAV("Content/Sounds/medium.wav");
+	gLow = Mix_LoadWAV("Content/Sounds/low.wav");
+
+	if (gMusic == NULL || gScratch == NULL || gHigh == NULL || gMedium == NULL || gLow == NULL)
+	{
+		printf("Failed to load audio file: %s", SDL_GetError());
+		success = false;
+	}
+
 	return success;
 }
 
@@ -220,10 +356,5 @@ void Close(){
 	// Deallocate surfaces
 	SDL_DestroyTexture(character_t);
 
-	// Destroy window
-	SDL_DestroyWindow(gWindow);
-	gWindow = NULL;
-
-	// Quit SDL subsystems
-	SDL_Quit();
+	CE::CreatineEngineCore::quit();
 }

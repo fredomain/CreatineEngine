@@ -1,2 +1,0 @@
-[2025-06-28 17:20:18][INFO][General] App started
-[2025-06-28 17:20:18][ERROR][General] Null pointer
