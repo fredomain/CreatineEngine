@@ -2,7 +2,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "Entity.h"
+//#include "Entity.h"
 #include "ResourceManager.h"
 #include "RenderEngine.h"
 #include "TimingManager.h"
@@ -11,6 +11,8 @@
 #include <vector>
 
 namespace CE {
+
+	class Entity;
 
 	/**
 	 * @brief Represents a scene in a graphical application, managing entities, components, and resources.
@@ -39,7 +41,7 @@ namespace CE {
 		 * Call this function in the constructor of the scene.
 		 * @param entity A unique pointer to the Entity to be registered. Ownership of the entity is transferred to the function.
 		 */
-		void registerEntity(std::unique_ptr<Entity> entity);
+		Entity* registerEntity(std::unique_ptr<Entity> entity);	// It could be a template with the new entity type to create it within the function itself, name it CreateEntity in that case?
 		void unregisterEntity(Entity* entity);
 
 		void registerComponent(Renderable& renderable);

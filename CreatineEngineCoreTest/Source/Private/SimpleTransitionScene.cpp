@@ -2,7 +2,7 @@
 #include <thread>
 
 SimpleTransitionScene::SimpleTransitionScene() {
-    loadingLabel = new LoadingLabel(*this);
+    loadingLabel = new LoadingLabel();
     registerEntity(static_cast<std::unique_ptr<LoadingLabel>>(loadingLabel));
 }
 

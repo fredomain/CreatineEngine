@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Scene.h"
 
 namespace CE {
 	void Entity::update(float deltaTime) {
@@ -13,4 +14,5 @@ namespace CE {
 	void Entity::disableUpdate() {
 		executeUpdate = false;
 	}
+
 }

@@ -3,7 +3,7 @@
 #include "ResourceManager.h"
 #include <print>
 
-Fondo1::Fondo1(CE::Scene& scene) {
+Fondo1::Fondo1() {
 
 	textureInst = std::make_unique<CE::TextureInstanceRotatable>(
 		CE::ResourceManager::getImageTexture(
@@ -12,8 +12,10 @@ Fondo1::Fondo1(CE::Scene& scene) {
 			"Content/background2.png"
 		)
 	);
+}
 
-	scene.registerComponent(*textureInst);	
+void Fondo1::registerComponentsInScene(CE::Scene& scene) {
+	scene.registerComponent(*textureInst);
 }
 
 void Fondo1::initialize() {

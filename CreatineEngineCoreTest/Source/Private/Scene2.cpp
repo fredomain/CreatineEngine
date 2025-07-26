@@ -1,8 +1,7 @@
 #include "Scene2.h"
 
 Scene2::Scene2() {
-	fondo = new Fondo1(*this);
-	registerEntity(static_cast<std::unique_ptr<Fondo1>>(fondo));
+	fondo = dynamic_cast<Fondo1*>(registerEntity(std::make_unique<Fondo1>()));
 }
 
 void Scene2::initialize() {

@@ -45,8 +45,11 @@ namespace CE {
 		//timingManager.frameRateControl();
 	}
 
-	void Scene::registerEntity(std::unique_ptr<Entity> entity) {
+	Entity* Scene::registerEntity(std::unique_ptr<Entity> entity) {
+		Entity* raw_pointer = entity.get();			// Store entity raw pointer before moving it
+		entity->registerComponentsInScene(*this);	// Register components before moving the entity
 		entityList.emplace_back(std::move(entity));
+		return raw_pointer;
 	}
 
 	void Scene::unregisterEntity(Entity* entity) {

@@ -1,6 +1,6 @@
 #include "LoadingLabel.h"
 
-LoadingLabel::LoadingLabel(CE::Scene& scene) {
+LoadingLabel::LoadingLabel() {
 
 	SDL_Color color{ 255, 255, 0, 255 };
 	font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
@@ -15,7 +15,9 @@ LoadingLabel::LoadingLabel(CE::Scene& scene) {
 			color
 		)
 	);
+}
 
+void LoadingLabel::registerComponentsInScene(CE::Scene& scene) {
 	scene.registerComponent(*textureInst);
 }
 

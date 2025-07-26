@@ -9,10 +9,12 @@ class CE::Scene;
 class Fondo1 : public CE::Entity
 {
 public:
-	Fondo1(CE::Scene& scene);
+	Fondo1();
 
 	void update(float deltaTime) override;
 	void initialize() override;
+
+	void registerComponentsInScene(CE::Scene& scene) override;
 
 	std::unique_ptr<CE::TextureInstanceRotatable> textureInst;
 };

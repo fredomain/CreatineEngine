@@ -4,6 +4,8 @@
 
 namespace CE {
 
+	class Scene;
+
 	/**
 	 * @brief This class is the interface of game objects and scenes.
 	 * Components must be registered manually in the scene using the function registerComponents.
@@ -24,6 +26,7 @@ namespace CE {
 		void enableUpdate();
 		void disableUpdate();
 
+		virtual void registerComponentsInScene(Scene& scene) = 0;
 
 	private:
 		bool executeUpdate = true;
