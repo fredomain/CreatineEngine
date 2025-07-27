@@ -8,7 +8,7 @@
 class SimpleTransitionScene : public CE::TransitionScene
 {
 public:
-	SimpleTransitionScene();
+	SimpleTransitionScene(std::string name);
 
 	void initialize() override;
 	void update() override;

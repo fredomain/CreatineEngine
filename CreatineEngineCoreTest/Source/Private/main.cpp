@@ -14,13 +14,13 @@ int main()
     
     // Add scenes and load one
     CE::SceneManager::registerScene("Scene1", [] {
-        return std::make_unique<Scene1>();
+        return std::make_unique<Scene1>("Scene1");
         });
     CE::SceneManager::registerScene("Scene2", [] {
-        return std::make_unique<Scene2>();
+        return std::make_unique<Scene2>("Scene2");
         });
 
-    CE::SceneManager::setTransitionScene(std::make_shared<SimpleTransitionScene>());
+    CE::SceneManager::setTransitionScene(std::make_shared<SimpleTransitionScene>("SimpleTransitionScene"));
     CE::SceneManager::loadScene("Scene1");
 
     // Game loop

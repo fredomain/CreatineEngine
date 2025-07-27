@@ -5,8 +5,8 @@
 
 namespace CE {
 
-	Scene::Scene()
-		: renderEngine(SceneManager::getWindowRenderer()) {
+	Scene::Scene(std::string name)
+		: renderEngine(SceneManager::getWindowRenderer()), name(std::move(name)) {
 	}
 
 	Scene::~Scene() {
@@ -37,12 +37,11 @@ namespace CE {
 		}
 	}
 
-	void Scene::update() {
-		//timingManager.update();				// Update timing manager to update deltaTime		
+	void Scene::update() {		
 		updateEntityList(timingManager.getGameDeltaTime());
 		render();
+		//Logger::log(LogFileType::Engine, std::format("Rendering scene {}", SceneManager::getCurrentScene()), LogLevel::Info);
 		timingManager.update();				// Update timing manager to update deltaTime
-		//timingManager.frameRateControl();
 	}
 
 	Entity* Scene::registerEntity(std::unique_ptr<Entity> entity) {
@@ -71,5 +70,9 @@ namespace CE {
 
 	const TimingManager& Scene::getTimingManager() {
 		return timingManager;
+	}
+
+	std::string Scene::getName() {
+		return name;
 	}
 }

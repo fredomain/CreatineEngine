@@ -34,7 +34,7 @@ namespace CE {
         float getGameDeltaTime() const;
 
         double getTotalTime() const;
-        double getGameTime() const;
+        double getGameTotalTime() const;
 
 #ifdef TIMING_USE_FIXED_STEP
         bool shouldStepFixedUpdate();
@@ -55,7 +55,7 @@ namespace CE {
         TimePoint lastTime;
         TimePoint now;
         TimePoint nextFrameTime;
-        std::chrono::duration<float> diff;
+        std::chrono::duration<float> diff = std::chrono::duration<float>::zero();
 
         // Preconverted target frame duration for efficient updates
         Clock::duration targetFrameDurationChrono;
@@ -65,14 +65,12 @@ namespace CE {
 
         float deltaTime;
         float gameDeltaTime;
-        double accumulatedTime;
         double gameAccumulatedTime;
 
         int targetFPS;
         double targetFrameDuration;
 
         double gameSpeed;
-        std::vector<SpeedChange> speedHistory;
 
 #ifdef TIMING_USE_FIXED_STEP
         double fixedTimeStep;

@@ -1,12 +1,12 @@
 #include "SimpleTransitionScene.h"
 #include <thread>
 
-SimpleTransitionScene::SimpleTransitionScene() {
-    loadingLabel = new LoadingLabel();
-    registerEntity(static_cast<std::unique_ptr<LoadingLabel>>(loadingLabel));
+SimpleTransitionScene::SimpleTransitionScene(std::string name) : TransitionScene(name) {
+    loadingLabel = dynamic_cast<LoadingLabel*>(registerEntity(std::make_unique<LoadingLabel>()));
 }
 
 void SimpleTransitionScene::initialize() {
+    Scene::initialize();
     loadingLabel->textureInst->setY(CE::SceneManager::getWindowManager().getHeight() - loadingLabel->textureInst->getHeight());
 }
 

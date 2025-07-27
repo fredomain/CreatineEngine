@@ -1,6 +1,6 @@
 #include "Scene2.h"
 
-Scene2::Scene2() {
+Scene2::Scene2(std::string name) : Scene(name) {
 	fondo = dynamic_cast<Fondo1*>(registerEntity(std::make_unique<Fondo1>()));
 }
 

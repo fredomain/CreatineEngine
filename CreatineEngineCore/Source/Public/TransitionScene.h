@@ -16,7 +16,7 @@ namespace CE {
         std::string targetSceneName;
 
     public:
-        TransitionScene() = default;
+        TransitionScene(std::string name);
 
         /**
          * @brief Sets the name of the target scene to load after this transition.

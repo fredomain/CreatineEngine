@@ -3,6 +3,10 @@
 
 namespace CE {
 
+    TransitionScene::TransitionScene(std::string name) : Scene(name) {
+
+    }
+
     void TransitionScene::setTargetScene(const std::string& sceneName) {
         targetSceneName = sceneName;
     }

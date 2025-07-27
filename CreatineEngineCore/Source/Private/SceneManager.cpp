@@ -59,14 +59,16 @@ namespace CE {
             throw std::runtime_error("No transition scene set!");
         }
 
+        mgr.isTransitioning = true;
         mgr.nextSceneName = targetScene;
 
         // Initialize and activate transition scene
         mgr.transitionScene->setTargetScene(targetScene);
         mgr.transitionScene->initialize();
-
-        mgr.isTransitioning = true;
-        mgr.currentScene = mgr.transitionScene;
+        
+        mgr.currentScene = mgr.transitionScene; // Here the last scene is destroyed
+                                                // (if currentScene is the only owner of it,
+                                                // which must be the case here)
     }
 
     void SceneManager::update() {

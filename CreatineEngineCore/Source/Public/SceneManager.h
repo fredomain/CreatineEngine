@@ -44,6 +44,7 @@ namespace CE {
 
         static bool initializeWindow(const std::string& title, int width, int height, bool fullscreen = false);
 
+        // This function could use templates to avoid lambda managment to the user
         static void registerScene(const std::string& name, std::function<std::unique_ptr<Scene>()> sceneDescription);
         static void setTransitionScene(std::shared_ptr<TransitionScene> scene);
 

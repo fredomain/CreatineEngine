@@ -26,7 +26,7 @@ namespace CE {
 		 SceneManager calls ResourceManager::load().
 		 Create/register entities here.
 		 */
-		Scene();
+		Scene(std::string name);
 		virtual ~Scene();
 
 		/**
@@ -49,10 +49,14 @@ namespace CE {
 
 		const TimingManager& getTimingManager();
 
+		std::string getName();
+
 	protected:
 		void updateEntityList(float deltaTime);
 		void initializeEntityList();
 		void render();
+
+		std::string name;
 
 		RenderEngine renderEngine;
 		TimingManager timingManager;

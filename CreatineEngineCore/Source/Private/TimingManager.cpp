@@ -7,7 +7,7 @@ namespace CE {
 
     TimingManager::TimingManager(double fixedTimeStep, int targetFPS)
         : deltaTime(0.0f), gameDeltaTime(0.0f),
-        accumulatedTime(0.0), gameAccumulatedTime(0.0),
+        gameAccumulatedTime(0.0),
         targetFPS(targetFPS),
         targetFrameDuration((targetFPS > 0) ? 1.0 / static_cast<double>(targetFPS) : 0.0),
         gameSpeed(1.0), paused(false)
@@ -33,7 +33,6 @@ namespace CE {
         diff = std::chrono::duration<float>::zero();
         deltaTime = 0.0f;
         gameDeltaTime = 0.0f;
-        accumulatedTime = 0.0;
         gameAccumulatedTime = 0.0;
         paused = false;
 
@@ -70,9 +69,6 @@ namespace CE {
         // Update lastTime to current time
         deltaTime = diff.count();
         /*----------------------------------------*/
-
-        // Accumulate real elapsed time
-        accumulatedTime += static_cast<double>(deltaTime);
 
         if (paused) {
             gameDeltaTime = 0.0f;
@@ -137,7 +133,7 @@ namespace CE {
 
             std::string message = std::format(
                 "[TimingManager] Game speed changed to {:.2f} at {:.3f}s",
-                speed, accumulatedTime
+                speed, getTotalTime()
             );
             Logger::log(LogFileType::Engine, message, LogLevel::Info, "Timing Manager");
         }
@@ -156,10 +152,10 @@ namespace CE {
     }
 
     double TimingManager::getTotalTime() const {
-        return accumulatedTime;
+        return (Clock::now() - startTime).count();
     }
 
-    double TimingManager::getGameTime() const {
+    double TimingManager::getGameTotalTime() const {
         return gameAccumulatedTime;
     }
 

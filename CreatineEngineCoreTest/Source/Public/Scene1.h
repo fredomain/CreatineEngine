@@ -8,7 +8,7 @@
 class Scene1 : public CE::Scene
 {
 public:
-	Scene1();
+	Scene1(std::string name);
 	void initialize() override;
 	void update() override;
 
