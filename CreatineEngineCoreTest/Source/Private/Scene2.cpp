@@ -7,7 +7,7 @@ Scene2::Scene2(std::string name) : Scene(name) {
 void Scene2::initialize() {
 	Scene::initialize();
 	renderEngine.enableClear();
-	timingManager.setTargetFPS(0);
+	timingManager.setTargetFPS(2);
 
 	fondo->textureInst->setPositionAnchor(CE::RectAnchor::CENTER);
 	fondo->textureInst->setPosition(static_cast<float>(CE::SceneManager::getWindowManager().getWidth()) / 2, static_cast<float>(CE::SceneManager::getWindowManager().getHeight() / 2));

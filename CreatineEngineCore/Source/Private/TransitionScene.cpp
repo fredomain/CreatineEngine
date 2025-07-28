@@ -11,6 +11,10 @@ namespace CE {
         targetSceneName = sceneName;
     }
 
+    std::string TransitionScene::getTargetSceneName() const {
+        return targetSceneName;
+    }
+
     void TransitionScene::loadTargetScene() {
         SceneManager::loadScene(targetSceneName);
         SceneManager::endTransition();

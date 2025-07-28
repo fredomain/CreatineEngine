@@ -40,7 +40,7 @@ namespace CE {
 	void Scene::update() {		
 		updateEntityList(timingManager.getGameDeltaTime());
 		render();
-		//Logger::log(LogFileType::Engine, std::format("Rendering scene {}", SceneManager::getCurrentScene()), LogLevel::Info);
+		Logger::log(LogFileType::Engine, std::format("Rendered scene {}", SceneManager::getCurrentScene()->getName()), LogLevel::Debug);
 		timingManager.update();				// Update timing manager to update deltaTime
 	}
 
@@ -72,7 +72,7 @@ namespace CE {
 		return timingManager;
 	}
 
-	std::string Scene::getName() {
+	std::string Scene::getName() const {
 		return name;
 	}
 }

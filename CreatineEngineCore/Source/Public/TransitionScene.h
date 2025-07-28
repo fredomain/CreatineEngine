@@ -23,6 +23,7 @@ namespace CE {
          * @param sceneName The unique name of the scene previously registered in SceneManager.
          */
         void setTargetScene(const std::string& sceneName);
+        std::string getTargetSceneName() const;
 
         /**
          * @brief Call this function in children when the transition ends

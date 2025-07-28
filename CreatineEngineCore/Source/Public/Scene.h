@@ -49,7 +49,7 @@ namespace CE {
 
 		const TimingManager& getTimingManager();
 
-		std::string getName();
+		std::string getName() const;
 
 	protected:
 		void updateEntityList(float deltaTime);
