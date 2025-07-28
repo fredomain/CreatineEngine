@@ -57,7 +57,7 @@
     <ClCompile Include="Source\Private\TextureInstanceRotatableAnimated.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\RectPosition.cpp">
+    <ClCompile Include="Source\Private\Rect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\Vector.cpp">
@@ -123,6 +123,12 @@
     <ClCompile Include="Source\Private\DynamicNumberTextureInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Private\RenderableEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Private\MultiRenderableEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\Entity.h">
@@ -173,7 +179,7 @@
     <ClInclude Include="Source\Public\TextureInstanceRotatableAnimated.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\RectPosition.h">
+    <ClInclude Include="Source\Public\Rect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Vector.h">
@@ -234,6 +240,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\DynamicNumberTextureInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\RectEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\RenderableEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Public\MultiRenderableEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,13 +1,13 @@
 #pragma once
-#ifndef RECTPOSITION_H
-#define RECTPOSITION_H
+#ifndef RECT_H
+#define RECT_H
 
 #include "RectAnchor.h"
 #include <SDL3/SDL.h>
 
 namespace CE {
 
-	class RectPosition
+	class Rect
 	{
 		SDL_FRect rect;
 		RectAnchor anchor;
