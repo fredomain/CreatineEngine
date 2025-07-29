@@ -1,6 +1,7 @@
 #include "RectAnchor.h"
 
 namespace CE {
+
 	FVector computeAnchorOffset(float w, float h, RectAnchor anchor) {
 		FVector offset;
 
@@ -45,4 +46,5 @@ namespace CE {
 
 		return offset;
 	}
+
 }

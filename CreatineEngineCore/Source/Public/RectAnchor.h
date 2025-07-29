@@ -22,6 +22,7 @@ namespace CE {
 	};
 
 	FVector computeAnchorOffset(float w, float h, RectAnchor anchor);
+
 }
 
 

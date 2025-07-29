@@ -57,16 +57,13 @@
     <ClCompile Include="Source\Private\TextureInstanceRotatableAnimated.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Private\Rect.cpp">
+    <ClCompile Include="Source\Private\AnchoredFRect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\MathUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Private\RectAnchor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Private\Resource.cpp">
@@ -129,6 +126,9 @@
     <ClCompile Include="Source\Private\MultiRenderableEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Private\RectAnchor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\Entity.h">
@@ -179,7 +179,7 @@
     <ClInclude Include="Source\Public\TextureInstanceRotatableAnimated.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Public\Rect.h">
+    <ClInclude Include="Source\Public\AnchoredFRect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Public\Vector.h">

@@ -11,6 +11,7 @@ namespace CE {
 		if (texture->isValid()) {
 			setSourceWidth(static_cast<float>(texture->getWidth()));
 			setSourceHeight(static_cast<float>(texture->getHeight()));
+			updateRenderRectSize();
 			//std::print("Source setted\n");
 		}
 	}
@@ -23,16 +24,15 @@ namespace CE {
 	}
 
 	void TextureInstance::render() const {
-		SDL_RenderTexture(texture->getRenderer(), texture->getData(), getSourceRectPtr(), getDestinationRectPtr());
+		SDL_RenderTexture(texture->getRenderer(), texture->getData(), getSourceRectPtr(), rect.getRect());
 	}
 
 	void TextureInstance::onTextureLoaded(void* callbackObject) {
 		TextureInstance* self = static_cast<TextureInstance*>(callbackObject);
 		self->setSourceWidth(static_cast<float>(self->texture->getWidth()));
 		self->setSourceHeight(static_cast<float>(self->texture->getHeight()));
-		self->updateDestinationRectSize();
-		self->updateAnchorOffset();
-		//Logger::log(LogFileType::Engine, "Texture loaded callback", LogLevel::Verbose);
+		self->updateRenderRectSize();
+		Logger::log(LogFileType::Engine, "Texture loaded callback", LogLevel::Verbose);
 	}
 
 }

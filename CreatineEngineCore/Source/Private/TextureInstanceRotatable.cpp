@@ -23,7 +23,7 @@ namespace CE {
 		//Logger::log(LogFileType::Engine, "Rendering TextureInstanceRotatable", LogLevel::Verbose);
 		if (std::abs(getRotation()) > CE::NEAR_ZERO_THRESHOLD) {		// render with rotation
 			SDL_FPoint rotationOriginSDL(getRotationOriginSDL());
-			SDL_RenderTextureRotated(texture->getRenderer(), texture->getData(), getSourceRectPtr(), getDestinationRectPtr(), getRotation(), &rotationOriginSDL, getFlipMode());
+			SDL_RenderTextureRotated(texture->getRenderer(), texture->getData(), getSourceRectPtr(), rect.getRect(), getRotation(), &rotationOriginSDL, getFlipMode());
 			//SDL_Log("renderRotated");
 		}
 		else {
@@ -58,7 +58,7 @@ namespace CE {
 	}
 
 	void TextureInstanceRotatable::setRotationOrigin(RectAnchor rotationAnchor) {
-		setRotationOrigin(computeAnchorOffset(getWidth(), getHeight(), rotationAnchor));
+		setRotationOrigin(computeAnchorOffset(rect.getWidth(), rect.getHeight(), rotationAnchor));
 	}
 
 	float TextureInstanceRotatable::getRotationOriginX() const {

@@ -9,14 +9,14 @@ void Scene2::initialize() {
 	renderEngine.enableClear();
 	timingManager.setTargetFPS(2);
 
-	fondo->textureInst->setPositionAnchor(CE::RectAnchor::CENTER);
-	fondo->textureInst->setPosition(static_cast<float>(CE::SceneManager::getWindowManager().getWidth()) / 2, static_cast<float>(CE::SceneManager::getWindowManager().getHeight() / 2));
+	fondo->textureInst->rect.setAnchor(CE::RectAnchor::CENTER);
+	fondo->textureInst->rect.setPosition(static_cast<float>(CE::SceneManager::getWindowManager().getWidth()) / 2, static_cast<float>(CE::SceneManager::getWindowManager().getHeight() / 2));
 	fondo->textureInst->setScale(0.5f);
 
-	fondo->textureInst->setRotationOrigin(CE::RectAnchor::CENTER);
-	fondo->textureInst->setRotation(0);
+	//fondo->textureInst->setRotationOrigin(CE::RectAnchor::CENTER);
+	//fondo->textureInst->setRotation(0);
 
-	CE::Logger::log(CE::LogFileType::Engine, std::format("x: {}, y: {}", fondo->textureInst->getX(), fondo->textureInst->getY()), CE::LogLevel::Verbose);
+	CE::Logger::log(CE::LogFileType::Engine, std::format("x: {}, y: {}", fondo->textureInst->rect.getX(), fondo->textureInst->rect.getY()), CE::LogLevel::Verbose);
 }
 
 void Scene2::update() {

@@ -3,7 +3,7 @@
 #define MULTIRENDERABLEENTITY_H
 
 #include "RenderableEntity.h"
-#include "Rect.h"
+#include "AnchoredFRect.h"
 
 namespace CE {
 
@@ -13,7 +13,7 @@ namespace CE {
 		
 
 	private:
-		Rect rect;
+		AnchoredFRect rect;
 	};
 
 }

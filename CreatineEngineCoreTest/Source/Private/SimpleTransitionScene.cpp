@@ -8,7 +8,7 @@ SimpleTransitionScene::SimpleTransitionScene(std::string name) : TransitionScene
 void SimpleTransitionScene::initialize() {
     Scene::initialize();
     timingManager.setTargetFPS(2);
-    loadingLabel->textureInst->setY(CE::SceneManager::getWindowManager().getHeight() - loadingLabel->textureInst->getHeight());
+    loadingLabel->textureInst->rect.setY(CE::SceneManager::getWindowManager().getHeight() - loadingLabel->textureInst->rect.getHeight());
 }
 
 void SimpleTransitionScene::update() {

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Private\MultiRenderableEntity.cpp" />
+    <ClCompile Include="Source\Private\RectAnchor.cpp" />
     <ClCompile Include="Source\Private\RenderableEntity.cpp" />
     <ClCompile Include="Source\Private\DynamicNumberTextureInstance.cpp" />
     <ClCompile Include="Source\Private\InstantiableResource.cpp" />
@@ -32,8 +33,7 @@
     <ClCompile Include="Source\Private\ResourceManager.cpp" />
     <ClCompile Include="Source\Private\Resource.cpp" />
     <ClCompile Include="Source\Private\MathUtils.cpp" />
-    <ClCompile Include="Source\Private\RectAnchor.cpp" />
-    <ClCompile Include="Source\Private\Rect.cpp" />
+    <ClCompile Include="Source\Private\AnchoredFRect.cpp" />
     <ClCompile Include="Source\Private\Scene.cpp" />
     <ClCompile Include="Source\Private\SceneManager.cpp" />
     <ClCompile Include="Source\Private\SurfaceInstanceAnimated.cpp" />
@@ -73,7 +73,7 @@
     <ClInclude Include="Source\Public\ResourceManager.h" />
     <ClInclude Include="Source\Public\Resource.h" />
     <ClInclude Include="Source\Public\MathUtils.h" />
-    <ClInclude Include="Source\Public\Rect.h" />
+    <ClInclude Include="Source\Public\AnchoredFRect.h" />
     <ClInclude Include="Source\Public\Scene.h" />
     <ClInclude Include="Source\Public\SceneManager.h" />
     <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />

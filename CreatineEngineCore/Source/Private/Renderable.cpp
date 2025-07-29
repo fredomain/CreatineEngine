@@ -1,22 +1,7 @@
 #include "Renderable.h"
+#include "Logger.h"
 
 namespace CE {
-	Renderable::Renderable(
-		FVector position,
-		RectAnchor positionAnchor,
-		FVector positionAnchorOffset,
-		FVector scale,
-		float opacity
-		) :
-		sourceRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
-		destinationRect(SDL_FRect(0.0f, 0.0f, 0.0f, 0.0f)),
-		position(position),
-		positionAnchor(positionAnchor),
-		positionAnchorOffset(positionAnchorOffset),
-		scale(scale),
-		opacity(opacity){
-
-	}
 
 	void Renderable::enableRender() {
 		executeRender = true;
@@ -34,78 +19,10 @@ namespace CE {
 		return renderOrder;
 	}
 
-	float Renderable::getX() const{
-		return position.x;
-	}
-
-	void Renderable::setX(float x){
-		position.x = x;
-		destinationRect.x = x - positionAnchorOffset.x;
-		//printf("destinationRect.x = %f\n", destinationRect.x);
-	}
-
-	float Renderable::getY() const {
-		return position.y;
-	}
-
-	void Renderable::setY(float y) {
-		position.y = y;
-		destinationRect.y = y - positionAnchorOffset.y;
-		//printf("destinationRect.y = %f\n", destinationRect.y);
-	}
-
-	/**
-	 * @brief Set screen coordinates
-	 * @param x x-axis position
-	 * @param y y-axis position
-	 */
-	void Renderable::setPosition(float x, float y) {
-		setX(x);
-		setY(y);
-	}
-
-	void Renderable::setPosition(const FVector& position) {
-		setX(position.x);
-		setY(position.y);
-	}
-
-	FVector Renderable::getPosition() const {
-		return FVector{ destinationRect.x, destinationRect.y };
-	}
-
-	void Renderable::setPositionAnchor(RectAnchor anchor) {
-		positionAnchor = anchor;
-		// Update the anchor offset
-		updateAnchorOffset();
-	}
-
-	RectAnchor Renderable::getPositionAnchor() const{
-		return positionAnchor;
-	}
-
-	FVector Renderable::getPositionAnchorOffset() const {
-		return positionAnchorOffset;
-	}
-
-	//
-	void Renderable::updateAnchorOffset() {
-		positionAnchorOffset = computeAnchorOffset(destinationRect.w, destinationRect.h, positionAnchor);
-		// Update position to reflect the change in the anchor offset (with the current position settings)
-		setPosition(getX(), getY());
-	}
-
-	float Renderable::getWidth() const {
-		return destinationRect.w;
-	}
-
 	void Renderable::setSourceWidth(float width) {
 		if (width > 0) {
 			sourceRect.w = width;
 		}
-	}
-
-	float Renderable::getHeight() const {
-		return destinationRect.h;
 	}
 
 	void Renderable::setSourceHeight(float height) {
@@ -125,23 +42,23 @@ namespace CE {
 	void Renderable::setScaleX(float scale) {
 		if (scale >= 0) {
 			this->scale.x = scale;
-			destinationRect.w = sourceRect.w * this->scale.x;
-			//printf("destinationRect.w = %f\n", destinationRect.w);
+			rect.setWidth(sourceRect.w * this->scale.x);
 		}
 	}
 
 	void Renderable::setScaleY(float scale) {
 		if (scale >= 0) {
 			this->scale.y = scale;
-			destinationRect.h = sourceRect.h * this->scale.y;
-			//printf("destinationRect.h = %f\n", destinationRect.h);
+			rect.setHeight(sourceRect.h * this->scale.y);
 		}
 	}
 
 	void Renderable::setScale(float scaleX, float scaleY) {
-		setScaleX(scaleX);
-		setScaleY(scaleY);
-		updateAnchorOffset();
+		if (scaleX >= 0 && scaleY >= 0) {
+			scale.x = scaleX;
+			scale.y = scaleY;
+			updateRenderRectSize();
+		}
 	}
 
 	void Renderable::setScale(float scale) {
@@ -180,16 +97,9 @@ namespace CE {
 		this->sourceRect = rect;
 	}
 
-	void Renderable::updateDestinationRectSize() {
-		destinationRect.w = sourceRect.w * scale.x;
-		destinationRect.h = sourceRect.h * scale.y;
+	void Renderable::updateRenderRectSize() {
+		rect.setSize(sourceRect.w * this->scale.x, sourceRect.h * this->scale.y);
+		Logger::log(LogFileType::Engine, std::format("New renderRectSize: {}, {}", rect.getX(), rect.getY()), LogLevel::Debug);
 	}
 
-	SDL_FRect Renderable::getDestinationRect() const {
-		return destinationRect;
-	}
-
-	const SDL_FRect* Renderable::getDestinationRectPtr() const {
-		return const_cast<const SDL_FRect*>(&destinationRect);
-	}
 }

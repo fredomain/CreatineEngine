@@ -5,7 +5,7 @@
 //Using SDL
 #include <SDL3/SDL.h>
 #include "FVector.h"
-#include "RectAnchor.h"
+#include "AnchoredFRect.h"
 
 #include <print>
 
@@ -17,6 +17,8 @@ namespace CE {
 	class Renderable
 	{
 	public:
+		AnchoredFRect rect;		// Render destination rect
+
 		void enableRender();
 		void disableRender();
 		virtual void render() const = 0;
@@ -24,24 +26,6 @@ namespace CE {
 		// Render priority
 		void setRenderOrder(uint8_t renderOrder);
 		uint8_t getRenderOrder() const;
-
-		// Position operations
-		float getX() const;
-		void setX(float x);
-
-		float getY() const;
-		void setY(float y);
-
-		void setPosition(float x, float y);
-		void setPosition(const FVector& position);
-		FVector getPosition() const;
-		void setPositionAnchor(RectAnchor anchor);
-		RectAnchor getPositionAnchor() const;
-		FVector getPositionAnchorOffset() const;
-		
-		// Size operations
-		float getWidth() const;
-		float getHeight() const;
 
 		float getSourceWidth() const;
 		float getSourceHeight() const;
@@ -60,13 +44,6 @@ namespace CE {
 		void setOpacity(float opacity);
 
 	protected:
-		Renderable(
-			FVector position = FVector(0.0f, 0.0f),
-			RectAnchor positionAnchor = RectAnchor::TOP_LEFT,
-			FVector positionAnchorOffset = FVector(0.0f, 0.0f),
-			FVector scale = FVector(1.0f, 1.0f),
-			float opacity = 1.0
-			);
 
 		// Use these functions to set the source width and height
 		void setSourceWidth(float width);
@@ -75,28 +52,15 @@ namespace CE {
 		SDL_FRect getSourceRect() const;
 		const SDL_FRect* getSourceRectPtr() const;
 		void setSourceRect(const SDL_FRect& rect);
-		void updateDestinationRectSize();
-
-		SDL_FRect getDestinationRect() const;
-		const SDL_FRect* getDestinationRectPtr() const;
-
-		
-		void updateAnchorOffset();
+		void updateRenderRectSize();
 
 	private:
-		bool executeRender = true;				// Enable or disable rendering
-		uint8_t renderOrder = 0;			// Render priority [0,255] (0 -> render in the background)
+		bool executeRender = true;							// Enable or disable rendering
+		uint8_t renderOrder = 0;							// Render priority [0,255] (0 -> render in the background)
 
-		SDL_FRect sourceRect;			// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
-		SDL_FRect destinationRect;		// Used to render, x, y, scale, rotation (and its local rotation axis position), flip operations applies to this destination rect
-
-		FVector position;				// User selected coordinates (x, y). Destination rendering.
-		RectAnchor positionAnchor;			// Destination rect anchor. Used to select rendering coordinates anchor (it is also the scalation origin)
-		FVector positionAnchorOffset;		// Destination rect anchor offset. Relative vector between SDL position origin (top left corner) - anchor selected position
-
-		FVector scale;					// Scale origin is the same than the coordinates anchor
-
-		float opacity;					// Range [0, 255]
+		SDL_FRect sourceRect{ 0.0f, 0.0f, 0.0f, 0.0f };		// Must be setted in derived classes. x, y refer to the top left corner. Careful: SDL_BlitSurface use SDL_Rect, convert to int in working with surfaces
+		FVector scale = FVector(1.0f, 1.0f);				// Scale origin is the same than the coordinates anchor
+		float opacity = 1.0f;								// Range [0, 255]
 
 	};
 }

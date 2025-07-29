@@ -3,7 +3,6 @@
 #define RECTENTITY_H
 
 #include "Entity.h"
-#include "Rect.h"
 
 namespace CE {
 
