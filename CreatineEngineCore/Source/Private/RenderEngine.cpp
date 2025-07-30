@@ -47,6 +47,9 @@ namespace CE {
         }
 
         SDL_RenderPresent(renderer);
+        /*if (!SDL_RenderPresent(renderer)) {
+            Logger::log(LogFileType::Engine, "IT COULDNT BE RENDERED", LogLevel::Error, "Render Engine");
+        }*/
         //Logger::log(LogFileType::Engine, std::format("Screen rendered", renderList.size()), LogLevel::Verbose, "Render Engine");
 
         /*

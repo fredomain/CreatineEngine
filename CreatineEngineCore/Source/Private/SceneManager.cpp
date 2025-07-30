@@ -65,6 +65,7 @@ namespace CE {
         // Initialize and activate transition scene
         mgr.transitionScene->setTargetScene(targetScene);
         mgr.transitionScene->initialize();
+        //mgr.transitionScene->update();
         
         mgr.currentScene = mgr.transitionScene; // Here the last scene is destroyed
                                                 // (if currentScene is the only owner of it,

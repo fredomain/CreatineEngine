@@ -7,15 +7,22 @@ SimpleTransitionScene::SimpleTransitionScene(std::string name) : TransitionScene
 
 void SimpleTransitionScene::initialize() {
     Scene::initialize();
-    timingManager.setTargetFPS(2);
+    renderEngine.setClearColor(255, 0, 0, 255);
+    timingManager.setTargetFPS(0);
     loadingLabel->textureInst->rect.setY(CE::SceneManager::getWindowManager().getHeight() - loadingLabel->textureInst->rect.getHeight());
 }
 
 void SimpleTransitionScene::update() {
+    CE::Logger::log(CE::LogFileType::Engine, "TransitionScene is being updated (including rendered)", CE::LogLevel::Debug);
     // Call base scene update to render background or animations
     Scene::update();
 
     CE::Logger::log(CE::LogFileType::Engine, std::format("Sleep before loading scene {}", getTargetSceneName()), CE::LogLevel::Warn);
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    //render();
+    //std::this_thread::sleep_for(std::chrono::seconds(1));
+    int variable = 10;
+    for (int i = 0; i < 200000000; i++) {
+        variable *= variable;
+    }
     loadTargetScene();
 }

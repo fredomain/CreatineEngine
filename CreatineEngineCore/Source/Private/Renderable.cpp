@@ -99,7 +99,7 @@ namespace CE {
 
 	void Renderable::updateRenderRectSize() {
 		rect.setSize(sourceRect.w * this->scale.x, sourceRect.h * this->scale.y);
-		Logger::log(LogFileType::Engine, std::format("New renderRectSize: {}, {}", rect.getX(), rect.getY()), LogLevel::Debug);
+		//Logger::log(LogFileType::Engine, std::format("New renderRectSize: {}, {}", rect.getX(), rect.getY()), LogLevel::Debug);
 	}
 
 }

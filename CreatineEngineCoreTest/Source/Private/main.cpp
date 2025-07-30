@@ -21,7 +21,7 @@ int main()
         });
 
     CE::SceneManager::setTransitionScene(std::make_shared<SimpleTransitionScene>("SimpleTransitionScene"));
-    CE::SceneManager::loadScene("Scene1");
+    CE::SceneManager::loadScene("Scene1");  // Load Scene1 (and resources of TransitionScene)
 
     // Game loop
     bool working = true;
