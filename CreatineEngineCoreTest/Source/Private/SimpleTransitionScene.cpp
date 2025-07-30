@@ -21,7 +21,7 @@ void SimpleTransitionScene::update() {
     //render();
     //std::this_thread::sleep_for(std::chrono::seconds(1));
     int variable = 10;
-    for (int i = 0; i < 200000000; i++) {
+    for (int i = 0; i < 300000000; i++) {
         variable *= variable;
     }
     loadTargetScene();
