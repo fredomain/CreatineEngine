@@ -73,6 +73,7 @@ namespace CE {
     }
 
     void SceneManager::update() {
+        // InputManager::update();
         SceneManager& mgr = get();
         if (mgr.currentScene) {
             mgr.currentScene->update();

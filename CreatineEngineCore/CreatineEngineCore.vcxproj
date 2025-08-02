@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\InputManager.cpp" />
     <ClCompile Include="Source\Private\MultiRenderableEntity.cpp" />
     <ClCompile Include="Source\Private\RectAnchor.cpp" />
     <ClCompile Include="Source\Private\RenderableEntity.cpp" />
@@ -59,6 +60,7 @@
     <ClCompile Include="Source\Private\TextTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\InputManager.h" />
     <ClInclude Include="Source\Public\MultiRenderableEntity.h" />
     <ClInclude Include="Source\Public\RenderableEntity.h" />
     <ClInclude Include="Source\Public\RectEntity.h" />
