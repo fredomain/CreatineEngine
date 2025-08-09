@@ -37,10 +37,8 @@
 #include "SceneManager.h"
 
 // Math
-#include "Vector.h"
-#include "FVector.h"
-#include "MathUtils.h"
 #include "MathConstants.h"
+#include "Vector.h"
 
 // Utils
 #include "Logger.h"

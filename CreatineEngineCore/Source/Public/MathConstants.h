@@ -7,7 +7,7 @@ namespace CE {
     // Epsilon value used for angle comparisons (in degrees).
     // Use this to check if a rotation angle is effectively zero,
     // e.g., std::abs(angle) < ANGLE_EPSILON
-    inline constexpr double NEAR_ZERO_THRESHOLD = 0.001;
+    inline constexpr float NEAR_ZERO_THRESHOLD = 1e-6f;
 
     // Add more mathematical constants here as needed, e.g.:
     inline constexpr double PI = 3.14159265358979323846;
