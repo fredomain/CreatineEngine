@@ -33,12 +33,10 @@
     <ClCompile Include="Source\Private\CreatineEngineCore.cpp" />
     <ClCompile Include="Source\Private\ResourceManager.cpp" />
     <ClCompile Include="Source\Private\Resource.cpp" />
-    <ClCompile Include="Source\Private\MathUtils.cpp" />
     <ClCompile Include="Source\Private\AnchoredFRect.cpp" />
     <ClCompile Include="Source\Private\Scene.cpp" />
     <ClCompile Include="Source\Private\SceneManager.cpp" />
     <ClCompile Include="Source\Private\SurfaceInstanceAnimated.cpp" />
-    <ClCompile Include="Source\Private\FVector.cpp" />
     <ClCompile Include="Source\Private\Entity.cpp" />
     <ClCompile Include="Source\Private\Logger.cpp" />
     <ClCompile Include="Source\Private\Renderable.cpp" />
@@ -52,7 +50,6 @@
     <ClCompile Include="Source\Private\TextureInstanceRotatableAnimated.cpp" />
     <ClCompile Include="Source\Private\TimingManager.cpp" />
     <ClCompile Include="Source\Private\TransitionScene.cpp" />
-    <ClCompile Include="Source\Private\Vector.cpp" />
     <ClCompile Include="Source\Private\WindowManager.cpp" />
     <ClCompile Include="Source\Private\SurfaceGenerator.cpp" />
     <ClCompile Include="Source\Private\TextSurface.cpp" />
@@ -74,12 +71,10 @@
     <ClInclude Include="Source\Public\CreatineEngineCore.h" />
     <ClInclude Include="Source\Public\ResourceManager.h" />
     <ClInclude Include="Source\Public\Resource.h" />
-    <ClInclude Include="Source\Public\MathUtils.h" />
     <ClInclude Include="Source\Public\AnchoredFRect.h" />
     <ClInclude Include="Source\Public\Scene.h" />
     <ClInclude Include="Source\Public\SceneManager.h" />
     <ClInclude Include="Source\Public\SurfaceInstanceAnimated.h" />
-    <ClInclude Include="Source\Public\FVector.h" />
     <ClInclude Include="Source\Public\Entity.h" />
     <ClInclude Include="Source\Public\Logger.h" />
     <ClInclude Include="Source\Public\MathConstants.h" />
