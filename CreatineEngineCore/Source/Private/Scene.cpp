@@ -44,14 +44,7 @@ namespace CE {
 		timingManager.update();				// Update timing manager to update deltaTime
 	}
 
-	Entity* Scene::registerEntity(std::unique_ptr<Entity> entity) {
-		Entity* raw_pointer = entity.get();			// Store entity raw pointer before moving it
-		entity->registerComponentsInScene(*this);	// Register components before moving the entity
-		entityList.emplace_back(std::move(entity));
-		return raw_pointer;
-	}
-
-	void Scene::unregisterEntity(Entity* entity) {
+	void Scene::removeEntity(Entity* entity) {
 		//entityList.erase(std::remove(entityList.begin(), entityList.end(), entity), entityList.end());
 		entityList.erase(
 			std::remove_if(entityList.begin(), entityList.end(),

@@ -2,7 +2,7 @@
 #include <thread>
 
 SimpleTransitionScene::SimpleTransitionScene(std::string name) : TransitionScene(name) {
-    loadingLabel = dynamic_cast<LoadingLabel*>(registerEntity(std::make_unique<LoadingLabel>()));
+    loadingLabel = createEntity<LoadingLabel>();
 }
 
 void SimpleTransitionScene::initialize() {

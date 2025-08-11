@@ -41,8 +41,16 @@ namespace CE {
 		 * Call this function in the constructor of the scene.
 		 * @param entity A unique pointer to the Entity to be registered. Ownership of the entity is transferred to the function.
 		 */
-		Entity* registerEntity(std::unique_ptr<Entity> entity);	// It could be a template with the new entity type to create it within the function itself, name it CreateEntity in that case?
-		void unregisterEntity(Entity* entity);
+		template <typename T>
+		T* createEntity() {
+			auto entity = std::make_unique<T>();
+			T* raw_pointer = entity.get();			// Store entity raw pointer before moving it
+			entity->registerComponentsInScene(*this);	// Register components before moving the entity
+			entityList.emplace_back(std::move(entity));
+			return raw_pointer;
+		}
+
+		void removeEntity(Entity* entity);
 
 		void registerComponent(Renderable& renderable);
 		void unregisterComponent(Renderable& renderable);
