@@ -1,6 +1,7 @@
 #include "LoadingLabel.h"
+#include <utility>
 
-LoadingLabel::LoadingLabel() {
+LoadingLabel::LoadingLabel(std::string text) {
 
 	SDL_Color color{ 255, 255, 0, 255 };
 	font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
@@ -9,7 +10,7 @@ LoadingLabel::LoadingLabel() {
 		CE::ResourceManager::getTextTexture(
 			"loadingLabel",
 			CE::SceneManager::getWindowRenderer(),
-			"Cagando..",
+			std::move(text),
 			font,
 			26,
 			color

@@ -37,13 +37,16 @@ namespace CE {
 		virtual void update();
 
 		/**
-		 * @brief Registers an entity for management or processing.
-		 * Call this function in the constructor of the scene.
-		 * @param entity A unique pointer to the Entity to be registered. Ownership of the entity is transferred to the function.
+		 * @brief Creates a new entity of type T.
+		 * @tparam T The type of the entity to create, must be derived from Entity.
+		 * @tparam ...Args The types of the constructor arguments for the entity.
+		 * @param ...args The constructor arguments for the entity.
+		 * @return A pointer to the newly created entity.
 		 */
-		template <typename T>
-		T* createEntity() {
-			auto entity = std::make_unique<T>();
+		template <typename T, typename... Args>
+			requires std::is_constructible_v<T, Args...>
+		T* createEntity(Args&&... args) {
+			auto entity = std::make_unique<T>(std::forward<Args>(args)...);		// C++20 perfect forwarding when using the entity constructor arguments
 			T* raw_pointer = entity.get();			// Store entity raw pointer before moving it
 			entity->registerComponentsInScene(*this);	// Register components before moving the entity
 			entityList.emplace_back(std::move(entity));

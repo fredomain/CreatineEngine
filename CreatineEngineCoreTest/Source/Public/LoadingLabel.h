@@ -9,7 +9,7 @@ class CE::Scene;
 class LoadingLabel : public CE::Entity
 {
 public:
-	LoadingLabel();
+	LoadingLabel(std::string text);
 
 	void update(float deltaTime) override;
 	void initialize() override;

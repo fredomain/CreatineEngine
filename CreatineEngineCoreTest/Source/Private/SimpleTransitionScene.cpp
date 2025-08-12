@@ -2,7 +2,7 @@
 #include <thread>
 
 SimpleTransitionScene::SimpleTransitionScene(std::string name) : TransitionScene(name) {
-    loadingLabel = createEntity<LoadingLabel>();
+    loadingLabel = createEntity<LoadingLabel>("Pelotudo");
 }
 
 void SimpleTransitionScene::initialize() {
