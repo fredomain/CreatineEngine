@@ -122,7 +122,6 @@ namespace CE {
         std::unordered_map<std::string, std::weak_ptr<Surface>> surfaceMap;
         //std::unordered_map<std::string, std::weak_ptr<Sound>> soundMap;
 
-        // This functions can be replaced with a template in the future
         std::shared_ptr<Texture> findTexture(std::string label);
         std::shared_ptr<Surface> findSurface(std::string label);
         //std::shared_ptr<Sound> findSound(std::string label);
