@@ -6,7 +6,7 @@
 Fondo1::Fondo1() {
 
 	textureInst = std::make_unique<CE::TextureInstanceRotatable>(
-		CE::ResourceManager::getImageTexture(
+		CE::ResourceManager::getTexture<CE::ImageTexture>(
 			"fondo2",
 			CE::SceneManager::getWindowRenderer(),
 			"Content/background2.png"

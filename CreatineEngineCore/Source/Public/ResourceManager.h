@@ -9,6 +9,7 @@
 #include "Texture.h"
 #include "Surface.h"
 //#include "Sound.h"
+#include "Logger.h"
 
 namespace CE {
 
@@ -45,47 +46,72 @@ namespace CE {
 
         static void clearUnused(); // clean not referenced resources
 
-        // This functions can be replaced with a template in the future
-        static std::shared_ptr<Texture> getTexture(
-            const std::string& label,
-            SDL_Renderer* renderer,
-            SDL_Surface* surface
-        );
-        static std::shared_ptr<Texture> getTexture(
-            const std::string& label,
-            SDL_Renderer* renderer,
-            SDL_Texture* texture
-        );
-        static std::shared_ptr<Texture> getImageTexture(
-            const std::string& label,
-            SDL_Renderer* renderer,
-            std::string path
-        );
-        static std::shared_ptr<Texture> getTextTexture(
-            const std::string& label,
-            SDL_Renderer* renderer,
-            std::string text,
-            TTF_Font* font,
-            size_t textSize,
-            SDL_Color textColor
-        );
+		/**
+		 * @brief Get a texture from the resource manager, loading it if necessary.
+		 * @tparam T The type of the texture to create.
+		 * @tparam ...Args The types of the constructor arguments for the texture.
+		 * @param label The label of the texture.
+		 * @param ...args The constructor arguments for the texture.
+		 * @return A shared pointer to the texture.
+		 */
+		template <typename T, typename... Args>
+			requires std::is_constructible_v<T, Args...>
+        static std::shared_ptr<Texture> getTexture(const std::string& label, Args&&... args) {
+            ResourceManager& rm = get();
 
-        // This functions can be replaced with a template in the future
-        static std::shared_ptr<Surface> getSurface(
-            const std::string& label,
-            SDL_Surface* surface
-        );
-        static std::shared_ptr<Surface> getImageSurface(
-            const std::string& label,
-            std::string path
-        );
-        static std::shared_ptr<Surface> getTextSurface(
-            const std::string& label,
-            std::string text,
-            TTF_Font* font,
-            size_t textSize,
-            SDL_Color textColor
-        );
+            std::shared_ptr<Texture> shared = rm.findTexture(label);
+            if (shared) {      // Texture found
+                Logger::log(LogFileType::Engine,
+                    std::format("Texture {} already loaded", label),
+                    LogLevel::Verbose,
+                    "Resource Manager");
+            }
+            else {             // Texture not found, return a new one
+				shared = std::make_shared<T>(std::forward<Args>(args)...);  // Perfect forwarding
+                rm.textureMap[label] = shared;
+
+                Logger::log(
+                    LogFileType::Engine,
+                    std::format("Texture {} has been loaded", label),
+                    LogLevel::Verbose,
+                    "Resource Manager");
+            }
+            return shared;
+        }
+
+        /**
+         * @brief Get a surface from the resource manager, loading it if necessary.
+         * @tparam T The type of the surface to create.
+         * @tparam ...Args The types of the constructor arguments for the surface.
+         * @param label The label of the surface.
+         * @param ...args The constructor arguments for the surface.
+         * @return A shared pointer to the surface.
+         */
+        template <typename T, typename... Args>
+			requires std::is_constructible_v<T, Args...>
+        static std::shared_ptr<Surface> getSurface(const std::string& label, Args&&... args) {
+            ResourceManager& rm = get();
+
+            std::shared_ptr<Surface> shared = rm.findSurface(label);
+            if (shared) {      // Surface found
+                Logger::log(LogFileType::Engine,
+                    std::format("Surface {} already loaded", label),
+                    LogLevel::Verbose,
+                    "Resource Manager");
+            }
+            else {             // Surface not found, return a new one
+                shared = std::make_shared<T>(std::forward<Args>(args)...);  // Perfect forwarding
+                rm.surfaceMap[label] = shared;
+                
+                Logger::log(
+                    LogFileType::Engine,
+                    std::format("Surface {} has been loaded", label),
+                    LogLevel::Verbose,
+                    "Resource Manager");
+            }
+            return shared;
+        }
+        
 
         //std::shared_ptr<Sound> getSound(const std::string& label);
 

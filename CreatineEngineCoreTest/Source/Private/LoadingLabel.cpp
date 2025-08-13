@@ -7,7 +7,7 @@ LoadingLabel::LoadingLabel(std::string text) {
 	font = TTF_OpenFont("Content/Fonts/lazy.ttf", 60);
 
 	textureInst = std::make_unique<CE::TextureInstance>(
-		CE::ResourceManager::getTextTexture(
+		CE::ResourceManager::getTexture<CE::TextTexture>(
 			"loadingLabel",
 			CE::SceneManager::getWindowRenderer(),
 			std::move(text),
