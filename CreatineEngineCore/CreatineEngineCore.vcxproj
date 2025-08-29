@@ -55,6 +55,7 @@
     <ClCompile Include="Source\Private\TextSurface.cpp" />
     <ClCompile Include="Source\Private\TextSurfaceGenerator.cpp" />
     <ClCompile Include="Source\Private\TextTexture.cpp" />
+    <ClCompile Include="Source\Private\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\InputManager.h" />
@@ -96,6 +97,7 @@
     <ClInclude Include="Source\Public\TextSurface.h" />
     <ClInclude Include="Source\Public\TextSurfaceGenerator.h" />
     <ClInclude Include="Source\Public\TextTexture.h" />
+    <ClInclude Include="Source\Public\Timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
